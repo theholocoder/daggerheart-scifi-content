@@ -97,7 +97,7 @@
       "label": "Adversaries",
       "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "path": "packs/adversaries",
-      "type": "Item",
+      "type": "Actor",
       "system": "daggerheart",
       "ownership": {
         "PLAYER": "OBSERVER",
@@ -109,7 +109,7 @@
       "label": "Environments",
       "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "path": "packs/environments",
-      "type": "Item",
+      "type": "Actor",
       "system": "daggerheart",
       "ownership": {
         "PLAYER": "OBSERVER",
@@ -189,7 +189,18 @@
       "name": "Daggerheart Sci-Fi Content",
       "sorting": "a",
       "color": "#255c98",
-      "packs": ["character-options"],
+      "packs": [
+        "character-options",
+        "items",
+        "adversaries",
+        "environments",
+        "journals",
+        "scenes",
+        "cards",
+        "playlists",
+        "tables",
+        "macros"
+      ],
       "folders": []
     }
   ]

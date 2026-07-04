@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": null,
+  "name": "Dice Tokens",
+  "color": "#c88232",
+  "sorting": "a",
+  "_id": "q0aMAGzlXn5K9Zgu",
+  "description": "",
+  "sort": 100000,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783182760629,
+    "modifiedTime": 1783182760664,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!q0aMAGzlXn5K9Zgu"
+}
