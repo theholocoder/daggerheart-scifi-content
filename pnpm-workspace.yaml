@@ -1,0 +1,6 @@
+blockExoticSubdeps: false
+allowBuilds:
+  '@parcel/watcher': true
+  classic-level: true
+  esbuild: true
+  pixi.js@https://codeload.github.com/foundry-vtt-types/pixi.js/tar.gz/a8414afd3a1141c3ef94e62079e7861723029c2c: false

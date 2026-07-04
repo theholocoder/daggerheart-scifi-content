@@ -1,0 +1,196 @@
+{
+  "id": "daggerheart-scifi-content",
+  "title": "Daggerheart Sci-Fi Content",
+  "version": "14.0.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "daggerheart",
+        "type": "system",
+        "manifest": "https://github.com/Foundryborne/daggerheart/releases/latest/download/system.json"
+      }
+    ]
+  },
+  "flags": {
+    "canUpload": true,
+    "hotReload": {
+      "extensions": [
+        "css",
+        "html",
+        "hbs",
+        "json",
+        "webp",
+        "png",
+        "jpg",
+        "jpeg",
+        "svg"
+      ],
+      "paths": ["artwork", "packs"]
+    }
+  },
+  "authors": [
+    {
+      "name": "TheHolocoder",
+      "url": "https://github.com/theholocoder",
+      "flags": {}
+    }
+  ],
+  "description": "This module contains Sci-Fi content for Daggerheart",
+  "esmodules": ["daggerheart-scifi-content.js"],
+  "styles": ["styles/daggerheart-scifi-content.css"],
+  "scripts": ["daggerheart-scifi-content.js"],
+  "url": "https://github.com/theholocoder/daggerheart-scifi-content",
+  "manifest": "https://raw.githubusercontent.com/theholocoder/daggerheart-scifi-content/main/module.json",
+  "download": "https://github.com/theholocoder/daggerheart-scifi-content/releases/latest/download/module.zip",
+  "media": [
+    {
+      "type": "setup",
+      "caption": "Lazybobcat - Generic Content",
+      "thumbnail": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "loop": false,
+      "flags": {}
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "character-options",
+      "label": "Character Options",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "path": "packs/character-options",
+      "type": "Item",
+      "system": "daggerheart",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "items",
+      "label": "Items",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "path": "packs/items",
+      "type": "Item",
+      "system": "daggerheart",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "adversaries",
+      "label": "Adversaries",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "path": "packs/adversaries",
+      "type": "Item",
+      "system": "daggerheart",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "environments",
+      "label": "Environments",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "path": "packs/environments",
+      "type": "Item",
+      "system": "daggerheart",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "journals",
+      "label": "Journals",
+      "path": "packs/journals",
+      "type": "JournalEntry",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "scenes",
+      "label": "Scenes",
+      "path": "packs/scenes",
+      "type": "Scene",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "cards",
+      "label": "Card Decks",
+      "path": "packs/cards",
+      "type": "Cards",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "playlists",
+      "label": "Playlists",
+      "path": "packs/playlists",
+      "type": "Playlist",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "tables",
+      "label": "Tables",
+      "path": "packs/tables",
+      "type": "RollTable",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "macros",
+      "label": "Macros",
+      "path": "packs/macros",
+      "type": "Macro",
+      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "pf2e"
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Daggerheart Sci-Fi Content",
+      "sorting": "a",
+      "color": "#255c98",
+      "packs": ["character-options"],
+      "folders": []
+    }
+  ]
+}

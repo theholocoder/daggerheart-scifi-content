@@ -1,0 +1,25 @@
+{
+  "name": "daggerheart-scifi-content",
+  "version": "1.0.0",
+  "description": "FoundryVTT module for Daggerheart containing Sci-Fi content",
+  "scripts": {
+    "links": "node scripts/ensure-links.mjs",
+    "packs:unpack": "node scripts/packs-unpack.mjs",
+    "packs:pack": "node scripts/packs-pack.mjs --force",
+    "packs:pack:safe": "node scripts/packs-pack.mjs",
+    "packs:status": "node scripts/packs-status.mjs",
+    "dist:materialize": "node scripts/dist-materialize.mjs",
+    "build": "node scripts/ensure-links.mjs && tsc --noEmit && vite build",
+    "dev": "node scripts/ensure-links.mjs && vite",
+    "check": "tsc --noEmit"
+  },
+  "author": "TheHolocoder",
+  "packageManager": "pnpm@11.9.0",
+  "devDependencies": {
+    "fvtt-types": "13.346.0-beta.20250812191140",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-foundryvtt": "^2.2.2"
+  }
+}
