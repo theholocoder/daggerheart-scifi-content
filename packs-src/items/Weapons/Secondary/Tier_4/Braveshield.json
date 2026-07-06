@@ -1,0 +1,237 @@
+{
+  "folder": "woovqIJsIyoK1ZQW",
+  "name": "Braveshield",
+  "type": "weapon",
+  "_id": "QEvgVoz9xKBSKsGi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/dancing-shield.webp",
+  "system": {
+    "description": "<p><span style=\"color:rgb(203, 207, 226);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(26, 30, 43, 0.75);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">Projects a thin electromagnetic field that helps glance away incoming projectiles and energy bolts.</span></p>",
+    "actions": {
+      "Ctsyr3xDVCsDYbZ3": {
+        "type": "effect",
+        "actionType": "action",
+        "chatDisplay": true,
+        "name": "Shelter",
+        "description": "When you mark an Armor Slot, it reduces damage for you and all allies within Melee range of you who took the same damage.",
+        "img": "icons/skills/melee/shield-block-gray-yellow.webp",
+        "_id": "Ctsyr3xDVCsDYbZ3",
+        "effects": [],
+        "systemPath": "actions",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "triggers": [],
+        "areas": []
+      }
+    },
+    "attached": [],
+    "tier": 4,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "sheltering",
+        "effectIds": [],
+        "actionIds": []
+      },
+      {
+        "value": "protective",
+        "effectIds": [
+          "JrXf95kngwlyLSIR"
+        ],
+        "actionIds": []
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "qY9ylkwxFwRlPy6a",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d4",
+              "bonus": 6,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [
+    {
+      "name": "Protective",
+      "description": "Add the item's Tier to your Armor Score",
+      "img": "icons/skills/melee/shield-block-gray-orange.webp",
+      "system": {
+        "changes": [
+          {
+            "type": "armor",
+            "value": {
+              "current": 0,
+              "max": "1",
+              "damageThresholds": null,
+              "interaction": "none"
+            },
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": ""
+        },
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "JrXf95kngwlyLSIR",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783241938645,
+        "modifiedTime": 1783241938645,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!QEvgVoz9xKBSKsGi.JrXf95kngwlyLSIR"
+    }
+  ],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783241892875,
+    "modifiedTime": 1783327273240,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!QEvgVoz9xKBSKsGi"
+}

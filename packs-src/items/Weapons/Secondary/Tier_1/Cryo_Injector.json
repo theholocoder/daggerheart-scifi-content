@@ -1,0 +1,270 @@
+{
+  "folder": "tt2aJ5watjZqK1BS",
+  "name": "Cryo Injector",
+  "type": "weapon",
+  "_id": "FVA8oxvq4dbG8sbq",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/blue-brick.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {
+      "cNmJLlchHsdJT75Q": {
+        "damage": {
+          "parts": {},
+          "includeBase": false,
+          "direct": false
+        },
+        "range": "far",
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "cNmJLlchHsdJT75Q",
+        "systemPath": "actions",
+        "type": "attack",
+        "baseAction": false,
+        "name": "Cryo Injector",
+        "description": "",
+        "img": "modules/daggerheart-scifi-content/artwork/icons/spells/ice-storm.webp",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "key": "stress",
+            "itemId": null,
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "effects": [
+          {
+            "_id": "rsvGUNIroUEOAvUa",
+            "onSave": false
+          }
+        ],
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "fgitnVoePV8pf5AD",
+        "effectIds": [
+          "rsvGUNIroUEOAvUa"
+        ],
+        "actionIds": [
+          "cNmJLlchHsdJT75Q"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "XBiun4ZnE1MHMbSN",
+      "baseAction": true,
+      "chatDisplay": false,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "type": [
+              "physical"
+            ],
+            "value": {
+              "multiplier": "prof",
+              "dice": "d4",
+              "flatMultiplier": 1,
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "flat",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "triggers": [],
+      "areas": [],
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [
+    {
+      "name": "Frozen",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/ectoplasmic-interstice.webp",
+      "description": "",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [],
+        "duration": {
+          "type": "act",
+          "description": ""
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783244256237,
+        "modifiedTime": 1783244256237,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "rsvGUNIroUEOAvUa",
+      "_key": "!items.effects!FVA8oxvq4dbG8sbq.rsvGUNIroUEOAvUa"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783244230380,
+    "modifiedTime": 1783263264391,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!FVA8oxvq4dbG8sbq"
+}

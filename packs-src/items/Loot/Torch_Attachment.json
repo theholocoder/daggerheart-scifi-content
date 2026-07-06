@@ -1,0 +1,42 @@
+{
+  "folder": "lakUNIl4gMWLrnFk",
+  "name": "Torch Attachment",
+  "type": "loot",
+  "img": "icons/sundries/lights/flash-light.webp",
+  "_id": "wWyFIOQfG4L4ZseJ",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You don't need any lighter for as long as you have batteries.</p>",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "flags": {
+    "dh-containers": {
+      "containerId": "aavl5hkqhlmGmiis",
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783252903949,
+    "modifiedTime": 1783263208797,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "Wn7wESs3tNnOgRpn": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "sort": 100000,
+  "_key": "!items!wWyFIOQfG4L4ZseJ"
+}

@@ -1,0 +1,40 @@
+{
+  "folder": "lakUNIl4gMWLrnFk",
+  "name": "Quantum canteen",
+  "type": "loot",
+  "_id": "aavl5hkqhlmGmiis",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/yellow-heavy-pouch.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>It's bigger on the inside.</p>",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": true
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783249707878,
+    "modifiedTime": 1783263197342,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!aavl5hkqhlmGmiis"
+}

@@ -1,0 +1,145 @@
+{
+  "folder": "PMS7xFrhh72FZeuc",
+  "name": "Steady Aim",
+  "type": "feature",
+  "_id": "gVhOaFgyZQQiZzGh",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-criss.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><strong>Spend 3 Hope</strong> to guarantee a hit on the next attack. This effect does not grant Hope or Fear and is not a critical hit.</p>",
+    "resource": null,
+    "actions": {
+      "hzYYrLoXERMNKcfS": {
+        "type": "effect",
+        "_id": "hzYYrLoXERMNKcfS",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "dPT9YhhBS9AitBxD",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Spend Hope",
+        "range": "self",
+        "img": "icons/magic/holy/barrier-shield-winged-blue.webp"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Steady Aim",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-criss.webp",
+      "description": "",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [
+          {
+            "key": "system.bonuses.roll.attack.bonus",
+            "type": "override",
+            "value": 99,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "dPT9YhhBS9AitBxD",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783339964503,
+        "modifiedTime": 1783340126849,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!gVhOaFgyZQQiZzGh.dPT9YhhBS9AitBxD"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783339885347,
+    "modifiedTime": 1783341082843,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!gVhOaFgyZQQiZzGh"
+}

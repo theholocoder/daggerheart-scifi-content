@@ -1,0 +1,35 @@
+{
+  "folder": "PMS7xFrhh72FZeuc",
+  "name": "Precision Burst",
+  "type": "feature",
+  "_id": "SN244G6Y1QCUCtVM",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-laser-gun.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When you roll with Hope on a ranged attack, you may roll one additional damage die.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783340917598,
+    "modifiedTime": 1783341286306,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!SN244G6Y1QCUCtVM"
+}

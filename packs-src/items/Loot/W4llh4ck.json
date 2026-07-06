@@ -1,0 +1,69 @@
+{
+  "folder": "lakUNIl4gMWLrnFk",
+  "name": "W4llh4ck",
+  "type": "loot",
+  "_id": "aXvq0DuAl1dAAKyQ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/visor.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per session, you can look through a wall. Unless it's made out of lead, for some reason.</p>",
+    "quantity": 1,
+    "actions": {
+      "HJhtJutXkGa8mWsh": {
+        "type": "effect",
+        "_id": "HJhtJutXkGa8mWsh",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "session",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "W4llh4ck",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783255021595,
+    "modifiedTime": 1783263214449,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!aXvq0DuAl1dAAKyQ"
+}

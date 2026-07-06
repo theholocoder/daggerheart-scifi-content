@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "vm0dnSZFtj2XmDTK",
+  "name": "Secondary",
+  "color": "#664370",
+  "sorting": "a",
+  "_id": "zhxz5jsCSMy9ERmQ",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783239649574,
+    "modifiedTime": 1783239649574,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!zhxz5jsCSMy9ERmQ"
+}

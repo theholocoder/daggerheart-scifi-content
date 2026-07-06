@@ -1,0 +1,252 @@
+{
+  "folder": "v3OQH9vwMVYsZvXS",
+  "name": "Gravitational Sling",
+  "type": "weapon",
+  "_id": "RAIaoMi6iO1PKIlK",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/halfling-sling-staff.webp",
+  "system": {
+    "description": "<p>Inpired by spaceship manoeuvers.</p>",
+    "actions": {
+      "GgtsuUCtxGX9e4Kg": {
+        "type": "attack",
+        "damage": {
+          "includeBase": false,
+          "parts": {
+            "hitPoints": {
+              "resultBased": false,
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "prof",
+                "dice": "d8",
+                "bonus": 4,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "type": [],
+              "base": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          },
+          "direct": false
+        },
+        "range": "close",
+        "roll": {
+          "useDefault": true,
+          "type": "attack",
+          "trait": "finesse",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          }
+        },
+        "_id": "GgtsuUCtxGX9e4Kg",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Versatile Attack",
+        "img": "icons/weapons/slings/slingshot-wood.webp",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "triggers": [],
+        "areas": []
+      },
+      "8rVwn1s7JCfEtfVL": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Brutal",
+        "description": "When you roll the maximum value on a damage die, roll an additional damage die.",
+        "img": "icons/skills/melee/strike-dagger-blood-red.webp",
+        "_id": "8rVwn1s7JCfEtfVL",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 3,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "brutal",
+        "effectIds": [],
+        "actionIds": [
+          "8rVwn1s7JCfEtfVL"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "qY9ylkwxFwRlPy6a",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryFar",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d6",
+              "bonus": 4,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783241449652,
+    "modifiedTime": 1783263334272,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!RAIaoMi6iO1PKIlK"
+}

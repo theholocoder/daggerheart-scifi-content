@@ -1,0 +1,78 @@
+{
+  "folder": "lakUNIl4gMWLrnFk",
+  "name": "Arc coil mag",
+  "type": "loot",
+  "_id": "RlZnPoElfnYvaC8I",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/bottle-the-storm.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Bouncing</strong>: Mark 1 or more Stress to hit that many targets in range of the attack.</p><hr><p>Discharges electricity on impact.</p>",
+    "quantity": 1,
+    "actions": {
+      "jWGPkw60qxDV0SLn": {
+        "type": "effect",
+        "_id": "jWGPkw60qxDV0SLn",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": true,
+            "key": "stress",
+            "value": null,
+            "step": 1,
+            "itemId": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Bounce",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783250544808,
+    "modifiedTime": 1783263191523,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!RlZnPoElfnYvaC8I"
+}

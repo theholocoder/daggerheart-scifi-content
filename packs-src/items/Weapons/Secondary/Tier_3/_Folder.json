@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "zhxz5jsCSMy9ERmQ",
+  "name": "Tier 3",
+  "color": null,
+  "sorting": "a",
+  "_id": "v3OQH9vwMVYsZvXS",
+  "description": "",
+  "sort": 200000,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783241449612,
+    "modifiedTime": 1783241449672,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!v3OQH9vwMVYsZvXS"
+}

@@ -1,0 +1,253 @@
+{
+  "folder": "iSQtZICf7fVFJ7IS",
+  "name": "Phase Pistol",
+  "type": "weapon",
+  "img": "icons/weapons/guns/pistol-auto-tech-purple.webp",
+  "system": {
+    "description": "<p>Common compact sidearm firing low-energy laser pulses. Accurate and reliable but weak against armor.</p>",
+    "actions": {
+      "ylSaADUa9mcW7AA6": {
+        "_id": "ylSaADUa9mcW7AA6",
+        "systemPath": "actions",
+        "type": "effect",
+        "baseAction": false,
+        "name": "Quick shot",
+        "description": "",
+        "img": "icons/weapons/guns/gun-pistol-brown.webp",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "key": "hope",
+            "itemId": null,
+            "value": 2,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "range": "",
+        "effects": [
+          {
+            "_id": "6f2UBdq8Q28MZ87w",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 2,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "3gXooI1BEMZajsEl",
+        "effectIds": [
+          "6f2UBdq8Q28MZ87w"
+        ],
+        "actionIds": [
+          "ylSaADUa9mcW7AA6"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "i9jZXe5K5nIc58AG",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d6",
+              "bonus": 3,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [
+    {
+      "name": "Quick Shot",
+      "disabled": false,
+      "img": "icons/weapons/guns/gun-pistol-brass.webp",
+      "description": "<p>+4 to primary weapon damage.</p>",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "rangeDependence": {
+          "enabled": true,
+          "type": "withinRange",
+          "target": "friendly",
+          "range": "self"
+        },
+        "changes": [
+          {
+            "key": "system.bonuses.damage.physical.bonus",
+            "type": "add",
+            "value": 4,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "type": "act",
+          "description": ""
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783327119573,
+        "modifiedTime": 1783327119573,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "6f2UBdq8Q28MZ87w",
+      "_key": "!items.effects!YH5dISXxCBScfEso.6f2UBdq8Q28MZ87w"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783327119573,
+    "modifiedTime": 1783327200040,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "YH5dISXxCBScfEso",
+  "sort": 0,
+  "_key": "!items!YH5dISXxCBScfEso"
+}

@@ -1,0 +1,171 @@
+{
+  "folder": "woovqIJsIyoK1ZQW",
+  "name": "AIM BOT",
+  "type": "weapon",
+  "_id": "SxcblanBvqaest3A",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/green-circuit-board.webp",
+  "system": {
+    "description": "<p>Is that even allowed?</p>",
+    "actions": {
+      "dNN2KOfUxGzQ2yjY": {
+        "type": "effect",
+        "actionType": "action",
+        "chatDisplay": true,
+        "name": "Lock On",
+        "description": "On a successful attack, your next attack against the same target with your primary weapon automatically succeeds.",
+        "img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+        "_id": "dNN2KOfUxGzQ2yjY",
+        "effects": [],
+        "systemPath": "actions",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "triggers": [],
+        "areas": []
+      }
+    },
+    "attached": [],
+    "tier": 4,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "lockedOn",
+        "effectIds": [],
+        "actionIds": [
+          "dNN2KOfUxGzQ2yjY"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "qY9ylkwxFwRlPy6a",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryClose",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "instinct",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d4",
+              "bonus": null,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [],
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783241892875,
+    "modifiedTime": 1783327273241,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!SxcblanBvqaest3A"
+}

@@ -1,0 +1,180 @@
+{
+  "folder": "U0za3at4rtifS0rY",
+  "name": "Blaster",
+  "type": "weapon",
+  "_id": "zxKt6qXe7uZB6ljm",
+  "img": "icons/weapons/guns/pistol-auto-gold-black.webp",
+  "system": {
+    "description": "<p>Common compact sidearm firing low-energy laser pulses. Accurate and reliable.</p>",
+    "actions": {
+      "6fMYxxOq6v6PSl6K": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Quick",
+        "description": "When you make an attack, you can mark a Stress to target another creature within range.",
+        "img": "icons/skills/movement/arrow-upward-yellow.webp",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "_id": "6fMYxxOq6v6PSl6K",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "quick",
+        "effectIds": [],
+        "actionIds": [
+          "6fMYxxOq6v6PSl6K"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "i9jZXe5K5nIc58AG",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d6",
+              "bonus": 1,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783239674783,
+    "modifiedTime": 1783260923738,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "sort": 150000,
+  "_key": "!items!zxKt6qXe7uZB6ljm"
+}

@@ -1,0 +1,172 @@
+{
+  "folder": "U0za3at4rtifS0rY",
+  "name": "Chew B4K4",
+  "type": "weapon",
+  "_id": "cw7HG1Z7hp7OOLD0",
+  "img": "icons/weapons/crossbows/crossbow-loaded-black.webp",
+  "system": {
+    "description": "",
+    "actions": {
+      "kpUAcre9umOJfJ6Y": {
+        "_id": "kpUAcre9umOJfJ6Y",
+        "systemPath": "actions",
+        "type": "effect",
+        "baseAction": false,
+        "name": "Duality Volley",
+        "description": "<p>Once per session, on a successful attack, you can kep rolling damages for as long as you roll with Hope with a Duality dice roll.</p>",
+        "img": "icons/magic/life/cross-worn-green.webp",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "session",
+          "consumeOnSuccess": false
+        },
+        "range": "",
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "weaponFeatures": [
+      {
+        "value": "KVvpZGc3o457wAn1",
+        "effectIds": [],
+        "actionIds": [
+          "kpUAcre9umOJfJ6Y"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "ZSdAawliPNsoA7nP",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryFar",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d6",
+              "bonus": 3,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783253877264,
+    "modifiedTime": 1783327470988,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "sort": 200000,
+  "_key": "!items!cw7HG1Z7hp7OOLD0"
+}

@@ -1,0 +1,43 @@
+{
+  "folder": "PMS7xFrhh72FZeuc",
+  "name": "The Best Defense is Offense",
+  "type": "feature",
+  "_id": "ynycCZKxFhbVkoF5",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/future-chainsaw.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>You gain a pool of dice called <strong>Unleash Dice</strong>. Whenever you mark a Stress or an Armor in order to help an ally, you can place a <strong>d6</strong> on this card, adding to the dice pool. You can store a number of <strong>Unleash Dice</strong> equal to your Proficiency. When you make an attack roll or damage roll, you can spend any number of these <strong>Unleash Dice</strong>, rolling them and adding their result to the roll. At the end of each session, clear any unspent <strong>Unleash Dice</strong> and gain a Hope per die cleared.</p>",
+    "resource": {
+      "type": "simple",
+      "value": 0,
+      "max": "@system.proficiency",
+      "recovery": null,
+      "progression": "increasing",
+      "dieFaces": "d4",
+      "icon": "fa-solid fa-skull"
+    },
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783342044491,
+    "modifiedTime": 1783342476447,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ynycCZKxFhbVkoF5"
+}

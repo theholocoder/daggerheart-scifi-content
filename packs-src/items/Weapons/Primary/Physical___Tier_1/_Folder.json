@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "IfCyJvaCcbmCcRmn",
+  "name": "Physical - Tier 1",
+  "color": null,
+  "sorting": "a",
+  "_id": "U0za3at4rtifS0rY",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783253391109,
+    "modifiedTime": 1783253419534,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!U0za3at4rtifS0rY"
+}

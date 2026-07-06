@@ -1,0 +1,131 @@
+{
+  "name": "Thermal Grenade",
+  "type": "consumable",
+  "_id": "mUepnLbkvFk0ha4Z",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/grenade-hand.webp",
+  "system": {
+    "description": "<p>Throw this grenade at an adversary within Far range. Creatures in Very Close range of the explosion must succeed an Agility Reaction Roll (14) or take 1d20+5 physical damage. Targets who succeed must mark a Stress. The grenade deals double damage to inanimate objects or structures.</p><p>@Template[type:circle|range:vc]</p>",
+    "quantity": 1,
+    "actions": {
+      "D7BTCUV5DOXmqC0l": {
+        "type": "attack",
+        "_id": "D7BTCUV5DOXmqC0l",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "consumeOnSuccess": false,
+            "scalable": false,
+            "key": "quantity",
+            "value": 1,
+            "itemId": "mUepnLbkvFk0ha4Z",
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {
+            "hitPoints": {
+              "resultBased": false,
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d20",
+                "bonus": null
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "hostile",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": "finesse",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": "above",
+            "treshold": 1
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": "agility",
+          "difficulty": 16,
+          "damageMod": "half"
+        },
+        "name": "Throw",
+        "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/grenade-hand.webp",
+        "range": "far",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "triggers": [],
+        "areas": []
+      }
+    },
+    "consumeOnUse": true,
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    }
+  },
+  "effects": [],
+  "folder": "uni4W32cNXU1jjpq",
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783255485086,
+    "modifiedTime": 1783329431634,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "sort": 300000,
+  "_key": "!items!mUepnLbkvFk0ha4Z"
+}

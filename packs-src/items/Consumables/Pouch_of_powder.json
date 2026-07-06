@@ -1,0 +1,130 @@
+{
+  "folder": "uni4W32cNXU1jjpq",
+  "name": "Pouch of powder",
+  "type": "consumable",
+  "_id": "0jb9SUXTg6HDXESk",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/alchemical-items/drugs/succubus-kiss.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Mark 1 HP and clear 1 Stress.</p>",
+    "quantity": 1,
+    "actions": {
+      "sVa4S5bftnEG8HnF": {
+        "type": "healing",
+        "_id": "sVa4S5bftnEG8HnF",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "quantity",
+            "value": 1,
+            "itemId": "0jb9SUXTg6HDXESk",
+            "step": null,
+            "consumeOnSuccess": false
+          },
+          {
+            "scalable": false,
+            "key": "hitPoints",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {
+            "stress": {
+              "applyTo": "stress",
+              "resultBased": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 0,
+                "dice": "d4",
+                "bonus": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "type": []
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Pouch of powder",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783254635357,
+    "modifiedTime": 1783329692355,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!0jb9SUXTg6HDXESk"
+}

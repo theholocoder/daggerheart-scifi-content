@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "vm0dnSZFtj2XmDTK",
+  "name": "Primary",
+  "color": "#397f46",
+  "sorting": "a",
+  "_id": "IfCyJvaCcbmCcRmn",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783239628910,
+    "modifiedTime": 1783239639195,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!IfCyJvaCcbmCcRmn"
+}

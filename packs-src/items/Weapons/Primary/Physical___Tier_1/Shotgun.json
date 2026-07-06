@@ -1,0 +1,236 @@
+{
+  "folder": "U0za3at4rtifS0rY",
+  "name": "Shotgun",
+  "type": "weapon",
+  "_id": "sr1j0wZKg48W4UX4",
+  "img": "icons/weapons/guns/shotgun-short-steel.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Scattershot</strong>: When you make an attack, target all creatures in front of you within range @Template[type:cone|range:vc].</p>",
+    "resource": null,
+    "quantity": 1,
+    "actions": {
+      "wIHwkejmlX5tfjwp": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Concuss",
+        "description": "On a successful attack, you can spend a Hope to knock the target back to Far range.",
+        "img": "icons/skills/melee/shield-block-bash-yellow.webp",
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "itemId": null,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "_id": "wIHwkejmlX5tfjwp",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        }
+      },
+      "17V2b1YftitdlWZ7": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Devastate",
+        "description": "Before you make an attack roll, you can mark a Stress to use a d20 as your damage die.",
+        "img": "icons/skills/melee/strike-flail-destructive-yellow.webp",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "_id": "17V2b1YftitdlWZ7",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      },
+      "yfL0uxWiZlxOIs1U": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Erupt",
+        "description": "On a successful attack against a target within Melee range, all other adversaries within Very Close range must succeed on a reaction roll (14) or take half damage.",
+        "img": "icons/skills/melee/strike-hammer-destructive-blue.webp",
+        "_id": "yfL0uxWiZlxOIs1U",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "weaponFeatures": [],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "RFdaHANagnwg0r0m",
+      "baseAction": true,
+      "chatDisplay": false,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryClose",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "strength",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "type": [
+              "physical"
+            ],
+            "value": {
+              "multiplier": "prof",
+              "dice": "d6",
+              "flatMultiplier": 1,
+              "bonus": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "flat",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "triggers": [],
+      "areas": [],
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783327723034,
+    "modifiedTime": 1783329462014,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!sr1j0wZKg48W4UX4"
+}

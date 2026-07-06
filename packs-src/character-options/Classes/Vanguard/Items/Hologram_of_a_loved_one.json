@@ -1,0 +1,40 @@
+{
+  "folder": "raIflp34dkVKLp34",
+  "name": "Hologram of a loved one",
+  "type": "loot",
+  "_id": "fIiMG42e8ZUvFcXo",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/features/classes/eidolon-defensive-expertise.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783336131474,
+    "modifiedTime": 1783336345945,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!fIiMG42e8ZUvFcXo"
+}

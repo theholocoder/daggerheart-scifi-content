@@ -1,0 +1,79 @@
+{
+  "folder": "lakUNIl4gMWLrnFk",
+  "name": "Reality bending scope",
+  "type": "loot",
+  "_id": "cvOkdk9EkMd3AZp2",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/adventuring-gear/periscope.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Slightly bends the laser beam around corners. Mark a stress to attack a target behind partial cover.</p>",
+    "quantity": 1,
+    "actions": {
+      "oJ7k6uZGUySE40CQ": {
+        "type": "effect",
+        "_id": "oJ7k6uZGUySE40CQ",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reality bending scope",
+        "range": "",
+        "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/adventuring-gear/periscope.webp"
+      }
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783249825127,
+    "modifiedTime": 1783263203327,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cvOkdk9EkMd3AZp2"
+}

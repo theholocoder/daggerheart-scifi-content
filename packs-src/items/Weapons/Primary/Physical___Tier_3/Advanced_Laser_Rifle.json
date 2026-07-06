@@ -1,0 +1,243 @@
+{
+  "folder": "ZBJD3iMOXM2HeQO1",
+  "name": "Advanced Laser Rifle",
+  "type": "weapon",
+  "img": "icons/weapons/guns/rifle-tech-green.webp",
+  "system": {
+    "description": "<p>Standard infantry weapon. High-capacity power cell and excellent armor penetration make it the backbone of modern armies.</p>",
+    "actions": {
+      "UwqEtfGwQPe95osS": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Charge",
+        "description": "Mark a Stress to gain a +1 bonus to your Proficiency on a primary weapon attack.",
+        "img": "icons/magic/lightning/claws-unarmed-strike-teal.webp",
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "effects": [
+          {
+            "_id": "dXzVtcuQyRb5ITYv",
+            "onSave": false
+          }
+        ],
+        "_id": "UwqEtfGwQPe95osS",
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        }
+      }
+    },
+    "attached": [],
+    "tier": 3,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "weaponFeatures": [
+      {
+        "value": "charged",
+        "effectIds": [
+          "dXzVtcuQyRb5ITYv"
+        ],
+        "actionIds": [
+          "UwqEtfGwQPe95osS"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "ZSdAawliPNsoA7nP",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryFar",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d8",
+              "bonus": 8,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [
+    {
+      "name": "Charged",
+      "description": "Mark a Stress to gain a +1 bonus to your Proficiency on a primary weapon attack.",
+      "img": "icons/magic/lightning/claws-unarmed-strike-teal.webp",
+      "transfer": false,
+      "system": {
+        "changes": [
+          {
+            "key": "system.proficiency",
+            "value": 1,
+            "type": "add",
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": ""
+        },
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "dXzVtcuQyRb5ITYv",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783261442866,
+        "modifiedTime": 1783261442866,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!YsSjRM05lUla4UO4.dXzVtcuQyRb5ITYv"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783261442866,
+    "modifiedTime": 1783327592339,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "YsSjRM05lUla4UO4",
+  "sort": 0,
+  "_key": "!items!YsSjRM05lUla4UO4"
+}

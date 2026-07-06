@@ -1,0 +1,192 @@
+{
+  "folder": "iSQtZICf7fVFJ7IS",
+  "name": "Anti-Graviton Ammunition",
+  "type": "weapon",
+  "_id": "FtsQGwOg3r8uUCST",
+  "img": "icons/weapons/axes/axe-broad-energy-pink.webp",
+  "system": {
+    "description": "<p>Generates localized gravity distortions on impact.</p>",
+    "actions": {
+      "iRLPqbi9rG5iyZV3": {
+        "_id": "iRLPqbi9rG5iyZV3",
+        "systemPath": "actions",
+        "type": "effect",
+        "baseAction": false,
+        "name": "Anti-Graviton",
+        "description": "<p><span style=\"color: rgb(203, 207, 226); font-family: Montserrat, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgba(26, 30, 43, 0.75); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;\">On a successful attack, mark a stress to force push the target and everyonone within Melee range back to Close range.</span></p>",
+        "img": "modules/daggerheart-scifi-content/artwork/icons/spells/bind-soul.webp",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [
+          {
+            "name": "Anti-Graviton",
+            "type": "placed",
+            "shape": "circle",
+            "size": "melee",
+            "hasHole": false,
+            "effects": [
+              "EzmEPSyduhmnEjp1"
+            ]
+          }
+        ],
+        "cost": [
+          {
+            "key": "stress",
+            "itemId": null,
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "range": "close",
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 2,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "5HnU0nJdD2ecLtWm",
+        "effectIds": [],
+        "actionIds": [
+          "iRLPqbi9rG5iyZV3"
+        ]
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "qY9ylkwxFwRlPy6a",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d4",
+              "bonus": null,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783240308004,
+    "modifiedTime": 1783263283666,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!FtsQGwOg3r8uUCST"
+}

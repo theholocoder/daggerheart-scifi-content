@@ -1,0 +1,200 @@
+{
+  "folder": "tt2aJ5watjZqK1BS",
+  "name": "Vibrosword",
+  "type": "weapon",
+  "_id": "cjGZpXCoshEqi1FI",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/specific-magic-weapons/flame-tongue.webp",
+  "system": {
+    "description": "<p>Elegant dueling blade with a monomolecular edge capable of effortless precision cuts.</p>",
+    "actions": {},
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "secondary": true,
+    "burden": "oneHanded",
+    "weaponFeatures": [
+      {
+        "value": "paired",
+        "effectIds": [
+          "djNtNpasgNDRP8Dd"
+        ],
+        "actionIds": []
+      }
+    ],
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "VS5Gc43b6SmYuaVF",
+      "baseAction": true,
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": {
+          "hitPoints": {
+            "value": {
+              "dice": "d8",
+              "bonus": null,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        },
+        "includeBase": false,
+        "direct": false
+      },
+      "description": "",
+      "chatDisplay": false,
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      },
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "triggers": [],
+      "areas": []
+    },
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    },
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "resource": null,
+    "quantity": 1
+  },
+  "effects": [
+    {
+      "name": "Paired",
+      "description": "<p>Add this Secondary Weapon's tier + 1 to your primary weapon against targets within Melee range</p>",
+      "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
+      "system": {
+        "rangeDependence": {
+          "enabled": true,
+          "range": "melee",
+          "target": "hostile",
+          "type": "withinRange"
+        },
+        "changes": [
+          {
+            "key": "system.bonuses.damage.primaryWeapon.bonus",
+            "value": "ITEM.@system.tier + 1",
+            "priority": null,
+            "type": "add",
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": ""
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "djNtNpasgNDRP8Dd",
+      "type": "base",
+      "disabled": false,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783239681955,
+        "modifiedTime": 1783239681955,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "start": null,
+      "showIcon": 1,
+      "folder": null,
+      "_key": "!items.effects!cjGZpXCoshEqi1FI.djNtNpasgNDRP8Dd"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783239681955,
+    "modifiedTime": 1783263271344,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "sort": 100000,
+  "_key": "!items!cjGZpXCoshEqi1FI"
+}

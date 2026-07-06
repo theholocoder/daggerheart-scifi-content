@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "HwAC2YWnr7xaVwVe",
+  "name": "Level 1",
+  "color": null,
+  "sorting": "a",
+  "_id": "YSkSfPaGAGbb6zu9",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783334022538,
+    "modifiedTime": 1783334022538,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!YSkSfPaGAGbb6zu9"
+}

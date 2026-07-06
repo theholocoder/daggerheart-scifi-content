@@ -1,0 +1,35 @@
+{
+  "folder": "PMS7xFrhh72FZeuc",
+  "name": "Living Fortress",
+  "type": "feature",
+  "_id": "hr4J3OtgEdHCGlWK",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-alien-face.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.gVhOaFgyZQQiZzGh]{Steady Aim} with a melee weapon or a shield, choose one:</p><ul><li><p>Add +2 to your Evasion until the start of your next turn.</p></li><li><p>Every enemy within Close range must either move away from you or suffer your weapon damage.</p></li></ul>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783342667036,
+    "modifiedTime": 1783342769119,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!hr4J3OtgEdHCGlWK"
+}
