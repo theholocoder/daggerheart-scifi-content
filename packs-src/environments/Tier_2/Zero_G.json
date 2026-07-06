@@ -1,0 +1,204 @@
+{
+  "folder": "7ebLxCyy6dKrbyLF",
+  "name": "Zero G",
+  "type": "environment",
+  "_id": "LkybvOa5lyoWXCdx",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-circle-emblem.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "tier": 2,
+    "difficulty": 14,
+    "potentialAdversaries": {},
+    "notes": "",
+    "impulses": "Exact a toll in stamina, slow down movement",
+    "type": "traversal"
+  },
+  "prototypeToken": {
+    "name": "Zero G",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-circle-emblem.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Is it up or down?",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Directions are harder when you can freely rotate and gravity is absent.</p><section id=\"secret-sHNkIWbXBq1JfJgk\" class=\"secret\"><p>Moving requires an Agility check. A PC who rolls a failure with Fear is immediately subject to the \"Don't stop me now\" action.</p></section>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "TxlDqvNcPyjdfEVh",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/illusory-shroud.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783257034329,
+        "modifiedTime": 1783257466862,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LkybvOa5lyoWXCdx.TxlDqvNcPyjdfEVh"
+    },
+    {
+      "name": "Don't stop me now",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p>Spend a Fear to make a PC miss their grip. They must make a [[/dr trait=strength difficulty=14 reaction=true]]. On a failure, they take @Damage[type:physical|value:1d6+1] physical damage and keep moving or bounce to a Close distance. On a success, they mark a Stress.</p><section id=\"secret-6kfpwUJe4pggErQq\" class=\"secret\"><p>On a failure with fear, they also become Vulnerable.</p></section>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "aS8lrvIIb6s555iW",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-person-running.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783257501764,
+        "modifiedTime": 1783258030380,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LkybvOa5lyoWXCdx.aS8lrvIIb6s555iW"
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783256828081,
+    "modifiedTime": 1783263528680,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!LkybvOa5lyoWXCdx"
+}

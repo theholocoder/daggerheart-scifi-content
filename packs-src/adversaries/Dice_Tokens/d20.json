@@ -4,7 +4,11 @@
   "type": "npc",
   "img": "modules/daggerheart-scifi-content/artwork/dice/d20/d20-20.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "",
     "difficulty": null,
     "notes": ""
@@ -124,7 +128,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783182760652,
-    "modifiedTime": 1783182760652,
+    "modifiedTime": 1783263486645,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": "Actor.N9x0pYTXYnc4tPHW",

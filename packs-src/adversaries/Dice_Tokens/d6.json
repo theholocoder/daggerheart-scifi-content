@@ -5,7 +5,11 @@
   "_id": "z6hzpQmLwuw3vXv9",
   "img": "modules/daggerheart-scifi-content/artwork/dice/d6/d6-6.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "",
     "difficulty": null,
     "notes": ""
@@ -125,7 +129,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783182760654,
-    "modifiedTime": 1783182760654,
+    "modifiedTime": 1783263499732,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
