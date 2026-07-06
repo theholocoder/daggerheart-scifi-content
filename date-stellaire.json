@@ -1,0 +1,270 @@
+{
+  "name": "Date Stellaire",
+  "years": {
+    "yearZero": 0,
+    "firstWeekday": 0,
+    "leapYear": null,
+    "resetWeekdays": false,
+    "allowNegativeYears": true,
+    "names": [],
+    "weekStartWeekdayId": ""
+  },
+  "months": {
+    "values": {
+      "YCtDEPL3tLibtNUN": {
+        "name": "Premier cycle",
+        "abbreviation": "C1",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 1
+      },
+      "MscYTwX0WNl5uksy": {
+        "name": "Deuxième cycle",
+        "abbreviation": "C2",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 2
+      },
+      "zgWNCObylP80P26V": {
+        "name": "Troisième cycle",
+        "abbreviation": "C3",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 3
+      },
+      "HrWzrEfsWRZRuF5K": {
+        "name": "Quatrième cycle",
+        "abbreviation": "C4",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 4
+      },
+      "NNqns3WSxYsp5Kjo": {
+        "name": "Cinquième cycle",
+        "abbreviation": "C5",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 5
+      },
+      "NsOZWNa6WUavQ1jF": {
+        "name": "Sixième cycle",
+        "abbreviation": "C6",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 6
+      },
+      "EtMRLFNazmIXuzu0": {
+        "name": "Septième cycle",
+        "abbreviation": "C7",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 7
+      },
+      "8O2Xlw8jipYdz9jn": {
+        "name": "Huitième cycle",
+        "abbreviation": "C8",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 8
+      },
+      "IjRWf2HvtadBGtWF": {
+        "name": "Neuvième cycle",
+        "abbreviation": "C9",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 9
+      },
+      "A59VaMg9qEZx96el": {
+        "name": "Dixième cycle",
+        "abbreviation": "C10",
+        "days": 100,
+        "leapDays": null,
+        "startingWeekday": null,
+        "ordinal": 10
+      }
+    }
+  },
+  "days": {
+    "values": {
+      "z2aknGXJ4OePXyjN": {
+        "name": "Primus",
+        "abbreviation": "J1",
+        "ordinal": 1,
+        "isRestDay": false
+      },
+      "XxSxBAGDFinCN1XF": {
+        "name": "Secundus",
+        "abbreviation": "J2",
+        "ordinal": 2,
+        "isRestDay": false
+      },
+      "rI8dqRW0fDJ7xeGt": {
+        "name": "Tertius",
+        "abbreviation": "J3",
+        "ordinal": 3,
+        "isRestDay": false
+      },
+      "jKPD7U2d5HV21iVu": {
+        "name": "Quartus",
+        "abbreviation": "J4",
+        "ordinal": 4,
+        "isRestDay": false
+      },
+      "6zE9Wfa7FzCpJDS4": {
+        "name": "Quintus",
+        "abbreviation": "J5",
+        "ordinal": 5,
+        "isRestDay": false
+      },
+      "4cHSNtUY9r4MnS9b": {
+        "name": "Sextus",
+        "abbreviation": "J6",
+        "ordinal": 6,
+        "isRestDay": false
+      },
+      "zPHZ9CB8hyOdnGFz": {
+        "name": "Septimus",
+        "abbreviation": "J7",
+        "ordinal": 7,
+        "isRestDay": false
+      },
+      "YoCtypV3UFfJ1hEN": {
+        "name": "Octavus",
+        "abbreviation": "J8",
+        "ordinal": 8,
+        "isRestDay": false
+      },
+      "jyJsXrIf0EfzeZzl": {
+        "name": "Nonus",
+        "abbreviation": "J9",
+        "ordinal": 9,
+        "isRestDay": false
+      },
+      "BFikeMYE7ubj15XQ": {
+        "name": "Decimus",
+        "abbreviation": "J10",
+        "ordinal": 10,
+        "isRestDay": true
+      }
+    },
+    "daysPerYear": 1000,
+    "hoursPerDay": 24,
+    "minutesPerHour": 60,
+    "secondsPerMinute": 60
+  },
+  "secondsPerRound": 6,
+  "seasons": {
+    "type": "dated",
+    "offset": 0,
+    "values": {}
+  },
+  "eras": {
+    "MmUAkWmMdZ9wPmU1": {
+      "name": "Après DRIFT",
+      "abbreviation": "AD",
+      "startYear": 1,
+      "endYear": null,
+      "format": "suffix",
+      "template": null
+    }
+  },
+  "festivals": {
+    "wvaQFpU9UmnyzBd8": {
+      "name": "DRIFT DAY",
+      "description": "<p>Fête de la découverte du DRIFT</p>",
+      "color": "#f0a500",
+      "icon": "fa-rocket",
+      "month": 0,
+      "dayOfMonth": 0,
+      "duration": 1,
+      "leapDuration": null,
+      "leapYearOnly": false,
+      "countsForWeekday": true,
+      "conditionTree": {
+        "type": "group",
+        "mode": "and",
+        "children": [
+          {
+            "type": "condition",
+            "field": "month",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "type": "condition",
+            "field": "day",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    }
+  },
+  "moons": {},
+  "cycles": {},
+  "canonicalHours": {},
+  "weeks": {
+    "enabled": false,
+    "type": "year-based",
+    "names": {},
+    "repeat": false
+  },
+  "amPmNotation": {
+    "am": "AM",
+    "pm": "PM",
+    "amAbbr": "AM",
+    "pmAbbr": "PM"
+  },
+  "dateFormats": {
+    "short": "YYYY.MM.DD",
+    "long": "YYYY.MM.DD GG",
+    "full": "Do MMMM, YYYY GG",
+    "time": "HH:mm",
+    "time12": "h:mm a",
+    "weekHeader": "[W]",
+    "yearHeader": "[YYYY]",
+    "yearLabel": "[YYYY] [GGGG]",
+    "crossCalendar": "Do MMMM, YYYY (HH:mm)"
+  },
+  "metadata": {
+    "id": "custom-date-stellaire",
+    "description": "",
+    "author": "Gamemaster",
+    "system": "",
+    "luxonSync": null,
+    "luxonSyncOffset": 0,
+    "exportedFrom": "calendaria",
+    "exportedAt": 1783237287626,
+    "version": "1.1.2"
+  },
+  "weather": {
+    "activeZone": "temperate",
+    "zones": {}
+  },
+  "leapYearConfig": null,
+  "daylight": {
+    "enabled": false,
+    "shortestDay": 8,
+    "longestDay": 16,
+    "winterSolstice": 0,
+    "summerSolstice": 15
+  },
+  "cycleFormat": "",
+  "currentDate": {
+    "year": 331,
+    "month": 6,
+    "day": 89,
+    "dayOfMonth": 88,
+    "hour": 10,
+    "minute": 2
+  }
+}

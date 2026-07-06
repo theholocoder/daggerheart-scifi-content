@@ -56,6 +56,10 @@ ensureDir(path.join(root, "dist"));
 ensureRealDir(path.join(root, "dist", "packs"));
 // artwork can be symlinked locally; CI should materialize before zipping.
 ensureSymlink(path.join(root, "dist", "artwork"), path.join(root, "artwork"));
+ensureSymlink(
+  path.join(root, "dist", "date-stellaire.json"),
+  path.join(root, "date-stellaire.json"),
+);
 
 // For local dev, keep dist/module.json in sync with src/module.json so Foundry sees manifest changes without a rebuild.
 try {

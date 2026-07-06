@@ -25,3 +25,4 @@ function materializeDir(name) {
 
 materializeDir("artwork");
 materializeDir("lang");
+materializeDir("date-stellaire.json");
