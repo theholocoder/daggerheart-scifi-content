@@ -3,7 +3,7 @@
   "name": "Ghost",
   "type": "subclass",
   "_id": "UJ5Oqqz0uzFeUPlE",
-  "img": "systems/daggerheart/assets/icons/documents/items/laurels.svg",
+  "img": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -42,7 +42,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783383031424,
-    "modifiedTime": 1783674916197,
+    "modifiedTime": 1783696278608,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

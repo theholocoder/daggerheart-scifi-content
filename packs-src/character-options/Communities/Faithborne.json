@@ -1,0 +1,37 @@
+{
+  "folder": "6sFLVLCQU5XQ24Cr",
+  "name": "Faithborne",
+  "type": "community",
+  "_id": "Og8WXSzc2UH2qWmr",
+  "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Being part of a faithborne community means your society was united by a shared spiritual tradition, whether devoted to ancient cosmic entities, the Resonance itself, or a philosophical order. Faith shapes not only your beliefs, but how you approach hardship and hope.</p><p><em>Faithborne are often compassionate, devoted, humble, insightful, serene, and steadfast.</em></p>",
+    "features": [
+      "Compendium.daggerheart-scifi-content.character-options.Item.S2YKpIAFzTfJ2WsC"
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783697762892,
+    "modifiedTime": 1783698160019,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Og8WXSzc2UH2qWmr"
+}

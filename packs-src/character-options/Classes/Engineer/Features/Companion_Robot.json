@@ -3,7 +3,7 @@
   "name": "Companion Robot",
   "type": "feature",
   "_id": "s6J3Xqecns5hUJPq",
-  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/alien-mask.webp",
+  "img": "icons/commodities/tech/electronics-tech-battery-energy-blue.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783346743120,
-    "modifiedTime": 1783675121376,
+    "modifiedTime": 1783695998610,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

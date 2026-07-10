@@ -1,0 +1,340 @@
+{
+  "folder": "y7u6MUvNA4PfhRpt",
+  "name": "Asteroid Field",
+  "type": "environment",
+  "_id": "LjCst8QbCuzFor58",
+  "img": "icons/magic/earth/explosion-lava-stone-yellow.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>An asteroid field stretches for thousands of kilometers, forcing pilots to weave through tumbling rocks, unstable debris, and unpredictable collision paths. A single mistake can cripple even the toughest starship.</p>",
+    "tier": 3,
+    "difficulty": 17,
+    "potentialAdversaries": {},
+    "notes": "",
+    "impulses": "Force difficult navigation, separate pursuing ships, and make every maneuver matter",
+    "type": "traversal"
+  },
+  "prototypeToken": {
+    "name": "Asteroid Field",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/magic/earth/explosion-lava-stone-yellow.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Collision Course",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Whenever the pilot rolls with Fear on a <strong>Piloting (Finesse or Instinct) Roll</strong>, immediately use Incoming Asteroid.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "C37l3bAOA9u2s75P",
+      "img": "icons/magic/earth/projectile-stone-boulder-blue.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702799034,
+        "modifiedTime": 1783702861576,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LjCst8QbCuzFor58.C37l3bAOA9u2s75P"
+    },
+    {
+      "name": "Incoming Asteroid",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear</strong>. The pilot must make an Piloting (Finesse or Instinct) Roll. On a failure, the ship suffers 3d10+8 physical damage. On a success, one crew member marks 1 Stress as the ship violently lurches.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "hOkckCUjTJdRKbrU",
+      "img": "icons/magic/earth/projectile-moonrock-asteroid.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702934324,
+        "modifiedTime": 1783703444251,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LjCst8QbCuzFor58.hOkckCUjTJdRKbrU"
+    },
+    {
+      "name": "Dense Debris",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Long-range sensors and targeting systems have Disadvantage while inside the field.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "aSroLa0XVRocmuem",
+      "img": "icons/magic/earth/projectiles-stone-salvo-gray.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783703019184,
+        "modifiedTime": 1783703040364,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LjCst8QbCuzFor58.aSroLa0XVRocmuem"
+    },
+    {
+      "name": "Gravitational Slingshot",
+      "type": "feature",
+      "system": {
+        "featureForm": "reaction",
+        "attribution": {},
+        "description": "<p>When the pilot succeeds on a Piloting Roll with Hope, the ship may immediately Move one additional range band.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "5pkgadrJBRISYIBY",
+      "img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783703056370,
+        "modifiedTime": 1783703084356,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LjCst8QbCuzFor58.5pkgadrJBRISYIBY"
+    },
+    {
+      "name": "Safe Passage",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Countdown (5)</strong>. A crew member can make a Knowledge or Instinct Roll to identify a stable route through the field. Other actions may help. On a success, tick down this countdown. When triggered, the crew safely exits the asteroid field.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "GSODvbzTYwy5HsU8",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-chart.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783703094750,
+        "modifiedTime": 1783703434356,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LjCst8QbCuzFor58.GSODvbzTYwy5HsU8"
+    },
+    {
+      "name": "Why don't we just send up a hundred and fifty nuclear warheads and blast that rock apart?",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p>A crew member can try to shoot at an Asteroid in the way. On a success, tick down the countdown.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "MUNnLsh5R5oSX98o",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flying-rocket.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783703331627,
+        "modifiedTime": 1783703434356,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LjCst8QbCuzFor58.MUNnLsh5R5oSX98o"
+    }
+  ],
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783699565793,
+    "modifiedTime": 1783703577332,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!LjCst8QbCuzFor58"
+}

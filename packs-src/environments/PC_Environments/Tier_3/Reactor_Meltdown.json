@@ -1,0 +1,305 @@
+{
+  "folder": "arLYywlWY1db4GdY",
+  "name": "Reactor Meltdown",
+  "type": "environment",
+  "_id": "fZJ1QdD6KKbuTMy8",
+  "img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>The ship's reactor has entered a critical state. Every passing moment pushes the core closer to catastrophic failure while alarms echo through every corridor.</p>",
+    "tier": 3,
+    "difficulty": 17,
+    "potentialAdversaries": {},
+    "notes": "",
+    "impulses": "Escalate the emergency until the crew is forced to choose between the mission and survival",
+    "type": "event"
+  },
+  "prototypeToken": {
+    "name": "Reactor Meltdown",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Core Instability",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p><strong>Countdown (8)</strong>. When the reactor becomes unstable, activate the countdown. The countdown ticks down when a PC rolls with Fear while aboard the ship. When triggered, the reactor catastrophically fails, every creature aboard marks 2 Hit Points, and the PCs must immediately escape before the vessel is destroyed.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "kVad9sVhtxQQwbye",
+      "img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783700038807,
+        "modifiedTime": 1783702449826,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.kVad9sVhtxQQwbye"
+    },
+    {
+      "name": "Emergency Shutdown",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Countdown (5)</strong>. A PC adjacent to the reactor controls may make a Knowledge Roll to stabilize the core. On a success, tick down this countdown. When triggered, the reactor stabilizes and Core Instability immediately ends.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "Oe0dHF3rP4sXdD42",
+      "img": "icons/commodities/tech/levers-colored.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702453558,
+        "modifiedTime": 1783702527827,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.Oe0dHF3rP4sXdD42"
+    },
+    {
+      "name": "Power Surge",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> Electrical arcs erupt from nearby systems or radiation waves are emitted. Every creature within the facility or spaceship must make an Agility Roll or suffer <strong>2d10+3</strong> magic damage.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "O7LDSfqAQAlspmWr",
+      "img": "icons/commodities/tech/smoke-bomb-yellow.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702501797,
+        "modifiedTime": 1783702729913,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.O7LDSfqAQAlspmWr"
+    },
+    {
+      "name": "Rolling Blackout",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear</strong>. Choose one system such as gravity, lighting, communications, doors, or sensors. It ceases functioning until the end of the next round.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "T7y5mcFjsy6jTjPs",
+      "img": "icons/commodities/tech/bulb-vacuum.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702592149,
+        "modifiedTime": 1783702624202,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.T7y5mcFjsy6jTjPs"
+    },
+    {
+      "name": "Containment Failure",
+      "type": "feature",
+      "system": {
+        "featureForm": "reaction",
+        "attribution": {},
+        "description": "<p>When a PC fails a Knowledge Roll while interacting with the reactor, immediately tick down Core Instability.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "pVGsub3sE7FZBm1A",
+      "img": "icons/commodities/tech/tube-chamber-lightning.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702635357,
+        "modifiedTime": 1783702667149,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.pVGsub3sE7FZBm1A"
+    }
+  ],
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783699888839,
+    "modifiedTime": 1783703599292,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!fZJ1QdD6KKbuTMy8"
+}

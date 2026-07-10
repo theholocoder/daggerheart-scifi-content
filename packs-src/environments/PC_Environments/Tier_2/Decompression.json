@@ -1,0 +1,340 @@
+{
+  "folder": "4UmaJ0DKZzTyhS2I",
+  "name": "Decompression",
+  "type": "environment",
+  "_id": "AaDXqSZhTFoFnio1",
+  "img": "icons/magic/air/air-pressure-shield-blue.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>A hull breach vents atmosphere into space. Sirens blare as emergency bulkheads struggle to isolate the damaged compartment before everyone is pulled into the void.</p>",
+    "tier": 2,
+    "difficulty": 14,
+    "potentialAdversaries": {},
+    "notes": "",
+    "impulses": "Force difficult choices while the air disappears and the situation rapidly worsens.",
+    "type": "event"
+  },
+  "prototypeToken": {
+    "name": "Decompression",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/magic/air/air-pressure-shield-blue.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Hull Breach",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p><strong>Countdown (6).</strong> When the hull is breached, activate the countdown. The countdown ticks down when a PC rolls with Fear. When triggered, the compartment fully decompresses. Every creature not protected from vacuum is immediately exposed and must Hold Breath..</p><hr><p><strong>Holding Breath.</strong></p><p>You can make a number of actions equal to your Strength trait while holding your breath in a vacuum, before Suffocating.</p><hr><p><strong>Suffocating.</strong></p><p>At the end of each of their turns while suffocating, they mark 1 Hit Point until they can breathe again.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "G8JydSv0xazuQq55",
+      "img": "icons/magic/air/fog-gas-smoke-dense-blue.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783699129543,
+        "modifiedTime": 1783702206813,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!AaDXqSZhTFoFnio1.G8JydSv0xazuQq55"
+    },
+    {
+      "name": "Explosive Venting",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear</strong>. Every creature within Close must succeed on an Agility Roll or be pulled Close toward the breach. Ticks down the Hull Breach countdown.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "g4SQiSbxsOV8PlFQ",
+      "img": "icons/magic/air/wind-vortex-swirl-blue.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783699334662,
+        "modifiedTime": 1783701162008,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!AaDXqSZhTFoFnio1.g4SQiSbxsOV8PlFQ"
+    },
+    {
+      "name": "Blast Doors",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear</strong> to suddenly close blast doors, preventing the crew from traversing it and reducing the amount of air remaining. Ticks down the Hull Breach countdown.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "kVJmh1uL3OguelcJ",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-tech-remnant.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783701169280,
+        "modifiedTime": 1783701248235,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!AaDXqSZhTFoFnio1.kVJmh1uL3OguelcJ"
+    },
+    {
+      "name": "Emergency Panel",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>A PC can find emergency panels or soldering kits. If they succeed on a Finesse Roll to stabilize the breach, increase the Countdown by 2.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "qwBJyV4OEaYRjxdn",
+      "img": "icons/sundries/survival/mirror-plain.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783701406977,
+        "modifiedTime": 1783701508548,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!AaDXqSZhTFoFnio1.qwBJyV4OEaYRjxdn"
+    },
+    {
+      "name": "In space, no one can hear you scream",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Whenever the Countdown reaches 3 or less, all spoken communication beyond Melee becomes impossible.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "gyzSbVC6FgVZtYQW",
+      "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783701525015,
+        "modifiedTime": 1783701602125,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!AaDXqSZhTFoFnio1.gyzSbVC6FgVZtYQW"
+    },
+    {
+      "name": "Emergency Repairs",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Countdown (4)</strong>. A PC adjacent to the breach can make a Finesse Roll to seal it. On a success, tick down this countdown. When triggered, the hull breach is sealed and Hull Breach immediately ends with no effect.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "px8b6vnjTOmzlLNO",
+      "img": "icons/commodities/tech/metal-panel.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783702217401,
+        "modifiedTime": 1783702336891,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!AaDXqSZhTFoFnio1.px8b6vnjTOmzlLNO"
+    }
+  ],
+  "effects": [],
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783698938490,
+    "modifiedTime": 1783703585485,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!AaDXqSZhTFoFnio1"
+}

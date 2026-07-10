@@ -1,0 +1,340 @@
+{
+  "folder": "a0IckltZfWuCZrga",
+  "name": "Alien Jungle",
+  "type": "environment",
+  "_id": "r4lOZo3yAD1FJYiN",
+  "img": "icons/environment/wilderness/altar-hidden.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Towering alien vegetation, carnivorous flora, and unfamiliar wildlife make every step into the jungle a journey into the unknown.</p>",
+    "tier": 1,
+    "difficulty": 11,
+    "potentialAdversaries": {},
+    "notes": "",
+    "type": "exploration",
+    "impulses": "Hide dangers behind beautiful scenery and reward careful observation"
+  },
+  "prototypeToken": {
+    "name": "Alien Jungle",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/environment/wilderness/altar-hidden.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Living Canopy",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Ranged attacks against creatures farther than Close range have Disadvantage unless the attacker has an elevated position.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "Zfy1RZnO5NGwlAis",
+      "img": "icons/magic/nature/stealth-hide-eyes-pink.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783707409548,
+        "modifiedTime": 1783708082229,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!r4lOZo3yAD1FJYiN.Zfy1RZnO5NGwlAis"
+    },
+    {
+      "name": "Predator in the Brush",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> An unseen creature immediately makes an attack from a Hidden position.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "kJmQcttMyZ4A2x6f",
+      "img": "icons/environment/creatures/bug-worm-spiked.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783707439923,
+        "modifiedTime": 1783707496033,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!r4lOZo3yAD1FJYiN.kJmQcttMyZ4A2x6f"
+    },
+    {
+      "name": "Carnivorous Vines",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> A hidden plant lashes out at a PC within Close range. They must make an Agility Roll. On a failure, they they take 1d6+1 physical damage and become Restrained until they break free with a successful Strength Roll or another creature helps them.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "6AksAt9txKHtjy53",
+      "img": "icons/magic/nature/root-vine-entangled-humanoid.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783707516749,
+        "modifiedTime": 1783708029838,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!r4lOZo3yAD1FJYiN.6AksAt9txKHtjy53"
+    },
+    {
+      "name": "Lost in the Wild",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p><strong>Countdown (6).</strong> When the PCs begin crossing the jungle, activate the countdown. The countdown ticks down whenever a PC succeeds on a roll. When triggered, the PCs safely reaches the opposite side of the jungle or their intended destination.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "y0l76FryhkFJN8HJ",
+      "img": "icons/magic/nature/plant-bamboo-green.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783707729826,
+        "modifiedTime": 1783708060481,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!r4lOZo3yAD1FJYiN.y0l76FryhkFJN8HJ"
+    },
+    {
+      "name": "Spore Cloud",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> A cloud of toxic spores erupts within Close range. Every creature in the area must make a Strength Roll. On a failure, they mark 1 Stress.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "4XOJ95yad516rqN0",
+      "img": "icons/magic/nature/plant-undersea-glow-green.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783707942747,
+        "modifiedTime": 1783708008314,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!r4lOZo3yAD1FJYiN.4XOJ95yad516rqN0"
+    },
+    {
+      "name": "Medicinal Flora",
+      "type": "feature",
+      "system": {
+        "featureForm": "reaction",
+        "attribution": {},
+        "description": "<p>When a PC succeeds on a Knowledge or Instinct Roll to study the local plants, they may immediately clear 1 Stress or gain Advantage on their next roll made against this environment.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "XXYFbpCbNl13cxJf",
+      "img": "icons/magic/nature/plant-seed-hands-glow-yellow.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708109666,
+        "modifiedTime": 1783708136766,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!r4lOZo3yAD1FJYiN.XXYFbpCbNl13cxJf"
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783707341740,
+    "modifiedTime": 1783707395650,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!r4lOZo3yAD1FJYiN"
+}

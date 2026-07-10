@@ -3,7 +3,7 @@
   "name": "Systemic Failure",
   "type": "feature",
   "_id": "F6JIbQR5wsOJ4xun",
-  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "img": "icons/commodities/tech/electronics-button-skull-red.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783383878070,
-    "modifiedTime": 1783674938656,
+    "modifiedTime": 1783696067111,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

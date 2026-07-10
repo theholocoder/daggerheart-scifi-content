@@ -1,0 +1,37 @@
+{
+  "folder": "6sFLVLCQU5XQ24Cr",
+  "name": "Corporateborne",
+  "type": "community",
+  "_id": "aCjytLSMBbSsXMhe",
+  "img": "icons/sundries/documents/notebook-spiral-red.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Being part of a corporateborne community means you were raised within the influence of a megacorporation. Whether as an executive's child or a factory worker, you learned that favors, contracts, and reputation often matter more than laws.</p><p><em>Corporateborne are often ambitious, composed, persuasive, polished, and calculating.</em></p>",
+    "features": [
+      "Compendium.daggerheart-scifi-content.character-options.Item.T8GOaeF0K2dFkuVZ"
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783697845144,
+    "modifiedTime": 1783698133587,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!aCjytLSMBbSsXMhe"
+}

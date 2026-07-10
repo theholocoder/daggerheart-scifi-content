@@ -1,0 +1,37 @@
+{
+  "folder": "6sFLVLCQU5XQ24Cr",
+  "name": "Forgeborne",
+  "type": "community",
+  "_id": "5B8E4wjsNUUG57Md",
+  "img": "icons/skills/trades/smithing-smelter-tongs.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Being part of a forgeborne community means you were raised in massive industrial complexes, orbital foundries, or bustling shipyards where construction and repair never truly stop. Your people solve problems with ingenuity, tools, and perseverance rather than brute force.</p><p><em>Forgeborne are often diligent, inventive, patient, resourceful, steadfast, and meticulous.</em></p>",
+    "features": [
+      "Compendium.daggerheart-scifi-content.character-options.Item.SgDVW4U8VTuY5hpR"
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783697200387,
+    "modifiedTime": 1783698141475,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!5B8E4wjsNUUG57Md"
+}

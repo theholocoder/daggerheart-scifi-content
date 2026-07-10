@@ -1,0 +1,37 @@
+{
+  "folder": "6sFLVLCQU5XQ24Cr",
+  "name": "Spaceborne",
+  "type": "community",
+  "_id": "Eu7PWsiI2xZK99Sf",
+  "img": "icons/environment/cosmos/astronomy-planetary-orbits.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Being part of a spaceborne community means you were raised aboard spacecraft, orbital stations, or deep-space habitats rather than on the surface of a planet. You instinctively understand the rhythms of life in confined environments, from long voyages between the stars to emergency decompressions and zero-gravity maintenance. To a spaceborne person, an airlock feels as familiar as a front door.</p><p><em>Spaceborne are often adaptable, daring, disciplined, practical, resilient, and curious.</em></p>",
+    "features": [
+      "Compendium.daggerheart-scifi-content.character-options.Item.fBIayp2V9V7rUII8"
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783697018369,
+    "modifiedTime": 1783698150029,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Eu7PWsiI2xZK99Sf"
+}

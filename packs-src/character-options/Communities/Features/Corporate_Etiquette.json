@@ -1,16 +1,16 @@
 {
-  "folder": "pdVzmZeMrqQxLCHA",
-  "name": "Vanishing Point",
+  "folder": "zJl3BQZGZBL6fWlH",
+  "name": "Corporate Etiquette",
   "type": "feature",
-  "_id": "kPD5BGfaNAZlYNQN",
-  "img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
+  "_id": "T8GOaeF0K2dFkuVZ",
+  "img": "icons/skills/social/theft-pickpocket-bribery-brown.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
       "page": null,
       "artist": ""
     },
-    "description": "<p>Once per scene, immediately after damaging a creature, you may become Hidden.</p>",
+    "description": "<p>You have Advantage on rolls to negotiate contracts, leverage bureaucracy, or interact with corporate officials.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -28,12 +28,12 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783674828165,
-    "modifiedTime": 1783696322127,
+    "createdTime": 1783697919233,
+    "modifiedTime": 1783698109898,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!items!kPD5BGfaNAZlYNQN"
+  "_key": "!items!T8GOaeF0K2dFkuVZ"
 }

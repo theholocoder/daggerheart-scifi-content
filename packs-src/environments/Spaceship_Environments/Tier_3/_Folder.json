@@ -1,10 +1,10 @@
 {
   "type": "Actor",
-  "folder": null,
-  "name": "Tier 2",
+  "folder": "WVQwPxDT36p5rXMX",
+  "name": "Tier 3",
   "color": null,
   "sorting": "a",
-  "_id": "7ebLxCyy6dKrbyLF",
+  "_id": "y7u6MUvNA4PfhRpt",
   "description": "",
   "sort": 0,
   "flags": {},
@@ -12,12 +12,12 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783256815811,
-    "modifiedTime": 1783256815811,
+    "createdTime": 1783703569796,
+    "modifiedTime": 1783703569796,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!7ebLxCyy6dKrbyLF"
+  "_key": "!folders!y7u6MUvNA4PfhRpt"
 }

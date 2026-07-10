@@ -1,0 +1,37 @@
+{
+  "folder": "6sFLVLCQU5XQ24Cr",
+  "name": "Frontierborne",
+  "type": "community",
+  "_id": "7DdR3Y9gfqkILoUM",
+  "img": "icons/environment/settlement/house-farmland.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Being part of a frontierborne community means you grew up on isolated colonies, mining worlds, or the edge of explored space. Frontier communities survive because everyone learns to be self-reliant, adaptable, and ready for the unexpected.</p><p><em>Frontierborne are often courageous, independent, pragmatic, resilient, self-sufficient, and tenacious.</em></p>",
+    "features": [
+      "Compendium.daggerheart-scifi-content.character-options.Item.5sggsNvH1s8UNefV"
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783697531660,
+    "modifiedTime": 1783698167386,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!7DdR3Y9gfqkILoUM"
+}

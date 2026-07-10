@@ -3,7 +3,7 @@
   "name": "Propagation",
   "type": "feature",
   "_id": "WQ0F0R6SNEkMITCA",
-  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "img": "icons/commodities/tech/electronics-tech-interface-teal.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783383784446,
-    "modifiedTime": 1783674947510,
+    "modifiedTime": 1783696084617,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

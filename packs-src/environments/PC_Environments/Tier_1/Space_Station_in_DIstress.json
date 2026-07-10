@@ -1,0 +1,375 @@
+{
+  "folder": "a0IckltZfWuCZrga",
+  "name": "Space Station in DIstress",
+  "type": "environment",
+  "_id": "2nphBJtAWCVZeZMA",
+  "img": "icons/environment/cosmos/planet-moon-blue.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Power flickers as emergency sirens echo through the station's corridors. Fires burn unchecked, blast doors seal at random, and panicked survivors scramble toward evacuation pods while critical systems fail one after another. Every decision costs precious time.</p>",
+    "tier": 1,
+    "difficulty": 11,
+    "potentialAdversaries": {},
+    "notes": "",
+    "type": "exploration",
+    "impulses": "Separate the crew, force difficult choices, and remind the PCs that they can't save everyone"
+  },
+  "prototypeToken": {
+    "name": "Space Station in DIstress",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/environment/cosmos/planet-moon-blue.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Station Collapse",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p><strong>Countdown (8).</strong> When the PCs enter the station, activate the countdown. The countdown ticks down whenever a PC rolls with Fear. When triggered, the station suffers catastrophic structural failure. Every remaining compartment becomes inaccessible as the station breaks apart, forcing the PCs to immediately escape or face the consequences.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "yuCDlFcsGYbzjR4q",
+      "img": "icons/environment/cosmos/planet-moon-blue.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708233885,
+        "modifiedTime": 1783708274301,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.yuCDlFcsGYbzjR4q"
+    },
+    {
+      "name": "Distress Beacon",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p><strong>Countdown (5).</strong> When the station's distress beacon begins broadcasting, activate the countdown. The countdown ticks down whenever a PC succeeds on a Knowledge Roll while attempting to locate survivors or restore station systems. When triggered, reinforcements or rescue forces arrive, depending on the fiction.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "8OVh9CGdViwrGrf4",
+      "img": "icons/commodities/tech/metal-blue.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708293407,
+        "modifiedTime": 1783708359986,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.8OVh9CGdViwrGrf4"
+    },
+    {
+      "name": "Emergency Blast Doors",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> Blast doors slam shut, separating one or more PCs until they can bypass or force the doors.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "i1YUwIkt0JELCY0f",
+      "img": "icons/commodities/tech/wire-copper-red.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708372647,
+        "modifiedTime": 1783708395760,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.i1YUwIkt0JELCY0f"
+    },
+    {
+      "name": "Failing Systems",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> Choose one: the lights fail, artificial gravity fluctuates, life support malfunctions, communications are disrupted, or internal sensors go offline.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "sRkseNhqpOpMbAlW",
+      "img": "icons/commodities/tech/battery-coil-tesla.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708403602,
+        "modifiedTime": 1783708457046,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.sRkseNhqpOpMbAlW"
+    },
+    {
+      "name": "Spreading Fire",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear.</strong> A nearby compartment catches fire. Every creature entering or beginning their turn within Close range of the blaze must succeed on an Agility Roll or mark 1 Stress.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "OZ36K3pbvBo2JsTi",
+      "img": "icons/magic/fire/explosion-flame-lightning-strike.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708465173,
+        "modifiedTime": 1783708502476,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.OZ36K3pbvBo2JsTi"
+    },
+    {
+      "name": "Survivor in Peril",
+      "type": "feature",
+      "system": {
+        "featureForm": "reaction",
+        "attribution": {},
+        "description": "<p>When a PC succeeds on a roll to search the station, they discover a trapped survivor, a damaged service robot, or a frightened child. The GM should immediately present a meaningful choice between continuing the mission or attempting a rescue.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "NM2KkIGMmm0g6Neq",
+      "img": "icons/environment/people/group.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708511542,
+        "modifiedTime": 1783708546014,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.NM2KkIGMmm0g6Neq"
+    },
+    {
+      "name": "Emergency Console",
+      "type": "feature",
+      "system": {
+        "featureForm": "reaction",
+        "attribution": {},
+        "description": "<p>When a PC succeeds on a Roll at a functioning terminal, they may immediately ask the GM one of the following questions: Where are the survivors?, What caused the station's distress?, Which route is currently the safest?, or Which critical system is closest to failure?</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "I1haMXZcNbqytYaF",
+      "img": "icons/commodities/tech/data-pad.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783708554907,
+        "modifiedTime": 1783708589087,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!2nphBJtAWCVZeZMA.I1haMXZcNbqytYaF"
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783708189222,
+    "modifiedTime": 1783708280747,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!2nphBJtAWCVZeZMA"
+}

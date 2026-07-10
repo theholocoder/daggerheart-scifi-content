@@ -3,7 +3,7 @@
   "name": "Optical Camouflage",
   "type": "feature",
   "_id": "5Dso4Yi1PHUPVVgX",
-  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "img": "icons/commodities/tech/cylinder-blue.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783674741003,
-    "modifiedTime": 1783674951929,
+    "modifiedTime": 1783696109145,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

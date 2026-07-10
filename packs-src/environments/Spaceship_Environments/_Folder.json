@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": null,
+  "name": "Spaceship Environments",
+  "color": "#5b1d72",
+  "sorting": "a",
+  "_id": "WVQwPxDT36p5rXMX",
+  "description": "",
+  "sort": 400000,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783703532536,
+    "modifiedTime": 1783703543865,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!WVQwPxDT36p5rXMX"
+}

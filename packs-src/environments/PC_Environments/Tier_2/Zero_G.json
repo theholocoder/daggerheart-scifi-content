@@ -1,21 +1,40 @@
 {
-  "folder": "7ebLxCyy6dKrbyLF",
+  "folder": "4UmaJ0DKZzTyhS2I",
   "name": "Zero G",
   "type": "environment",
   "_id": "LkybvOa5lyoWXCdx",
-  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-circle-emblem.webp",
+  "img": "icons/skills/movement/portal-silhouette-pink.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p>A damaged station, derelict vessel, or open hangar where gravity has failed and every movement carries momentum.</p>",
     "tier": 2,
     "difficulty": 14,
-    "potentialAdversaries": {},
+    "potentialAdversaries": {
+      "QYBO5Le5qCXvauwq": {
+        "label": "Androids",
+        "adversaries": []
+      },
+      "sdqpMIZ93NLO7rdz": {
+        "label": "Security drones",
+        "adversaries": []
+      },
+      "lPg4hge8huTMPMKH": {
+        "label": "Mercenaries",
+        "adversaries": [
+          "Compendium.daggerheart.adversaries.Actor.5Lh1T0zaT8Pkr2U2"
+        ]
+      },
+      "WjPCaoKtD0Fk6Hbp": {
+        "label": "Void creatures",
+        "adversaries": []
+      }
+    },
     "notes": "",
-    "impulses": "Exact a toll in stamina, slow down movement",
+    "impulses": "Separate the crew, make every movement matter, and use momentum against them, slow down movement",
     "type": "traversal"
   },
   "prototypeToken": {
@@ -152,7 +171,7 @@
       "system": {
         "featureForm": "action",
         "attribution": {},
-        "description": "<p>Spend a Fear to make a PC miss their grip. They must make a [[/dr trait=strength difficulty=14 reaction=true]]. On a failure, they take @Damage[type:physical|value:1d6+1] physical damage and keep moving or bounce to a Close distance. On a success, they mark a Stress.</p><section id=\"secret-6kfpwUJe4pggErQq\" class=\"secret\"><p>On a failure with fear, they also become Vulnerable.</p></section>",
+        "description": "<p><strong>Spend a Fear</strong> to make a PC miss their grip. They must make a [[/dr trait=strength difficulty=14 reaction=true]]. On a failure, they take @Damage[type:physical|value:1d6+1] physical damage and keep moving or bounce to a Close distance. On a success, they mark a Stress.</p><section id=\"secret-6kfpwUJe4pggErQq\" class=\"secret\"><p>On a failure with fear, they also become Vulnerable.</p></section>",
         "resource": null,
         "actions": {},
         "originItemType": null,
@@ -173,17 +192,122 @@
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
         "createdTime": 1783257501764,
-        "modifiedTime": 1783258030380,
+        "modifiedTime": 1783699428821,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_key": "!actors.items!LkybvOa5lyoWXCdx.aS8lrvIIb6s555iW"
+    },
+    {
+      "name": "Loose Equipment",
+      "type": "feature",
+      "system": {
+        "featureForm": "reaction",
+        "attribution": {},
+        "description": "<p>When a PC marks Stress because of this environment, a carried item begins drifting away.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "oYdFDnS4g5Iyu3yx",
+      "img": "icons/skills/ranged/shuriken-thrown-sawblade-gray.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783698845712,
+        "modifiedTime": 1783698901907,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LkybvOa5lyoWXCdx.oYdFDnS4g5Iyu3yx"
+    },
+    {
+      "name": "Newton's Third Law",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Whenever a PC deliberately pushes off a solid surface before moving, they gain Advantage on their next Traversal Roll.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "xYgIZlniZ0ysiS73",
+      "img": "icons/magic/movement/trail-streak-pink.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783700520220,
+        "modifiedTime": 1783700550650,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LkybvOa5lyoWXCdx.xYgIZlniZ0ysiS73"
+    },
+    {
+      "name": "Floating debris",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p><strong>Spend a Fear</strong> to loosen an object in the scene. One PC must either catch it with an Agility Roll or allow it to become inaccessible.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "E25WVBfkIPkThI1J",
+      "img": "icons/skills/melee/unarmed-punch-fist.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783700585198,
+        "modifiedTime": 1783700672076,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!LkybvOa5lyoWXCdx.E25WVBfkIPkThI1J"
     }
   ],
   "effects": [],
-  "sort": 0,
+  "sort": 100000,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -194,7 +318,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783256828081,
-    "modifiedTime": 1783263528680,
+    "modifiedTime": 1783703557873,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

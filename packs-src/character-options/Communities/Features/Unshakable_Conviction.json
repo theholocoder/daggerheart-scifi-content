@@ -1,16 +1,16 @@
 {
-  "folder": "pdVzmZeMrqQxLCHA",
-  "name": "Vanishing Point",
+  "folder": "zJl3BQZGZBL6fWlH",
+  "name": "Unshakable Conviction",
   "type": "feature",
-  "_id": "kPD5BGfaNAZlYNQN",
-  "img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
+  "_id": "S2YKpIAFzTfJ2WsC",
+  "img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
       "page": null,
       "artist": ""
     },
-    "description": "<p>Once per scene, immediately after damaging a creature, you may become Hidden.</p>",
+    "description": "<p><strong>Once per Long Rest</strong>, when you would gain Fear on an <strong>Action Roll</strong>, you may instead reroll your Hope die and keep the new result.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -28,12 +28,12 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783674828165,
-    "modifiedTime": 1783696322127,
+    "createdTime": 1783697808199,
+    "modifiedTime": 1783698117213,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!items!kPD5BGfaNAZlYNQN"
+  "_key": "!items!S2YKpIAFzTfJ2WsC"
 }

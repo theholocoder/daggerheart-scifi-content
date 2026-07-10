@@ -3,7 +3,7 @@
   "name": "Viral Payload",
   "type": "feature",
   "_id": "ipaUsRjjzM5mxZDu",
-  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "img": "icons/commodities/tech/usb-thumb-drive.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783383710186,
-    "modifiedTime": 1783674929452,
+    "modifiedTime": 1783696047016,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

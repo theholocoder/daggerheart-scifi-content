@@ -1,16 +1,16 @@
 {
-  "folder": "pdVzmZeMrqQxLCHA",
-  "name": "Vanishing Point",
+  "folder": "zJl3BQZGZBL6fWlH",
+  "name": "Built to last",
   "type": "feature",
-  "_id": "kPD5BGfaNAZlYNQN",
-  "img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
+  "_id": "SgDVW4U8VTuY5hpR",
+  "img": "icons/skills/trades/smithing-tongs-metal-red.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
       "page": null,
       "artist": ""
     },
-    "description": "<p>Once per scene, immediately after damaging a creature, you may become Hidden.</p>",
+    "description": "<p>You have Advantage on rolls to repair machinery, fabricate equipment, or understand how technological devices function.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -28,12 +28,12 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783674828165,
-    "modifiedTime": 1783696322127,
+    "createdTime": 1783697470396,
+    "modifiedTime": 1783698106075,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!items!kPD5BGfaNAZlYNQN"
+  "_key": "!items!SgDVW4U8VTuY5hpR"
 }

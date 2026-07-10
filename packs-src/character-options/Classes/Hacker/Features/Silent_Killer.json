@@ -3,7 +3,7 @@
   "name": "Silent Killer",
   "type": "feature",
   "_id": "BgdXcDsrifAdJjZm",
-  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "img": "icons/skills/melee/strike-blade-knife-blue-red.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783674780003,
-    "modifiedTime": 1783674943025,
+    "modifiedTime": 1783696426093,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
