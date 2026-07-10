@@ -1,0 +1,85 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Vacuum Adaptation",
+  "type": "feature",
+  "_id": "7QkHj2slS8NJ062G",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/penumbral-shroud.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You have advantage to Agility rolls to move in Zero-G. Also, <strong>Once per Session</strong>, you can survive unprotected in vacuum for a limited time, you can perform 5 actions.</p>",
+    "resource": {
+      "type": "simple",
+      "value": 5,
+      "max": "5",
+      "recovery": "session",
+      "progression": "increasing",
+      "dieFaces": "d4",
+      "icon": "fa-solid -fa-user-astronaut"
+    },
+    "actions": {
+      "VeCXHu0L8nmK611g": {
+        "type": "effect",
+        "_id": "VeCXHu0L8nmK611g",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "resource",
+            "value": 1,
+            "itemId": "7QkHj2slS8NJ062G",
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Action in the vaccum of space",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783690076323,
+    "modifiedTime": 1783692253013,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!7QkHj2slS8NJ062G"
+}

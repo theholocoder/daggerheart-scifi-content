@@ -1,0 +1,39 @@
+{
+  "folder": "ofL2QCBUI9pCHDe8",
+  "name": "Unstable Resonance",
+  "type": "feature",
+  "_id": "jFCMyFc5j8GSnyqw",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-sphere-energy-reaction.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you spend a <strong>Resonance Die</strong>, roll an additional <strong>d6</strong>. Use the higher of the two results.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783685016782,
+    "modifiedTime": 1783685185313,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!jFCMyFc5j8GSnyqw"
+}

@@ -1,0 +1,39 @@
+{
+  "folder": "ofL2QCBUI9pCHDe8",
+  "name": "I'm one with the Resonance and the Resonance is with me",
+  "type": "feature",
+  "_id": "4DGWeub3bXkteGhy",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-crystal.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you hit an adversary using a <strong>Resonance Die</strong>, remove 1 Fear from the GM's Fear Pool.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783684825498,
+    "modifiedTime": 1783684977027,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!4DGWeub3bXkteGhy"
+}

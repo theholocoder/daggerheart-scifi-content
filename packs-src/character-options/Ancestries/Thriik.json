@@ -1,0 +1,44 @@
+{
+  "folder": "KjbbtmNF7SEmZ9t0",
+  "name": "Thriik",
+  "type": "ancestry",
+  "_id": "51JAA9aEqDYhQwhi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/shirren.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Insectoid beings who thrive through cooperation and shared purpose.</p>",
+    "features": [
+      {
+        "type": "primary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.Ipp6eGWldta6dGKH"
+      },
+      {
+        "type": "secondary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.osX3Yck9fX9tdmYm"
+      }
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783688276896,
+    "modifiedTime": 1783692344837,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!51JAA9aEqDYhQwhi"
+}

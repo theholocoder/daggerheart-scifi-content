@@ -1,0 +1,39 @@
+{
+  "folder": "ofL2QCBUI9pCHDe8",
+  "name": "Shared Resonance",
+  "type": "feature",
+  "_id": "XjqX7VBosOV2m7Pd",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-triangle-sign.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you spend a <strong>Resonance Die</strong> to hit or damage an adversary, choose an ally within Close range of you. That ally may choose to:</p><ul><li><p>Clear 1 Armor Slot.</p></li><li><p>Clear 1 Stress.</p></li><li><p>Gain 1 Hope.</p></li></ul>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783684642827,
+    "modifiedTime": 1783684795062,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!XjqX7VBosOV2m7Pd"
+}

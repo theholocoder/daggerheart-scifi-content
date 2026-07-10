@@ -18,15 +18,30 @@
     "classItems": [],
     "hitPoints": 5,
     "evasion": 10,
-    "features": [],
+    "features": [
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.ROG2ExnSWtgIBhG3"
+      },
+      {
+        "type": "hope",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.ieg4S7OlNCg12Cke"
+      }
+    ],
     "inventory": {
       "take": [
         "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
         "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
         "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk"
       ],
-      "choiceA": [],
-      "choiceB": []
+      "choiceA": [
+        "Compendium.daggerheart-scifi-content.items.Item.ggm0BJAPnJihr57A",
+        "Compendium.daggerheart-scifi-content.items.Item.0jb9SUXTg6HDXESk"
+      ],
+      "choiceB": [
+        "Compendium.daggerheart-scifi-content.character-options.Item.jBUHVVPXeJpTqM9R",
+        "Compendium.daggerheart-scifi-content.character-options.Item.r5Z3ooJ5omRxXFeN"
+      ]
     },
     "characterGuide": {
       "suggestedTraits": {
@@ -65,7 +80,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783678480665,
-    "modifiedTime": 1783679014596,
+    "modifiedTime": 1783684341331,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

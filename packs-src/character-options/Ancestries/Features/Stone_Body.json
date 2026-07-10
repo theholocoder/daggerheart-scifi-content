@@ -1,0 +1,109 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Stone Body",
+  "type": "feature",
+  "_id": "tO03vXrCvVCv1oir",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/flesh-to-stone.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You gain +1 <strong>Armor Slot</strong>.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Lithoid Armor",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "type": "armor",
+            "phase": "initial",
+            "value": {
+              "current": 1,
+              "max": "1",
+              "interaction": "active",
+              "damageThresholds": null
+            },
+            "priority": 20
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "pFkMqnYe3HEjopb0",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/conrasu.webp",
+      "disabled": false,
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783689412370,
+        "modifiedTime": 1783689476574,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!tO03vXrCvVCv1oir.pFkMqnYe3HEjopb0"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783689305236,
+    "modifiedTime": 1783691719003,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!tO03vXrCvVCv1oir"
+}

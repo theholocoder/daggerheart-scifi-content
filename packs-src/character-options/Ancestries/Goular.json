@@ -1,0 +1,44 @@
+{
+  "folder": "KjbbtmNF7SEmZ9t0",
+  "name": "Goular",
+  "type": "ancestry",
+  "_id": "1Pawpr98UvAv7q01",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/barathu.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Ancient parasitic organisms that inhabit and enhance living hosts.</p>",
+    "features": [
+      {
+        "type": "primary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.DOgXNNw03jWIenKz"
+      },
+      {
+        "type": "secondary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.UKyMKZUNGRF0jBlA"
+      }
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783687523892,
+    "modifiedTime": 1783692364612,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!1Pawpr98UvAv7q01"
+}

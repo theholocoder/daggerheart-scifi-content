@@ -1,0 +1,39 @@
+{
+  "folder": "ofL2QCBUI9pCHDe8",
+  "name": "Resonance Echo",
+  "type": "feature",
+  "_id": "zdOblYVECnPsWlJi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-flowing-energy.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you spend a <strong>Resonance Die</strong> to hit or damage an adversary, choose another adversary within Close range of the original target.</p><p>Apply the same Attack Roll and Damage Roll against the second target.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783684998794,
+    "modifiedTime": 1783685145576,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!zdOblYVECnPsWlJi"
+}

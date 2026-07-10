@@ -1,0 +1,39 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Symbiotic Enhancement",
+  "type": "feature",
+  "_id": "DOgXNNw03jWIenKz",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/blessing-of-defiance.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You must choose a <strong>Mixed Ancestry</strong> whose host is a living flesh-and-blood organism (not an Android, construct or other synthetic being).</p><p>Once per Long Rest, when you would mark a Hit Point, you may instead mark 2 Stress.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783687560751,
+    "modifiedTime": 1783691344219,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!DOgXNNw03jWIenKz"
+}

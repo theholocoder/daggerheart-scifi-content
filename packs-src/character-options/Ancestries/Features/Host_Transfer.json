@@ -1,0 +1,39 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Host Transfer",
+  "type": "feature",
+  "_id": "UKyMKZUNGRF0jBlA",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/contact-friends.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Upon the Host death or after a day long ritual, you may permanently change your Host ancestry by attempting an Instinct or Finesse <strong>Reaction Roll (15)</strong>. This can be considered a Death Move if the circomstances allow it (check with your GM). Replace this feature with the second inherited ancestry feature of your new host.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783687638581,
+    "modifiedTime": 1783692222716,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!UKyMKZUNGRF0jBlA"
+}

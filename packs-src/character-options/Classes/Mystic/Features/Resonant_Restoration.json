@@ -1,0 +1,39 @@
+{
+  "folder": "ofL2QCBUI9pCHDe8",
+  "name": "Resonant Restoration",
+  "type": "feature",
+  "_id": "VfWGQ5v5cx0ip2xJ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-plus-sign.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you spend a <strong>Resonance Die</strong> showing 5 or 6, you may also clear 1 Hit Point on yourself or an ally within Close range of you.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783684906318,
+    "modifiedTime": 1783684970158,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!VfWGQ5v5cx0ip2xJ"
+}

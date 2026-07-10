@@ -1,0 +1,39 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Integrated Processor",
+  "type": "feature",
+  "_id": "JC6tCSU6lAwYfjkS",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/maze-of-locked-doors.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per Long Rest, reroll an <strong>Action Roll</strong> using Knowledge or Finesse.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783686743384,
+    "modifiedTime": 1783692092605,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!JC6tCSU6lAwYfjkS"
+}

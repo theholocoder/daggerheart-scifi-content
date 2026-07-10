@@ -1,0 +1,68 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Helpful to a Fault",
+  "type": "feature",
+  "_id": "qB5mETT7yXGZ72p7",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/mage-hand.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per Scene</strong>, when an ally within Close range fails a roll, you may immediately Help them after the fact if the fiction allows.</p>",
+    "resource": null,
+    "actions": {
+      "c7xCGkxkiWS76rfI": {
+        "type": "effect",
+        "_id": "c7xCGkxkiWS76rfI",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783688837328,
+    "modifiedTime": 1783692281859,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!qB5mETT7yXGZ72p7"
+}

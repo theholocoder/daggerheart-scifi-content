@@ -1,0 +1,52 @@
+{
+  "folder": "36edMA4coFApPgK7",
+  "name": "Lifebinder",
+  "type": "subclass",
+  "_id": "ONoXVxOOoh9GeWAw",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-paragon-of-health.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Play the Lifebinder if you want to support your allies through your attacks, keep your companions in the fight, and transform the Resonance into hope and resilience.</p>",
+    "spellcastingTrait": "instinct",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.XjqX7VBosOV2m7Pd"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.ROG2ExnSWtgIBhG3"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.VfWGQ5v5cx0ip2xJ"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.Gl9KUFTA1y87LErQ"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783684354778,
+    "modifiedTime": 1783684942312,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ONoXVxOOoh9GeWAw"
+}

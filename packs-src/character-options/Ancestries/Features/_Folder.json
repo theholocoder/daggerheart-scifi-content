@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "KjbbtmNF7SEmZ9t0",
+  "name": "Features",
+  "color": null,
+  "sorting": "a",
+  "_id": "qldZSEXSq5l7lKUo",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783686701434,
+    "modifiedTime": 1783686701434,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!qldZSEXSq5l7lKUo"
+}

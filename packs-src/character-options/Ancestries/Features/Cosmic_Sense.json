@@ -1,0 +1,39 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Cosmic Sense",
+  "type": "feature",
+  "_id": "J5K0bHO7v7Q9hpWD",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/paralyze.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per Scene</strong>, always know the direction of open space, your bonded vessel, or your last visited station.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783690365292,
+    "modifiedTime": 1783692307989,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!J5K0bHO7v7Q9hpWD"
+}

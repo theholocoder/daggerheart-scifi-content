@@ -1,0 +1,44 @@
+{
+  "folder": "KjbbtmNF7SEmZ9t0",
+  "name": "Saurak",
+  "type": "ancestry",
+  "_id": "vrqxQuPVejaKVnUS",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/vesk.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Powerful reptilian warriors bred for survival and conquest.</p>",
+    "features": [
+      {
+        "type": "secondary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.8NIMImEQfdv0Un2D"
+      },
+      {
+        "type": "primary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.bbtyGCSY0cowOT9u"
+      }
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783688545797,
+    "modifiedTime": 1783692350222,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!vrqxQuPVejaKVnUS"
+}

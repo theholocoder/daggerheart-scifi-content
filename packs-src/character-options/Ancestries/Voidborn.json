@@ -1,0 +1,44 @@
+{
+  "folder": "KjbbtmNF7SEmZ9t0",
+  "name": "Voidborn",
+  "type": "ancestry",
+  "_id": "0CgE5eOXzm3IjkjH",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/ijtikri.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>A squid-like species naturally evolved to survive the hostile environment between the stars.</p>",
+    "features": [
+      {
+        "type": "primary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.7QkHj2slS8NJ062G"
+      },
+      {
+        "type": "secondary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.J5K0bHO7v7Q9hpWD"
+      }
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783689967816,
+    "modifiedTime": 1783692339717,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!0CgE5eOXzm3IjkjH"
+}

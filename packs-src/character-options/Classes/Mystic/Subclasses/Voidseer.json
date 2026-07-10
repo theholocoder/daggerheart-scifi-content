@@ -1,0 +1,52 @@
+{
+  "folder": "36edMA4coFApPgK7",
+  "name": "Voidseer",
+  "type": "subclass",
+  "_id": "mNYUywkBeLPzkaxX",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-eye.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Play the Voidseer if you want to overwhelm groups of enemies, unleash devastating magical attacks, and spread the Resonance through your foes.</p>",
+    "spellcastingTrait": "instinct",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.zdOblYVECnPsWlJi"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.jFCMyFc5j8GSnyqw"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.vo5WXgJcnmmFkKUW"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.Gl9KUFTA1y87LErQ"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783684955615,
+    "modifiedTime": 1783685094842,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!mNYUywkBeLPzkaxX"
+}

@@ -1,0 +1,44 @@
+{
+  "folder": "KjbbtmNF7SEmZ9t0",
+  "name": "Android",
+  "type": "ancestry",
+  "_id": "FV46nQDVfVJnen9i",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/android-sf2e.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Synthetic humanoids built with artificial bodies and genuine personalities.</p>",
+    "features": [
+      {
+        "type": "secondary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.JC6tCSU6lAwYfjkS"
+      },
+      {
+        "type": "primary",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.wFZsvEHe66nCllO4"
+      }
+    ]
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783686537149,
+    "modifiedTime": 1783692370998,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!FV46nQDVfVJnen9i"
+}

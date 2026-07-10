@@ -1,0 +1,68 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Unyielding",
+  "type": "feature",
+  "_id": "8NIMImEQfdv0Un2D",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/movanic-glimmer.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per Long Rest</strong>, ignore being moved or knocked Prone.</p>",
+    "resource": null,
+    "actions": {
+      "LNGJ4lCPxeK0Qgqs": {
+        "type": "effect",
+        "_id": "LNGJ4lCPxeK0Qgqs",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Use",
+        "range": "self"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783688993631,
+    "modifiedTime": 1783691518070,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!8NIMImEQfdv0Un2D"
+}
