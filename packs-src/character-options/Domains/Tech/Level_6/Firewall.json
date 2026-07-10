@@ -1,0 +1,81 @@
+{
+  "folder": "87NYRhgRzGv0lggO",
+  "name": "Firewall",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-comet-insignia.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per rest, choose an ally within Far range and enhanced their defenses. When you do, place a <strong>d8</strong> on this card with the value 8 facing up. When you ally takes damage, they reduce it by the die's value. You then decrease the die's value by one. When the value reaches zero, this effect ends.</p><p>When your ally spends an <strong>Armor Slot</strong> to reduce the severity of the damage by one threshold, you can <strong>Spend a Stress</strong> to reduce it one step further. If the Armor Slot reduces the damage to the minor threshold, this effect would negate all Hit Point taken.</p>",
+    "resource": {
+      "type": "die",
+      "value": 0,
+      "max": "8",
+      "recovery": "shortRest",
+      "progression": "increasing",
+      "dieFaces": "d8",
+      "icon": ""
+    },
+    "actions": {
+      "9sWxsHto7cgS3ROC": {
+        "type": "effect",
+        "_id": "9sWxsHto7cgS3ROC",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "friendly",
+          "amount": 1
+        },
+        "name": "Cast",
+        "range": "far"
+      }
+    },
+    "domain": "tech",
+    "level": 6,
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783374619667,
+    "modifiedTime": 1783375493789,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "VqHBKWzxLQeckKdP",
+  "sort": 0,
+  "_key": "!items!VqHBKWzxLQeckKdP"
+}

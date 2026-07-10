@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "ONaWWCWEMLpBxEge",
+  "name": "Mystic",
+  "color": "#de79ec",
+  "sorting": "a",
+  "_id": "QRJJVy5l7KqsSHVI",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783678471118,
+    "modifiedTime": 1783678471118,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!QRJJVy5l7KqsSHVI"
+}

@@ -1,0 +1,93 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Quick Draw",
+  "type": "feature",
+  "_id": "onHfhZg2I1XP6WWs",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/rifle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per turn, immediately after making an attack with your Primary Weapon, you may make an attack with your Secondary Weapon.</p><p>This attack cannot generate Hope or Fear.</p>",
+    "resource": null,
+    "actions": {
+      "f8aEp5cfsJHZ29bz": {
+        "type": "attack",
+        "_id": "f8aEp5cfsJHZ29bz",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {},
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "attack",
+          "trait": "presence",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": "agility",
+          "difficulty": 14,
+          "damageMod": "none"
+        },
+        "name": "Attack",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783673320652,
+    "modifiedTime": 1783675066350,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!onHfhZg2I1XP6WWs"
+}

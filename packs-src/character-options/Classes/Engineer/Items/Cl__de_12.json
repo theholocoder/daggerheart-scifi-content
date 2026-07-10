@@ -1,0 +1,40 @@
+{
+  "folder": "XjmAyVsUdKsRWwJA",
+  "name": "Clé de 12",
+  "type": "loot",
+  "_id": "I1UCEQ7oqRyfY3Kx",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hand-holding-wrench.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783344290884,
+    "modifiedTime": 1783675223206,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!I1UCEQ7oqRyfY3Kx"
+}

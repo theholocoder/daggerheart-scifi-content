@@ -1,0 +1,100 @@
+{
+  "folder": "uni4W32cNXU1jjpq",
+  "name": "Smoke Grenade",
+  "type": "consumable",
+  "_id": "YHnR2pOe067wDEK4",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/grenade-canister.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Throw this grenade at an point within Far range. A cloud of smoke expands upon detonation in a shape of a sphere of Very Close radius.  Attacks and perception is at disadvantage within the smoke, as well as from the outside in or the inside out.</p><p>@Template[type:circle|range:vc]</p>",
+    "quantity": 1,
+    "actions": {
+      "f7gTY8NdUfNCxVlx": {
+        "type": "attack",
+        "_id": "f7gTY8NdUfNCxVlx",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "quantity",
+            "value": 1,
+            "itemId": "YHnR2pOe067wDEK4",
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {},
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Throw",
+        "range": "far"
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783675272378,
+    "modifiedTime": 1783675527793,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!YHnR2pOe067wDEK4"
+}

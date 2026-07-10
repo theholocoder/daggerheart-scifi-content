@@ -1,0 +1,52 @@
+{
+  "folder": "tclVeZZ8QS555sox",
+  "name": "Ghost",
+  "type": "subclass",
+  "_id": "UJ5Oqqz0uzFeUPlE",
+  "img": "systems/daggerheart/assets/icons/documents/items/laurels.svg",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "spellcastingTrait": "finesse",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.5Dso4Yi1PHUPVVgX"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.BgdXcDsrifAdJjZm"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.kPD5BGfaNAZlYNQN"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.XbmoRrAovSyGiBN9"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783383031424,
+    "modifiedTime": 1783674916197,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!UJ5Oqqz0uzFeUPlE"
+}

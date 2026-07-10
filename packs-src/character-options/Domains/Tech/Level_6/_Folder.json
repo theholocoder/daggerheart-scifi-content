@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "HwAC2YWnr7xaVwVe",
+  "name": "Level 6",
+  "color": null,
+  "sorting": "a",
+  "_id": "87NYRhgRzGv0lggO",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783374567815,
+    "modifiedTime": 1783374567815,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!87NYRhgRzGv0lggO"
+}

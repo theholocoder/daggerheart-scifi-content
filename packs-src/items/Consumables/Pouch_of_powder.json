@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Mark 1 HP and clear 1 Stress.</p>",
+    "description": "<p>Mark 1 HP and clear 2 Stress.</p>",
     "quantity": 1,
     "actions": {
       "sVa4S5bftnEG8HnF": {
@@ -120,7 +120,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783254635357,
-    "modifiedTime": 1783329692355,
+    "modifiedTime": 1783671096026,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

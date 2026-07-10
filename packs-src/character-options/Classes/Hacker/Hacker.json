@@ -1,0 +1,90 @@
+{
+  "folder": "Z0iVLxdoN2rWFsmm",
+  "name": "Hacker",
+  "type": "class",
+  "_id": "XbmoRrAovSyGiBN9",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-alien-glowing-skill.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Hackers manipulate the battlefield through information warfare, cyber intrusion, and electronic disruption. They turn every piece of technology into a weapon and every opponent into a vulnerability.</p>",
+    "domains": [
+      "midnight",
+      "tech"
+    ],
+    "classItems": [],
+    "hitPoints": 5,
+    "evasion": 12,
+    "features": [
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.y4cUUgwOuWBlzF1e"
+      },
+      {
+        "type": "hope",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.tBAeJc6NJtn47pdQ"
+      }
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG"
+      ],
+      "choiceA": [
+        "Compendium.daggerheart-scifi-content.items.Item.ggm0BJAPnJihr57A",
+        "Compendium.daggerheart.consumables.Item.b6vGSPFWOlzZZDLO"
+      ],
+      "choiceB": [
+        "Compendium.daggerheart-scifi-content.character-options.Item.2TUPaWhvOsnj8HSJ",
+        "Compendium.daggerheart-scifi-content.character-options.Item.9YIoGTcRmpuKKRs0"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 1,
+        "strength": -1,
+        "finesse": 2,
+        "instinct": 0,
+        "presence": 0,
+        "knowledge": 1
+      },
+      "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.zxKt6qXe7uZB6ljm",
+      "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.Xa0gb7Tid7behYVc",
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
+    },
+    "backgroundQuestions": [
+      "",
+      "",
+      ""
+    ],
+    "connections": [
+      "",
+      "",
+      ""
+    ],
+    "isMulticlass": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783381408568,
+    "modifiedTime": 1783674906574,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!XbmoRrAovSyGiBN9"
+}

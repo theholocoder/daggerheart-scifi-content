@@ -1,0 +1,39 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "Companion Robot",
+  "type": "feature",
+  "_id": "s6J3Xqecns5hUJPq",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/alien-mask.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Your companion acts during your turn. You are in permanent communication with it. It can:</p><ul><li><p>Move (it cannot fly but can move in Zero G).</p></li><li><p>Attack in melee (using the same benefits you have as well as your Proficiency).</p></li><li><p>Interact with its environment.</p></li><li><p>Activate one of your @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices} if in Melee range of it.</p></li><li><p>Talk.</p></li></ul><p>Your companion has 3 Stress markers starts with an Evasion of 10. Everytime your companion would take any amount of damage, it marks a Stress. When it marks its last Stress, it deactivates and remains unavailable until the start of your next long rest. When you choose a downtime move that clears a Stress on yourself, your companion clears an equal number of Stress.</p><hr><p><strong>Attack and damage.</strong></p><p>Your companion starts with a d6 damage dice and Melee range. Make a Spellcast roll to attack.</p><hr><p>Training.</p><p>When your character levels up, choose one of these options for you companion:</p><ul><li><p>[0/3] <strong>Resilient:</strong> your companion gains an additional Stress slot.</p></li><li><p>[0/1] <strong>Armored:</strong> when your companion takes damage, you can mark one of your Armor Slots instead of a Stress.</p></li><li><p>[0/3] <strong>Hydraulics:</strong> increase the damage dice by one step (d6 to d8, d8 to d10, etc.)</p></li><li><p>[0/1] <strong>Not My Master</strong>: when you mark your last HP, your companion rushes to save you. It takes 1d6 Stress point instead of you taking a HP.</p></li><li><p>[0/3] <strong>Aware:</strong> your companion gains +1 to its Evasion.</p></li></ul><p></p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783346743120,
+    "modifiedTime": 1783675121376,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!s6J3Xqecns5hUJPq"
+}

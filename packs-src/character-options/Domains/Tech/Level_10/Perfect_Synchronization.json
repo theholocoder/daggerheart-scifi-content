@@ -1,0 +1,44 @@
+{
+  "folder": "eYJm9byGp0zYAs5w",
+  "name": "Perfect Synchronization",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hand-three-connected-dots.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When an ally within Close range deals damage to an adversary, you can make a <strong>Spellcast Roll</strong> against the same target.</p><p>If your roll succeeds with Fear, the target mark one additional Hit Point.</p><p>If your roll succees with Hope, both you and your ally clear a Stress or gain a Hope.</p>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 10,
+    "recallCost": 1,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783380317031,
+    "modifiedTime": 1783380634121,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "RJkxA2EF6o3KULqh",
+  "sort": 0,
+  "_key": "!items!RJkxA2EF6o3KULqh"
+}

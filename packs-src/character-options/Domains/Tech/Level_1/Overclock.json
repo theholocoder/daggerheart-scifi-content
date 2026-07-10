@@ -1,0 +1,242 @@
+{
+  "folder": "YSkSfPaGAGbb6zu9",
+  "name": "Overclock",
+  "type": "domainCard",
+  "_id": "QrIMvPvFpDQRBW6G",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Boost the equipment of an ally at Close range or your equipment. Choose one:</p><ul><li><p>Add 1d6 damage to the next primary weapon damages.</p></li><li><p>Grant +2 Evasion until your next turn.</p></li></ul>",
+    "resource": null,
+    "actions": {
+      "hBBHLr7eBNQCvhwz": {
+        "type": "effect",
+        "_id": "hBBHLr7eBNQCvhwz",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "VzdGjWRO3qh0RZLV",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "name": "Overclock Weapon",
+        "range": "close"
+      },
+      "AYRw66dAujMumQmf": {
+        "type": "effect",
+        "_id": "AYRw66dAujMumQmf",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "qQQAhJInq9o0Dncq",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "name": "Overclock Defenses",
+        "range": "close"
+      }
+    },
+    "domain": "tech",
+    "level": 1,
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [
+    {
+      "name": "Overclocked Weapon",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
+      "description": "",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [
+          {
+            "key": "system.bonuses.damage.primaryWeapon.dice",
+            "type": "upgrade",
+            "value": "1d6",
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "VzdGjWRO3qh0RZLV",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783352804582,
+        "modifiedTime": 1783354427051,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!QrIMvPvFpDQRBW6G.VzdGjWRO3qh0RZLV"
+    },
+    {
+      "name": "Overclocked Defenses",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
+      "description": "",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [
+          {
+            "key": "system.evasion",
+            "type": "add",
+            "value": 2,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "qQQAhJInq9o0Dncq",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783352884735,
+        "modifiedTime": 1783353020489,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!QrIMvPvFpDQRBW6G.qQQAhJInq9o0Dncq"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783352195412,
+    "modifiedTime": 1783354463530,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!QrIMvPvFpDQRBW6G"
+}

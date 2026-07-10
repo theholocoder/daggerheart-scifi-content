@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "HwAC2YWnr7xaVwVe",
+  "name": "Level 10",
+  "color": null,
+  "sorting": "a",
+  "_id": "eYJm9byGp0zYAs5w",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783380100868,
+    "modifiedTime": 1783380100868,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!eYJm9byGp0zYAs5w"
+}

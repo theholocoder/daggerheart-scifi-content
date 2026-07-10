@@ -5,7 +5,11 @@
   "_id": "ynycCZKxFhbVkoF5",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/future-chainsaw.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>You gain a pool of dice called <strong>Unleash Dice</strong>. Whenever you mark a Stress or an Armor in order to help an ally, you can place a <strong>d6</strong> on this card, adding to the dice pool. You can store a number of <strong>Unleash Dice</strong> equal to your Proficiency. When you make an attack roll or damage roll, you can spend any number of these <strong>Unleash Dice</strong>, rolling them and adding their result to the roll. At the end of each session, clear any unspent <strong>Unleash Dice</strong> and gain a Hope per die cleared.</p>",
     "resource": {
       "type": "simple",
@@ -33,7 +37,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783342044491,
-    "modifiedTime": 1783342476447,
+    "modifiedTime": 1783675006288,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

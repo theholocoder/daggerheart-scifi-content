@@ -1,0 +1,44 @@
+{
+  "folder": "YSkSfPaGAGbb6zu9",
+  "name": "Tactical Scan",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/control-panel-handheld.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Spend a Hope to activate the Tactical Scan in one of two modes:</p><ul><li><p>Broadcast mode</p></li><li><p>Targeted mode</p></li></ul><hr><p><strong>Broadcast mode.</strong></p><p>Detect signs of life and movement within a Very Far range around you. You know the general direction and kind either determine the distances or the size of the life forms.</p><hr><p><strong>Targeted mode.</strong></p><p>You specifically configure the Tactical Scan to gather information about a life form within Far range that you know about. You can ask one information about the target such as its Difficulty, Damage Thresholds, Type, Size, total HP, Resistances or Immunities. The GM may also provide one more information.</p>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 1,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783355643536,
+    "modifiedTime": 1783356034697,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "xkoWmw1g9uIJv2RJ",
+  "sort": 0,
+  "_key": "!items!xkoWmw1g9uIJv2RJ"
+}

@@ -5,7 +5,11 @@
   "_id": "hazCuTtT5BWHbaU4",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-hand.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>Whenever you use the Driving Strike @UUID[Compendium.daggerheart-scifi-content.character-options.3Y7jLVCzCWwAvcPt]{Technique}, you may push an ally in Very Close range instead. This can not trigger an Opportunity Attack on the ally.</p>",
     "resource": null,
     "actions": {},
@@ -25,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783341795901,
-    "modifiedTime": 1783341963725,
+    "modifiedTime": 1783674993398,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

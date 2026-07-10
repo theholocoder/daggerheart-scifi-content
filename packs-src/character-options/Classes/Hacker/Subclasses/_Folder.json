@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "Z0iVLxdoN2rWFsmm",
+  "name": "Subclasses",
+  "color": null,
+  "sorting": "a",
+  "_id": "tclVeZZ8QS555sox",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783381482619,
+    "modifiedTime": 1783381482619,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!tclVeZZ8QS555sox"
+}

@@ -1,0 +1,39 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Viral Payload",
+  "type": "feature",
+  "_id": "ipaUsRjjzM5mxZDu",
+  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you apply an Intrusion, place a Virus Token on that adversary.</p><p>Whenever you damage an adversary with a Virus Token using your Primary or Secondary Weapon, deal an additional <strong>d6</strong> magic damage, increasing with your Proficiency.</p><p>An adversary can only have one Virus Token.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783383710186,
+    "modifiedTime": 1783674929452,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ipaUsRjjzM5mxZDu"
+}

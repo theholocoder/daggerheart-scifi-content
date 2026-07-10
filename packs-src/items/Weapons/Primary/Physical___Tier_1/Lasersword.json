@@ -13,7 +13,45 @@
     "description": "",
     "resource": null,
     "quantity": 1,
-    "actions": {},
+    "actions": {
+      "la9I7poulcigsres": {
+        "type": "effect",
+        "chatDisplay": true,
+        "name": "Quick",
+        "description": "When you make an attack, you can mark a Stress to target another creature within range.",
+        "img": "icons/skills/movement/arrow-upward-yellow.webp",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "_id": "la9I7poulcigsres",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
     "attached": [],
     "tier": 1,
     "equipped": false,
@@ -21,9 +59,11 @@
     "burden": "oneHanded",
     "weaponFeatures": [
       {
-        "value": "reliable",
+        "value": "quick",
         "effectIds": [],
-        "actionIds": []
+        "actionIds": [
+          "la9I7poulcigsres"
+        ]
       }
     ],
     "attack": {
@@ -40,7 +80,7 @@
         "amount": 1
       },
       "roll": {
-        "trait": "agility",
+        "trait": "presence",
         "type": "attack",
         "difficulty": null,
         "bonus": null,
@@ -186,7 +226,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783334930575,
-    "modifiedTime": 1783335481504,
+    "modifiedTime": 1783670444333,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -5,7 +5,11 @@
   "_id": "SN244G6Y1QCUCtVM",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-laser-gun.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>When you roll with Hope on a ranged attack, you may roll one additional damage die.</p>",
     "resource": null,
     "actions": {},
@@ -25,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783340917598,
-    "modifiedTime": 1783341286306,
+    "modifiedTime": 1783674989214,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

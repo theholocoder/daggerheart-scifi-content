@@ -1,0 +1,44 @@
+{
+  "folder": "slEnpdYZZGrRKbXF",
+  "name": "Nanite Cocktail",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/pink-liquid-sealed-in-vial.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per long rest, <strong>mark 3 Stress</strong> to inject yourself with boosting nanites. Gain a +2 bonus to all of your character traits until your next rest.</p>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 8,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783379424526,
+    "modifiedTime": 1783379520651,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "wxyZT64Ck53LmBPK",
+  "sort": 0,
+  "_key": "!items!wxyZT64Ck53LmBPK"
+}

@@ -1,0 +1,40 @@
+{
+  "folder": "5c9Y4cL4PtzdpasO",
+  "name": "Cyberdeck",
+  "type": "loot",
+  "_id": "2TUPaWhvOsnj8HSJ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-blue-jumper-cables.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>A portable computer specialized in intrusion, decryption and signal manipulation.</p>",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783382067405,
+    "modifiedTime": 1783674924384,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!2TUPaWhvOsnj8HSJ"
+}

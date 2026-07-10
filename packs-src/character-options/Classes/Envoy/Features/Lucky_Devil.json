@@ -1,0 +1,39 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Lucky Devil",
+  "type": "feature",
+  "_id": "u3navdwX8DlfpjIH",
+  "img": "icons/sundries/gaming/dice-runed-brown.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you roll with Hope on an attack with your Primary Weapon, your @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{Quick Draw} attack gains Advantage.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783673779955,
+    "modifiedTime": 1783675057163,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!u3navdwX8DlfpjIH"
+}

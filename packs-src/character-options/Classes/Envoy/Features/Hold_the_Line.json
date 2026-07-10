@@ -1,0 +1,39 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Hold the Line",
+  "type": "feature",
+  "_id": "llyFfNuAcNC8IEUi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/champions-sacrifice.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever an ally damages the adversary affected by @UUID[Compendium.daggerheart-scifi-content.character-options.57mfPuIM0De08TPG]{You're Next!}, that ally may clear 1 Stress.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783672552891,
+    "modifiedTime": 1783675053261,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!llyFfNuAcNC8IEUi"
+}

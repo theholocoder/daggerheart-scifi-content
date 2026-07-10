@@ -1,0 +1,116 @@
+{
+  "folder": "b07zhwAGF644W1IV",
+  "name": "Gravity Pulse",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/pink-portal.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You can <strong>interrupt</strong> an attack taking place at Very Close range. <strong>Spend a Hope</strong> to make a <strong>Reaction Roll (15)</strong> using your <strong>Spellcast</strong> trait. Once per rest on a success, the attack is stopped and every creature in a Very Close range aroung you are pushed to Close range.</p>",
+    "resource": null,
+    "actions": {
+      "yy1FDynBdQZ6G7mc": {
+        "type": "attack",
+        "_id": "yy1FDynBdQZ6G7mc",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [
+          {
+            "name": "Gravity Pulse",
+            "type": "placed",
+            "shape": "emanation",
+            "size": "veryClose",
+            "hasHole": false,
+            "effects": []
+          }
+        ],
+        "cost": [
+          {
+            "consumeOnSuccess": true,
+            "scalable": false,
+            "key": "hope",
+            "value": 1,
+            "itemId": null,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "shortRest",
+          "consumeOnSuccess": true
+        },
+        "damage": {
+          "parts": {},
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": 15,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": 15,
+          "damageMod": "none"
+        },
+        "name": "Cast",
+        "range": "veryClose"
+      }
+    },
+    "domain": "tech",
+    "level": 5,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783372775027,
+    "modifiedTime": 1783375414930,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "aVBgWAguvp2TAlu4",
+  "sort": 0,
+  "_key": "!items!aVBgWAguvp2TAlu4"
+}

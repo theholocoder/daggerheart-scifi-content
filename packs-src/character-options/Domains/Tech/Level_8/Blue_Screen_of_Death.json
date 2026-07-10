@@ -1,0 +1,173 @@
+{
+  "folder": "slEnpdYZZGrRKbXF",
+  "name": "Blue Screen of Death",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-chart.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Make a <strong>Spellcast Roll</strong> to crash and reboot of all adversaries in front of you within Far range. On a success, <strong>spend a Hope</strong> to make targets <em>Vulnerable </em>and <em>Restrained </em>until your next Action.</p><p>The targets must wear at least one piece of tech, including cybernetics.</p>",
+    "resource": null,
+    "actions": {
+      "clpwBdraT29A4uTH": {
+        "type": "attack",
+        "_id": "clpwBdraT29A4uTH",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "consumeOnSuccess": true,
+            "scalable": false,
+            "key": "hope",
+            "value": 1,
+            "itemId": null,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {},
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [
+          {
+            "_id": "4vKfdtfJiOyarPOC",
+            "onSave": false
+          }
+        ],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Cast",
+        "range": "far"
+      }
+    },
+    "domain": "tech",
+    "level": 8,
+    "recallCost": 3,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [
+    {
+      "name": "Blue Screen of Death",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-chart.webp",
+      "description": "",
+      "transfer": false,
+      "statuses": [
+        "vulnerable",
+        "restrained"
+      ],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [],
+        "duration": {
+          "description": "",
+          "type": "act"
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "4vKfdtfJiOyarPOC",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783379026032,
+        "modifiedTime": 1783379146222,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!LZUnLBbv2LEV4yjo.4vKfdtfJiOyarPOC"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783378633881,
+    "modifiedTime": 1783379184861,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "LZUnLBbv2LEV4yjo",
+  "sort": 0,
+  "_key": "!items!LZUnLBbv2LEV4yjo"
+}

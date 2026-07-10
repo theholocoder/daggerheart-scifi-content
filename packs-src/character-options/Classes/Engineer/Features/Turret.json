@@ -1,0 +1,39 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "Turret",
+  "type": "feature",
+  "_id": "n2IkOCWN7vOrczxA",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-rocket-thrusters.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You can use your Action to set your companion in and out of <strong>Turret mode</strong>.</p><p>While in this mode, it cannot move but can deploy a range weapon dealing <strong>d8+8</strong> physical damage (still using your Proficiency, bonuses and Spellcast roll) at Far range.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783347897293,
+    "modifiedTime": 1783675152290,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!n2IkOCWN7vOrczxA"
+}

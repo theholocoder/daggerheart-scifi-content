@@ -1,0 +1,94 @@
+{
+  "folder": "VkPCHPMxegNuCAW6",
+  "name": "Engineer",
+  "type": "class",
+  "_id": "cWVvBkayU6lwVgYC",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hand-holding-wrench.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Engineers don't cast spells or rely on brute force. They reshape the battlefield through invention, deploying advanced technology, autonomous devices, and experimental prototypes that can turn the tide of any encounter.</p>",
+    "domains": [
+      "tech",
+      "codex"
+    ],
+    "classItems": [],
+    "hitPoints": 6,
+    "evasion": 10,
+    "features": [
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.cmQ1erqGqemNvB7U"
+      },
+      {
+        "type": "hope",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.CzAuOXqC1ONCvleS"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.BXh24CNMwDERkIyY"
+      }
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG"
+      ],
+      "choiceA": [
+        "Compendium.daggerheart-scifi-content.items.Item.ggm0BJAPnJihr57A",
+        "Compendium.daggerheart.consumables.Item.b6vGSPFWOlzZZDLO"
+      ],
+      "choiceB": [
+        "Compendium.daggerheart-scifi-content.character-options.Item.I1UCEQ7oqRyfY3Kx",
+        "Compendium.daggerheart-scifi-content.character-options.Item.WgU1ORpFXPiRBAyZ"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 0,
+        "strength": -1,
+        "finesse": 1,
+        "instinct": 1,
+        "presence": 0,
+        "knowledge": 2
+      },
+      "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.zxKt6qXe7uZB6ljm",
+      "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
+    },
+    "backgroundQuestions": [
+      "",
+      "",
+      ""
+    ],
+    "connections": [
+      "",
+      "",
+      ""
+    ],
+    "isMulticlass": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783343818528,
+    "modifiedTime": 1783675204330,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cWVvBkayU6lwVgYC"
+}

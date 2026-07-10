@@ -1,0 +1,52 @@
+{
+  "folder": "w5P7W7UEhskNL81u",
+  "name": "Roboticist",
+  "type": "subclass",
+  "_id": "wAEJA1uUtKfbZNhJ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-banner.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Play the Roboticist if you want a permanent robotic companion.</p>",
+    "spellcastingTrait": "knowledge",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.s6J3Xqecns5hUJPq"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.n2IkOCWN7vOrczxA"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.P0NsEdW1X1LAUE1t"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.cWVvBkayU6lwVgYC"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783346482404,
+    "modifiedTime": 1783675209049,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!wAEJA1uUtKfbZNhJ"
+}

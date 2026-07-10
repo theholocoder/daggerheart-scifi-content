@@ -1,0 +1,40 @@
+{
+  "folder": "5c9Y4cL4PtzdpasO",
+  "name": "Neural Interface",
+  "type": "loot",
+  "_id": "9YIoGTcRmpuKKRs0",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-third-eye.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>A direct neural implant allowing instant interaction with nearby technology.</p>",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783382197045,
+    "modifiedTime": 1783674920032,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!9YIoGTcRmpuKKRs0"
+}

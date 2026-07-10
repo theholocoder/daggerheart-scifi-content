@@ -5,7 +5,11 @@
   "_id": "HKMlJsR7VBZ3L3be",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-thrusters.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>Whenever you use the Supressing Fire @UUID[Compendium.daggerheart-scifi-content.character-options.3Y7jLVCzCWwAvcPt]{Technique}, choose one:</p><ul><li><p>the target cannot move unless it succeeds an Agility Reaction Roll against the attack value.</p></li><li><p>another adversary within Close range of the target also becomes Supressed.</p></li></ul>",
     "resource": null,
     "actions": {},
@@ -25,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783340711790,
-    "modifiedTime": 1783341287706,
+    "modifiedTime": 1783675002470,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

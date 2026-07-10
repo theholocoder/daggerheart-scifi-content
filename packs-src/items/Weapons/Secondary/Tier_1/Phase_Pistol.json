@@ -1,5 +1,5 @@
 {
-  "folder": "iSQtZICf7fVFJ7IS",
+  "folder": "tt2aJ5watjZqK1BS",
   "name": "Phase Pistol",
   "type": "weapon",
   "img": "icons/weapons/guns/pistol-auto-tech-purple.webp",
@@ -51,7 +51,7 @@
       }
     },
     "attached": [],
-    "tier": 2,
+    "tier": 1,
     "equipped": false,
     "secondary": true,
     "burden": "oneHanded",
@@ -98,7 +98,7 @@
           "hitPoints": {
             "value": {
               "dice": "d6",
-              "bonus": 3,
+              "bonus": null,
               "multiplier": "prof",
               "flatMultiplier": 1,
               "custom": {
@@ -220,15 +220,15 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783327119573,
-        "modifiedTime": 1783327119573,
+        "createdTime": 1783344031891,
+        "modifiedTime": 1783344031891,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "6f2UBdq8Q28MZ87w",
-      "_key": "!items.effects!YH5dISXxCBScfEso.6f2UBdq8Q28MZ87w"
+      "_key": "!items.effects!EunbtyD8UBBcSHOr.6f2UBdq8Q28MZ87w"
     }
   ],
   "flags": {},
@@ -236,8 +236,8 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783327119573,
-    "modifiedTime": 1783327200040,
+    "createdTime": 1783344031891,
+    "modifiedTime": 1783344040847,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,
@@ -247,7 +247,7 @@
     "default": 0,
     "0qb2POwXFxKbaibe": 3
   },
-  "_id": "YH5dISXxCBScfEso",
-  "sort": 0,
-  "_key": "!items!YH5dISXxCBScfEso"
+  "_id": "EunbtyD8UBBcSHOr",
+  "sort": 200000,
+  "_key": "!items!EunbtyD8UBBcSHOr"
 }

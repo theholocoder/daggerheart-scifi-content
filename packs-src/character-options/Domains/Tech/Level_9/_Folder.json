@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "HwAC2YWnr7xaVwVe",
+  "name": "Level 9",
+  "color": null,
+  "sorting": "a",
+  "_id": "tPWB2cJH3AT6WZND",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783379613184,
+    "modifiedTime": 1783379613184,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!tPWB2cJH3AT6WZND"
+}

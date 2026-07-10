@@ -1,0 +1,90 @@
+{
+  "folder": "W7qLgcrBftuDR0eM",
+  "name": "Envoy",
+  "type": "class",
+  "_id": "LghJDwan9TGlKnaf",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-organization-insignia.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Some people lead through rank. Others lead through fear. An Envoy leads through confidence, daring, and instinct. They inspire allies to push harder, exploit every weakness in the enemy's line, and turn a single opening into a decisive victory.</p>",
+    "domains": [
+      "grace",
+      "valor"
+    ],
+    "classItems": [],
+    "hitPoints": 5,
+    "evasion": 11,
+    "features": [
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.z87N0emUQuSgtkbm"
+      },
+      {
+        "type": "hope",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.57mfPuIM0De08TPG"
+      }
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk"
+      ],
+      "choiceA": [
+        "Compendium.daggerheart-scifi-content.items.Item.mUepnLbkvFk0ha4Z",
+        "Compendium.daggerheart-scifi-content.items.Item.YHnR2pOe067wDEK4"
+      ],
+      "choiceB": [
+        "Compendium.daggerheart-scifi-content.character-options.Item.lpWcR1jWdR7tx3QN",
+        "Compendium.daggerheart-scifi-content.character-options.Item.OUDOJsZr218qedTT"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 1,
+        "strength": 0,
+        "finesse": 1,
+        "instinct": 0,
+        "presence": 2,
+        "knowledge": -1
+      },
+      "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.ECdMuLhVJL1bow69",
+      "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
+    },
+    "backgroundQuestions": [
+      "",
+      "",
+      ""
+    ],
+    "connections": [
+      "",
+      "",
+      ""
+    ],
+    "isMulticlass": false
+  },
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783669939820,
+    "modifiedTime": 1783675567833,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!LghJDwan9TGlKnaf"
+}

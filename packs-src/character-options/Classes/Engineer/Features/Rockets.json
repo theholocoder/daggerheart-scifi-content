@@ -1,0 +1,39 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "Rockets",
+  "type": "feature",
+  "_id": "P0NsEdW1X1LAUE1t",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-fire-furnace.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Your companion can fly, hover, ignore difficult terrain.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783348928802,
+    "modifiedTime": 1783675147889,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!P0NsEdW1X1LAUE1t"
+}

@@ -5,7 +5,11 @@
   "_id": "fK7T3dqLCW5pi47J",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-person-silhouette.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.gVhOaFgyZQQiZzGh]{Steady Aim} with a ranged weapon, you may immediately attack a different enemy within range (standard attack). </p>",
     "resource": null,
     "actions": {},
@@ -25,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783341002739,
-    "modifiedTime": 1783341284422,
+    "modifiedTime": 1783674980977,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

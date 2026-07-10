@@ -1,0 +1,39 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "I can fix this",
+  "type": "feature",
+  "_id": "BXh24CNMwDERkIyY",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/tape.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You have advantage on repairing or tinkering tech devices or equipment.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783670881458,
+    "modifiedTime": 1783675135432,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!BXh24CNMwDERkIyY"
+}

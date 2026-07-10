@@ -1,0 +1,82 @@
+{
+  "folder": "BSJuts0uKOWuKsHm",
+  "name": "EMP Pulse",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-spires.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Mark a Stress</strong> to disable a technological object, construct or cybernetic enhancement at Close range until your next turn.</p><p>If you target an adversary, they are considered <em>Vulnerable</em>.</p>",
+    "resource": null,
+    "actions": {
+      "Stg5WgarXrU98M0d": {
+        "type": "effect",
+        "_id": "Stg5WgarXrU98M0d",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cast",
+        "range": ""
+      }
+    },
+    "domain": "tech",
+    "level": 2,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783356124880,
+    "modifiedTime": 1783356941889,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "nTsoBvaVonQIXcfA",
+  "sort": 100000,
+  "_key": "!items!nTsoBvaVonQIXcfA"
+}

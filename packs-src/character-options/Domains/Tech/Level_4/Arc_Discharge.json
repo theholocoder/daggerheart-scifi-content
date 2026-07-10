@@ -1,0 +1,137 @@
+{
+  "folder": "fyUt1Bftv3xJuEvq",
+  "name": "Arc Discharge",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-reaction.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>M</strong>ake a <strong>Spellcast Roll</strong>, unleashing arcs of electricity on all targets within Close range. Targets you hit must make a <strong>Reaction Roll (15)</strong>. Targets who fail take <strong>2d10+4</strong> physic and magic damage. Targets who succeed take half as much damage. Targets who critically succeed are unarmed.</p>",
+    "resource": null,
+    "actions": {
+      "eQktAU0JvylWAioI": {
+        "type": "attack",
+        "_id": "eQktAU0JvylWAioI",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [
+          {
+            "name": "Arc Discharge",
+            "type": "placed",
+            "shape": "emanation",
+            "size": "close",
+            "hasHole": false,
+            "effects": []
+          }
+        ],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {
+            "hitPoints": {
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 2,
+                "dice": "d10",
+                "bonus": 4,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "type": [
+                "physical",
+                "magical"
+              ]
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": "agility",
+          "difficulty": 15,
+          "damageMod": "half"
+        },
+        "name": "Cast",
+        "range": "close"
+      }
+    },
+    "domain": "tech",
+    "level": 4,
+    "recallCost": 1,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783370488501,
+    "modifiedTime": 1783372433231,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "tvgIZfC5WCmoK10z",
+  "sort": 0,
+  "_key": "!items!tvgIZfC5WCmoK10z"
+}

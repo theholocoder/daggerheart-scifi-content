@@ -1,0 +1,151 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "Integrated Jet Pack",
+  "type": "feature",
+  "_id": "nA1YbYt5PuRUZJ9x",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-pulse.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You gain a permanent jetpack. You may Fly when you Move, ignoring difficult terrain. You may hover. You may deploy @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices} while flying.</p><p><strong>Spend 2 Hope</strong> to gain advantage and add a damage die to the next attack while flying.</p>",
+    "resource": null,
+    "actions": {
+      "4lszEYj8ndveMQSf": {
+        "type": "effect",
+        "_id": "4lszEYj8ndveMQSf",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 2,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "aiYS6ZThgV43Y9wU",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Attack from above",
+        "range": "self"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Attack from above",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-life-form.webp",
+      "description": "<p>Gain advantage and add a damage die to an attack while flying.</p>",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [
+          {
+            "key": "system.proficiency",
+            "type": "add",
+            "value": 1,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "stacking": {
+          "value": 1,
+          "max": null
+        },
+        "targetDispositions": []
+      },
+      "_id": "aiYS6ZThgV43Y9wU",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783349321869,
+        "modifiedTime": 1783351034083,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!nA1YbYt5PuRUZJ9x.aiYS6ZThgV43Y9wU"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783349163294,
+    "modifiedTime": 1783675139354,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!nA1YbYt5PuRUZJ9x"
+}

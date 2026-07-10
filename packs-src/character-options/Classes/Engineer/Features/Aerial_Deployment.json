@@ -1,0 +1,39 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "Aerial Deployment",
+  "type": "feature",
+  "_id": "FeUEu4V7aGiImkSN",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-event-horizon-transcendent.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Immediately after deploying a @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices} while flying, choose one:</p><ul><li><p><strong>Spend 1 Hope:</strong> the device can move and act.</p></li><li><p><strong>Spend 1 Hope:</strong> you can make an attack.</p></li></ul>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783349456998,
+    "modifiedTime": 1783675117124,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!FeUEu4V7aGiImkSN"
+}

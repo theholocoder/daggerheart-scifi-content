@@ -1,0 +1,39 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "You're Next!",
+  "type": "feature",
+  "_id": "57mfPuIM0De08TPG",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/inveigle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Spend 3 Hope</strong> and choose an adversary within range. Make an attack with Advantage against that adversary.</p><p>Whether your attack hits or misses, the next ally attack made against that adversary before the start of your next turn also gains Advantage.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783671869003,
+    "modifiedTime": 1783675075903,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!57mfPuIM0De08TPG"
+}

@@ -1,0 +1,241 @@
+{
+  "folder": "BIjyJITjlrhYRjJv",
+  "name": "System Breach",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-mechanical-arm.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Make a <strong>Spellcast Roll</strong> against a target within Far range. On a success, deal <strong>d8+4</strong> physical magical damage using your Proficiency.</p><p>Additionally, <strong>mark 2 or more Stress</strong> to make them permanently <em>Corroded</em>. While a target is <em>Corroded</em>, they gain a -1 penalty to their Difficulty for every 2 Stress you spent. This condition stacks.</p>",
+    "resource": null,
+    "actions": {
+      "FKgLW6r3BEEejfva": {
+        "type": "attack",
+        "_id": "FKgLW6r3BEEejfva",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": {
+            "hitPoints": {
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "value": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d8",
+                "bonus": 4,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "type": [
+                "physical",
+                "magical"
+              ]
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Cast",
+        "range": "far"
+      },
+      "4aAG33cTz3IUYno4": {
+        "type": "effect",
+        "_id": "4aAG33cTz3IUYno4",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": true,
+            "key": "stress",
+            "value": 2,
+            "step": 2,
+            "itemId": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "1kzGo0hUfEWtq11y",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Corrode",
+        "range": ""
+      }
+    },
+    "domain": "tech",
+    "level": 3,
+    "recallCost": 1,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [
+    {
+      "name": "Corroded",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/corrosive-body.webp",
+      "description": "<p>While a target is Corroded, they gain a −1 penalty to their Difficulty for every 2 Stress you spent. This condition can stack.</p>",
+      "transfer": false,
+      "statuses": [
+        "corrode"
+      ],
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "changes": [
+          {
+            "key": "system.difficulty",
+            "type": "add",
+            "value": "-@stacks",
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "stacking": {
+          "value": 1,
+          "max": null
+        },
+        "targetDispositions": []
+      },
+      "_id": "1kzGo0hUfEWtq11y",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783368848209,
+        "modifiedTime": 1783369214091,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!fBfzzF7WtkZvNuys.1kzGo0hUfEWtq11y"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783368401778,
+    "modifiedTime": 1783369368425,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "fBfzzF7WtkZvNuys",
+  "sort": 0,
+  "_key": "!items!fBfzzF7WtkZvNuys"
+}

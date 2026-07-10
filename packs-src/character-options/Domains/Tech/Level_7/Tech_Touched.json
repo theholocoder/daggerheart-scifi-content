@@ -1,0 +1,44 @@
+{
+  "folder": "XtWhCm7vqXOgNGny",
+  "name": "Tech-Touched",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-tech-armor-glove.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When 4 or more of the domain cards in your loadout are from the Tech domain, gain the following benefits:</p><ul><li><p>Once per rest, you can use a <strong>d20</strong> for your Hope die.</p></li><li><p>You can Send a Tech card into your vault and add <strong>twice its level</strong> as damage of an <strong>Attack Roll</strong>.</p></li></ul>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 7,
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": 4
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783377528433,
+    "modifiedTime": 1783378111791,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "4OLSI0ULkblFP6yF",
+  "sort": 0,
+  "_key": "!items!4OLSI0ULkblFP6yF"
+}

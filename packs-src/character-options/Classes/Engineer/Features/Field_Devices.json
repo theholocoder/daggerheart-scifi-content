@@ -1,0 +1,39 @@
+{
+  "folder": "4woyCicX6G5XxYyQ",
+  "name": "Field Devices",
+  "type": "feature",
+  "_id": "cmQ1erqGqemNvB7U",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/mechanical-claw.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You begin knowing <strong>3 Devices</strong> from the list below. <strong>Deploying a Device</strong> requires an action.</p><p>A Device is deployed into the scene and remains until destroyed, recalled, or the scene ends. You may only have <strong>one Device</strong> deployed at a time. Devices have a range upon which you can control them.</p><p>Choose three:</p><ul><li><p><strong>Recon Drone</strong>: Reveals hidden enemies and grants information about the battlefield. Far range.</p></li><li data-section-id=\"ke3o6x\" data-start=\"1632\" data-end=\"1706\"><p><strong data-start=\"1634\" data-end=\"1650\">Repair Drone</strong>: Repairs equipment or restores HP to an adjacent ally. Far range, restores 1d4 HP once.</p></li><li data-section-id=\"19729dy\" data-start=\"1581\" data-end=\"1631\"><p><strong data-start=\"1583\" data-end=\"1604\">Barrier Projector</strong>: Creates temporary cover from ranged attacks. Very Close range, @Template[type:circle|range:m], 14 Evasion, can sustain 5 hits.</p></li><li data-section-id=\"wuxkc6\" data-start=\"1707\" data-end=\"1754\"><p><strong data-start=\"1709\" data-end=\"1726\">Flash Emitter</strong>: Distracts nearby enemies. Far range, @UUID[Compendium.daggerheart.consumables.eAXHdzA5qNPldOpn]{Blinding Orb} on trigger and then the device is destroyed.</p></li><li data-section-id=\"10kexvg\" data-start=\"1812\" data-end=\"1873\"><p><strong data-start=\"1814\" data-end=\"1829\">Sensor Node</strong>: Detects invisible or concealed creatures. This device cannot move, you receive a notification as long as you are within Very Far range.</p></li><li data-section-id=\"jgx2jw\" data-start=\"1941\" data-end=\"2010\"><p><strong data-start=\"1943\" data-end=\"1962\">Decoy Projector</strong>: Creates a convincing holographic distraction. Attack against allies within Melee range of the Decoy have disadvantage.</p></li></ul><p>Unless otherwise specified, devices cannot move or attack by thelselves, are destroyed if they take any damage, have an evasion of 10. A Device may only be <strong>Activated once each round</strong> and activating a Device requires an <strong>Action</strong>.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783344622205,
+    "modifiedTime": 1783675125546,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cmQ1erqGqemNvB7U"
+}

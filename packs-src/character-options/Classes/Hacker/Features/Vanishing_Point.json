@@ -1,0 +1,39 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Vanishing Point",
+  "type": "feature",
+  "_id": "kPD5BGfaNAZlYNQN",
+  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per scene, immediately after damaging a creature, you may become Hidden.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783674828165,
+    "modifiedTime": 1783674933572,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!kPD5BGfaNAZlYNQN"
+}

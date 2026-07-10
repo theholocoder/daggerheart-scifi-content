@@ -1,0 +1,39 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Systemic Failure",
+  "type": "feature",
+  "_id": "F6JIbQR5wsOJ4xun",
+  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you damage an adversary with a Virus Token with your Primary or Secondary Weapon, you may consume the Virus Token after Propagation. If you do, choose one:</p><ul><li><p>Apply an Intrusion to every adversary damaged by Propagation (they also gain a Virus Token this way).</p></li><li><p>Apply a different Intrusion to the original target.</p></li></ul>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783383878070,
+    "modifiedTime": 1783674938656,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!F6JIbQR5wsOJ4xun"
+}

@@ -5,7 +5,11 @@
   "_id": "u9KUNMLkIfrV4ZxE",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/alien-eye.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>Play the Juggernaut if you want to strike at close range and protect your allies.</p>",
     "spellcastingTrait": null,
     "features": [
@@ -42,7 +46,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783341573461,
-    "modifiedTime": 1783342773854,
+    "modifiedTime": 1783675019662,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

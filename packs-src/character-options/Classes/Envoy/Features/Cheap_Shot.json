@@ -1,0 +1,39 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Cheap Shot",
+  "type": "feature",
+  "_id": "tphvXEP6bPhZtAye",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/cerulean-plasma-rifle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When your Secondary Weapon damages an adversary, that adversary must make a <strong>Reaction Roll (14)</strong>.</p><p>On a failure, it becomes <em>Vulnerable</em>.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783673412357,
+    "modifiedTime": 1783675044523,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!tphvXEP6bPhZtAye"
+}

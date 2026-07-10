@@ -1,0 +1,75 @@
+{
+  "folder": "QRJJVy5l7KqsSHVI",
+  "name": "Mystic",
+  "type": "class",
+  "_id": "Gl9KUFTA1y87LErQ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-third-eye.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "domains": [
+      "arcana",
+      "splendor"
+    ],
+    "classItems": [],
+    "hitPoints": 5,
+    "evasion": 10,
+    "features": [],
+    "inventory": {
+      "take": [
+        "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk"
+      ],
+      "choiceA": [],
+      "choiceB": []
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 0,
+        "strength": -1,
+        "finesse": 0,
+        "instinct": 2,
+        "presence": 1,
+        "knowledge": 1
+      },
+      "suggestedPrimaryWeapon": "Compendium.daggerheart.weapons.Item.j8cdNeIUYxxzFVji",
+      "suggestedSecondaryWeapon": null,
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.yJFp1bfpecDcStVK"
+    },
+    "backgroundQuestions": [
+      "",
+      "",
+      ""
+    ],
+    "connections": [
+      "",
+      "",
+      ""
+    ],
+    "isMulticlass": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783678480665,
+    "modifiedTime": 1783679014596,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Gl9KUFTA1y87LErQ"
+}

@@ -1,0 +1,39 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Propagation",
+  "type": "feature",
+  "_id": "WQ0F0R6SNEkMITCA",
+  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever you damage an adversary holding a Virus Token with your Primary or Secondary Weapon, every adversary within Very Close range also suffers the Virus damage.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783383784446,
+    "modifiedTime": 1783674947510,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!WQ0F0R6SNEkMITCA"
+}

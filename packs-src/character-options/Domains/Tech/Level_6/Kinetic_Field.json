@@ -1,0 +1,52 @@
+{
+  "folder": "87NYRhgRzGv0lggO",
+  "name": "Kinetic Field",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-resonance.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When you mark 1 or more Hit Points from a physical attack, you can <strong>mark a Stress</strong> to place on this card a number of d8 equal to the number of Hit Points you marked.</p><p>On your next successful attack, unleash the kinetic energy by rolling each dice on this card and adding them to your damage roll, then clear all dice.</p>",
+    "resource": {
+      "type": "simple",
+      "value": null,
+      "max": "",
+      "recovery": null,
+      "progression": "increasing",
+      "dieFaces": "d4",
+      "icon": "fa-solid fa-dice-d8"
+    },
+    "actions": {},
+    "domain": "tech",
+    "level": 6,
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783375655300,
+    "modifiedTime": 1783377457501,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "5qyiAxPTz5jJwi2z",
+  "sort": 0,
+  "_key": "!items!5qyiAxPTz5jJwi2z"
+}

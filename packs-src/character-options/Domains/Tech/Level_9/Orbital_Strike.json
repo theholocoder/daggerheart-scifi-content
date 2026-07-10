@@ -1,0 +1,44 @@
+{
+  "folder": "tPWB2cJH3AT6WZND",
+  "name": "Orbital Strike",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flying-rocket.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><em>[WIP] Details to be determined.</em></p><p>Call down an orbital laser or kinetic strike, dealing heavy area damage. <em>(Requires narrative permission if appropriate.)</em></p>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 9,
+    "recallCost": 3,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783379617697,
+    "modifiedTime": 1783379690747,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "hB1OyxDAFD3MZoze",
+  "sort": 0,
+  "_key": "!items!hB1OyxDAFD3MZoze"
+}
