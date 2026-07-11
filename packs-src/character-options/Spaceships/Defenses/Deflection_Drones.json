@@ -1,0 +1,68 @@
+{
+  "folder": "dfbFbs0HlLnyGjdg",
+  "name": "Deflection Drones",
+  "type": "feature",
+  "_id": "vY59SenVTcbTCL6k",
+  "img": "icons/commodities/tech/plating-metal-armor-tech-steel-blue.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per scene</strong>, you can deploy drones to deflect an incoming attack. Make a Reaction Roll against the <strong>Attack Roll</strong>. If you succeed, you divide the incoming damage by 2.</p>",
+    "resource": null,
+    "actions": {
+      "8Hf8KhqxoDXvLd1u": {
+        "type": "effect",
+        "_id": "8Hf8KhqxoDXvLd1u",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "reaction"
+  },
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783727366616,
+    "modifiedTime": 1783732007863,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!vY59SenVTcbTCL6k"
+}

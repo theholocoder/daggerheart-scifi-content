@@ -5,7 +5,11 @@
   "_id": "LjCst8QbCuzFor58",
   "img": "icons/magic/earth/explosion-lava-stone-yellow.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>An asteroid field stretches for thousands of kilometers, forcing pilots to weave through tumbling rocks, unstable debris, and unpredictable collision paths. A single mistake can cripple even the toughest starship.</p>",
     "tier": 3,
     "difficulty": 17,
@@ -330,7 +334,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783699565793,
-    "modifiedTime": 1783703577332,
+    "modifiedTime": 1783716811135,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

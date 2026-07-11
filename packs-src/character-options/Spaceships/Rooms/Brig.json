@@ -1,0 +1,39 @@
+{
+  "folder": "dFtSyGh2QfrAe6tl",
+  "name": "Brig",
+  "type": "feature",
+  "_id": "HGGeUO9Mg57auGoF",
+  "img": "icons/commodities/metal/plating-metal-tech-steel-green.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Captured prisoners can be securely transported aboard the ship.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783728137753,
+    "modifiedTime": 1783731962242,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!HGGeUO9Mg57auGoF"
+}

@@ -1,0 +1,39 @@
+{
+  "folder": "dFtSyGh2QfrAe6tl",
+  "name": "Workshop",
+  "type": "feature",
+  "_id": "Cq9r5oVW4VJdhuBR",
+  "img": "icons/tools/smithing/anvil.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Out of combat, repairs performed aboard this ship restore <strong>+1</strong> additional Hull.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783727984344,
+    "modifiedTime": 1783731966377,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Cq9r5oVW4VJdhuBR"
+}

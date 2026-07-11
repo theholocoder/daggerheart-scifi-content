@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "iIPsmFkUgrTQK7rz",
+  "name": "Rooms",
+  "color": null,
+  "sorting": "a",
+  "_id": "dFtSyGh2QfrAe6tl",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783724914715,
+    "modifiedTime": 1783724914715,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!dFtSyGh2QfrAe6tl"
+}

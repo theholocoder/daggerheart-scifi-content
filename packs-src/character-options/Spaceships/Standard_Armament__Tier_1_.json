@@ -1,0 +1,140 @@
+{
+  "folder": "iIPsmFkUgrTQK7rz",
+  "name": "Standard Armament (Tier 1)",
+  "type": "feature",
+  "_id": "LBmPKiEsYrRbjCAY",
+  "img": "icons/sundries/documents/blueprints.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Standard Spaceship stats.</p><p><em>GM note: the default attack damage need to me set manually in the sheet config (1d8+5).</em></p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Standard Armament (Tier 1)",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.resources.hitPoints.max",
+            "type": "add",
+            "value": 7,
+            "priority": null,
+            "phase": "initial"
+          },
+          {
+            "key": "system.resources.stress.max",
+            "type": "add",
+            "value": 3,
+            "priority": null,
+            "phase": "initial"
+          },
+          {
+            "key": "system.difficulty",
+            "type": "add",
+            "value": 11,
+            "priority": null,
+            "phase": "initial"
+          },
+          {
+            "key": "system.attack.roll.bonus",
+            "type": "add",
+            "value": 1,
+            "priority": null,
+            "phase": "initial"
+          },
+          {
+            "key": "system.damageThresholds.major",
+            "type": "add",
+            "value": 7,
+            "priority": null,
+            "phase": "initial"
+          },
+          {
+            "key": "system.damageThresholds.severe",
+            "type": "add",
+            "value": 12,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "Jzm3TaUG0CVfpjoq",
+      "img": "icons/sundries/documents/blueprints.webp",
+      "disabled": false,
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783731057345,
+        "modifiedTime": 1783731279925,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!LBmPKiEsYrRbjCAY.Jzm3TaUG0CVfpjoq"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783730823870,
+    "modifiedTime": 1783731699238,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!LBmPKiEsYrRbjCAY"
+}

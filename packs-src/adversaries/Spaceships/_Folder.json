@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": null,
+  "name": "Spaceships",
+  "color": "#5a66c4",
+  "sorting": "a",
+  "_id": "vvo9rr8sOZdbt5y4",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783723770833,
+    "modifiedTime": 1783723801567,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!vvo9rr8sOZdbt5y4"
+}

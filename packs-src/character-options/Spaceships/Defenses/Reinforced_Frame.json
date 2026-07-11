@@ -1,0 +1,105 @@
+{
+  "folder": "dfbFbs0HlLnyGjdg",
+  "name": "Reinforced Frame",
+  "type": "feature",
+  "_id": "QRQ9QuPHKzsefsq3",
+  "img": "icons/commodities/tech/spring-flat-blue-brass.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Increase your Hull by <strong>+2</strong>.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Reinforced Frame",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.resources.hitPoints.max",
+            "type": "add",
+            "value": 2,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        },
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "uW0Ev6uU81MV59r3",
+      "img": "icons/commodities/tech/spring-flat-blue-brass.webp",
+      "disabled": false,
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783727618997,
+        "modifiedTime": 1783727644479,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!QRQ9QuPHKzsefsq3.uW0Ev6uU81MV59r3"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783727587730,
+    "modifiedTime": 1783731998976,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!QRQ9QuPHKzsefsq3"
+}

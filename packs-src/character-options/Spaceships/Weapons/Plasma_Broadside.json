@@ -1,0 +1,68 @@
+{
+  "folder": "BxowJQE0kO1MquFT",
+  "name": "Plasma Broadside",
+  "type": "feature",
+  "_id": "RTG9ahgJQacI4EsK",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-energy-star.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per scene, mark a spaceship Shield to target every ship within Close range. Roll a single attack against all targets.</p>",
+    "resource": null,
+    "actions": {
+      "eZrljsxal1ex2i7u": {
+        "type": "effect",
+        "_id": "eZrljsxal1ex2i7u",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783726840388,
+    "modifiedTime": 1783731945234,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!RTG9ahgJQacI4EsK"
+}

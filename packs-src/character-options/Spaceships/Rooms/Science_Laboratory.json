@@ -1,0 +1,39 @@
+{
+  "folder": "dFtSyGh2QfrAe6tl",
+  "name": "Science Laboratory",
+  "type": "feature",
+  "_id": "HKpM7C78F16Bkmad",
+  "img": "icons/tools/laboratory/canister-glass-eyes-steel-green.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Research, analysis and experimentation performed aboard the ship gain <strong>+2</strong> to related <strong>Action Rolls</strong> when appropriate.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783728088091,
+    "modifiedTime": 1783731974815,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!HKpM7C78F16Bkmad"
+}

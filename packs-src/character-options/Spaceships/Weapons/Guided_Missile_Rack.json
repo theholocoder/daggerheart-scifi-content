@@ -1,0 +1,123 @@
+{
+  "name": "Guided Missile Rack",
+  "type": "feature",
+  "system": {
+    "featureForm": "action",
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per rest</strong>, make a standard ship attack against a ship within Very Far range. If the attack succeeds, the missile locks onto its target. The target immediately makes a Reaction Roll against your attack result. On a failure, the missile deals <strong>2d10+8</strong> Physical damage directly to the target's Hull, ignoring Shields.</p>",
+    "resource": null,
+    "actions": {
+      "sneI3q1VaSpd6Rzs": {
+        "type": "attack",
+        "_id": "sneI3q1VaSpd6Rzs",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": 0,
+          "max": "1",
+          "recovery": "shortRest",
+          "consumeOnSuccess": true
+        },
+        "damage": {
+          "parts": {
+            "hitPoints": {
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 2,
+                "dice": "d10",
+                "bonus": 8,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "type": [
+                "physical"
+              ]
+            }
+          },
+          "includeBase": false,
+          "direct": true,
+          "groupAttack": ""
+        },
+        "target": {
+          "type": "hostile",
+          "amount": 1
+        },
+        "effects": [],
+        "roll": {
+          "type": "attack",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": "agility",
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Launch missile",
+        "range": "veryFar"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "_id": "v9uX6skxjv8qjc0Q",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flying-rocket.webp",
+  "effects": [],
+  "folder": "BxowJQE0kO1MquFT",
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783724895246,
+    "modifiedTime": 1783725101953,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "sort": 100000,
+  "_key": "!items!v9uX6skxjv8qjc0Q"
+}

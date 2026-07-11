@@ -5,7 +5,11 @@
   "_id": "r4lOZo3yAD1FJYiN",
   "img": "icons/environment/wilderness/altar-hidden.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>Towering alien vegetation, carnivorous flora, and unfamiliar wildlife make every step into the jungle a journey into the unknown.</p>",
     "tier": 1,
     "difficulty": 11,
@@ -330,7 +334,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783707341740,
-    "modifiedTime": 1783707395650,
+    "modifiedTime": 1783716833413,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

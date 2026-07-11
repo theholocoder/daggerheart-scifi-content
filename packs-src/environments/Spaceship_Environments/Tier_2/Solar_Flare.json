@@ -1,32 +1,28 @@
 {
-  "folder": "arLYywlWY1db4GdY",
-  "name": "Reactor Meltdown",
+  "folder": "yW53PAUEBECDWDlk",
+  "name": "Solar Flare",
   "type": "environment",
-  "_id": "fZJ1QdD6KKbuTMy8",
-  "img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+  "_id": "cqBc8jhXiTY1nkUt",
+  "img": "icons/magic/light/explosion-star-large-orange.webp",
   "system": {
-    "attribution": {
-      "source": "TheHolocoder Homebrew",
-      "page": null,
-      "artist": ""
-    },
-    "description": "<p>The ship's reactor has entered a critical state. Every passing moment pushes the core closer to catastrophic failure while alarms echo through every corridor.</p>",
-    "tier": 3,
-    "difficulty": 17,
+    "attribution": {},
+    "description": "<p>A nearby star unleashes a massive burst of radiation that engulfs the ship. Sensors become unreliable, shields fluctuate, and electronics struggle to remain operational.</p>",
+    "tier": 2,
+    "difficulty": 14,
     "potentialAdversaries": {},
     "notes": "",
-    "impulses": "Escalate the emergency until the crew is forced to choose between the mission and survival",
+    "impulses": "Overload critical systems, deny information, and force emergency procedures",
     "type": "event"
   },
   "prototypeToken": {
-    "name": "Reactor Meltdown",
+    "name": "Solar Flare",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
     "height": 1,
     "depth": 1,
     "texture": {
-      "src": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+      "src": "icons/magic/light/explosion-star-large-orange.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -112,19 +108,19 @@
   },
   "items": [
     {
-      "name": "Core Instability",
+      "name": "Solar Storm",
       "type": "feature",
       "system": {
         "featureForm": "passive",
         "attribution": {},
-        "description": "<p><strong>Countdown (8)</strong>. When the reactor becomes unstable, activate the countdown. The countdown ticks down when a PC rolls with Fear while aboard the ship. When triggered, the reactor catastrophically fails, every creature aboard marks 2 Hit Points, and the PCs must immediately escape before the vessel is destroyed.</p>",
+        "description": "<p><strong>Countdown (4).</strong> When the flare reaches the ship, activate the countdown. The countdown ticks down whenever the GM spends a Fear. When triggered, the flare passes and the environment ends.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "kVad9sVhtxQQwbye",
-      "img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+      "_id": "EW7MVopceever9KV",
+      "img": "icons/magic/light/beams-rays-orange-purple-large.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -137,29 +133,29 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783700038807,
-        "modifiedTime": 1783702449826,
+        "createdTime": 1783716930343,
+        "modifiedTime": 1783717676788,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.kVad9sVhtxQQwbye"
+      "_key": "!actors.items!cqBc8jhXiTY1nkUt.EW7MVopceever9KV"
     },
     {
-      "name": "Emergency Shutdown",
+      "name": "Radiation Burst",
       "type": "feature",
       "system": {
         "featureForm": "action",
         "attribution": {},
-        "description": "<p><strong>Countdown (5)</strong>. A PC adjacent to the reactor controls may make a Knowledge Roll to stabilize the core. On a success, tick down this countdown. When triggered, the reactor stabilizes and Core Instability immediately ends.</p>",
+        "description": "<p><strong>Spend a Fear.</strong> Choose one ship system. It immediately stops functioning until repaired with a successful Knowledge Roll.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "Oe0dHF3rP4sXdD42",
-      "img": "icons/commodities/tech/levers-colored.webp",
+      "_id": "CZSgfi0kEWykCPQ1",
+      "img": "icons/magic/light/beam-explosion-pink-purple.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -172,29 +168,64 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783702453558,
-        "modifiedTime": 1783702527827,
+        "createdTime": 1783717127290,
+        "modifiedTime": 1783717166471,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.Oe0dHF3rP4sXdD42"
+      "_key": "!actors.items!cqBc8jhXiTY1nkUt.CZSgfi0kEWykCPQ1"
     },
     {
-      "name": "Power Surge",
+      "name": "Sensor Blindness",
+      "type": "feature",
+      "system": {
+        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>Piloting, sensor, and targeting rolls relying on electronic systems have Disadvantage.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "o92MQJr8FstYN9Ti",
+      "img": "icons/magic/perception/eye-slit-red-orange.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783717183543,
+        "modifiedTime": 1783717216701,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!cqBc8jhXiTY1nkUt.o92MQJr8FstYN9Ti"
+    },
+    {
+      "name": "Coronal Wave",
       "type": "feature",
       "system": {
         "featureForm": "action",
         "attribution": {},
-        "description": "<p><strong>Spend a Fear.</strong> Electrical arcs erupt from nearby systems or radiation waves are emitted. Every creature within the facility or spaceship must make an Agility Roll or suffer <strong>2d10+3</strong> magic damage.</p>",
+        "description": "<p><strong>Spend a Fear.</strong> A wave of coronal mass approaches. Make a Piloting Roll. On a failure, the ship suffers 2d10+3 magic damage from intense radiation and plasma.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "O7LDSfqAQAlspmWr",
-      "img": "icons/commodities/tech/smoke-bomb-yellow.webp",
+      "_id": "JFvf4mFsbNM8610m",
+      "img": "icons/magic/fire/projectile-wave-arrow.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -207,88 +238,18 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783702501797,
-        "modifiedTime": 1783702729913,
+        "createdTime": 1783717250929,
+        "modifiedTime": 1783717339272,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.O7LDSfqAQAlspmWr"
-    },
-    {
-      "name": "Rolling Blackout",
-      "type": "feature",
-      "system": {
-        "featureForm": "action",
-        "attribution": {},
-        "description": "<p><strong>Spend a Fear</strong>. Choose one system such as gravity, lighting, communications, doors, or sensors. It ceases functioning until the end of the next round.</p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
-      },
-      "_id": "T7y5mcFjsy6jTjPs",
-      "img": "icons/commodities/tech/bulb-vacuum.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783702592149,
-        "modifiedTime": 1783702624202,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.T7y5mcFjsy6jTjPs"
-    },
-    {
-      "name": "Containment Failure",
-      "type": "feature",
-      "system": {
-        "featureForm": "reaction",
-        "attribution": {},
-        "description": "<p>When a PC fails a Knowledge Roll while interacting with the reactor, immediately tick down Core Instability.</p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
-      },
-      "_id": "pVGsub3sE7FZBm1A",
-      "img": "icons/commodities/tech/tube-chamber-lightning.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783702635357,
-        "modifiedTime": 1783702667149,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!fZJ1QdD6KKbuTMy8.pVGsub3sE7FZBm1A"
+      "_key": "!actors.items!cqBc8jhXiTY1nkUt.JFvf4mFsbNM8610m"
     }
   ],
   "effects": [],
-  "sort": 100000,
+  "sort": 0,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -298,12 +259,12 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783699888839,
-    "modifiedTime": 1783716820691,
+    "createdTime": 1783716890380,
+    "modifiedTime": 1783717106976,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!actors!fZJ1QdD6KKbuTMy8"
+  "_key": "!actors!cqBc8jhXiTY1nkUt"
 }

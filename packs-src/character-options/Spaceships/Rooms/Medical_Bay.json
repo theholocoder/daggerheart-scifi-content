@@ -1,0 +1,39 @@
+{
+  "folder": "dFtSyGh2QfrAe6tl",
+  "name": "Medical Bay",
+  "type": "feature",
+  "_id": "FUkswAa0LvJ8Ng8K",
+  "img": "icons/magic/life/cross-worn-green.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Whenever the crew completes a Rest aboard this ship, every character recovers +1 additional HP.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.0",
+    "createdTime": 1783727930476,
+    "modifiedTime": 1783731983920,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!FUkswAa0LvJ8Ng8K"
+}

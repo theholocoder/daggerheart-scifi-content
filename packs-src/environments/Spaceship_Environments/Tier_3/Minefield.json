@@ -1,32 +1,28 @@
 {
-  "folder": "a0IckltZfWuCZrga",
-  "name": "Space Station in DIstress",
+  "folder": "y7u6MUvNA4PfhRpt",
+  "name": "Minefield",
   "type": "environment",
-  "_id": "2nphBJtAWCVZeZMA",
-  "img": "icons/environment/cosmos/planet-moon-blue.webp",
+  "_id": "WmeOko8GkViRHTEQ",
+  "img": "icons/skills/ranged/rocket-skull-fire-blue.webp",
   "system": {
-    "attribution": {
-      "source": "TheHolocoder Homebrew",
-      "page": null,
-      "artist": ""
-    },
-    "description": "<p>Power flickers as emergency sirens echo through the station's corridors. Fires burn unchecked, blast doors seal at random, and panicked survivors scramble toward evacuation pods while critical systems fail one after another. Every decision costs precious time.</p>",
-    "tier": 1,
-    "difficulty": 11,
+    "attribution": {},
+    "description": "<p>Thousands of autonomous mines drift silently through space. Some react to movement, others to energy signatures or communications. One wrong move can turn a careful crossing into a chain of explosions.</p>",
+    "tier": 3,
+    "difficulty": 17,
     "potentialAdversaries": {},
     "notes": "",
-    "type": "exploration",
-    "impulses": "Separate the crew, force difficult choices, and remind the PCs that they can't save everyone"
+    "impulses": "Punish reckless navigation, reward careful teamwork, and force the crew to constantly adapt",
+    "type": "traversal"
   },
   "prototypeToken": {
-    "name": "Space Station in DIstress",
+    "name": "Minefield",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
     "height": 1,
     "depth": 1,
     "texture": {
-      "src": "icons/environment/cosmos/planet-moon-blue.webp",
+      "src": "icons/commodities/tech/bearing-steel-green.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -112,19 +108,19 @@
   },
   "items": [
     {
-      "name": "Station Collapse",
+      "name": "Thread the Needle",
       "type": "feature",
       "system": {
         "featureForm": "passive",
         "attribution": {},
-        "description": "<p><strong>Countdown (8).</strong> When the PCs enter the station, activate the countdown. The countdown ticks down whenever a PC rolls with Fear. When triggered, the station suffers catastrophic structural failure. Every remaining compartment becomes inaccessible as the station breaks apart, forcing the PCs to immediately escape or face the consequences.</p>",
+        "description": "<p><strong>Countdown (6).</strong> When the ship enters the minefield, activate the countdown. The countdown ticks down whenever the pilot succeeds on a Piloting Roll. When triggered, the ship safely exits the minefield.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "yuCDlFcsGYbzjR4q",
-      "img": "icons/environment/cosmos/planet-moon-blue.webp",
+      "_id": "6DSaq9y0j7SGbA1g",
+      "img": "icons/magic/movement/trail-streak-zigzag-teal.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -137,64 +133,29 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783708233885,
-        "modifiedTime": 1783708274301,
+        "createdTime": 1783718225946,
+        "modifiedTime": 1783718660937,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.yuCDlFcsGYbzjR4q"
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.6DSaq9y0j7SGbA1g"
     },
     {
-      "name": "Distress Beacon",
-      "type": "feature",
-      "system": {
-        "featureForm": "passive",
-        "attribution": {},
-        "description": "<p><strong>Countdown (5).</strong> When the station's distress beacon begins broadcasting, activate the countdown. The countdown ticks down whenever a PC succeeds on a Knowledge Roll while attempting to locate survivors or restore station systems. When triggered, reinforcements or rescue forces arrive, depending on the fiction.</p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
-      },
-      "_id": "8OVh9CGdViwrGrf4",
-      "img": "icons/commodities/tech/metal-blue.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783708293407,
-        "modifiedTime": 1783708359986,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.8OVh9CGdViwrGrf4"
-    },
-    {
-      "name": "Emergency Blast Doors",
+      "name": "Mine Lock",
       "type": "feature",
       "system": {
         "featureForm": "action",
         "attribution": {},
-        "description": "<p><strong>Spend a Fear.</strong> Blast doors slam shut, separating one or more PCs until they can bypass or force the doors.</p>",
+        "description": "<p><strong>Spend a Fear</strong> to activate a dormant mine, that locks onto the ship.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "i1YUwIkt0JELCY0f",
-      "img": "icons/commodities/tech/wire-copper-red.webp",
+      "_id": "SJjLtaTBDm9sw5Qi",
+      "img": "icons/skills/targeting/triangle-glow-blue.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -207,99 +168,29 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783708372647,
-        "modifiedTime": 1783708395760,
+        "createdTime": 1783718252805,
+        "modifiedTime": 1783718679275,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.i1YUwIkt0JELCY0f"
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.SJjLtaTBDm9sw5Qi"
     },
     {
-      "name": "Failing Systems",
-      "type": "feature",
-      "system": {
-        "featureForm": "action",
-        "attribution": {},
-        "description": "<p><strong>Spend a Fear.</strong> Choose one: the lights fail, artificial gravity fluctuates, life support malfunctions, communications are disrupted, or internal sensors go offline.</p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
-      },
-      "_id": "sRkseNhqpOpMbAlW",
-      "img": "icons/commodities/tech/battery-coil-tesla.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783708403602,
-        "modifiedTime": 1783708457046,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.sRkseNhqpOpMbAlW"
-    },
-    {
-      "name": "Spreading Fire",
-      "type": "feature",
-      "system": {
-        "featureForm": "action",
-        "attribution": {},
-        "description": "<p><strong>Spend a Fear.</strong> A nearby compartment catches fire. Every creature entering or beginning their turn within Close range of the blaze must succeed on an Agility Roll or mark 1 Stress.</p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
-      },
-      "_id": "OZ36K3pbvBo2JsTi",
-      "img": "icons/magic/fire/explosion-flame-lightning-strike.webp",
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783708465173,
-        "modifiedTime": 1783708502476,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.OZ36K3pbvBo2JsTi"
-    },
-    {
-      "name": "Survivor in Peril",
+      "name": "Detonation",
       "type": "feature",
       "system": {
         "featureForm": "reaction",
         "attribution": {},
-        "description": "<p>When a PC succeeds on a roll to search the station, they discover a trapped survivor, a damaged service robot, or a frightened child. The GM should immediately present a meaningful choice between continuing the mission or attempting a rescue.</p>",
+        "description": "<p>When the pilot fails a Piloting Roll with Fear while one or more mines are locked onto the ship, one locked mine detonates. The ship suffers 3d10+8 physical damage, then remove that mine.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "NM2KkIGMmm0g6Neq",
-      "img": "icons/environment/people/group.webp",
+      "_id": "YboFqB35ZdqYzoiI",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-explosion.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -312,29 +203,169 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783708511542,
-        "modifiedTime": 1783708546014,
+        "createdTime": 1783718286982,
+        "modifiedTime": 1783718804517,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.NM2KkIGMmm0g6Neq"
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.YboFqB35ZdqYzoiI"
     },
     {
-      "name": "Emergency Console",
+      "name": "Sensor Sweep",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p>A crew member may make an Instinct or Knowledge Roll to identify safe corridors through the field. On a success, the Thread the Needle countdown ticks down.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "G0oFpJyfQKQhxVhW",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-timer.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783718310967,
+        "modifiedTime": 1783718735130,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.G0oFpJyfQKQhxVhW"
+    },
+    {
+      "name": "Electronic Warfare",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p>A crew member may make a Finesse, Knowledge, or Presence Roll to spoof signatures, jam guidance systems, or coordinate countermeasures. On a success, the Thread the Needle ticks down.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "GgzFESYWLZA6e5dT",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-circuit-board-2.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783718357330,
+        "modifiedTime": 1783718744418,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.GgzFESYWLZA6e5dT"
+    },
+    {
+      "name": "Point Defense",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p>A crew member may make an Attack Roll against a locked mine. On a success, destroy it and remove its Mine Lock. The Thread  the Needle countdown ticks down.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "w9WCLbZnK3iZOmoW",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-rocket-thrusters.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783718392057,
+        "modifiedTime": 1783718756624,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.w9WCLbZnK3iZOmoW"
+    },
+    {
+      "name": "Remote Override",
+      "type": "feature",
+      "system": {
+        "featureForm": "action",
+        "attribution": {},
+        "description": "<p>A crew member may make a Finesse or Knowledge Roll to remotely disarm a nearby mine. On a success, the Thread the Needle ticks down.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "KOw6wnY84oYxSpHR",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-broadcast-signal.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.5.0",
+        "createdTime": 1783718424814,
+        "modifiedTime": 1783718766567,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.KOw6wnY84oYxSpHR"
+    },
+    {
+      "name": "Chain Reaction",
       "type": "feature",
       "system": {
         "featureForm": "reaction",
         "attribution": {},
-        "description": "<p>When a PC succeeds on a Roll at a functioning terminal, they may immediately ask the GM one of the following questions: Where are the survivors?, What caused the station's distress?, Which route is currently the safest?, or Which critical system is closest to failure?</p>",
+        "description": "<p>When a crew member destroys a mine with Hope, it triggers a chain reaction. The Thread the Needle countdown ticks down an additional time.</p>",
         "resource": null,
         "actions": {},
         "originItemType": null,
         "multiclassOrigin": false
       },
-      "_id": "I1haMXZcNbqytYaF",
-      "img": "icons/commodities/tech/data-pad.webp",
+      "_id": "uTP5aaCmW3EC3fUR",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-asteroid-field.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -347,14 +378,14 @@
         "coreVersion": "14.364",
         "systemId": "daggerheart",
         "systemVersion": "2.5.0",
-        "createdTime": 1783708554907,
-        "modifiedTime": 1783708589087,
+        "createdTime": 1783718448883,
+        "modifiedTime": 1783718835649,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!2nphBJtAWCVZeZMA.I1haMXZcNbqytYaF"
+      "_key": "!actors.items!WmeOko8GkViRHTEQ.uTP5aaCmW3EC3fUR"
     }
   ],
   "effects": [],
@@ -368,12 +399,12 @@
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
-    "createdTime": 1783708189222,
-    "modifiedTime": 1783716829628,
+    "createdTime": 1783718187572,
+    "modifiedTime": 1783718627586,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!actors!2nphBJtAWCVZeZMA"
+  "_key": "!actors!WmeOko8GkViRHTEQ"
 }

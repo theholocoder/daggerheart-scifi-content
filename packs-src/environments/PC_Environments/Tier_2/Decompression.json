@@ -5,7 +5,11 @@
   "_id": "AaDXqSZhTFoFnio1",
   "img": "icons/magic/air/air-pressure-shield-blue.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>A hull breach vents atmosphere into space. Sirens blare as emergency bulkheads struggle to isolate the damaged compartment before everyone is pulled into the void.</p>",
     "tier": 2,
     "difficulty": 14,
@@ -330,7 +334,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783698938490,
-    "modifiedTime": 1783703585485,
+    "modifiedTime": 1783716825759,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
