@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "iIPsmFkUgrTQK7rz",
+  "name": "Other",
+  "color": null,
+  "sorting": "a",
+  "_id": "artkzuAILzIRFbBF",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.5.1",
+    "createdTime": 1783760171675,
+    "modifiedTime": 1783760171675,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!artkzuAILzIRFbBF"
+}

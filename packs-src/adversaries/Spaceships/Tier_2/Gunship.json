@@ -1,16 +1,16 @@
 {
-  "folder": "vvo9rr8sOZdbt5y4",
-  "name": "ISV Kessel",
+  "folder": "illSngWB7hTIF46k",
+  "name": "Gunship",
   "type": "adversary",
-  "_id": "E5FQ2fIpkPD8eYOz",
-  "img": "icons/svg/d4-grey.svg",
+  "_id": "AsYgbMgcOaBLQTH8",
+  "img": "icons/svg/d8-grey.svg",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p><strong data-start=\"904\" data-end=\"923\">Heavy Armament.</strong> Increase Attack by <strong data-start=\"943\" data-end=\"949\">+1</strong> with your Standard Armament.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -36,7 +36,7 @@
     },
     "advantageSources": [],
     "disadvantageSources": [],
-    "tier": 1,
+    "tier": 2,
     "type": "BPOaO4JkKyUt8AVy",
     "notes": "",
     "difficulty": 0,
@@ -69,9 +69,9 @@
       }
     },
     "attack": {
-      "name": "Standard Attack",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-rocket-thrusters.webp",
-      "_id": "EEJR4VyYfVTndsFT",
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "04wSG1G8bElcMzse",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -84,7 +84,7 @@
         "type": "attack",
         "trait": null,
         "difficulty": null,
-        "bonus": 0,
+        "bonus": 1,
         "advState": "neutral",
         "diceRolling": {
           "multiplier": "prof",
@@ -104,12 +104,12 @@
             "applyTo": "hitPoints",
             "value": {
               "multiplier": "flat",
-              "flatMultiplier": 1,
+              "flatMultiplier": 2,
               "dice": "d8",
-              "bonus": 5,
+              "bonus": 6,
               "custom": {
                 "enabled": false,
-                "formula": "1d8+2"
+                "formula": ""
               }
             },
             "resultBased": false,
@@ -181,7 +181,7 @@
     "motivesAndTactics": ""
   },
   "prototypeToken": {
-    "name": "ISV Kessel",
+    "name": "Gunship",
     "displayName": 20,
     "actorLink": false,
     "width": 1,
@@ -286,70 +286,7 @@
         },
         "description": "<p>Standard Spaceship stats.</p><p><em>GM note: the default attack damage need to me set manually in the sheet config (1d8+5).</em></p>",
         "resource": null,
-        "actions": {
-          "TMFT8U58240w5H4O": {
-            "type": "damage",
-            "_id": "TMFT8U58240w5H4O",
-            "systemPath": "actions",
-            "baseAction": false,
-            "description": "",
-            "chatDisplay": true,
-            "originItem": {
-              "type": "itemCollection"
-            },
-            "actionType": "action",
-            "triggers": [],
-            "areas": [],
-            "cost": [],
-            "uses": {
-              "value": null,
-              "max": "",
-              "recovery": null,
-              "consumeOnSuccess": false
-            },
-            "damage": {
-              "parts": {
-                "hitPoints": {
-                  "applyTo": "hitPoints",
-                  "resultBased": false,
-                  "value": {
-                    "multiplier": "tier",
-                    "flatMultiplier": 1,
-                    "dice": "d8",
-                    "bonus": 5,
-                    "custom": {
-                      "enabled": false,
-                      "formula": ""
-                    }
-                  },
-                  "valueAlt": {
-                    "multiplier": "flat",
-                    "flatMultiplier": 1,
-                    "dice": "d6",
-                    "bonus": null,
-                    "custom": {
-                      "enabled": false,
-                      "formula": ""
-                    }
-                  },
-                  "base": false,
-                  "type": [
-                    "physical"
-                  ]
-                }
-              },
-              "includeBase": false,
-              "direct": false
-            },
-            "target": {
-              "type": "any",
-              "amount": null
-            },
-            "effects": [],
-            "name": "Roll standard damage",
-            "range": ""
-          }
-        },
+        "actions": {},
         "originItemType": null,
         "multiclassOrigin": false,
         "featureForm": "passive"
@@ -407,12 +344,7 @@
               "description": "",
               "type": ""
             },
-            "rangeDependence": {
-              "enabled": false,
-              "type": "withinRange",
-              "target": "hostile",
-              "range": "melee"
-            },
+            "rangeDependence": null,
             "stacking": null,
             "targetDispositions": []
           },
@@ -445,24 +377,24 @@
           "_stats": {
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.5.0",
-            "createdTime": 1783731662800,
-            "modifiedTime": 1783731662800,
+            "systemVersion": "2.5.1",
+            "createdTime": 1783761886920,
+            "modifiedTime": 1783761886920,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null
           },
-          "_key": "!actors.items.effects!E5FQ2fIpkPD8eYOz.LBmPKiEsYrRbjCAY.Jzm3TaUG0CVfpjoq"
+          "_key": "!actors.items.effects!AsYgbMgcOaBLQTH8.LBmPKiEsYrRbjCAY.Jzm3TaUG0CVfpjoq"
         }
       ],
       "flags": {},
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783731662800,
-        "modifiedTime": 1783731662800,
+        "systemVersion": "2.5.1",
+        "createdTime": 1783761886920,
+        "modifiedTime": 1783761886920,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.LBmPKiEsYrRbjCAY",
         "duplicateSource": null,
@@ -474,7 +406,7 @@
       },
       "folder": null,
       "sort": 0,
-      "_key": "!actors.items!E5FQ2fIpkPD8eYOz.LBmPKiEsYrRbjCAY"
+      "_key": "!actors.items!AsYgbMgcOaBLQTH8.LBmPKiEsYrRbjCAY"
     },
     {
       "name": "Standard Armament (Tier 2)",
@@ -546,12 +478,7 @@
               "description": "",
               "type": ""
             },
-            "rangeDependence": {
-              "enabled": false,
-              "type": "withinRange",
-              "target": "hostile",
-              "range": "melee"
-            },
+            "rangeDependence": null,
             "stacking": null,
             "targetDispositions": []
           },
@@ -584,24 +511,24 @@
           "_stats": {
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.5.0",
-            "createdTime": 1783731713457,
-            "modifiedTime": 1783731713457,
+            "systemVersion": "2.5.1",
+            "createdTime": 1783761888672,
+            "modifiedTime": 1783761888672,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null
           },
-          "_key": "!actors.items.effects!E5FQ2fIpkPD8eYOz.BM6iEQwwZwAXcPOf.Jzm3TaUG0CVfpjoq"
+          "_key": "!actors.items.effects!AsYgbMgcOaBLQTH8.BM6iEQwwZwAXcPOf.Jzm3TaUG0CVfpjoq"
         }
       ],
       "flags": {},
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783731713457,
-        "modifiedTime": 1783731713457,
+        "systemVersion": "2.5.1",
+        "createdTime": 1783761888672,
+        "modifiedTime": 1783761888672,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "exportSource": null,
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.BM6iEQwwZwAXcPOf",
@@ -614,287 +541,7 @@
       },
       "folder": null,
       "sort": 0,
-      "_key": "!actors.items!E5FQ2fIpkPD8eYOz.BM6iEQwwZwAXcPOf"
-    },
-    {
-      "name": "Standard Armament (Tier 3)",
-      "type": "feature",
-      "img": "icons/sundries/documents/blueprints.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>Standard Spaceship stats.</p><p><em>GM note: the default attack damage need to me set manually in the sheet config (3d8+7).</em></p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "featureForm": "passive"
-      },
-      "effects": [
-        {
-          "name": "Standard Armament (Tier 3)",
-          "type": "base",
-          "system": {
-            "changes": [
-              {
-                "key": "system.resources.hitPoints.max",
-                "type": "add",
-                "value": 4,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.resources.stress.max",
-                "type": "add",
-                "value": 1,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.difficulty",
-                "type": "add",
-                "value": 3,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.attack.roll.bonus",
-                "type": "add",
-                "value": 1,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.damageThresholds.major",
-                "type": "add",
-                "value": 10,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.damageThresholds.severe",
-                "type": "add",
-                "value": 12,
-                "priority": null,
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": "",
-              "type": ""
-            },
-            "rangeDependence": {
-              "enabled": false,
-              "type": "withinRange",
-              "target": "hostile",
-              "range": "melee"
-            },
-            "stacking": null,
-            "targetDispositions": []
-          },
-          "_id": "Jzm3TaUG0CVfpjoq",
-          "img": "icons/sundries/documents/blueprints.webp",
-          "disabled": false,
-          "start": {
-            "time": 0,
-            "combat": null,
-            "combatant": null,
-            "initiative": null,
-            "round": null,
-            "turn": null
-          },
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "description": "",
-          "origin": null,
-          "tint": "#ffffff",
-          "transfer": true,
-          "statuses": [],
-          "showIcon": 1,
-          "folder": null,
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.5.0",
-            "createdTime": 1783731783417,
-            "modifiedTime": 1783731783417,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "compendiumSource": null,
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "_key": "!actors.items.effects!E5FQ2fIpkPD8eYOz.6shZ7DmMwcZQR0Oj.Jzm3TaUG0CVfpjoq"
-        }
-      ],
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783731783417,
-        "modifiedTime": 1783731783417,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "exportSource": null,
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.6shZ7DmMwcZQR0Oj",
-        "duplicateSource": null
-      },
-      "_id": "6shZ7DmMwcZQR0Oj",
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "folder": null,
-      "sort": 0,
-      "_key": "!actors.items!E5FQ2fIpkPD8eYOz.6shZ7DmMwcZQR0Oj"
-    },
-    {
-      "name": "Standard Armament (Tier 4)",
-      "type": "feature",
-      "img": "icons/sundries/documents/blueprints.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>Standard Spaceship stats.</p><p><em>GM note: the default attack damage need to me set manually in the sheet config (4d8+8).</em></p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "featureForm": "passive"
-      },
-      "effects": [
-        {
-          "name": "Standard Armament (Tier 4)",
-          "type": "base",
-          "system": {
-            "changes": [
-              {
-                "key": "system.resources.hitPoints.max",
-                "type": "add",
-                "value": 4,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.resources.stress.max",
-                "type": "add",
-                "value": 1,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.difficulty",
-                "type": "add",
-                "value": 3,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.attack.roll.bonus",
-                "type": "add",
-                "value": 1,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.damageThresholds.major",
-                "type": "add",
-                "value": 5,
-                "priority": null,
-                "phase": "initial"
-              },
-              {
-                "key": "system.damageThresholds.severe",
-                "type": "add",
-                "value": 13,
-                "priority": null,
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": "",
-              "type": ""
-            },
-            "rangeDependence": {
-              "enabled": false,
-              "type": "withinRange",
-              "target": "hostile",
-              "range": "melee"
-            },
-            "stacking": null,
-            "targetDispositions": []
-          },
-          "_id": "Jzm3TaUG0CVfpjoq",
-          "img": "icons/sundries/documents/blueprints.webp",
-          "disabled": false,
-          "start": {
-            "time": 0,
-            "combat": null,
-            "combatant": null,
-            "initiative": null,
-            "round": null,
-            "turn": null
-          },
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "description": "",
-          "origin": null,
-          "tint": "#ffffff",
-          "transfer": true,
-          "statuses": [],
-          "showIcon": 1,
-          "folder": null,
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.5.0",
-            "createdTime": 1783731881409,
-            "modifiedTime": 1783731881409,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "compendiumSource": null,
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "_key": "!actors.items.effects!E5FQ2fIpkPD8eYOz.1dQzmsynKtLqmNH5.Jzm3TaUG0CVfpjoq"
-        }
-      ],
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
-        "createdTime": 1783731881409,
-        "modifiedTime": 1783731881409,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "exportSource": null,
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.1dQzmsynKtLqmNH5",
-        "duplicateSource": null
-      },
-      "_id": "1dQzmsynKtLqmNH5",
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "folder": null,
-      "sort": 0,
-      "_key": "!actors.items!E5FQ2fIpkPD8eYOz.1dQzmsynKtLqmNH5"
+      "_key": "!actors.items!AsYgbMgcOaBLQTH8.BM6iEQwwZwAXcPOf"
     }
   ],
   "effects": [],
@@ -907,13 +554,13 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
-    "createdTime": 1783723817073,
-    "modifiedTime": 1783731310288,
+    "systemVersion": "2.5.1",
+    "createdTime": 1783761824872,
+    "modifiedTime": 1783762845927,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!actors!E5FQ2fIpkPD8eYOz"
+  "_key": "!actors!AsYgbMgcOaBLQTH8"
 }
