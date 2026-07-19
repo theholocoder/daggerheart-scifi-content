@@ -49,7 +49,7 @@
   "media": [
     {
       "type": "setup",
-      "caption": "Lazybobcat - Generic Content",
+      "caption": "Daggerheart Sci-Fi Content",
       "thumbnail": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "loop": false,
       "flags": {}
@@ -71,7 +71,6 @@
     {
       "name": "character-options",
       "label": "Character Options",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "path": "packs/character-options",
       "type": "Item",
       "system": "daggerheart",
@@ -83,7 +82,6 @@
     {
       "name": "items",
       "label": "Items",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "path": "packs/items",
       "type": "Item",
       "system": "daggerheart",
@@ -95,7 +93,6 @@
     {
       "name": "adversaries",
       "label": "Adversaries",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "path": "packs/adversaries",
       "type": "Actor",
       "system": "daggerheart",
@@ -107,7 +104,6 @@
     {
       "name": "environments",
       "label": "Environments",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "path": "packs/environments",
       "type": "Actor",
       "system": "daggerheart",
@@ -121,7 +117,6 @@
       "label": "Journals",
       "path": "packs/journals",
       "type": "JournalEntry",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -132,7 +127,6 @@
       "label": "Scenes",
       "path": "packs/scenes",
       "type": "Scene",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -143,7 +137,6 @@
       "label": "Card Decks",
       "path": "packs/cards",
       "type": "Cards",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -154,7 +147,6 @@
       "label": "Playlists",
       "path": "packs/playlists",
       "type": "Playlist",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -165,7 +157,6 @@
       "label": "Tables",
       "path": "packs/tables",
       "type": "RollTable",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -176,7 +167,6 @@
       "label": "Macros",
       "path": "packs/macros",
       "type": "Macro",
-      "banner": "modules/daggerheart-scifi-content/artwork/module-cover.webp",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
