@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Boost the equipment of an ally at Close range or your equipment. Choose one:</p><ul><li><p>Add 1d6 damage to the next primary weapon damages.</p></li><li><p>Grant +2 Evasion until your next turn.</p></li></ul>",
+    "description": "<p><strong>Mark a Stress</strong> to boost the equipment of an ally within Close range or your own equipment. Apply one of these effects to your target:</p><ul><li><p>Add 1d6 damage to the next successful attack made by the target with a primary weapon.</p></li><li><p>Grant +2 Evasion to the target until they are hit by an attack.</p></li></ul>",
     "resource": null,
     "actions": {
       "hBBHLr7eBNQCvhwz": {
@@ -230,9 +230,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783352195412,
-    "modifiedTime": 1783354463530,
+    "modifiedTime": 1786842215262,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

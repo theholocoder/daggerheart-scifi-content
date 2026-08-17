@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Spend 3 Hope</strong> and choose an adversary within range. Make an attack with Advantage against that adversary.</p><p>Whether your attack hits or misses, the next ally attack made against that adversary before the start of your next turn also gains Advantage.</p>",
+    "description": "<p><strong>Spend 3 Hope</strong> and target an adversary. Make an attack with Advantage against that adversary.</p><p>Whether your attack hits or misses, the next ally attack made against that adversary also gains Advantage.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783671869003,
-    "modifiedTime": 1783675075903,
+    "modifiedTime": 1786836159410,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

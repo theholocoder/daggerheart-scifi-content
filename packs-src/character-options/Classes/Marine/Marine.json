@@ -1,0 +1,91 @@
+{
+  "folder": "bOW1VpCbasQO8Kur",
+  "name": "Marine",
+  "type": "class",
+  "_id": "UW87Q7w01V0ytS50",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-military-organization-emblem.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>A Marine is a weapon specialist capable of transporting and using a variety of weapons efficiently. In combat, alternate between your weapons to deal the most damage you can or help your allies. You will also be very stylish doing so.</p><p><em><strong>Note</strong>: start the game with 4 weapons instead of 2.</em></p>",
+    "gmNotes": "",
+    "domains": [
+      "blade",
+      "bone"
+    ],
+    "classItems": [],
+    "hitPoints": 6,
+    "evasion": 11,
+    "features": [
+      {
+        "type": "hope",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.0Z4aY5QLxjwyOFs0"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.lppq3objCi9orUKZ"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.Bl23E5008K96BICg"
+      }
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ"
+      ],
+      "choiceA": [
+        "Compendium.daggerheart-scifi-content.items.Item.ggm0BJAPnJihr57A",
+        "Compendium.daggerheart-scifi-content.items.Item.mUepnLbkvFk0ha4Z"
+      ],
+      "choiceB": [
+        "Compendium.daggerheart-scifi-content.character-options.Item.fIiMG42e8ZUvFcXo",
+        "Compendium.daggerheart-scifi-content.character-options.Item.aQQ7Y5AWMMhEj5CE"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 1,
+        "strength": 2,
+        "finesse": 1,
+        "instinct": 0,
+        "presence": -1,
+        "knowledge": 0
+      },
+      "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.sr1j0wZKg48W4UX4",
+      "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb"
+    },
+    "backgroundQuestions": [
+      "",
+      "",
+      ""
+    ],
+    "connections": [
+      "",
+      "",
+      ""
+    ],
+    "isMulticlass": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786887902530,
+    "modifiedTime": 1786968240582,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!UW87Q7w01V0ytS50"
+}

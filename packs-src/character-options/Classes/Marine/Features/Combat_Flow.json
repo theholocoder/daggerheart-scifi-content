@@ -1,0 +1,36 @@
+{
+  "folder": "D6diU5mCCEHWhTBM",
+  "name": "Combat Flow",
+  "type": "feature",
+  "_id": "AAMxTZ8rHaWGivYg",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-soldier.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>You can now use a Tactical Die to <strong>gain a Hope</strong>.</p><p>During a scene, when you <strong>successfully</strong> attack with a weapon whose range differs from the ranges of three weapons you previously <strong>successfully</strong> attacked with, <strong>gain 4 Tactical Dice</strong>. You can use these dice for this attack or save them for later.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786888591141,
+    "modifiedTime": 1786960145000,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!AAMxTZ8rHaWGivYg"
+}

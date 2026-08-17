@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Deploys an explosive target dummy within Far range with an Evasion of 15.</p><p>When you or an ally succeed at attacking the Explosive Dummy, it explodes. All creature in Close range of the explosion must make a <strong>Reaction Roll</strong> or take <strong>3d8+8</strong> magical damage. All allies with Very Far range of the explosion can clear a Stress or gain a Hope.</p>",
+    "description": "<p><strong>Once per rest</strong>, you can deploy an explosive target dummy within Far range with an Evasion of 15.</p><p>When you or an ally succeed at attacking the Explosive Dummy, it explodes. All creatures in Close range of the explosion must make a <strong>Reaction Roll (15)</strong>. On a failure, they take <strong>3d8+8</strong> magic damage. On a success they take half the damage. All allies with Very Far range of the explosion can <strong>clear a Stress</strong> or <strong>gain a Hope</strong>.</p>",
     "resource": null,
     "actions": {},
     "domain": "tech",
@@ -26,9 +26,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783379701495,
-    "modifiedTime": 1783380088967,
+    "modifiedTime": 1786842476618,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,
@@ -39,6 +39,6 @@
     "0qb2POwXFxKbaibe": 3
   },
   "_id": "jOooVRFwPiXmvlN3",
-  "sort": 0,
+  "sort": 300000,
   "_key": "!items!jOooVRFwPiXmvlN3"
 }

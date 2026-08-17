@@ -10,13 +10,13 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You begin each Long Rest with <strong>2 Command Tokens</strong>.</p><p>When you or an ally within Close makes an <strong>Action Roll</strong>, after the Hope die is rolled but before the outcome of the roll is resolved, you may spend a <strong>Command Token</strong> to reroll only the Hope die.</p><p>You must keep the new result.</p><p>Recover all Command Tokens at the end of a Long Rest.</p>",
+    "description": "<p>At the beginning of each session, gain a number of<strong> Command Tokens</strong> depending on your Tier:</p><div class=\"group TyagGW_tableContainer\"><div tabindex=\"-1\" class=\"TyagGW_tableWrapper flex flex-col-reverse w-fit\"><table data-start=\"1876\" data-end=\"1975\" class=\"w-fit min-w-(--thread-content-width)\"><thead data-start=\"1876\" data-end=\"1901\"><tr data-start=\"1876\" data-end=\"1901\"><th data-start=\"1876\" data-end=\"1883\" data-col-size=\"sm\" class=\"last:pe-10\"><p>Tier</p></th><th data-start=\"1883\" data-end=\"1901\" data-col-size=\"sm\" class=\"last:pe-10\"><p>Command Tokens</p></th></tr></thead><tbody data-start=\"1928\" data-end=\"1975\"><tr data-start=\"1928\" data-end=\"1939\"><td data-start=\"1928\" data-end=\"1932\" data-col-size=\"sm\"><p>1</p></td><td data-start=\"1932\" data-end=\"1939\" data-col-size=\"sm\"><p>3</p></td></tr><tr data-start=\"1940\" data-end=\"1951\"><td data-start=\"1940\" data-end=\"1944\" data-col-size=\"sm\"><p>2</p></td><td data-start=\"1944\" data-end=\"1951\" data-col-size=\"sm\"><p>4</p></td></tr><tr data-start=\"1952\" data-end=\"1963\"><td data-start=\"1952\" data-end=\"1956\" data-col-size=\"sm\"><p>3</p></td><td data-start=\"1956\" data-end=\"1963\" data-col-size=\"sm\"><p>5</p></td></tr><tr data-start=\"1964\" data-end=\"1975\"><td data-start=\"1964\" data-end=\"1968\" data-col-size=\"sm\"><p>4</p></td><td data-start=\"1968\" data-end=\"1975\" data-col-size=\"sm\"><p>6</p></td></tr></tbody></table></div></div><p>Whenever you <strong>Help an Ally</strong>, you may spend a <strong>Command Token</strong> to use a <strong>d8</strong> advantage instead of a d6.</p>",
     "resource": {
-      "type": "diceValue",
-      "value": 0,
-      "max": "2",
-      "recovery": "longRest",
-      "progression": "increasing",
+      "type": "simple",
+      "value": 4,
+      "max": "4",
+      "recovery": "session",
+      "progression": "decreasing",
       "dieFaces": "d12",
       "icon": ""
     },
@@ -35,9 +35,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783671441938,
-    "modifiedTime": 1783675071135,
+    "modifiedTime": 1786847260022,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

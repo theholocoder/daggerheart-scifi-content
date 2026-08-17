@@ -1,0 +1,36 @@
+{
+  "folder": "D6diU5mCCEHWhTBM",
+  "name": "Covering Fire",
+  "type": "feature",
+  "_id": "aQxAhZ9GcjHhYRyv",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-streak.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When an ally within your weapon's range is attacked by an adversary you can see that is also within range, you can <strong>mark a Stress</strong> to make a weapon attack against that adversary as a <strong>Reaction</strong>.</p><p data-start=\"6657\" data-end=\"6684\">If you succeed, choose one:</p><ul data-start=\"6686\" data-end=\"6828\"><li data-section-id=\"1onuejd\" data-start=\"6686\" data-end=\"6743\"><p>The attack against your ally is made with disadvantage.</p></li><li data-section-id=\"1fmep0t\" data-start=\"6744\" data-end=\"6792\"><p>The ally can move anywhere within Close range.</p></li><li data-section-id=\"1gnom9a\" data-start=\"6793\" data-end=\"6828\"><p>The adversary becomes Vulnerable.</p></li></ul>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786889200059,
+    "modifiedTime": 1786889272171,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!aQxAhZ9GcjHhYRyv"
+}

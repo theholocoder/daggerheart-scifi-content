@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever an ally attacks the adversary affected by @UUID[Compendium.daggerheart-scifi-content.character-options.57mfPuIM0De08TPG]{You're Next!}, increase the damage die of that attack by one step (d6 -&gt; d8, d8 -&gt; d10, etc.).</p>",
+    "description": "<p>Whenever you use a <strong>Command Token</strong> to <strong>Help an Ally</strong> to attack, apply the following effects depending on the action result:</p><ul><li><p>If the attack succeeded, increase the damage die of that attack by one step (d6 -&gt; d8, d8 -&gt; d10, etc.).</p></li><li><p>If the attack missed, your ally may <strong>clear a Stress</strong> or <strong>gain a Hope</strong>.</p></li></ul><p>If the attack defeats the chosen adversary, you <strong>gain a Hope</strong>.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783672470406,
-    "modifiedTime": 1783675049157,
+    "modifiedTime": 1786847378730,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

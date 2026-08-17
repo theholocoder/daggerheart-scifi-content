@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>M</strong>ake a <strong>Spellcast Roll</strong>, unleashing arcs of electricity on all targets within Close range. Targets you hit must make a <strong>Reaction Roll (15)</strong>. Targets who fail take <strong>2d10+4</strong> physic and magic damage. Targets who succeed take half as much damage. Targets who critically succeed are unarmed.</p>",
+    "description": "<p>Make a <strong>Spellcast Roll</strong>, unleashing arcs of electricity on all targets within Close range. Targets you hit must make a <strong>Reaction Roll</strong> against your Spellcast Roll. Targets who fail take <strong>2d10+4</strong> magic damage. Targets who succeed take half as much damage. Targets who critically succeed are unharmed.</p>",
     "resource": null,
     "actions": {
       "eQktAU0JvylWAioI": {
@@ -119,9 +119,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783370488501,
-    "modifiedTime": 1783372433231,
+    "modifiedTime": 1786842553235,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

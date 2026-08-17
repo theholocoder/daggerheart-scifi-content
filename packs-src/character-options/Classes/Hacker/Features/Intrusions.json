@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Once per turn</strong>, after you damage a creature with your Primary or Secondary Weapon, or successfully target a creature with a Tech Domain card, you may apply one Intrusion.</p><p>Each creature may only have one Intrusion from you at a time. Applying another replaces the previous one.</p><hr><table><thead><tr><th data-colwidth=\"179\"><p>Intrusion</p></th><th><p>Effect</p></th></tr></thead><tbody><tr><td data-colwidth=\"179\"><p>Expose</p></td><td><p>The next attack against the target has Advantage.</p></td></tr><tr><td data-colwidth=\"179\"><p>Jam</p></td><td><p>The target has Disadvantage on its next attack.</p></td></tr><tr><td data-colwidth=\"179\"><p>Interference</p></td><td><p>Reduce the damage die of the target's next attack by one step.</p></td></tr><tr><td data-colwidth=\"179\"><p>Scramble</p></td><td><p>The target cannot gain Advantage until your next turn.</p></td></tr><tr><td data-colwidth=\"179\"><p>Trace</p></td><td><p>You always know the target's location until the end of the scene.</p></td></tr></tbody></table>",
+    "description": "<p>After you damage a creature with your Primary or Secondary Weapon, or successfully damage a creature with a Tech Domain card, you may apply <strong>one</strong> Intrusion.</p><p>Each creature may only have one Intrusion from you at a time. Applying another replaces the previous one.</p><hr><table><thead><tr><th data-colwidth=\"179\"><p>Intrusion</p></th><th><p>Effect</p></th></tr></thead><tbody><tr><td data-colwidth=\"179\"><p>Expose</p></td><td><p>The next attack against the target has Advantage. Then the Intrusion fades.</p></td></tr><tr><td data-colwidth=\"179\"><p>Jam</p></td><td><p>The target has Disadvantage on its next attack. Then the Intrusion fades.</p></td></tr><tr><td data-colwidth=\"179\"><p>Interference</p></td><td><p>Reduce the damage die of the target's next attack by one step. Then the Intrusion fades.</p></td></tr><tr><td data-colwidth=\"179\"><p>Trace</p></td><td><p>You always know the target's location until the end of the scene.</p></td></tr></tbody></table>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783382271322,
-    "modifiedTime": 1783674892887,
+    "modifiedTime": 1786835399902,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

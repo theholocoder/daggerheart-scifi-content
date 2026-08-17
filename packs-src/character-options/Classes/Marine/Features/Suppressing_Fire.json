@@ -1,0 +1,36 @@
+{
+  "folder": "D6diU5mCCEHWhTBM",
+  "name": "Suppressing Fire",
+  "type": "feature",
+  "_id": "BAMxbwo6xrJ1BIen",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-rocket-thrusters.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When you successfully attack an adversary with a weapon beyond Melee range, you can mark a Stress to temporarily <em>Suppress</em> them or until the end of their next Spotlight.</p><p data-start=\"6095\" data-end=\"6128\">While an adversary is <em>Suppressed</em>, they have disadvantage to making an attack against a creature other than you.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786888873377,
+    "modifiedTime": 1786889007047,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!BAMxbwo6xrJ1BIen"
+}

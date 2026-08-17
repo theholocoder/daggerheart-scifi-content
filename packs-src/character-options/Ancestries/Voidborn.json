@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>A squid-like species naturally evolved to survive the hostile environment between the stars.</p>",
+    "description": "<p>A squid-like species naturally evolved to survive the void and hostile environments between the stars.</p>",
     "features": [
       {
         "type": "primary",
@@ -32,9 +32,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783689967816,
-    "modifiedTime": 1783692339717,
+    "modifiedTime": 1786883354989,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

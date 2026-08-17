@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you spend Hope to use a Midnight Domain card, you may immediately Hide.</p>",
+    "description": "<p>Whenever you spend Hope to use a Midnight Domain card, you are immediately <em>Hidden</em>.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783674741003,
-    "modifiedTime": 1783696109145,
+    "modifiedTime": 1786835548691,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

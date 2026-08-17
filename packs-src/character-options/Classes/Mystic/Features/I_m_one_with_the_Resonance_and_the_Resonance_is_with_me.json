@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you hit an adversary using a <strong>Resonance Die</strong>, remove 1 Fear from the GM's Fear Pool.</p>",
+    "description": "<p>Whenever you spend a <strong>Resonance Die</strong>, remove 1 Fear from the GM's Fear Pool.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783684825498,
-    "modifiedTime": 1783684977027,
+    "modifiedTime": 1786848554756,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

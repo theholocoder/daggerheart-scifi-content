@@ -1,0 +1,2255 @@
+{
+  "folder": "ApKs67jNXctujFlN",
+  "name": "Kir'Ven",
+  "type": "character",
+  "_id": "pbHEcxWIMQRuWIty",
+  "img": "modules/daggerheart-scifi-content/artwork/portraits/kir-ven_m.webp",
+  "system": {
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": null
+      },
+      "stress": {
+        "value": 0,
+        "max": null
+      },
+      "hope": {
+        "value": 2,
+        "max": null
+      }
+    },
+    "advantageSources": [],
+    "disadvantageSources": [],
+    "traits": {
+      "agility": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "strength": {
+        "value": 0,
+        "tierMarked": false
+      },
+      "finesse": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "instinct": {
+        "value": 0,
+        "tierMarked": false
+      },
+      "presence": {
+        "value": 2,
+        "tierMarked": false
+      },
+      "knowledge": {
+        "value": -1,
+        "tierMarked": false
+      }
+    },
+    "proficiency": 1,
+    "evasion": 0,
+    "damageThresholds": {
+      "major": 0,
+      "severe": 0
+    },
+    "experiences": {
+      "6I2CuhLv3nV1KxRS": {
+        "name": "Je lis toujours les petites lignes",
+        "value": 2,
+        "core": true,
+        "description": ""
+      },
+      "yQDKd3HFsQNjZlTy": {
+        "name": "I was born ready",
+        "value": 2,
+        "core": true,
+        "description": ""
+      }
+    },
+    "gold": {
+      "coins": 0,
+      "handfuls": 1,
+      "bags": 0,
+      "chests": 0
+    },
+    "scars": 0,
+    "biography": {
+      "background": "",
+      "connections": "",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
+    "attack": {
+      "name": "DAGGERHEART.GENERAL.unarmedAttack",
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "_id": "bBIDEbXHvtbRGzKx",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": "strength",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "main": {
+          "type": [
+            "physical"
+          ],
+          "applyTo": "hitPoints",
+          "value": {
+            "custom": {
+              "enabled": true,
+              "formula": "@profd4"
+            },
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "bonus": null
+          },
+          "base": false,
+          "resultBased": false,
+          "fullRestore": false,
+          "valueAlt": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "bonus": null,
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "resources": {}
+      },
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "triggers": [],
+      "areas": [],
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "levelData": {
+      "level": {
+        "current": 1,
+        "changed": 1,
+        "bonuses": {}
+      },
+      "levelups": {}
+    },
+    "companion": null
+  },
+  "prototypeToken": {
+    "name": "Kir'Ven",
+    "displayName": 30,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "modules/daggerheart-scifi-content/artwork/portraits/kir-ven_m.token.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": true,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 0.9,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {
+      "monks-tokenbar": {
+        "include": [
+          "default",
+          "default"
+        ]
+      },
+      "wall-height": {
+        "tokenHeight": 0
+      },
+      "token-hud-wildcard": {
+        "default": ""
+      }
+    },
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "folder": "jlz4P6meQQ6ccRFw",
+      "name": "Trust Me",
+      "type": "feature",
+      "_id": "tj1wktoodyPZibF3",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/dice.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>At the beginning of each session, gain a number of<strong> Command Tokens</strong> depending on your Tier:</p><div class=\"group TyagGW_tableContainer\"><div tabindex=\"-1\" class=\"TyagGW_tableWrapper flex flex-col-reverse w-fit\"><table data-start=\"1876\" data-end=\"1975\" class=\"w-fit min-w-(--thread-content-width)\"><thead data-start=\"1876\" data-end=\"1901\"><tr data-start=\"1876\" data-end=\"1901\"><th data-start=\"1876\" data-end=\"1883\" data-col-size=\"sm\" class=\"last:pe-10\"><p>Tier</p></th><th data-start=\"1883\" data-end=\"1901\" data-col-size=\"sm\" class=\"last:pe-10\"><p>Command Tokens</p></th></tr></thead><tbody data-start=\"1928\" data-end=\"1975\"><tr data-start=\"1928\" data-end=\"1939\"><td data-start=\"1928\" data-end=\"1932\" data-col-size=\"sm\"><p>1</p></td><td data-start=\"1932\" data-end=\"1939\" data-col-size=\"sm\"><p>3</p></td></tr><tr data-start=\"1940\" data-end=\"1951\"><td data-start=\"1940\" data-end=\"1944\" data-col-size=\"sm\"><p>2</p></td><td data-start=\"1944\" data-end=\"1951\" data-col-size=\"sm\"><p>4</p></td></tr><tr data-start=\"1952\" data-end=\"1963\"><td data-start=\"1952\" data-end=\"1956\" data-col-size=\"sm\"><p>3</p></td><td data-start=\"1956\" data-end=\"1963\" data-col-size=\"sm\"><p>5</p></td></tr><tr data-start=\"1964\" data-end=\"1975\"><td data-start=\"1964\" data-end=\"1968\" data-col-size=\"sm\"><p>4</p></td><td data-start=\"1968\" data-end=\"1975\" data-col-size=\"sm\"><p>6</p></td></tr></tbody></table></div></div><p>Whenever you <strong>Help an Ally</strong>, you may spend a <strong>Command Token</strong> to use a <strong>d8</strong> advantage instead of a d6.</p>",
+        "resource": {
+          "type": "simple",
+          "value": 4,
+          "max": "4",
+          "recovery": "session",
+          "progression": "decreasing",
+          "dieFaces": "d12",
+          "icon": "",
+          "diceStates": {}
+        },
+        "actions": {},
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "class"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.z87N0emUQuSgtkbm",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.tj1wktoodyPZibF3"
+    },
+    {
+      "folder": "jlz4P6meQQ6ccRFw",
+      "name": "You're Next!",
+      "type": "feature",
+      "_id": "qfvHx49U7Ax1bjAX",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/inveigle.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p><strong>Spend 3 Hope</strong> and target an adversary. Make an attack with Advantage against that adversary.</p><p>Whether your attack hits or misses, the next ally attack made against that adversary also gains Advantage.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "hope"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.57mfPuIM0De08TPG",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.qfvHx49U7Ax1bjAX"
+    },
+    {
+      "effects": [],
+      "_id": "oshykGd18I7zN6iE",
+      "name": "Envoy",
+      "type": "class",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-organization-insignia.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Some people lead through rank. Others lead through fear. An Envoy leads through confidence, daring, and instinct. They inspire allies to push harder, exploit every weakness in the enemy's line, and turn a single opening into a decisive victory.</p>",
+        "domains": [
+          "grace",
+          "valor"
+        ],
+        "classItems": [],
+        "hitPoints": 7,
+        "evasion": 9,
+        "features": [
+          {
+            "type": "class",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.z87N0emUQuSgtkbm"
+          },
+          {
+            "type": "hope",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.57mfPuIM0De08TPG"
+          }
+        ],
+        "inventory": {
+          "take": [
+            "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+            "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+            "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk"
+          ],
+          "choiceA": [
+            "Compendium.daggerheart-scifi-content.items.Item.mUepnLbkvFk0ha4Z",
+            "Compendium.daggerheart-scifi-content.items.Item.YHnR2pOe067wDEK4"
+          ],
+          "choiceB": [
+            "Compendium.daggerheart-scifi-content.character-options.Item.lpWcR1jWdR7tx3QN",
+            "Compendium.daggerheart-scifi-content.character-options.Item.OUDOJsZr218qedTT"
+          ]
+        },
+        "characterGuide": {
+          "suggestedTraits": {
+            "agility": 1,
+            "strength": 0,
+            "finesse": 1,
+            "instinct": 0,
+            "presence": 2,
+            "knowledge": -1
+          },
+          "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.ECdMuLhVJL1bow69",
+          "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
+          "suggestedArmor": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb"
+        },
+        "backgroundQuestions": [
+          "",
+          "",
+          ""
+        ],
+        "connections": [
+          "",
+          "",
+          ""
+        ],
+        "isMulticlass": false,
+        "gmNotes": ""
+      },
+      "folder": "W7qLgcrBftuDR0eM",
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.LghJDwan9TGlKnaf",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.oshykGd18I7zN6iE"
+    },
+    {
+      "folder": "qldZSEXSq5l7lKUo",
+      "name": "Hive Mind",
+      "type": "feature",
+      "_id": "kAkAbCtdKKpYET9D",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/brain-drain.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>When you Help an ally, you also gain a Hope if they roll with Hope.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "primary"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.Ipp6eGWldta6dGKH",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.kAkAbCtdKKpYET9D"
+    },
+    {
+      "folder": "qldZSEXSq5l7lKUo",
+      "name": "Shared Perception",
+      "type": "feature",
+      "_id": "6cIOvJaz9PCEQ6cg",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/veil.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p><strong>Once per Scene</strong>, after an ally succeeds on an Instinct Roll, you also learn what they learned.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "secondary"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.osX3Yck9fX9tdmYm",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.6cIOvJaz9PCEQ6cg"
+    },
+    {
+      "folder": "zJl3BQZGZBL6fWlH",
+      "name": "Corporate Etiquette",
+      "type": "feature",
+      "_id": "BNYceQ9XLWUlfsq8",
+      "img": "icons/skills/social/theft-pickpocket-bribery-brown.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You have Advantage on rolls to negotiate contracts, leverage bureaucracy, or interact with corporate officials.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "community",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": ""
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.T8GOaeF0K2dFkuVZ",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.BNYceQ9XLWUlfsq8"
+    },
+    {
+      "folder": "jlz4P6meQQ6ccRFw",
+      "name": "Coordinated Assault",
+      "type": "feature",
+      "_id": "guTqFHOk36OwwfpK",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/time-skip.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Whenever you use a <strong>Command Token</strong> to <strong>Help an Ally</strong> to attack, apply the following effects depending on the action result:</p><ul><li><p>If the attack succeeded, increase the damage die of that attack by one step (d6 -&gt; d8, d8 -&gt; d10, etc.).</p></li><li><p>If the attack missed, your ally may <strong>clear a Stress</strong> or <strong>gain a Hope</strong>.</p></li></ul><p>If the attack defeats the chosen adversary, you <strong>gain a Hope</strong>.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "foundation"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.173W5JgBTRE0Lg5i",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.guTqFHOk36OwwfpK"
+    },
+    {
+      "folder": "jlz4P6meQQ6ccRFw",
+      "name": "Watch Out!",
+      "type": "feature",
+      "_id": "H8JP0BISaC5FwcrO",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/agitate.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>When an adversary makes a ranged attack against one of your allies and before the dice are rolled, you can spend a Command Token to impose disadvantage to that attack. The disadvantage die is a <strong>d8</strong> (instead of a d6).</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "specialization"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.llyFfNuAcNC8IEUi",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.H8JP0BISaC5FwcrO"
+    },
+    {
+      "folder": "jlz4P6meQQ6ccRFw",
+      "name": "Leader Aura",
+      "type": "feature",
+      "_id": "Wahmw1kgSid2Vk3R",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/scouring-pulse.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>When an ally within Very Close range makes a <strong>Action Roll</strong> but before the consequences are determined, you can spend a <strong>Command Token</strong> to make that ally roll again. They must keep the new result and you may not use another <strong>Command Token</strong> for that action.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.1hqoSW8U0rU4D0Nm",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.Wahmw1kgSid2Vk3R"
+    },
+    {
+      "effects": [],
+      "_id": "vfkbQJrraHgIjwXx",
+      "name": "Thriik",
+      "type": "ancestry",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/shirren.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Insectoid beings who thrive through cooperation and shared purpose.</p>",
+        "gmNotes": "",
+        "features": [
+          {
+            "type": "primary",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.Ipp6eGWldta6dGKH"
+          },
+          {
+            "type": "secondary",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.osX3Yck9fX9tdmYm"
+          }
+        ]
+      },
+      "folder": "KjbbtmNF7SEmZ9t0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.51JAA9aEqDYhQwhi",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.vfkbQJrraHgIjwXx"
+    },
+    {
+      "effects": [],
+      "_id": "wcrX0mklUrH8sMt9",
+      "name": "Captain",
+      "type": "subclass",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-star-insignia.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Play the Captain if you want to lead from the front, empower your allies, and make teamwork your greatest weapon.</p>",
+        "spellcastingTrait": "presence",
+        "features": [
+          {
+            "type": "foundation",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.173W5JgBTRE0Lg5i"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.llyFfNuAcNC8IEUi"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.1hqoSW8U0rU4D0Nm"
+          }
+        ],
+        "featureState": 1,
+        "isMulticlass": false,
+        "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.LghJDwan9TGlKnaf",
+        "gmNotes": ""
+      },
+      "folder": "oFIBPc1R7YfxxzKy",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.3m4RCEWH1Y4rrUWh",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.wcrX0mklUrH8sMt9"
+    },
+    {
+      "effects": [],
+      "_id": "vJFv66ivnzja8A2Z",
+      "name": "Inspirational Words",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/grace.png",
+      "system": {
+        "description": "<p>Your speech is imbued with power. After a long rest, place a number of tokens on this card equal to your Presence. When you speak with an ally, you can spend a token from this card to give them one benefit from the following options:</p><ul><li class=\"vertical-card-list-found\"><p>Your ally clears a Stress.</p></li><li class=\"vertical-card-list-found\"><p>Your ally clears a Hit Point.</p></li><li class=\"vertical-card-list-found\"><p>Your ally gains a Hope.</p></li></ul><p>When you take a long rest, clear all unspent tokens.</p>",
+        "domain": "grace",
+        "recallCost": 1,
+        "level": 1,
+        "type": "ability",
+        "resource": {
+          "type": "simple",
+          "value": 0,
+          "recovery": "longRest",
+          "max": "@system.traits.presence.value",
+          "icon": "",
+          "progression": "decreasing",
+          "diceStates": {},
+          "dieFaces": "d4"
+        },
+        "actions": {
+          "5sGMd6m6Ltahit4h": {
+            "type": "healing",
+            "_id": "5sGMd6m6Ltahit4h",
+            "systemPath": "actions",
+            "description": "<p>Spend a token from this card to give them the following:</p><ul class=\"\"><li class=\"vertical-card-list-found\"><p>Your ally clears a Stress.</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "key": "resource",
+                "itemId": "cWu1o82ZF7GvnbXc",
+                "value": 1,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "stress": {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    },
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "stress",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Clear Stress",
+            "img": "icons/commodities/gems/gem-faceted-navette-red.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          },
+          "QKS3vo3Nf5CK8rkF": {
+            "type": "healing",
+            "_id": "QKS3vo3Nf5CK8rkF",
+            "systemPath": "actions",
+            "description": "<p>Spend a token from this card to give them the following:</p><ul class=\"\"><li class=\"vertical-card-list-found\"><p>Your ally clears a Hit Point.</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "key": "resource",
+                "itemId": "cWu1o82ZF7GvnbXc",
+                "value": 1,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "hitPoints": {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    },
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "hitPoints",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Clear Hitpoint",
+            "img": "icons/commodities/gems/gem-faceted-diamond-green.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          },
+          "5xn70wYZW7k9aiVl": {
+            "type": "healing",
+            "_id": "5xn70wYZW7k9aiVl",
+            "systemPath": "actions",
+            "description": "<p>Spend a token from this card to give them the following:</p><ul class=\"\"><li class=\"vertical-card-list-found\"><p>Your ally gains a Hope.</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "key": "resource",
+                "itemId": "cWu1o82ZF7GvnbXc",
+                "value": 1,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "hope": {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    },
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "hope",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Give Hope",
+            "img": "icons/commodities/gems/gem-faceted-octagon-yellow.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 126,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "inVault": false,
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null
+      },
+      "folder": "nVCKcZkcoEivYJaF",
+      "sort": 3400000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.domains.Item.cWu1o82ZF7GvnbXc",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.vJFv66ivnzja8A2Z"
+    },
+    {
+      "effects": [],
+      "_id": "LXJTOmLNRnHACP5m",
+      "name": "Corporateborne",
+      "type": "community",
+      "img": "icons/sundries/documents/notebook-spiral-red.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Being part of a corporateborne community means you were raised within the influence of a megacorporation. Whether as an executive's child or a factory worker, you learned that favors, contracts, and reputation often matter more than laws.</p><p><em>Corporateborne are often ambitious, composed, persuasive, polished, and calculating.</em></p>",
+        "features": [
+          "Compendium.daggerheart-scifi-content.character-options.Item.T8GOaeF0K2dFkuVZ"
+        ],
+        "gmNotes": ""
+      },
+      "folder": "6sFLVLCQU5XQ24Cr",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.aCjytLSMBbSsXMhe",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.LXJTOmLNRnHACP5m"
+    },
+    {
+      "effects": [
+        {
+          "name": "Enraptured",
+          "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+          "origin": "Compendium.daggerheart.domains.Item.a8lFiKX1o8T924ze",
+          "transfer": false,
+          "_id": "EYG5dLImk6GkmfRd",
+          "type": "base",
+          "system": {
+            "changes": [],
+            "duration": {
+              "type": "temporary",
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "<p>While <em>Enraptured</em>, a target’s attention is fixed on you, narrowing their field of view and drowning out any sound but your voice.</p>",
+          "tint": "#ffffff",
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304980,
+            "modifiedTime": 1786988304980,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!pbHEcxWIMQRuWIty.spshK2HIj8Wxd0GE.EYG5dLImk6GkmfRd"
+        }
+      ],
+      "_id": "spshK2HIj8Wxd0GE",
+      "name": "Enrapture",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/grace.png",
+      "system": {
+        "description": "<p>Make a <strong>Spellcast Roll</strong> against a target within Close range. On a success, they become temporarily <em>Enraptured</em>. While <em>Enraptured</em>, a target's attention is fixed on you, narrowing their field of view and drowning out any sound but your voice. Once per rest on a success, you can <strong>mark a Stress</strong> to force the <em>Enraptured</em> target to mark a Stress as well.</p>",
+        "domain": "grace",
+        "recallCost": 0,
+        "level": 1,
+        "type": "spell",
+        "actions": {
+          "G6RBFMbCuHlM45t0": {
+            "type": "attack",
+            "_id": "G6RBFMbCuHlM45t0",
+            "systemPath": "actions",
+            "description": "<p>Make a <strong>Spellcast Roll</strong> against a target within Close range. On a success, they become temporarily <em>Enraptured</em>. While <em>Enraptured</em>, a target's attention is fixed on you, narrowing their field of view and drowning out any sound but your voice.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {}
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [
+              {
+                "_id": "EYG5dLImk6GkmfRd",
+                "onSave": false
+              }
+            ],
+            "roll": {
+              "type": "spellcast",
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            },
+            "name": "Enrapture",
+            "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+            "range": "close",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          },
+          "oJDiE9egDyfdLbR7": {
+            "type": "damage",
+            "_id": "oJDiE9egDyfdLbR7",
+            "systemPath": "actions",
+            "description": "<p>Once per rest on a success, you can <strong>mark a Stress</strong> to force the <em>Enraptured</em> target to mark a Stress as well.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "step": null,
+                "itemId": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "shortRest",
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "stress": {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    },
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "stress",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "name": "Mark Stress",
+            "img": "icons/commodities/gems/gem-faceted-navette-red.webp",
+            "range": "close",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 126,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "resource": null,
+        "inVault": false,
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null
+      },
+      "folder": "nVCKcZkcoEivYJaF",
+      "sort": 3400000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.domains.Item.a8lFiKX1o8T924ze",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.spshK2HIj8Wxd0GE"
+    },
+    {
+      "effects": [
+        {
+          "name": "Heavy",
+          "description": "-1 to Evasion",
+          "img": "icons/commodities/metal/ingot-worn-iron.webp",
+          "_id": "ZfO5NjpqEIzZVlPq",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.evasion",
+                "type": "add",
+                "value": -1,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304980,
+            "modifiedTime": 1786988304980,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!pbHEcxWIMQRuWIty.0ryWUGOcZrzE5m9K.ZfO5NjpqEIzZVlPq"
+        }
+      ],
+      "_id": "0ryWUGOcZrzE5m9K",
+      "name": "Chainmail Armor",
+      "type": "armor",
+      "img": "icons/equipment/chest/breastplate-scale-grey.webp",
+      "system": {
+        "armor": {
+          "current": 0,
+          "max": 4
+        },
+        "description": "",
+        "actions": {},
+        "tier": 1,
+        "equipped": true,
+        "armorFeatures": [
+          {
+            "value": "heavy",
+            "effectIds": [
+              "ZfO5NjpqEIzZVlPq"
+            ],
+            "actionIds": []
+          }
+        ],
+        "baseThresholds": {
+          "major": 7,
+          "severe": 15
+        },
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 56,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "resource": null,
+        "quantity": 1
+      },
+      "folder": "h4QgrovjVZ1oee7O",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.0ryWUGOcZrzE5m9K"
+    },
+    {
+      "effects": [
+        {
+          "name": "Reliable",
+          "description": "+1 to attack rolls",
+          "img": "icons/skills/melee/strike-sword-slashing-red.webp",
+          "system": {
+            "changes": [
+              {
+                "key": "system.bonuses.roll.primaryWeapon.bonus",
+                "value": 1,
+                "type": "add",
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "6BrQnmUVZ9gOj2lg",
+          "type": "base",
+          "disabled": false,
+          "start": null,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304980,
+            "modifiedTime": 1786988304980,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!pbHEcxWIMQRuWIty.xIFjpDzngA6bCTt6.6BrQnmUVZ9gOj2lg"
+        }
+      ],
+      "_id": "xIFjpDzngA6bCTt6",
+      "name": "Lasersword",
+      "type": "weapon",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/lasersword.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "",
+        "resource": null,
+        "quantity": 1,
+        "actions": {
+          "la9I7poulcigsres": {
+            "type": "effect",
+            "chatDisplay": true,
+            "name": "Quick",
+            "description": "When you make an attack, you can mark a Stress to target another creature within range.",
+            "img": "icons/skills/movement/arrow-upward-yellow.webp",
+            "cost": [
+              {
+                "key": "stress",
+                "value": 1,
+                "itemId": null,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "_id": "la9I7poulcigsres",
+            "effects": [],
+            "systemPath": "actions",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "uses": {
+              "value": null,
+              "max": null,
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            }
+          }
+        },
+        "tier": 1,
+        "equipped": true,
+        "secondary": false,
+        "burden": "oneHanded",
+        "weaponFeatures": [
+          {
+            "value": "quick",
+            "effectIds": [],
+            "actionIds": [
+              "la9I7poulcigsres"
+            ]
+          }
+        ],
+        "attack": {
+          "name": "Attack",
+          "img": "icons/skills/melee/blood-slash-foam-red.webp",
+          "_id": "RFdaHANagnwg0r0m",
+          "baseAction": true,
+          "chatDisplay": false,
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "melee",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "presence",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "main": {
+              "type": [
+                "physical"
+              ],
+              "value": {
+                "multiplier": "prof",
+                "dice": "d8",
+                "flatMultiplier": 1,
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "includeBase": false,
+              "direct": false,
+              "fullRestore": false
+            },
+            "resources": {}
+          },
+          "description": "",
+          "originItem": {
+            "type": "itemCollection"
+          },
+          "actionType": "action",
+          "triggers": [],
+          "areas": [],
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          }
+        },
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        },
+        "gmNotes": ""
+      },
+      "folder": "U0za3at4rtifS0rY",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.ECdMuLhVJL1bow69",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.xIFjpDzngA6bCTt6"
+    },
+    {
+      "effects": [
+        {
+          "name": "Quick Shot",
+          "disabled": false,
+          "img": "icons/weapons/guns/gun-pistol-brass.webp",
+          "description": "<p>+4 to primary weapon damage.</p>",
+          "transfer": false,
+          "statuses": [],
+          "system": {
+            "rangeDependence": {
+              "type": "withinRange",
+              "target": "friendly",
+              "range": "self"
+            },
+            "changes": [
+              {
+                "key": "system.bonuses.damage.physical.bonus",
+                "type": "add",
+                "value": 4,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "type": "act",
+              "description": ""
+            },
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "type": "base",
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304980,
+            "modifiedTime": 1786988304980,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_id": "6f2UBdq8Q28MZ87w",
+          "_key": "!actors.items.effects!pbHEcxWIMQRuWIty.pNAduQaY7DKtDl9M.6f2UBdq8Q28MZ87w"
+        }
+      ],
+      "_id": "pNAduQaY7DKtDl9M",
+      "name": "Phase Pistol",
+      "type": "weapon",
+      "img": "icons/weapons/guns/pistol-auto-tech-purple.webp",
+      "system": {
+        "description": "<p>Common compact sidearm firing low-energy laser pulses. Accurate and reliable but weak against armor.</p>",
+        "actions": {
+          "ylSaADUa9mcW7AA6": {
+            "_id": "ylSaADUa9mcW7AA6",
+            "systemPath": "actions",
+            "type": "effect",
+            "baseAction": false,
+            "name": "Quick shot",
+            "description": "",
+            "img": "icons/weapons/guns/gun-pistol-brown.webp",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "key": "hope",
+                "itemId": null,
+                "value": 2,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "range": "",
+            "effects": [
+              {
+                "_id": "6f2UBdq8Q28MZ87w",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "self",
+              "amount": null
+            }
+          }
+        },
+        "tier": 1,
+        "equipped": true,
+        "secondary": true,
+        "burden": "oneHanded",
+        "weaponFeatures": [
+          {
+            "value": "3gXooI1BEMZajsEl",
+            "effectIds": [
+              "6f2UBdq8Q28MZ87w"
+            ],
+            "actionIds": [
+              "ylSaADUa9mcW7AA6"
+            ]
+          }
+        ],
+        "attack": {
+          "name": "Attack",
+          "img": "icons/skills/melee/blood-slash-foam-red.webp",
+          "_id": "i9jZXe5K5nIc58AG",
+          "baseAction": true,
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "far",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "finesse",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "main": {
+              "value": {
+                "dice": "d6",
+                "bonus": null,
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": [
+                "physical"
+              ],
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "includeBase": false,
+              "direct": false,
+              "fullRestore": false
+            },
+            "resources": {}
+          },
+          "description": "",
+          "chatDisplay": false,
+          "actionType": "action",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          },
+          "originItem": {
+            "type": "itemCollection"
+          },
+          "triggers": [],
+          "areas": []
+        },
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        },
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "resource": null,
+        "quantity": 1,
+        "gmNotes": ""
+      },
+      "folder": "tt2aJ5watjZqK1BS",
+      "sort": 200000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.pNAduQaY7DKtDl9M"
+    },
+    {
+      "effects": [],
+      "_id": "KMLDHOIOlXQZELun",
+      "name": "Smoke Grenade",
+      "type": "consumable",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/grenade-canister.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Throw this grenade at an point within Far range. A cloud of smoke expands upon detonation in a shape of a sphere of Very Close radius.  Attacks and perception is at disadvantage within the smoke, as well as from the outside in or the inside out.</p><p>@Template[type:circle|range:vc]</p>",
+        "quantity": 1,
+        "actions": {
+          "f7gTY8NdUfNCxVlx": {
+            "type": "attack",
+            "_id": "f7gTY8NdUfNCxVlx",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "scalable": false,
+                "key": "quantity",
+                "value": 1,
+                "itemId": "YHnR2pOe067wDEK4",
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {}
+            },
+            "target": {
+              "type": "",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            },
+            "name": "Throw",
+            "range": "far"
+          }
+        },
+        "consumeOnUse": true,
+        "gmNotes": ""
+      },
+      "folder": "uni4W32cNXU1jjpq",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.YHnR2pOe067wDEK4",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.KMLDHOIOlXQZELun"
+    },
+    {
+      "effects": [],
+      "_id": "CqaH6FwW4teP6bqj",
+      "name": "Command Beacon",
+      "type": "loot",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/electrical-plug.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "gmNotes": ""
+      },
+      "folder": "bsvaOuqUeXNzA10n",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {
+        "dh-containers": {
+          "isContainer": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.lpWcR1jWdR7tx3QN",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.CqaH6FwW4teP6bqj"
+    },
+    {
+      "effects": [],
+      "_id": "uUD7cqyrYRF64Eng",
+      "name": "Torch Attachment",
+      "type": "loot",
+      "img": "icons/sundries/lights/flash-light.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You don't need any lighter for as long as you have batteries.</p>",
+        "quantity": 1,
+        "actions": {},
+        "gmNotes": ""
+      },
+      "folder": "lakUNIl4gMWLrnFk",
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "Wn7wESs3tNnOgRpn": 3,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {
+        "dh-containers": {
+          "containerId": "aavl5hkqhlmGmiis",
+          "isContainer": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.uUD7cqyrYRF64Eng"
+    },
+    {
+      "effects": [],
+      "_id": "S2YH3iWQfToqURcV",
+      "name": "50ft of Rope",
+      "type": "loot",
+      "img": "icons/sundries/survival/rope-coiled-tan.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.S2YH3iWQfToqURcV"
+    },
+    {
+      "effects": [],
+      "_id": "FqTTeEPScP1jRHso",
+      "name": "Basic Supplies",
+      "type": "loot",
+      "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304980,
+        "modifiedTime": 1786988304980,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!pbHEcxWIMQRuWIty.FqTTeEPScP1jRHso"
+    }
+  ],
+  "effects": [],
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786988304980,
+    "modifiedTime": 1786988304980,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": "Actor.pbHEcxWIMQRuWIty",
+    "exportSource": null
+  },
+  "_key": "!actors!pbHEcxWIMQRuWIty"
+}

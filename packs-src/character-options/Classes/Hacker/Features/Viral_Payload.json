@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you apply an Intrusion, place a Virus Token on that adversary.</p><p>Whenever you damage an adversary with a Virus Token using your Primary or Secondary Weapon, deal an additional <strong>d6</strong> magic damage, increasing with your Proficiency.</p><p>An adversary can only have one Virus Token.</p>",
+    "description": "<p>Whenever you apply an @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion} to an adversary, place a Virus Token on them.</p><p>Whenever you damage an adversary with a Virus Token using your Primary or Secondary Weapon, deal an additional <strong>d6</strong> magic damage (virus damage).</p><p>Each adversary can only have one Virus Token.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783383710186,
-    "modifiedTime": 1783696047016,
+    "modifiedTime": 1786835818585,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

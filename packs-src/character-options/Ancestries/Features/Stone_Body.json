@@ -27,9 +27,9 @@
             "type": "armor",
             "phase": "initial",
             "value": {
-              "current": 1,
+              "interaction": "none",
+              "current": 0,
               "max": "1",
-              "interaction": "active",
               "damageThresholds": null
             },
             "priority": 20
@@ -77,9 +77,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.5.0",
+        "systemVersion": "2.7.3",
         "createdTime": 1783689412370,
-        "modifiedTime": 1783689476574,
+        "modifiedTime": 1786968830559,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,

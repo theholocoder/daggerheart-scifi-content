@@ -1,0 +1,36 @@
+{
+  "folder": "D6diU5mCCEHWhTBM",
+  "name": "Weapon Mastery",
+  "type": "feature",
+  "_id": "huSGhVrkvCWaNMKg",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-aura-charged-gun.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Your Tactical Dice become <strong data-start=\"4671\" data-end=\"4678\">d8s</strong>.</p><p data-start=\"4681\" data-end=\"4855\">Additionally, whenever you successfully attack with a weapon whose range differs from the weapon used for your previous attack, you gain <strong data-start=\"4818\" data-end=\"4854\">two Tactical Dice instead of one</strong>.</p><p data-start=\"4857\" data-end=\"4944\">You can spend a Tactical Die <strong data-start=\"4886\" data-end=\"4943\">after seeing the result of your attack or damage roll</strong>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786888705963,
+    "modifiedTime": 1786888760960,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!huSGhVrkvCWaNMKg"
+}

@@ -1,0 +1,41 @@
+{
+  "folder": "XjmAyVsUdKsRWwJA",
+  "name": "Decoy Projector Drone",
+  "type": "loot",
+  "img": "modules/daggerheart-scifi-content/artwork/portraits/drone.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Creates a convincing holographic distraction. It can move up to Close range.<br><strong>Control</strong>: up to Far range.<br><strong>Activate (Spellcast Roll (10))</strong>: Attack against allies within Melee range of the Decoy have disadvantage.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786982071358,
+    "modifiedTime": 1786988162447,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "mqzvLBXbWb1rtdbv",
+  "sort": 400000,
+  "_key": "!items!mqzvLBXbWb1rtdbv"
+}

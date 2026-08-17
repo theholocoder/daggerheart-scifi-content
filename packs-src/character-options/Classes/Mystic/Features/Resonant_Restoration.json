@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you spend a <strong>Resonance Die</strong> showing 5 or 6, you may also clear 1 Hit Point on yourself or an ally within Close range of you.</p>",
+    "description": "<p>Whenever you spend a <strong>Resonance Die</strong> you may mark a number of Hit Points equal to the <strong>Resonance Die</strong> and split amongst any number willing creature within Far range to clear an equal number of Hit Points on other willing creatures within Close range.</p><p>You can choose yourself in place of either creature.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783684906318,
-    "modifiedTime": 1783684970158,
+    "modifiedTime": 1786848399421,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Deploy a dome of screens that cloak a small area.</p><p>Make a <strong>Spellcast Roll (14)</strong>. On a success, <strong>mark a Stress</strong> and every creature within Melee range to become Invisible while they stay in the area. An Invisible creature can’t be seen except through magical means and attack rolls against them are made with disadvantage.</p><p>If an action is taken by a creature from inside the dome or if an adversary inspects or move in the area, the trick might be revealed.</p>",
+    "description": "<p>Deploy a dome of screens that cloak a small area.</p><p>Make a <strong>Spellcast Roll (14)</strong>. On a success, <strong>mark a Stress</strong> to deploy the device at your feet and make every creature within Melee range of the device Invisible. You can't move it once it is deployed. An Invisible creature can’t be seen except through magical means and attack rolls against them are made with disadvantage.</p><p>If an action is taken by a creature from inside the dome or if an adversary inspects or move in the area, the trick might be revealed.</p>",
     "resource": null,
     "actions": {
       "JPUsLoE0QTzaPYkj": {
@@ -163,9 +163,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783373592027,
-    "modifiedTime": 1783374288542,
+    "modifiedTime": 1786832204595,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

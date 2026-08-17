@@ -1,0 +1,2174 @@
+{
+  "folder": "ApKs67jNXctujFlN",
+  "name": "Basalt",
+  "type": "character",
+  "_id": "Jgn5RqYTrn2zXvUv",
+  "img": "modules/daggerheart-scifi-content/artwork/portraits/basalt.webp",
+  "system": {
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": null
+      },
+      "stress": {
+        "value": 0,
+        "max": null
+      },
+      "hope": {
+        "value": 2,
+        "max": null
+      }
+    },
+    "advantageSources": [],
+    "disadvantageSources": [],
+    "traits": {
+      "agility": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "strength": {
+        "value": 2,
+        "tierMarked": false
+      },
+      "finesse": {
+        "value": -1,
+        "tierMarked": false
+      },
+      "instinct": {
+        "value": 0,
+        "tierMarked": false
+      },
+      "presence": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "knowledge": {
+        "value": 0,
+        "tierMarked": false
+      }
+    },
+    "proficiency": 1,
+    "evasion": 0,
+    "damageThresholds": {
+      "major": 0,
+      "severe": 0
+    },
+    "experiences": {
+      "xzXLjLjj8MLJAoha": {
+        "name": "Rock and roll",
+        "value": 2,
+        "core": true,
+        "description": ""
+      },
+      "CfRmKpK1TL9XsQKt": {
+        "name": "Pierre papier ciseaux",
+        "value": 2,
+        "core": true,
+        "description": ""
+      }
+    },
+    "gold": {
+      "coins": 0,
+      "handfuls": 1,
+      "bags": 0,
+      "chests": 0
+    },
+    "scars": 0,
+    "biography": {
+      "background": "<p><strong>Who from your community did you fail to protect, and why do you still think of them?</strong></p><br><p><strong>You’ve been tasked with protecting something important and delivering\nit somewhere dangerous. What is it, and where does it need to go?</strong></p><br><p><strong>You consider an aspect of yourself to be a weakness. What is it, and how has it affected you?</strong></p>",
+      "connections": "<p><strong>How did I save your life the first time we met?</strong></p><br><p><strong>What small gift did you give me that you notice I always carry with me?</strong></p><br><p><strong>What lie have you told me about yourself that I absolutely believe?</strong></p>",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
+    "attack": {
+      "name": "DAGGERHEART.GENERAL.unarmedAttack",
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "_id": "xZR0Fttl2E3BrX5W",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": "strength",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "main": {
+          "type": [
+            "physical"
+          ],
+          "applyTo": "hitPoints",
+          "value": {
+            "custom": {
+              "enabled": true,
+              "formula": "@profd4"
+            },
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "bonus": null
+          },
+          "base": false,
+          "resultBased": false,
+          "fullRestore": false,
+          "valueAlt": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "bonus": null,
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "resources": {}
+      },
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "triggers": [],
+      "areas": [],
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "levelData": {
+      "level": {
+        "current": 1,
+        "changed": 1,
+        "bonuses": {}
+      },
+      "levelups": {}
+    },
+    "companion": null
+  },
+  "prototypeToken": {
+    "name": "Basalt",
+    "displayName": 30,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "modules/daggerheart-scifi-content/artwork/portraits/basalt.token.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": true,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 0.9,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "wall-height": {
+        "tokenHeight": 0
+      },
+      "token-hud-wildcard": {
+        "default": ""
+      }
+    },
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "folder": "lddhMu0Dzts6eJc2",
+      "name": "Frontline Tank",
+      "type": "feature",
+      "_id": "0zzf0ZPQVNeke9Qf",
+      "img": "icons/magic/defensive/shield-barrier-flaming-pentagon-orange.webp",
+      "system": {
+        "description": "<p><strong>Spend 3 Hope</strong> to clear 2 Armor Slots</p>",
+        "resource": null,
+        "actions": {
+          "pRMSzC9XDSKmmLqT": {
+            "type": "healing",
+            "_id": "pRMSzC9XDSKmmLqT",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "step": null,
+                "itemId": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "armor": {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "2"
+                    },
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "armor",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "self",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Spend Hope",
+            "img": "icons/magic/defensive/shield-barrier-flaming-pentagon-orange.webp",
+            "range": "self",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "originItemType": "class",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 15,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "hope",
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.YS1g7YdWwOaS629x",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.0zzf0ZPQVNeke9Qf"
+    },
+    {
+      "folder": "lddhMu0Dzts6eJc2",
+      "name": "Unstoppable",
+      "type": "feature",
+      "_id": "Uvd7lCLRaDjuIAAZ",
+      "img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+      "system": {
+        "description": "<p>Once per long rest, you can become Unstoppable. You gain an Unstoppable Die. At level 1, your Unstoppable Die is a d4. Place it on your character sheet in the space provided, starting with the 1 value facing up. After you make a damage roll that deals 1 or more Hit Points to a target, increase the Unstoppable Die value by one. When the die's value would exceed its maximum value or when the scene ends, remove the die and drop out of Unstoppable. At level 5, your Unstoppable Die increases to a d6. While Unstoppable, you gain the following benefits:</p><ul><li><p>You reduce the severity of physical damage by one threshold (Severe to Major, Major to Minor, Minor to None).</p></li><li><p>You add the current value of the Unstoppable Die to your damage roll.</p></li><li><p>You can't be Restrained or Vulnerable.</p></li></ul><blockquote><p>Tip: If your Unstoppable Die is a d4 and the 4 is currently facing up, you remove the die the next time you would increase it. However, if your Unstoppable Die has increased to a d6 and the 4 is currently facing up, you'll turn it to 5 the next time you would increase it. In this case, you'll remove the die after you would need to increase it higher than 6.</p></blockquote>",
+        "resource": {
+          "type": "die",
+          "value": 0,
+          "max": "",
+          "icon": "",
+          "recovery": null,
+          "progression": "increasing",
+          "diceStates": {},
+          "dieFaces": "d4"
+        },
+        "actions": {
+          "KZiZ8m8uqH5iG96d": {
+            "type": "effect",
+            "_id": "KZiZ8m8uqH5iG96d",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "longRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [
+              {
+                "_id": "xzQtFSuDS48kUdAZ",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "self",
+              "amount": null
+            },
+            "name": "Become Unstoppable",
+            "img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+            "range": "",
+            "baseAction": false,
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "originItemType": "class",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 15,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "class",
+        "featureForm": "passive"
+      },
+      "effects": [
+        {
+          "name": "Unstoppable",
+          "img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+          "origin": "Compendium.daggerheart.classes.Item.PnD2UCgzIlwX6cY3",
+          "transfer": false,
+          "_id": "xzQtFSuDS48kUdAZ",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.bonuses.damage.physical.bonus",
+                "type": "add",
+                "value": "ORIGIN.@item.resource.value",
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.bonuses.damage.magical.bonus",
+                "type": "add",
+                "value": "ORIGIN.@item.resource.value",
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.rules.damageReduction.reduceSeverity.physical",
+                "type": "add",
+                "value": 1,
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.rules.conditionImmunities.vulnerable",
+                "type": "override",
+                "value": 1,
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.rules.conditionImmunities.restrained",
+                "type": "override",
+                "value": 1,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "",
+          "tint": "#ffffff",
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.Uvd7lCLRaDjuIAAZ.xzQtFSuDS48kUdAZ"
+        }
+      ],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.PnD2UCgzIlwX6cY3",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.Uvd7lCLRaDjuIAAZ"
+    },
+    {
+      "effects": [],
+      "_id": "lJNLoMQ6tAZ9LPDE",
+      "name": "Guardian",
+      "type": "class",
+      "img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+      "system": {
+        "description": "<p>The title of guardian represents an array of martial professions, speaking more to their moral compass and unshakeable fortitude than the means by which they fight. While many guardians join groups of militants for either a country or cause, they're more likely to follow those few they truly care for, majority be damned. Guardians are known for fighting with remarkable ferocity even against overwhelming odds, defending their cohort above all else. Woe betide those who harm the ally of a guardian, as the guardian will answer this injury in kind.</p>",
+        "domains": [
+          "valor",
+          "blade"
+        ],
+        "classItems": [],
+        "hitPoints": 7,
+        "evasion": 9,
+        "features": [
+          {
+            "type": "hope",
+            "item": "Compendium.daggerheart.classes.Item.YS1g7YdWwOaS629x"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.daggerheart.classes.Item.PnD2UCgzIlwX6cY3"
+          }
+        ],
+        "inventory": {
+          "take": [
+            "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+            "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+            "Compendium.daggerheart.classes.Item.zqeXrJTd1geX73Pw"
+          ],
+          "choiceA": [
+            "Compendium.daggerheart.consumables.Item.tPfKtKRRjv8qdSqy",
+            "Compendium.daggerheart.consumables.Item.b6vGSPFWOlzZZDLO"
+          ],
+          "choiceB": [
+            "Compendium.daggerheart.classes.Item.d3VdAtW65oO8j14Y",
+            "Compendium.daggerheart.classes.Item.VVvIPx1cduyAb8jr"
+          ]
+        },
+        "characterGuide": {
+          "suggestedTraits": {
+            "agility": 1,
+            "strength": 2,
+            "finesse": -1,
+            "instinct": 0,
+            "presence": 1,
+            "knowledge": 0
+          },
+          "suggestedPrimaryWeapon": "Compendium.daggerheart.weapons.Item.fbDYUja3ll9vCtrB",
+          "suggestedSecondaryWeapon": null,
+          "suggestedArmor": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb"
+        },
+        "isMulticlass": false,
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 15,
+          "artist": ""
+        },
+        "backgroundQuestions": [
+          "Who from your community did you fail to protect, and why do you still think of them?",
+          "You’ve been tasked with protecting something important and delivering\nit somewhere dangerous. What is it, and where does it need to go?",
+          "You consider an aspect of yourself to be a weakness. What is it, and how has it affected you?"
+        ],
+        "connections": [
+          "How did I save your life the first time we met?",
+          "What small gift did you give me that you notice I always carry with me?",
+          "What lie have you told me about yourself that I absolutely believe?"
+        ],
+        "gmNotes": ""
+      },
+      "folder": null,
+      "sort": 700000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.nRAyoC0fOzXPDa4z",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.lJNLoMQ6tAZ9LPDE"
+    },
+    {
+      "folder": "qldZSEXSq5l7lKUo",
+      "name": "Stone Body",
+      "type": "feature",
+      "_id": "qYvjU3UdS6S0kWjI",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/flesh-to-stone.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You gain +1 <strong>Armor Slot</strong>.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "primary"
+      },
+      "effects": [
+        {
+          "name": "Lithoid Armor",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "type": "armor",
+                "priority": 20,
+                "phase": "initial",
+                "value": {
+                  "current": 0,
+                  "max": "1",
+                  "damageThresholds": null,
+                  "interaction": "none"
+                }
+              }
+            ],
+            "duration": {
+              "description": "",
+              "type": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "pFkMqnYe3HEjopb0",
+          "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/conrasu.webp",
+          "disabled": false,
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.qYvjU3UdS6S0kWjI.pFkMqnYe3HEjopb0"
+        }
+      ],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.tO03vXrCvVCv1oir",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.qYvjU3UdS6S0kWjI"
+    },
+    {
+      "folder": "qldZSEXSq5l7lKUo",
+      "name": "Stable Foundation",
+      "type": "feature",
+      "_id": "ikU2aEQWgUmb5mys",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/spells/earthquake.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You gain Advantage on rolls made to resist environmental hazards.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": "",
+        "identifier": "secondary"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.XVf7Jv14yuEc8zmH",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.ikU2aEQWgUmb5mys"
+    },
+    {
+      "folder": "zJl3BQZGZBL6fWlH",
+      "name": "Frontier Survival",
+      "type": "feature",
+      "_id": "vpTPqyYJN9q0fPn2",
+      "img": "icons/consumables/fruit/rambutan-peeled-red-white.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You have Advantage on rolls to survive harsh environments, scavenge useful resources, or navigate unexplored regions.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "community",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "gmNotes": ""
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.5sggsNvH1s8UNefV",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.vpTPqyYJN9q0fPn2"
+    },
+    {
+      "folder": "gysKqIL1lVz4g6zg",
+      "name": "Unwavering",
+      "type": "feature",
+      "_id": "mOX65RSHwC8xaCuW",
+      "img": "icons/equipment/shield/heater-steel-gold.webp",
+      "system": {
+        "description": "<p>Gain a permanent +1 bonus to your damage thresholds.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "foundation",
+        "featureForm": "passive"
+      },
+      "effects": [
+        {
+          "name": "Unwavering",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.damageThresholds.major",
+                "type": "add",
+                "value": 1,
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.damageThresholds.severe",
+                "type": "add",
+                "value": 1,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "3wexvo6La4V46aiX",
+          "img": "icons/equipment/shield/heater-steel-gold.webp",
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "<p>Gain a permanent +1 bonus to your damage thresholds.</p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.mOX65RSHwC8xaCuW.3wexvo6La4V46aiX"
+        }
+      ],
+      "sort": 200000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.WBiFZaYNoQNhysmN",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.mOX65RSHwC8xaCuW"
+    },
+    {
+      "folder": "DO1MpBfTgnAblNNz",
+      "name": "Unrelenting",
+      "type": "feature",
+      "_id": "AjGhaiayftoy3NxH",
+      "img": "icons/equipment/shield/heater-steel-crystal-red.webp",
+      "system": {
+        "description": "<p>Gain a permanent +2 bonus to your damage thresholds.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "specialization",
+        "featureForm": "passive"
+      },
+      "effects": [
+        {
+          "name": "Unrelenting",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.damageThresholds.major",
+                "type": "add",
+                "value": 2,
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.damageThresholds.severe",
+                "type": "add",
+                "value": 2,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "IKb6yutns8EJZ49M",
+          "img": "icons/equipment/shield/heater-steel-crystal-red.webp",
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "<p>Gain a permanent +2 bonus to your damage thresholds.</p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.AjGhaiayftoy3NxH.IKb6yutns8EJZ49M"
+        }
+      ],
+      "sort": 200000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.4qP7bNyxVHBmr4Rb",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.AjGhaiayftoy3NxH"
+    },
+    {
+      "folder": "gysKqIL1lVz4g6zg",
+      "name": "Iron Will",
+      "type": "feature",
+      "_id": "GgkoIcdeoYGVY7sZ",
+      "img": "icons/equipment/shield/heater-steel-worn.webp",
+      "system": {
+        "description": "<p>When you take physical damage, you can <strong>mark an additional Armor Slot</strong> to reduce the severity.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "foundation",
+        "featureForm": "passive"
+      },
+      "effects": [
+        {
+          "name": "Iron Will",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.rules.damageReduction.maxArmorMarked.value",
+                "type": "add",
+                "value": 1,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "htEDIjCEWYtznpRV",
+          "img": "icons/equipment/chest/breastplate-helmet-metal.webp",
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "<p>When you take physical damage, you can <strong>mark an additional Armor Slot</strong> to reduce the severity.</p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.GgkoIcdeoYGVY7sZ.htEDIjCEWYtznpRV"
+        }
+      ],
+      "sort": 250000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.7AVRNyBcd1Nffjtn",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.GgkoIcdeoYGVY7sZ"
+    },
+    {
+      "folder": "DO1MpBfTgnAblNNz",
+      "name": "Partner-in-Arms",
+      "type": "feature",
+      "_id": "AKwRoG1EvFjWm9rS",
+      "img": "icons/skills/social/diplomacy-handshake-yellow.webp",
+      "system": {
+        "description": "<p>When an ally within Very Close range takes damage, you can mark an Armor Slot to reduce the severity by one threshold.</p>",
+        "resource": null,
+        "actions": {
+          "D6ClOGDgu6cLanjE": {
+            "type": "effect",
+            "_id": "D6ClOGDgu6cLanjE",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "armor",
+                "value": 1,
+                "step": null,
+                "itemId": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "friendly",
+              "amount": 1
+            },
+            "name": "Mark Armor Slot",
+            "img": "icons/skills/social/diplomacy-handshake-yellow.webp",
+            "range": "veryClose",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "originItemType": "subclass",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "specialization",
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "sort": 300000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.G54qY96XK62hgoK9",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.AKwRoG1EvFjWm9rS"
+    },
+    {
+      "folder": "PD8T5cWuSzaoPdl5",
+      "name": "Undaunted",
+      "type": "feature",
+      "_id": "7Ip6NfWnpk6MqXW7",
+      "img": "icons/skills/melee/shield-block-gray-yellow.webp",
+      "system": {
+        "description": "<p>Gain a permanent +3 bonus to your damage thresholds.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "mastery",
+        "featureForm": "passive"
+      },
+      "effects": [
+        {
+          "name": "Undaunted",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.damageThresholds.severe",
+                "type": "add",
+                "value": 3,
+                "priority": null,
+                "phase": "initial"
+              },
+              {
+                "key": "system.damageThresholds.major",
+                "type": "add",
+                "value": 3,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "zggFRaerHCj1e5F5",
+          "img": "icons/skills/melee/shield-block-gray-yellow.webp",
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "<p>Gain a permanent +3 bonus to your damage thresholds.</p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.7Ip6NfWnpk6MqXW7.zggFRaerHCj1e5F5"
+        }
+      ],
+      "sort": 200000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.866b2jjyzXP8nPRQ",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.7Ip6NfWnpk6MqXW7"
+    },
+    {
+      "folder": "PD8T5cWuSzaoPdl5",
+      "name": "Loyal Protector",
+      "type": "feature",
+      "_id": "1Z6pop5FLeliLA89",
+      "img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+      "system": {
+        "description": "<p>When an ally within Close range has 2 or fewer Hit Points and would take damage, you can <strong>mark a Stress</strong> to sprint to their side and take the damage instead.</p>",
+        "resource": null,
+        "actions": {
+          "Dxnu3gPSTSysJnb8": {
+            "type": "effect",
+            "_id": "Dxnu3gPSTSysJnb8",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "step": null,
+                "itemId": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "friendly",
+              "amount": 1
+            },
+            "name": "Mark Stress",
+            "img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+            "range": "close",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "originItemType": "subclass",
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "multiclassOrigin": false,
+        "identifier": "mastery",
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "sort": 300000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.hd7UeBPr86Mz21Pe",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.1Z6pop5FLeliLA89"
+    },
+    {
+      "effects": [],
+      "_id": "Z19St1fhNsdn5PNG",
+      "name": "Lithoid",
+      "type": "ancestry",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/conrasu.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Living beings made of stone, crystal or living minerals.</p>",
+        "gmNotes": "",
+        "features": [
+          {
+            "type": "primary",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.tO03vXrCvVCv1oir"
+          },
+          {
+            "type": "secondary",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.XVf7Jv14yuEc8zmH"
+          }
+        ]
+      },
+      "folder": "KjbbtmNF7SEmZ9t0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.5S4vg2DxAobH0bQZ",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.Z19St1fhNsdn5PNG"
+    },
+    {
+      "effects": [],
+      "_id": "beM74y6f5fGNrqxZ",
+      "name": "Stalwart",
+      "type": "subclass",
+      "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+      "system": {
+        "description": "<p>Play the Stalwart if you want to take heavy blows and keep fighting.</p>",
+        "spellcastingTrait": null,
+        "features": [
+          {
+            "type": "foundation",
+            "item": "Compendium.daggerheart.subclasses.Item.WBiFZaYNoQNhysmN"
+          },
+          {
+            "type": "foundation",
+            "item": "Compendium.daggerheart.subclasses.Item.7AVRNyBcd1Nffjtn"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.daggerheart.subclasses.Item.4qP7bNyxVHBmr4Rb"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.daggerheart.subclasses.Item.G54qY96XK62hgoK9"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.daggerheart.subclasses.Item.866b2jjyzXP8nPRQ"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.daggerheart.subclasses.Item.hd7UeBPr86Mz21Pe"
+          }
+        ],
+        "featureState": 1,
+        "isMulticlass": false,
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 16,
+          "artist": ""
+        },
+        "linkedClass": "Compendium.daggerheart.classes.Item.nRAyoC0fOzXPDa4z",
+        "gmNotes": ""
+      },
+      "folder": "WMlU3baiUdMgfuak",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.subclasses.Item.rKRxFBlkbh9cDK8K",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.beM74y6f5fGNrqxZ"
+    },
+    {
+      "effects": [],
+      "_id": "jwgZ6wfvW4Vxv4Ra",
+      "name": "Frontierborne",
+      "type": "community",
+      "img": "icons/environment/settlement/house-farmland.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>Being part of a frontierborne community means you grew up on isolated colonies, mining worlds, or the edge of explored space. Frontier communities survive because everyone learns to be self-reliant, adaptable, and ready for the unexpected.</p><p><em>Frontierborne are often courageous, independent, pragmatic, resilient, self-sufficient, and tenacious.</em></p>",
+        "features": [
+          "Compendium.daggerheart-scifi-content.character-options.Item.5sggsNvH1s8UNefV"
+        ],
+        "gmNotes": ""
+      },
+      "folder": "6sFLVLCQU5XQ24Cr",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.7DdR3Y9gfqkILoUM",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.jwgZ6wfvW4Vxv4Ra"
+    },
+    {
+      "effects": [
+        {
+          "name": "Bare Bones",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "type": "armor",
+                "phase": "initial",
+                "value": {
+                  "current": 0,
+                  "max": "3 + @system.traits.strength.value",
+                  "interaction": "inactive",
+                  "damageThresholds": {
+                    "major": "9 + (@tier - 1) * 2",
+                    "severe": "19 + (@tier - 1) * 5 + max(0, (@tier -2) * 2 )"
+                  }
+                },
+                "priority": 20
+              }
+            ],
+            "duration": {
+              "type": "",
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "FCsgz7Tdsw6QUzBs",
+          "img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+          "disabled": false,
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "<p>You have a base Armor Score of 3 + your Strength.</p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.3",
+            "createdTime": 1786988304998,
+            "modifiedTime": 1786988304998,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!Jgn5RqYTrn2zXvUv.ofK3fJ9vXuEj9QhH.FCsgz7Tdsw6QUzBs"
+        }
+      ],
+      "_id": "ofK3fJ9vXuEj9QhH",
+      "name": "Bare Bones",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/valor.png",
+      "system": {
+        "description": "<p>When you choose not to equip armor, you have a base Armor Score of 3 + your Strength and use the following as your base damage thresholds:</p><ul><li class=\"vertical-card-list-found\"><p><em><strong>Tier 1:</strong></em> 9/19</p></li><li class=\"vertical-card-list-found\"><p><em><strong>Tier 2:</strong></em> 11/24</p></li><li class=\"vertical-card-list-found\"><p><em><strong>Tier 3:</strong></em> 13/31</p></li><li class=\"vertical-card-list-found\"><p><em><strong>Tier 4:</strong></em> 15/38</p></li></ul>",
+        "domain": "valor",
+        "recallCost": 0,
+        "level": 1,
+        "type": "ability",
+        "resource": null,
+        "actions": {},
+        "inVault": false,
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 134,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null
+      },
+      "folder": "QpOL7jPbMBzH96qR",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.domains.Item.l5D9kq901JDESaXw",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.ofK3fJ9vXuEj9QhH"
+    },
+    {
+      "effects": [],
+      "_id": "j1NFkQuO1hsdC5Uj",
+      "name": "Battleaxe",
+      "type": "weapon",
+      "img": "icons/weapons/axes/axe-double-jagged-black.webp",
+      "system": {
+        "description": "",
+        "actions": {},
+        "tier": 1,
+        "equipped": false,
+        "secondary": false,
+        "burden": "twoHanded",
+        "weaponFeatures": [],
+        "attack": {
+          "name": "Attack",
+          "img": "icons/skills/melee/blood-slash-foam-red.webp",
+          "_id": "ZSdAawliPNsoA7nP",
+          "baseAction": true,
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "melee",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "strength",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "main": {
+              "value": {
+                "dice": "d10",
+                "bonus": 3,
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": [
+                "physical"
+              ],
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "includeBase": false,
+              "direct": false,
+              "fullRestore": false
+            },
+            "resources": {}
+          },
+          "description": "",
+          "chatDisplay": false,
+          "actionType": "action",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          },
+          "originItem": {
+            "type": "itemCollection"
+          },
+          "triggers": [],
+          "areas": []
+        },
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        },
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 45,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "resource": null,
+        "quantity": 1
+      },
+      "folder": "d7tdCsIUd94XuTtq",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.weapons.Item.fbDYUja3ll9vCtrB",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.j1NFkQuO1hsdC5Uj"
+    },
+    {
+      "effects": [],
+      "_id": "RrUuRsOX6BNKU2AR",
+      "name": "I Am Your Shield",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/valor.png",
+      "system": {
+        "description": "<p>When an ally within Very Close range would take damage, you can <strong>mark a Stress</strong> to stand in the way and make yourself the target of the attack instead. When you take damage from this attack, you can mark any number of Armor Slots.</p>",
+        "domain": "valor",
+        "recallCost": 1,
+        "level": 1,
+        "type": "ability",
+        "actions": {
+          "0rLdATV71dviB2MG": {
+            "type": "effect",
+            "_id": "0rLdATV71dviB2MG",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "step": null,
+                "itemId": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "friendly",
+              "amount": 1
+            },
+            "name": "Mark Stress",
+            "img": "icons/skills/melee/shield-block-fire-orange.webp",
+            "range": "veryClose",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "resource": null,
+        "inVault": false,
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 134,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null
+      },
+      "folder": "QpOL7jPbMBzH96qR",
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.domains.Item.KOf6LLpMRNwjezDx",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.RrUuRsOX6BNKU2AR"
+    },
+    {
+      "effects": [],
+      "_id": "9FncpTiMVZ56Q4J2",
+      "name": "Minor Health Potion",
+      "type": "consumable",
+      "img": "icons/consumables/potions/potion-tube-corked-red.webp",
+      "system": {
+        "description": "<p>Clear 1d4 HP.</p>",
+        "quantity": 1,
+        "actions": {
+          "9HVL2MPFX9VGiSsV": {
+            "type": "healing",
+            "_id": "9HVL2MPFX9VGiSsV",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "quantity",
+                "value": 1,
+                "itemId": "tPfKtKRRjv8qdSqy",
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "hitPoints": {
+                  "value": {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d4",
+                    "bonus": null
+                  },
+                  "applyTo": "hitPoints",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Drink",
+            "img": "icons/consumables/potions/potion-tube-corked-red.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "consumeOnUse": true,
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 60,
+          "artist": ""
+        },
+        "gmNotes": ""
+      },
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.consumables.Item.tPfKtKRRjv8qdSqy",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.9FncpTiMVZ56Q4J2"
+    },
+    {
+      "effects": [],
+      "_id": "amQlLJel32tX0nnd",
+      "name": "Totem from Mentor",
+      "type": "loot",
+      "img": "icons/commodities/treasure/totem-wooden-glowing-yellow.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "RVUiPVdWhR4lQxmM",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.d3VdAtW65oO8j14Y",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.amQlLJel32tX0nnd"
+    },
+    {
+      "effects": [],
+      "_id": "x6Mo3KotrAwXTAG2",
+      "name": "50ft of Rope",
+      "type": "loot",
+      "img": "icons/sundries/survival/rope-coiled-tan.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.x6Mo3KotrAwXTAG2"
+    },
+    {
+      "effects": [],
+      "_id": "Zwv51jTOn4YVmy58",
+      "name": "Basic Supplies",
+      "type": "loot",
+      "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.Zwv51jTOn4YVmy58"
+    },
+    {
+      "effects": [],
+      "_id": "Qwvp3eVUhsvqbgmO",
+      "name": "Torch",
+      "type": "loot",
+      "img": "icons/sundries/lights/torch-brown-lit.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.3",
+        "createdTime": 1786988304998,
+        "modifiedTime": 1786988304998,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.zqeXrJTd1geX73Pw",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!Jgn5RqYTrn2zXvUv.Qwvp3eVUhsvqbgmO"
+    }
+  ],
+  "effects": [],
+  "sort": 600000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786988304998,
+    "modifiedTime": 1786988304998,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": "Actor.Jgn5RqYTrn2zXvUv",
+    "exportSource": null
+  },
+  "_key": "!actors!Jgn5RqYTrn2zXvUv"
+}

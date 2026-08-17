@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>When your Secondary Weapon damages an adversary, that adversary must make a <strong>Reaction Roll (14)</strong>.</p><p>On a failure, it becomes <em>Vulnerable</em>.</p>",
+    "description": "<p>When your damage an adversary with @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{Quick Draw}, that adversary must make a <strong>Reaction Roll (14)</strong>.</p><p>On a failure, and after the attacks resolutions, they becomes <em>Vulnerable </em>until they take damage from any source or spend a Stress to remove the effect.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783673412357,
-    "modifiedTime": 1783675044523,
+    "modifiedTime": 1786847689501,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

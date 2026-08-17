@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Powerful reptilian warriors bred for survival and conquest.</p>",
+    "description": "<p>Powerful reptilian warriors bred for survival and conquest. Sauraks stand up to 7 feet tall, are generally muscular, and are covered in tough, scaly skin. Spiky horns grow from their skulls and form bony “beards” along their jaws that sometimes extend down their spines to their powerful tails.</p>",
     "features": [
       {
         "type": "secondary",
@@ -32,9 +32,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783688545797,
-    "modifiedTime": 1783692350222,
+    "modifiedTime": 1786967757838,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

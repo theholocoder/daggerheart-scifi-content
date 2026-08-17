@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Make a <strong>Spellcast Roll</strong> to crash and reboot of all adversaries in front of you within Far range. On a success, <strong>spend a Hope</strong> to make targets <em>Vulnerable </em>and <em>Restrained </em>until your next Action.</p><p>The targets must wear at least one piece of tech, including cybernetics.</p>",
+    "description": "<p>Make a <strong>Spellcast Roll</strong> to crash and reboot all adversaries in a cone of Close range. On a success, <strong>spend any number of Hope</strong> and force that many targets you succeeded against to make a <strong>Reaction Roll (14)</strong>.</p><p>Targets who succeed take <strong>3d20+3</strong> magic damage and are temporarily <em>Restrained</em>.<br>Targets who fail take <strong>4d20+5</strong> magic damage and are temporarily <em>Rebooted</em>. While <em>Rebooted</em> they can't use reactions and can't take any actions until they clear this condition.</p><p>The targets must wear at least one piece of tech, cybernetics or be a construct.</p>",
     "resource": null,
     "actions": {
       "clpwBdraT29A4uTH": {
@@ -155,9 +155,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783378633881,
-    "modifiedTime": 1783379184861,
+    "modifiedTime": 1786833956130,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You gain a permanent jetpack. You may Fly when you Move, ignoring difficult terrain. You may hover. You may deploy @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices} while flying.</p><p><strong>Spend 2 Hope</strong> to gain advantage and add a damage die to the next attack while flying.</p>",
+    "description": "<p>You gain a permanent jetpack. You can fly. While flying you can do the following:</p><ul><li><p>You may deploy @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices} while flying.</p></li><li><p><strong>Mark a Stress</strong> to gain +2 bonus to your Evasion until your next Spotlight.</p></li><li><p><strong>Spend a Hope</strong> to deal an extra 1d8 damage on a successful attack.</p></li></ul>",
     "resource": null,
     "actions": {
       "4lszEYj8ndveMQSf": {
@@ -139,9 +139,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783349163294,
-    "modifiedTime": 1783675139354,
+    "modifiedTime": 1786836605503,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

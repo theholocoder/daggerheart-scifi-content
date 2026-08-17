@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you roll with Hope on an attack with your Primary Weapon, your @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{Quick Draw} attack gains Advantage.</p>",
+    "description": "<p>Whenever you use @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{Quick Draw}, you also gain the benefit of the d8 advantage rolled by your ally and deal double that die value as extra damage if you hit.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783673779955,
-    "modifiedTime": 1783675057163,
+    "modifiedTime": 1786847918258,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

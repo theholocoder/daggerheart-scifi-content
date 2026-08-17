@@ -1,0 +1,44 @@
+{
+  "folder": "D6diU5mCCEHWhTBM",
+  "name": "I'm Going In!",
+  "type": "feature",
+  "_id": "wDvNDxxDodm2BflU",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/pink-tipped-bullets.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Whenever you successfully attack with a weapon whose <strong data-start=\"2700\" data-end=\"2787\">range differs from the range of the weapon used for your previous successful attack</strong>, gain a <strong data-start=\"2796\" data-end=\"2817\">Tactical Die (d6)</strong>.</p><p data-start=\"2820\" data-end=\"2885\">You can hold a number of Tactical Dice equal to your Proficiency.</p><p data-start=\"2887\" data-end=\"3028\">You can spend a Tactical Die to add its result to an attack or damage roll made with a weapon.</p><p data-start=\"3030\" data-end=\"3120\">At the end of each session, clear your Tactical Dice and gain a Hope for each die cleared.</p>",
+    "gmNotes": "",
+    "resource": {
+      "type": "die",
+      "value": 0,
+      "max": "2",
+      "recovery": "session",
+      "progression": "increasing",
+      "dieFaces": "d6",
+      "icon": ""
+    },
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786888417762,
+    "modifiedTime": 1786889160410,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!wDvNDxxDodm2BflU"
+}

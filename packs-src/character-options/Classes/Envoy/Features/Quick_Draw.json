@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Once per turn, immediately after making an attack with your Primary Weapon, you may make an attack with your Secondary Weapon.</p><p>This attack cannot generate Hope or Fear.</p>",
+    "description": "<p>Whenever you use a <strong>Command Token</strong> to <strong>Help an Ally</strong> to attack, you can also make an attack on the same target with your Secondary Weapon as a <strong>Reaction Roll</strong> (this attack cannot generate Hope or Fear or clear Stress).</p>",
     "resource": null,
     "actions": {
       "f8aEp5cfsJHZ29bz": {
@@ -81,9 +81,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783673320652,
-    "modifiedTime": 1783675066350,
+    "modifiedTime": 1786848147199,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

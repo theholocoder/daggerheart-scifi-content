@@ -1,0 +1,39 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Leader Aura",
+  "type": "feature",
+  "_id": "1hqoSW8U0rU4D0Nm",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/scouring-pulse.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When an ally within Very Close range makes a <strong>Action Roll</strong> but before the consequences are determined, you can spend a <strong>Command Token</strong> to make that ally roll again. They must keep the new result and you may not use another <strong>Command Token</strong> for that action.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1783672687228,
+    "modifiedTime": 1786846938302,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!1hqoSW8U0rU4D0Nm"
+}

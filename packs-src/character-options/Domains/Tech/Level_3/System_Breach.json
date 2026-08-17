@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Make a <strong>Spellcast Roll</strong> against a target within Far range. On a success, deal <strong>d8+4</strong> physical magical damage using your Proficiency.</p><p>Additionally, <strong>mark 2 or more Stress</strong> to make them permanently <em>Corroded</em>. While a target is <em>Corroded</em>, they gain a -1 penalty to their Difficulty for every 2 Stress you spent. This condition stacks.</p>",
+    "description": "<p>Make a <strong>Spellcast Roll</strong> against a target within Far range. On a success, deal <strong>d8+4</strong> magic damage using your Proficiency.</p><p>Additionally, <strong>mark 2 or more Stress</strong> to make them permanently <em>Corroded</em>. While a target is <em>Corroded</em>, they gain a -1 penalty to their Difficulty for each 2 Stress you spent. This condition stacks.</p>",
     "resource": null,
     "actions": {
       "FKgLW6r3BEEejfva": {
@@ -223,9 +223,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783368401778,
-    "modifiedTime": 1783369368425,
+    "modifiedTime": 1786842542836,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

@@ -15,7 +15,7 @@
     "actions": {}
   },
   "effects": [],
-  "sort": 0,
+  "sort": 200000,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -30,7 +30,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783344356363,
-    "modifiedTime": 1783675218154,
+    "modifiedTime": 1786982071397,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

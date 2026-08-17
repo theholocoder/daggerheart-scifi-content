@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Spend a Hope to activate the Tactical Scan in one of two modes:</p><ul><li><p>Broadcast mode</p></li><li><p>Targeted mode</p></li></ul><hr><p><strong>Broadcast mode.</strong></p><p>Detect signs of life and movement within a Very Far range around you. You know the general direction and kind either determine the distances or the size of the life forms.</p><hr><p><strong>Targeted mode.</strong></p><p>You specifically configure the Tactical Scan to gather information about a life form within Far range that you know about. You can ask one information about the target such as its Difficulty, Damage Thresholds, Type, Size, total HP, Resistances or Immunities. The GM may also provide one more information.</p>",
+    "description": "<p><strong>Spend a Hope</strong> to activate the Tactical Scan and select one of these modes:</p><ul><li><p>Broadcast mode</p></li><li><p>Targeted mode</p></li></ul><hr><p><strong>Broadcast mode.</strong></p><p>Detect signs of life and movement within a Far range around you. You know the general direction, general distance and approximate size of the life forms.</p><hr><p><strong>Targeted mode.</strong></p><p>You specifically configure the Tactical Scan to gather information about a life form within Close range that you know about. You can ask one information about the target such as its Difficulty, Damage Thresholds, Type, Size, total HP, Resistances or Immunities. The GM may also provide one more information.</p>",
     "resource": null,
     "actions": {},
     "domain": "tech",
@@ -26,9 +26,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783355643536,
-    "modifiedTime": 1783356034697,
+    "modifiedTime": 1786831364559,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

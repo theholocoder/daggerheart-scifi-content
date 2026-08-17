@@ -3,7 +3,7 @@
   "name": "Many Arms",
   "type": "feature",
   "_id": "TanQhdrtIcHjZ5RC",
-  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/friendfetch.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783688799050,
-    "modifiedTime": 1783691023454,
+    "modifiedTime": 1786883181640,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

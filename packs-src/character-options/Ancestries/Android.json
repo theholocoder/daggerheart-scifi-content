@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Synthetic humanoids built with artificial bodies and genuine personalities.</p>",
+    "description": "<p>Synthetic humanoids built with artificial bodies and genuine personalities. Androids are biomechanical constructs who typically resemble humanoids with glowing circuitry.</p>",
     "features": [
       {
         "type": "secondary",
@@ -32,9 +32,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783686537149,
-    "modifiedTime": 1783692370998,
+    "modifiedTime": 1786969919053,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

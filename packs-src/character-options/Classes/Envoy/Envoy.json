@@ -16,8 +16,8 @@
       "valor"
     ],
     "classItems": [],
-    "hitPoints": 5,
-    "evasion": 11,
+    "hitPoints": 7,
+    "evasion": 9,
     "features": [
       {
         "type": "class",
@@ -54,7 +54,7 @@
       },
       "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.ECdMuLhVJL1bow69",
       "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
-      "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb"
     },
     "backgroundQuestions": [
       "",
@@ -78,9 +78,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783669939820,
-    "modifiedTime": 1783675567833,
+    "modifiedTime": 1786849127258,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>When an ally within Close range deals damage to an adversary, you can make a <strong>Spellcast Roll</strong> against the same target.</p><p>If your roll succeeds with Fear, the target mark one additional Hit Point.</p><p>If your roll succees with Hope, both you and your ally clear a Stress or gain a Hope.</p>",
+    "description": "<p>When an ally within Close range deals damage to an adversary, you can make a <strong>Reaction</strong> <strong>Spellcast Roll</strong> against the same target.</p><p>If you succeed, <strong>mark a Stress</strong> and choose one of the following effects:</p><ul><li><p>The target marks one additional Hit Point.</p></li><li><p>Your ally clears a Stress or a Hit Point.</p></li><li><p>You both gain a Hope.</p></li></ul>",
     "resource": null,
     "actions": {},
     "domain": "tech",
@@ -26,9 +26,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783380317031,
-    "modifiedTime": 1783380634121,
+    "modifiedTime": 1786830203723,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

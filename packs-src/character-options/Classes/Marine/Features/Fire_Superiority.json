@@ -1,0 +1,65 @@
+{
+  "folder": "D6diU5mCCEHWhTBM",
+  "name": "Fire Superiority",
+  "type": "feature",
+  "_id": "ccCdqF66qNr6WnRi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-bullets-in-flight.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When you succeed on a ranged weapon attack with Hope, you can choose one additional creature within the weapon's range. That creature must mark a Stress and an ally within Melee range of that creature can <strong>gain a Hope</strong>.</p><p data-start=\"7431\" data-end=\"7543\">Additionally, once per scene, you no longer need to mark Stress to use @UUID[Compendium.daggerheart-scifi-content.character-options.BAMxbwo6xrJ1BIen]{Suppressing Fire} or @UUID[Compendium.daggerheart-scifi-content.character-options.aQxAhZ9GcjHhYRyv]{Covering Fire}.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "uP019DGeXN6BuqcT": {
+        "type": "effect",
+        "_id": "uP019DGeXN6BuqcT",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "<p><span style=\"color: rgb(239, 230, 216); font-family: Montserrat, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgba(24, 22, 46, 0.753); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">Once per scene, you no longer need to mark Stress to use Suppressing Fire or Covering Fire.</span></p>",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": 0,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Free Suppressing Fire or Covering Fire",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786889300917,
+    "modifiedTime": 1786967545891,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ccCdqF66qNr6WnRi"
+}

@@ -13,7 +13,7 @@
     "description": "<p>Engineers don't cast spells or rely on brute force. They reshape the battlefield through invention, deploying advanced technology, autonomous devices, and experimental prototypes that can turn the tide of any encounter.</p>",
     "domains": [
       "tech",
-      "codex"
+      "bone"
     ],
     "classItems": [],
     "hitPoints": 6,
@@ -82,9 +82,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783343818528,
-    "modifiedTime": 1783675204330,
+    "modifiedTime": 1786827975585,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -10,14 +10,14 @@
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p>Mystics manipulate an unknown universal force known as the \"Resonance\". They can use the Resonance to buff their attacks or heal their allies.</p>",
     "domains": [
-      "arcana",
-      "splendor"
+      "splendor",
+      "dread"
     ],
     "classItems": [],
     "hitPoints": 5,
-    "evasion": 10,
+    "evasion": 11,
     "features": [
       {
         "type": "class",
@@ -78,9 +78,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783678480665,
-    "modifiedTime": 1783684341331,
+    "modifiedTime": 1786883490676,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

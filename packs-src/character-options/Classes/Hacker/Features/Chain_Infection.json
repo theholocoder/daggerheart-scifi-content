@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Spend 3 Hope</strong> to spread your intrusion. Choose one creature affected by one of your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusions}. Every adversary within Close range of the target must make a <strong>Reaction Roll (14)</strong>. On a failure, they suffer the same Intrusion.</p>",
+    "description": "<p><strong>Spend 3 Hope</strong> to spread your intrusion. Choose one creature affected by one of your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusions}. Up to 3 adversaries within Very Close range of the target suffer the same Intrusion.</p>",
     "resource": null,
     "actions": {
       "lLVMNslVKqPhkhBi": {
@@ -66,9 +66,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783382564905,
-    "modifiedTime": 1783674887049,
+    "modifiedTime": 1786835073285,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

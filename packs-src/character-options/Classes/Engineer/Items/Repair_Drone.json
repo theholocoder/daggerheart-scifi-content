@@ -1,0 +1,41 @@
+{
+  "folder": "XjmAyVsUdKsRWwJA",
+  "name": "Repair Drone",
+  "type": "loot",
+  "img": "modules/daggerheart-scifi-content/artwork/portraits/drone.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>The repair drone is filled with medical and technical supplies. It can heal a creature or repair equipment. It can move up to Close range.<br><strong>Control</strong>: up to Close range.<br><strong>Activate (Spellcast Roll (14))</strong>: Target a creature within melee range. On a success, clear 2 Hit Points or 2 Stress on the target. On a failure, clear a Hit Point or a Stress on the target. The device is then destroyed. You can't heal the same target with a Repair Drone again until your next long rest.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786982018078,
+    "modifiedTime": 1786988177238,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "Nqo4zBZVOd1x1ZyR",
+  "sort": 300000,
+  "_key": "!items!Nqo4zBZVOd1x1ZyR"
+}

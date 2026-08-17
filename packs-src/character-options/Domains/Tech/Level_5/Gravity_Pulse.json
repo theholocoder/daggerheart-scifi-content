@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You can <strong>interrupt</strong> an attack taking place at Very Close range. <strong>Spend a Hope</strong> to make a <strong>Reaction Roll (15)</strong> using your <strong>Spellcast</strong> trait. Once per rest on a success, the attack is stopped and every creature in a Very Close range aroung you are pushed to Close range.</p>",
+    "description": "<p><strong>Spend a Hope</strong> to make a <strong>Reaction Roll (15)</strong> using your <strong>Spellcast</strong> trait to try to interrupt an attack taking place at Very Close range.</p><p>On a success, the attack is stopped and every creature in a Very Close range around you are pushed to Close range. This card is then discarded into you Vault.</p>",
     "resource": null,
     "actions": {
       "yy1FDynBdQZ6G7mc": {
@@ -98,9 +98,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783372775027,
-    "modifiedTime": 1783375414930,
+    "modifiedTime": 1786834951531,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

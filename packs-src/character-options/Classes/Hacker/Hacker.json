@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Hackers manipulate the battlefield through information warfare, cyber intrusion, and electronic disruption. They turn every piece of technology into a weapon and every opponent into a vulnerability.</p>",
+    "description": "<p>Hackers manipulate the battlefield through information warfare, cyber intrusion, and electronic disruption. They turn every piece of technology into a weapon.</p>",
     "domains": [
       "midnight",
       "tech"
@@ -78,9 +78,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783381408568,
-    "modifiedTime": 1783674906574,
+    "modifiedTime": 1786834654993,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

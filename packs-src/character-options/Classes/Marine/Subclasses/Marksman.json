@@ -1,0 +1,49 @@
+{
+  "folder": "SRhpNjUehT6wW6J8",
+  "name": "Marksman",
+  "type": "subclass",
+  "_id": "VLO2hLLcrJtRc9NN",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-criss.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "spellcastingTrait": null,
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.BAMxbwo6xrJ1BIen"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.aQxAhZ9GcjHhYRyv"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.ccCdqF66qNr6WnRi"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.UW87Q7w01V0ytS50"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1786888783525,
+    "modifiedTime": 1786889441028,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!VLO2hLLcrJtRc9NN"
+}

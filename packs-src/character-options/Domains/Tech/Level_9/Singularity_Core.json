@@ -1,0 +1,44 @@
+{
+  "folder": "tPWB2cJH3AT6WZND",
+  "name": "Singularity Core",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-event-horizon.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><em>[WIP] Details to be determined.</em></p><p>Create a miniature gravity well that pulls creatures together and deals massive magic damage.</p>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 9,
+    "recallCost": 3,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.3",
+    "createdTime": 1783380114018,
+    "modifiedTime": 1786842493622,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "nrPtBZ4ROhkoBllY",
+  "sort": 200000,
+  "_key": "!items!nrPtBZ4ROhkoBllY"
+}

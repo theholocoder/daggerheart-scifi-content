@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Once per long rest, <strong>mark 3 Stress</strong> to inject yourself with boosting nanites. Gain a +2 bonus to all of your character traits until your next rest.</p>",
+    "description": "<p><strong>Once per long rest</strong>, <strong>mark 3 Stress</strong> to inject yourself with boosting nanites. Gain a +2 bonus to all of your character traits until the end of the scene.</p>",
     "resource": null,
     "actions": {},
     "domain": "tech",
@@ -26,9 +26,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783379424526,
-    "modifiedTime": 1783379520651,
+    "modifiedTime": 1786829867357,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

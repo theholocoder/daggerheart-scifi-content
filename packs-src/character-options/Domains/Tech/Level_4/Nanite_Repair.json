@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Once per long rest, you can diffuse nanites in the blood system of your allies and you, as well as in the circuits of constructs within Close range, allowing all of the targets to clear a Hit Point.</p><p><strong>Spend 2 Hope</strong> to allow you and all allies to clear 2 Hit Points instead.</p>",
+    "description": "<p><strong>Once per long rest</strong>, you can diffuse nanites in the blood system of your allies and you, as well as in the circuits of constructs within Close range, allowing all of the targets to clear a Hit Point.</p>",
     "resource": null,
     "actions": {
       "W6dAxRWFZarvspGg": {
@@ -208,9 +208,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783369749038,
-    "modifiedTime": 1783370422765,
+    "modifiedTime": 1786829296629,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Make a <strong>Spellcast Roll (14)</strong>. Once per long rest on a success, you and your allies or a spaceship becomes undetectable by technological sensors and security for the scene.</p>",
+    "description": "<p><strong>Once per long rest</strong>, you and your allies or a spaceship becomes undetectable by technological sensors and security for the scene.</p>",
     "resource": null,
     "actions": {
       "NtA6UybdP1yEiwHd": {
@@ -80,9 +80,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.3",
     "createdTime": 1783378151998,
-    "modifiedTime": 1783378361673,
+    "modifiedTime": 1786832510439,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,
