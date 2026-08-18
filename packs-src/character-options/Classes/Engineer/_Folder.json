@@ -3,21 +3,25 @@
   "folder": "ONaWWCWEMLpBxEge",
   "name": "Engineer",
   "color": "#878d68",
+  "flags": {
+    "daggerheart": {
+      "defaultEntity": ""
+    }
+  },
   "sorting": "a",
-  "_id": "VkPCHPMxegNuCAW6",
+  "_id": "ohJUNgMTsGkgKyf7",
   "description": "",
   "sort": 0,
-  "flags": {},
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
-    "createdTime": 1783343763681,
-    "modifiedTime": 1783343763681,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787052464645,
+    "modifiedTime": 1787052489305,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!VkPCHPMxegNuCAW6"
+  "_key": "!folders!ohJUNgMTsGkgKyf7"
 }

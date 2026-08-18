@@ -1,0 +1,102 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Backdoor",
+  "type": "feature",
+  "_id": "5Dso4Yi1PHUPVVgX",
+  "img": "icons/weapons/daggers/dagger-crooked-ice-blue.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion} feature now adds a number of <strong>d6s</strong> equal to your tier to the damage roll, instead of 1d6.</p>",
+    "resource": null,
+    "actions": {
+      "Embcihg9nW2AKTB5": {
+        "type": "damage",
+        "_id": "Embcihg9nW2AKTB5",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": {
+            "base": false,
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "fullRestore": false,
+            "value": {
+              "multiplier": "tier",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "valueAlt": {
+              "multiplier": "flat",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "includeBase": false,
+            "direct": false,
+            "type": [
+              "physical"
+            ]
+          },
+          "resources": {}
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "name": "Roll Damage",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783674741003,
+    "modifiedTime": 1787066254971,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!5Dso4Yi1PHUPVVgX"
+}

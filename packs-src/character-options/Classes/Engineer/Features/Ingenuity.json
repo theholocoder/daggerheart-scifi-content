@@ -1,0 +1,152 @@
+{
+  "folder": "Z9lecBxunitGkjdF",
+  "name": "Ingenuity",
+  "type": "feature",
+  "_id": "139uKV0SfomfSmUJ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/brain-in-a-jar.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per session</strong>, you may <strong>spend a Hope</strong> and explain with some technical and incomprehensible words why something that just happened isn't quite possible. Then do one of the following:</p><ul><li><p>Avoid marking a Hit Point, Stress or Armor Slot.</p></li><li><p>Add or substract 2 from any roll (include adversaries).</p></li></ul><p>After the first time you use this feature during a session and <strong>once per scene</strong>, you can use Ingenuity by <strong>giving the GM a Fear</strong> instead of spending a Hope.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "NkS2gA4uZPS5Sexl": {
+        "type": "effect",
+        "_id": "NkS2gA4uZPS5Sexl",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "itemId": null,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "session",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Hope",
+        "range": ""
+      },
+      "rgElCdd3oEnYZ38y": {
+        "type": "healing",
+        "_id": "rgElCdd3oEnYZ38y",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {
+            "fear": {
+              "base": false,
+              "applyTo": "fear",
+              "resultBased": false,
+              "fullRestore": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Give Fear",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787053092839,
+    "modifiedTime": 1787065657759,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!139uKV0SfomfSmUJ"
+}

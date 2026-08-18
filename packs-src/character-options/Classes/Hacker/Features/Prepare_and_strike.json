@@ -1,0 +1,215 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Prepare and strike",
+  "type": "feature",
+  "_id": "z4uVjVbPY0uB7n1I",
+  "img": "icons/weapons/daggers/dagger-magical-glowing-blue.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>The first time in a scene you succeed on an attack, <strong>clear a Stress</strong> or <strong>gain a Hope</strong>.</p>",
+    "gmNotes": "",
+    "resource": {
+      "type": "simple",
+      "value": 1,
+      "max": "1",
+      "recovery": "scene",
+      "progression": "decreasing",
+      "dieFaces": "d4",
+      "icon": ""
+    },
+    "actions": {
+      "JsC98ANTKXkJszjz": {
+        "type": "healing",
+        "_id": "JsC98ANTKXkJszjz",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "resource",
+            "value": 1,
+            "itemId": "z4uVjVbPY0uB7n1I",
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {
+            "stress": {
+              "base": false,
+              "applyTo": "stress",
+              "resultBased": false,
+              "fullRestore": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 0,
+                "dice": "d6",
+                "bonus": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Clear Stress",
+        "range": "self"
+      },
+      "GJUKMy5K6FcU3pIH": {
+        "type": "healing",
+        "_id": "GJUKMy5K6FcU3pIH",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "resource",
+            "value": 1,
+            "itemId": "z4uVjVbPY0uB7n1I",
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {
+            "hope": {
+              "base": false,
+              "applyTo": "hope",
+              "resultBased": false,
+              "fullRestore": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 0,
+                "dice": "d6",
+                "bonus": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Gain Hope",
+        "range": "self"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787060364950,
+    "modifiedTime": 1787072028189,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!z4uVjVbPY0uB7n1I"
+}

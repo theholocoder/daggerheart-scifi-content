@@ -1,0 +1,69 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Eloquent Speech",
+  "type": "feature",
+  "_id": "PmTKGbA0xcP4lMVU",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/deep-breath.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per long rest</strong>, you may deliver a speech of authority, moral clarity or fierce conviction. All allies within Far range <strong>clear 2 Stress</strong>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "WIX2WCdnDYj88cWF": {
+        "type": "effect",
+        "_id": "WIX2WCdnDYj88cWF",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787057203555,
+    "modifiedTime": 1787072058767,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!PmTKGbA0xcP4lMVU"
+}

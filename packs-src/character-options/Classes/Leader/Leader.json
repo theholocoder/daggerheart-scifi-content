@@ -1,0 +1,94 @@
+{
+  "folder": "W7qLgcrBftuDR0eM",
+  "name": "Leader",
+  "type": "class",
+  "_id": "LghJDwan9TGlKnaf",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-star-insignia.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Some people lead through rank. Others lead through fear. A real Leader leads through confidence, daring, and instinct. They inspire allies to push harder, exploit every weakness in the enemy's line, and turn a single opening into a decisive victory.</p>",
+    "domains": [
+      "grace",
+      "valor"
+    ],
+    "classItems": [],
+    "hitPoints": 7,
+    "evasion": 9,
+    "features": [
+      {
+        "type": "hope",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.57mfPuIM0De08TPG"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.JphikpoMjKUk0Hid"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.Po4XfEMCzIlyg6b0"
+      }
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk"
+      ],
+      "choiceA": [
+        "Compendium.daggerheart-scifi-content.items.Item.mUepnLbkvFk0ha4Z",
+        "Compendium.daggerheart-scifi-content.items.Item.YHnR2pOe067wDEK4"
+      ],
+      "choiceB": [
+        "Compendium.daggerheart-scifi-content.character-options.Item.lpWcR1jWdR7tx3QN",
+        "Compendium.daggerheart-scifi-content.character-options.Item.OUDOJsZr218qedTT"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 1,
+        "strength": 0,
+        "finesse": 1,
+        "instinct": 0,
+        "presence": 2,
+        "knowledge": -1
+      },
+      "suggestedPrimaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.ECdMuLhVJL1bow69",
+      "suggestedSecondaryWeapon": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
+      "suggestedArmor": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb"
+    },
+    "backgroundQuestions": [
+      "",
+      "",
+      ""
+    ],
+    "connections": [
+      "",
+      "",
+      ""
+    ],
+    "isMulticlass": false
+  },
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783669939820,
+    "modifiedTime": 1787056892108,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!LghJDwan9TGlKnaf"
+}

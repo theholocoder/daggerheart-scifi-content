@@ -1,8 +1,8 @@
 {
-  "folder": "VkPCHPMxegNuCAW6",
+  "folder": "ohJUNgMTsGkgKyf7",
   "name": "Engineer",
   "type": "class",
-  "_id": "cWVvBkayU6lwVgYC",
+  "_id": "yGzafyT1yXFsiRc1",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hand-holding-wrench.webp",
   "system": {
     "attribution": {
@@ -10,26 +10,23 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Engineers don't cast spells or rely on brute force. They reshape the battlefield through invention, deploying advanced technology, autonomous devices, and experimental prototypes that can turn the tide of any encounter.</p>",
+    "description": "",
+    "gmNotes": "",
     "domains": [
-      "tech",
-      "bone"
+      "bone",
+      "tech"
     ],
     "classItems": [],
-    "hitPoints": 6,
+    "hitPoints": 5,
     "evasion": 10,
     "features": [
       {
-        "type": "class",
-        "item": "Compendium.daggerheart-scifi-content.character-options.Item.cmQ1erqGqemNvB7U"
-      },
-      {
         "type": "hope",
-        "item": "Compendium.daggerheart-scifi-content.character-options.Item.CzAuOXqC1ONCvleS"
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.6mUfKFyCbxLGh5BE"
       },
       {
         "type": "class",
-        "item": "Compendium.daggerheart-scifi-content.character-options.Item.BXh24CNMwDERkIyY"
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.139uKV0SfomfSmUJ"
       }
     ],
     "inventory": {
@@ -61,14 +58,14 @@
       "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
     },
     "backgroundQuestions": [
-      "",
-      "",
-      ""
+      "What’s the most important thing you’ve ever built… or destroyed?",
+      "Do you solve problems for the joy of the work, the challenge, the paycheck, or something else?",
+      "What piece of tech have you been trying to design for years but can’t get quite right?"
     ],
     "connections": [
-      "",
-      "",
-      ""
+      "What piece of cobbled together tech did I use to save your life?",
+      "What did we build together that we swore never to speak?",
+      "When did you teach me the solution isn’t always technical or black and white?"
     ],
     "isMulticlass": false
   },
@@ -82,13 +79,13 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
-    "createdTime": 1783343818528,
-    "modifiedTime": 1786827975585,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787052474482,
+    "modifiedTime": 1787072004916,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!items!cWVvBkayU6lwVgYC"
+  "_key": "!items!yGzafyT1yXFsiRc1"
 }

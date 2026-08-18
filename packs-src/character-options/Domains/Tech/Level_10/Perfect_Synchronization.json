@@ -9,12 +9,41 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>When an ally within Close range deals damage to an adversary, you can make a <strong>Reaction</strong> <strong>Spellcast Roll</strong> against the same target.</p><p>If you succeed, <strong>mark a Stress</strong> and choose one of the following effects:</p><ul><li><p>The target marks one additional Hit Point.</p></li><li><p>Your ally clears a Stress or a Hit Point.</p></li><li><p>You both gain a Hope.</p></li></ul>",
+    "description": "<p><strong>Once per long rest</strong>, activate an advanced sensor grid, tactical AI, remote robotic mesh or any technologic non-sense you like. This create the following effects:</p><ul><li><p>You and your allies ignore the <em>Hidden</em> condition for the remainder of the scene.</p></li><li><p>All adversaries within Close range become temporarily <em>Vulnerable</em>.</p></li><li><p>You and your allies only need to <strong>spend 2 Hope</strong> to initiate a Tag Team Roll for the remainder of the scene.</p></li></ul><p>The GM may stop this effect by spending 3 Fear.</p>",
     "resource": null,
-    "actions": {},
+    "actions": {
+      "bigHhdHjMPSUz8LZ": {
+        "type": "effect",
+        "_id": "bigHhdHjMPSUz8LZ",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
     "domain": "tech",
     "level": 10,
-    "recallCost": 1,
+    "recallCost": 2,
     "type": "spell",
     "inVault": false,
     "vaultActive": false,
@@ -26,9 +55,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.7.4",
     "createdTime": 1783380317031,
-    "modifiedTime": 1786830203723,
+    "modifiedTime": 1787052231118,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

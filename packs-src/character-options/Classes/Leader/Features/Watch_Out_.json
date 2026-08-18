@@ -1,0 +1,39 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Watch Out!",
+  "type": "feature",
+  "_id": "llyFfNuAcNC8IEUi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/agitate.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When an adversary makes any roll targetting one of your allies and before the dice are rolled, you can spend a Command Token to impose disadvantage on that action. The disadvantage die is a <strong>d8</strong> (instead of a d6).</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783672552891,
+    "modifiedTime": 1787068596463,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!llyFfNuAcNC8IEUi"
+}

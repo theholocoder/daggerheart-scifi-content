@@ -1,23 +1,27 @@
 {
   "type": "Item",
-  "folder": "VkPCHPMxegNuCAW6",
+  "folder": "ohJUNgMTsGkgKyf7",
   "name": "Items",
   "color": null,
+  "flags": {
+    "daggerheart": {
+      "defaultEntity": ""
+    }
+  },
   "sorting": "a",
-  "_id": "XjmAyVsUdKsRWwJA",
+  "_id": "XJbLdgDU4W0VfkzN",
   "description": "",
   "sort": 0,
-  "flags": {},
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
-    "createdTime": 1783344281671,
-    "modifiedTime": 1783344281671,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787052497275,
+    "modifiedTime": 1787052497275,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!XjmAyVsUdKsRWwJA"
+  "_key": "!folders!XJbLdgDU4W0VfkzN"
 }

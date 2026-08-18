@@ -1,5 +1,5 @@
 {
-  "folder": "4woyCicX6G5XxYyQ",
+  "folder": "Z9lecBxunitGkjdF",
   "name": "Companion Robot",
   "type": "feature",
   "_id": "s6J3Xqecns5hUJPq",
@@ -18,7 +18,7 @@
     "featureForm": "passive"
   },
   "effects": [],
-  "sort": 0,
+  "sort": 200000,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783346743120,
-    "modifiedTime": 1783695998610,
+    "modifiedTime": 1787055440064,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -1,0 +1,39 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "I Stalked You",
+  "type": "feature",
+  "_id": "BgdXcDsrifAdJjZm",
+  "img": "icons/skills/melee/strike-blade-knife-blue-red.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>On a successful weapon attack on a <em>Breached</em> target, you can <strong>mark a Stress</strong>. to double the amount of Intrusion dice you roll.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783674780003,
+    "modifiedTime": 1787060829646,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!BgdXcDsrifAdJjZm"
+}

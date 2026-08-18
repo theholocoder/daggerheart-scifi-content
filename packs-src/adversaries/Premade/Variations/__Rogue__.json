@@ -2,8 +2,18 @@
   "folder": "yQ77Ss5ztQhUpqm0",
   "name": "« Rogue »",
   "type": "character",
-  "img": "modules/daggerheart-scifi-content/artwork/portraits/rogue_f.webp",
+  "_id": "KlUsPs9wjsjGGOUE",
+  "img": "modules/daggerheart-scifi-content/artwork/portraits/rogue_m.webp",
   "system": {
+    "biography": {
+      "background": "<p>« Rogue » est un Android Hacker spécialisé \"Ghost\", il utilise la technologie pour observer ses adversaires, se cacher, les attaquer depuis les ombres et introduire des virus dans leurs équipements, avant de les propager aux ennemis proches.</p><hr><h2>Comment jouer Rogue ?</h2><ul><li><p>Votre corps synthétique vous permez de survivre dans le vide de l'espace.</p></li><li><p>Le passé criminel de « Rogue » lui permet de négocier avec les scélérat et de trouver des planques.</p></li><li><p>Si un vous ou un allié faites une erreur, faites un <em>restart</em> avec @UUID[Compendium.daggerheart-scifi-content.character-options.tBAeJc6NJtn47pdQ]{Hack Me Back In Time} !</p></li><li><p>Vos attaques permettent de trouver des failles et de provoquer une @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion}, permettant d'effectuer encore plus de dégâts !</p></li><li><p>Utilisez vos cartes pour être prêt en toutes circonstances.</p></li><li><p>Piratez les terminaux informatiques pour trouver des informations utiles à votre mission !</p></li></ul>",
+      "connections": "",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
     "resistance": {
       "physical": {
         "resistance": false,
@@ -65,14 +75,14 @@
       "severe": 0
     },
     "experiences": {
-      "F0tvwLMRurgIs9JX": {
+      "609d9WGZGKlWySJq": {
         "name": "Connecté en permanence",
         "value": 2,
         "core": true,
         "description": ""
       },
-      "5U91NWX558Ka7tOy": {
-        "name": "Je connais ce paradoxe",
+      "lahoagMw4g7vwbt5": {
+        "name": "Je t'ai stalké sur les réseaux",
         "value": 2,
         "core": true,
         "description": ""
@@ -85,19 +95,10 @@
       "chests": 0
     },
     "scars": 0,
-    "biography": {
-      "background": "",
-      "connections": "",
-      "characteristics": {
-        "pronouns": "",
-        "age": "",
-        "faith": ""
-      }
-    },
     "attack": {
       "name": "DAGGERHEART.GENERAL.unarmedAttack",
       "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
-      "_id": "xZR0Fttl2E3BrX5W",
+      "_id": "oKwbdPFJnpyLibnF",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -195,7 +196,7 @@
     "height": 1,
     "depth": 1,
     "texture": {
-      "src": "modules/daggerheart-scifi-content/artwork/portraits/rogue_f.token.webp",
+      "src": "modules/daggerheart-scifi-content/artwork/portraits/rogue_m.token.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -276,10 +277,7 @@
     "movementAction": null,
     "flags": {
       "monks-tokenbar": {
-        "include": [
-          "default",
-          "default"
-        ]
+        "include": "default"
       },
       "wall-height": {
         "tokenHeight": 0
@@ -295,9 +293,9 @@
   "items": [
     {
       "folder": "pdVzmZeMrqQxLCHA",
-      "name": "Intrusions",
+      "name": "Intrusion",
       "type": "feature",
-      "_id": "u9mKe7P7CDr6bTD3",
+      "_id": "Zih6ATcShpm7NTvX",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/greeb-alien-tentacle.webp",
       "system": {
         "attribution": {
@@ -305,12 +303,50 @@
           "page": null,
           "artist": ""
         },
-        "description": "<p>After you damage a creature with your Primary or Secondary Weapon, or successfully damage a creature with a Tech Domain card, you may apply <strong>one</strong> Intrusion.</p><p>Each creature may only have one Intrusion from you at a time. Applying another replaces the previous one.</p><hr><table><thead><tr><th data-colwidth=\"179\"><p>Intrusion</p></th><th><p>Effect</p></th></tr></thead><tbody><tr><td data-colwidth=\"179\"><p>Expose</p></td><td><p>The next attack against the target has Advantage. Then the Intrusion fades.</p></td></tr><tr><td data-colwidth=\"179\"><p>Jam</p></td><td><p>The target has Disadvantage on its next attack. Then the Intrusion fades.</p></td></tr><tr><td data-colwidth=\"179\"><p>Interference</p></td><td><p>Reduce the damage die of the target's next attack by one step. Then the Intrusion fades.</p></td></tr><tr><td data-colwidth=\"179\"><p>Trace</p></td><td><p>You always know the target's location until the end of the scene.</p></td></tr></tbody></table>",
+        "description": "<p>On a successful weapon attack or Tech domain attack, you can <strong>mark a Stress</strong> to breach into the target eletronic defenses and make the target <em>Breached</em>.</p><p>When you deal damage to a target you <em>Breached</em>, add <strong>1d6</strong> to the damage roll.</p><p>You can only have one <em>Breached</em> adversary at a time. This condition lasts until you take a rest or the adversary is defeated.</p>",
         "resource": null,
-        "actions": {},
+        "actions": {
+          "p71ns01iFrY5JPGl": {
+            "type": "effect",
+            "_id": "p71ns01iFrY5JPGl",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "itemId": null,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Mark a Stress",
+            "range": ""
+          }
+        },
         "originItemType": "class",
         "multiclassOrigin": false,
-        "featureForm": "passive",
+        "featureForm": "action",
         "gmNotes": "",
         "identifier": "class"
       },
@@ -324,21 +360,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.y4cUUgwOuWBlzF1e",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.u9mKe7P7CDr6bTD3"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.Zih6ATcShpm7NTvX"
     },
     {
       "folder": "pdVzmZeMrqQxLCHA",
-      "name": "Chain Infection",
+      "name": "Hack Me Back In Time",
       "type": "feature",
-      "_id": "WzOFCOvLNqLM2Vcv",
+      "_id": "fQurtTfIgGoTPXnk",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-timer.webp",
       "system": {
         "attribution": {
@@ -346,7 +382,7 @@
           "page": null,
           "artist": ""
         },
-        "description": "<p><strong>Spend 3 Hope</strong> to spread your intrusion. Choose one creature affected by one of your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusions}. Up to 3 adversaries within Very Close range of the target suffer the same Intrusion.</p>",
+        "description": "<p>When your or an ally within Far range fails an action roll, you can <strong>Spend 3 Hope</strong> to change it into a success with Fear instead.</p>",
         "resource": null,
         "actions": {
           "lLVMNslVKqPhkhBi": {
@@ -404,19 +440,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.tBAeJc6NJtn47pdQ",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.WzOFCOvLNqLM2Vcv"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.fQurtTfIgGoTPXnk"
     },
     {
       "effects": [],
-      "_id": "EbHfXHL6tJMipS9v",
+      "_id": "gD3uKdWoSX81xnr4",
       "name": "Hacker",
       "type": "class",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-alien-glowing-skill.webp",
@@ -495,21 +531,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.XbmoRrAovSyGiBN9",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.EbHfXHL6tJMipS9v"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.gD3uKdWoSX81xnr4"
     },
     {
       "folder": "qldZSEXSq5l7lKUo",
       "name": "Synthetic Body",
       "type": "feature",
-      "_id": "W4T5jI9ZAFXnqFOb",
+      "_id": "8tzvEzJ37cv4QwP7",
       "img": "modules/daggerheart-scifi-content/artwork/icons/spells/perfected-form.webp",
       "system": {
         "attribution": {
@@ -536,21 +572,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.wFZsvEHe66nCllO4",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.W4T5jI9ZAFXnqFOb"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.8tzvEzJ37cv4QwP7"
     },
     {
       "folder": "qldZSEXSq5l7lKUo",
       "name": "Integrated Processor",
       "type": "feature",
-      "_id": "hMPdvwnXyY23GQHy",
+      "_id": "Ytt3wCI43aV5S44K",
       "img": "modules/daggerheart-scifi-content/artwork/icons/spells/maze-of-locked-doors.webp",
       "system": {
         "attribution": {
@@ -577,21 +613,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.JC6tCSU6lAwYfjkS",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.hMPdvwnXyY23GQHy"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.Ytt3wCI43aV5S44K"
     },
     {
       "folder": "KA1VSGslxkbvVeMp",
       "name": "Scoundrel",
       "type": "feature",
-      "_id": "4tkfUICDA2B5ruBL",
+      "_id": "nTEHJndm2b5gdAhX",
       "img": "icons/equipment/head/hood-cloth-teal-gold.webp",
       "system": {
         "description": "<p>You have advantage on rolls to negotiate with criminals, detect lies, or find a safe place to hide.</p>",
@@ -663,9 +699,9 @@
             "compendiumSource": null,
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305025,
-            "modifiedTime": 1786988305025,
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736254,
+            "modifiedTime": 1787071736254,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "duplicateSource": null,
             "exportSource": null
@@ -680,7 +716,7 @@
           },
           "showIcon": 1,
           "folder": null,
-          "_key": "!actors.items.effects!QEjWiNcrlsjVPrpa.4tkfUICDA2B5ruBL.snkYmZ22Q8HHLY9M"
+          "_key": "!actors.items.effects!KlUsPs9wjsjGGOUE.nTEHJndm2b5gdAhX.snkYmZ22Q8HHLY9M"
         }
       ],
       "flags": {},
@@ -688,9 +724,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.communities.Item.ZmEuBdL0JrvuA8le",
         "duplicateSource": null,
@@ -700,23 +736,86 @@
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.4tkfUICDA2B5ruBL"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.nTEHJndm2b5gdAhX"
     },
     {
       "folder": "pdVzmZeMrqQxLCHA",
-      "name": "Optical Camouflage",
+      "name": "Backdoor",
       "type": "feature",
-      "_id": "EiLQyCmGIsUfV8Ym",
-      "img": "icons/commodities/tech/cylinder-blue.webp",
+      "_id": "wvjwmswOiEb4fjdq",
+      "img": "icons/weapons/daggers/dagger-crooked-ice-blue.webp",
       "system": {
         "attribution": {
           "source": "TheHolocoder Homebrew",
           "page": null,
           "artist": ""
         },
-        "description": "<p>Whenever you spend Hope to use a Midnight Domain card, you are immediately <em>Hidden</em>.</p>",
+        "description": "<p>Your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion} feature now adds a number of <strong>d6s</strong> equal to your tier to the damage roll, instead of 1d6.</p>",
         "resource": null,
-        "actions": {},
+        "actions": {
+          "akORhVN5sFCCCFGx": {
+            "type": "damage",
+            "_id": "akORhVN5sFCCCFGx",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": {
+                "base": false,
+                "applyTo": "hitPoints",
+                "resultBased": false,
+                "fullRestore": false,
+                "value": {
+                  "multiplier": "tier",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "bonus": null,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "valueAlt": {
+                  "multiplier": "flat",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "bonus": null,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "includeBase": false,
+                "direct": false,
+                "type": [
+                  "physical"
+                ]
+              },
+              "resources": {}
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "name": "Roll Damage",
+            "range": ""
+          }
+        },
         "originItemType": "subclass",
         "multiclassOrigin": false,
         "featureForm": "passive",
@@ -733,21 +832,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.5Dso4Yi1PHUPVVgX",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.EiLQyCmGIsUfV8Ym"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.wvjwmswOiEb4fjdq"
     },
     {
       "folder": "pdVzmZeMrqQxLCHA",
-      "name": "Silent Killer",
+      "name": "I Stalked You",
       "type": "feature",
-      "_id": "xqq8n0jLC3QGysOG",
+      "_id": "n51ZmcjqcH3M7EJV",
       "img": "icons/skills/melee/strike-blade-knife-blue-red.webp",
       "system": {
         "attribution": {
@@ -755,7 +854,7 @@
           "page": null,
           "artist": ""
         },
-        "description": "<p>The first weapon attack you make while <em>Hidden</em> gains an increased damage die (d6 -&gt; d8, d8 -&gt; d10, etc.).</p>",
+        "description": "<p>On a successful weapon attack on a <em>Breached</em> target, you can <strong>mark a Stress</strong>. to double the amount of Intrusion dice you roll.</p>",
         "resource": null,
         "actions": {},
         "originItemType": "subclass",
@@ -774,21 +873,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.BgdXcDsrifAdJjZm",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.xqq8n0jLC3QGysOG"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.n51ZmcjqcH3M7EJV"
     },
     {
       "folder": "pdVzmZeMrqQxLCHA",
       "name": "Vanishing Point",
       "type": "feature",
-      "_id": "v8Uy0JuF8Kd3FmGP",
+      "_id": "7BdSPBsYT4xIwjOY",
       "img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
       "system": {
         "attribution": {
@@ -815,19 +914,93 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.kPD5BGfaNAZlYNQN",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.v8Uy0JuF8Kd3FmGP"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.7BdSPBsYT4xIwjOY"
+    },
+    {
+      "folder": "pdVzmZeMrqQxLCHA",
+      "name": "Prepare and strike",
+      "type": "feature",
+      "_id": "XeCbm82YyH6hFPRp",
+      "img": "icons/weapons/daggers/dagger-magical-glowing-blue.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>The first time in a scene you succeed on an attack, <strong>clear a Stress</strong> or <strong>gain a Hope</strong>.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "identifier": "foundation"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.z4uVjVbPY0uB7n1I",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.XeCbm82YyH6hFPRp"
+    },
+    {
+      "folder": "pdVzmZeMrqQxLCHA",
+      "name": "Brute Force",
+      "type": "feature",
+      "_id": "FBBn2kPGGoC6EtGM",
+      "img": "icons/magic/acid/dissolve-bone-skull.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion} feature now uses <strong>d8s</strong> instead of d6s.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.vMje7ustVabsMt3y",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.FBBn2kPGGoC6EtGM"
     },
     {
       "effects": [],
-      "_id": "b4HXroi6QZ35RY8W",
+      "_id": "BoUXcKJpIYuTaHgh",
       "name": "Android",
       "type": "ancestry",
       "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/android-sf2e.webp",
@@ -848,7 +1021,8 @@
             "type": "secondary",
             "item": "Compendium.daggerheart-scifi-content.character-options.Item.JC6tCSU6lAwYfjkS"
           }
-        ]
+        ],
+        "loreReference": null
       },
       "folder": "KjbbtmNF7SEmZ9t0",
       "sort": 0,
@@ -860,19 +1034,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.FV46nQDVfVJnen9i",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.b4HXroi6QZ35RY8W"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.BoUXcKJpIYuTaHgh"
     },
     {
       "effects": [],
-      "_id": "9W9x1n3ox7c7HlUm",
+      "_id": "mw9I6MzM3Dke7LLl",
       "name": "Ghost",
       "type": "subclass",
       "img": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
@@ -882,7 +1056,7 @@
           "page": null,
           "artist": ""
         },
-        "description": "",
+        "description": "<p>Play the Ghost if you want to exploit your Intrusions and your stalking to deal maximum damage to your target.</p>",
         "spellcastingTrait": "finesse",
         "features": [
           {
@@ -896,6 +1070,14 @@
           {
             "type": "mastery",
             "item": "Compendium.daggerheart-scifi-content.character-options.Item.kPD5BGfaNAZlYNQN"
+          },
+          {
+            "type": "foundation",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.z4uVjVbPY0uB7n1I"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.vMje7ustVabsMt3y"
           }
         ],
         "featureState": 1,
@@ -913,19 +1095,291 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.UJ5Oqqz0uzFeUPlE",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.9W9x1n3ox7c7HlUm"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.mw9I6MzM3Dke7LLl"
     },
     {
       "effects": [],
-      "_id": "n9fxZRBOp9RaLJn6",
+      "_id": "PxGNUvP3jP0Hld4l",
+      "name": "Slyborne",
+      "type": "community",
+      "img": "icons/environment/settlement/city-night-spire.webp",
+      "system": {
+        "description": "<p>Being part of a slyborne community means you come from a group that operates outside the law, including all manner of criminals, grifters, and con artists.</p>",
+        "features": [
+          "Compendium.daggerheart.communities.Item.ZmEuBdL0JrvuA8le"
+        ],
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 33,
+          "artist": ""
+        },
+        "loreReference": "slyborne",
+        "gmNotes": ""
+      },
+      "folder": null,
+      "sort": 3400000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.communities.Item.rGwCPMqZtky7SE6d",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.PxGNUvP3jP0Hld4l"
+    },
+    {
+      "effects": [
+        {
+          "name": "Overclocked Weapon",
+          "disabled": false,
+          "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
+          "description": "",
+          "transfer": false,
+          "statuses": [],
+          "system": {
+            "rangeDependence": null,
+            "changes": [
+              {
+                "key": "system.bonuses.damage.primaryWeapon.dice",
+                "type": "upgrade",
+                "value": "1d6",
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": "",
+              "type": ""
+            },
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "VzdGjWRO3qh0RZLV",
+          "type": "base",
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736254,
+            "modifiedTime": 1787071736254,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!KlUsPs9wjsjGGOUE.fgpHwM1ojyCpDmuo.VzdGjWRO3qh0RZLV"
+        },
+        {
+          "name": "Overclocked Defenses",
+          "disabled": false,
+          "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
+          "description": "",
+          "transfer": false,
+          "statuses": [],
+          "system": {
+            "rangeDependence": null,
+            "changes": [
+              {
+                "key": "system.evasion",
+                "type": "add",
+                "value": 2,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": "",
+              "type": ""
+            },
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "qQQAhJInq9o0Dncq",
+          "type": "base",
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736254,
+            "modifiedTime": 1787071736254,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!KlUsPs9wjsjGGOUE.fgpHwM1ojyCpDmuo.qQQAhJInq9o0Dncq"
+        }
+      ],
+      "_id": "fgpHwM1ojyCpDmuo",
+      "name": "Overclock",
+      "type": "domainCard",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p><strong>Mark a Stress</strong> to boost the equipment of an ally within Close range or your own equipment. Apply one of these effects to your target:</p><ul><li><p>Add 1d6 damage to the next successful attack made by the target with a primary weapon.</p></li><li><p>Grant +2 Evasion to the target until they are hit by an attack.</p></li></ul>",
+        "resource": null,
+        "actions": {
+          "hBBHLr7eBNQCvhwz": {
+            "type": "effect",
+            "_id": "hBBHLr7eBNQCvhwz",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [
+              {
+                "_id": "VzdGjWRO3qh0RZLV",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "any",
+              "amount": 1
+            },
+            "name": "Overclock Weapon",
+            "range": "close"
+          },
+          "AYRw66dAujMumQmf": {
+            "type": "effect",
+            "_id": "AYRw66dAujMumQmf",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [
+              {
+                "_id": "qQQAhJInq9o0Dncq",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "any",
+              "amount": 1
+            },
+            "name": "Overclock Defenses",
+            "range": "close"
+          }
+        },
+        "domain": "tech",
+        "level": 1,
+        "recallCost": 0,
+        "type": "ability",
+        "inVault": false,
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null,
+        "gmNotes": ""
+      },
+      "folder": "YSkSfPaGAGbb6zu9",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.QrIMvPvFpDQRBW6G",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.fgpHwM1ojyCpDmuo"
+    },
+    {
+      "effects": [],
+      "_id": "95ADjxPycFKExC8t",
       "name": "Rain of Blades",
       "type": "domainCard",
       "img": "systems/daggerheart/assets/icons/domains/domain-card/midnight.png",
@@ -1060,290 +1514,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.domains.Item.Ucenef6JpjQxwXni",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.n9fxZRBOp9RaLJn6"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.95ADjxPycFKExC8t"
     },
     {
       "effects": [],
-      "_id": "4GRLOhEPSis83wwf",
-      "name": "Slyborne",
-      "type": "community",
-      "img": "icons/environment/settlement/city-night-spire.webp",
-      "system": {
-        "description": "<p>Being part of a slyborne community means you come from a group that operates outside the law, including all manner of criminals, grifters, and con artists. Being part of a slyborne community means you come from a group that operates outside the law, including all manner of criminals, grifters, and con artists. Members of slyborne communities are brought together by their disreputable goals and their clever means of achieving them. Many people in these communities have an array of unscrupulous skills: forging, thievery, smuggling, and violence. People of any social class can be slyborne, from those who have garnered vast wealth and influence to those without a coin to their name. To the outside eye, slyborne might appear to be ruffians with no loyalty, but these communities possess some of the strictest codes of honor which, when broken, can result in a terrifying end for the transgressor.</p><p><em>Slyborne are often calculating, clever, formidable, perceptive, shrewd, and tenacious.</em></p>",
-        "features": [
-          "Compendium.daggerheart.communities.Item.ZmEuBdL0JrvuA8le"
-        ],
-        "attribution": {
-          "source": "Daggerheart SRD",
-          "page": 33,
-          "artist": ""
-        },
-        "gmNotes": ""
-      },
-      "folder": null,
-      "sort": 3400000,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.communities.Item.rGwCPMqZtky7SE6d",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.4GRLOhEPSis83wwf"
-    },
-    {
-      "effects": [
-        {
-          "name": "Overclocked Weapon",
-          "disabled": false,
-          "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
-          "description": "",
-          "transfer": false,
-          "statuses": [],
-          "system": {
-            "rangeDependence": null,
-            "changes": [
-              {
-                "key": "system.bonuses.damage.primaryWeapon.dice",
-                "type": "upgrade",
-                "value": "1d6",
-                "priority": null,
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": "",
-              "type": ""
-            },
-            "stacking": null,
-            "targetDispositions": []
-          },
-          "_id": "VzdGjWRO3qh0RZLV",
-          "type": "base",
-          "start": {
-            "time": 0,
-            "combat": null,
-            "combatant": null,
-            "initiative": null,
-            "round": null,
-            "turn": null
-          },
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "origin": null,
-          "tint": "#ffffff",
-          "showIcon": 1,
-          "folder": null,
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305025,
-            "modifiedTime": 1786988305025,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "compendiumSource": null,
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "_key": "!actors.items.effects!QEjWiNcrlsjVPrpa.IcF5l6gqQGxdwo3e.VzdGjWRO3qh0RZLV"
-        },
-        {
-          "name": "Overclocked Defenses",
-          "disabled": false,
-          "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
-          "description": "",
-          "transfer": false,
-          "statuses": [],
-          "system": {
-            "rangeDependence": null,
-            "changes": [
-              {
-                "key": "system.evasion",
-                "type": "add",
-                "value": 2,
-                "priority": null,
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": "",
-              "type": ""
-            },
-            "stacking": null,
-            "targetDispositions": []
-          },
-          "_id": "qQQAhJInq9o0Dncq",
-          "type": "base",
-          "start": {
-            "time": 0,
-            "combat": null,
-            "combatant": null,
-            "initiative": null,
-            "round": null,
-            "turn": null
-          },
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "origin": null,
-          "tint": "#ffffff",
-          "showIcon": 1,
-          "folder": null,
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305025,
-            "modifiedTime": 1786988305025,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "compendiumSource": null,
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "_key": "!actors.items.effects!QEjWiNcrlsjVPrpa.IcF5l6gqQGxdwo3e.qQQAhJInq9o0Dncq"
-        }
-      ],
-      "_id": "IcF5l6gqQGxdwo3e",
-      "name": "Overclock",
-      "type": "domainCard",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p><strong>Mark a Stress</strong> to boost the equipment of an ally within Close range or your own equipment. Apply one of these effects to your target:</p><ul><li><p>Add 1d6 damage to the next successful attack made by the target with a primary weapon.</p></li><li><p>Grant +2 Evasion to the target until they are hit by an attack.</p></li></ul>",
-        "resource": null,
-        "actions": {
-          "hBBHLr7eBNQCvhwz": {
-            "type": "effect",
-            "_id": "hBBHLr7eBNQCvhwz",
-            "systemPath": "actions",
-            "baseAction": false,
-            "description": "",
-            "chatDisplay": true,
-            "originItem": {
-              "type": "itemCollection"
-            },
-            "actionType": "action",
-            "triggers": [],
-            "areas": [],
-            "cost": [],
-            "uses": {
-              "value": null,
-              "max": "",
-              "recovery": null,
-              "consumeOnSuccess": false
-            },
-            "effects": [
-              {
-                "_id": "VzdGjWRO3qh0RZLV",
-                "onSave": false
-              }
-            ],
-            "target": {
-              "type": "any",
-              "amount": 1
-            },
-            "name": "Overclock Weapon",
-            "range": "close"
-          },
-          "AYRw66dAujMumQmf": {
-            "type": "effect",
-            "_id": "AYRw66dAujMumQmf",
-            "systemPath": "actions",
-            "baseAction": false,
-            "description": "",
-            "chatDisplay": true,
-            "originItem": {
-              "type": "itemCollection"
-            },
-            "actionType": "action",
-            "triggers": [],
-            "areas": [],
-            "cost": [],
-            "uses": {
-              "value": null,
-              "max": "",
-              "recovery": null,
-              "consumeOnSuccess": false
-            },
-            "effects": [
-              {
-                "_id": "qQQAhJInq9o0Dncq",
-                "onSave": false
-              }
-            ],
-            "target": {
-              "type": "any",
-              "amount": 1
-            },
-            "name": "Overclock Defenses",
-            "range": "close"
-          }
-        },
-        "domain": "tech",
-        "level": 1,
-        "recallCost": 0,
-        "type": "ability",
-        "inVault": false,
-        "vaultActive": false,
-        "loadoutIgnore": false,
-        "domainTouched": null,
-        "gmNotes": ""
-      },
-      "folder": "YSkSfPaGAGbb6zu9",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.QrIMvPvFpDQRBW6G",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.IcF5l6gqQGxdwo3e"
-    },
-    {
-      "effects": [],
-      "_id": "hMkcI7cx19RvJuMJ",
+      "_id": "CnypSCL70HFZX79X",
       "name": "Leather Armor",
       "type": "armor",
       "img": "icons/equipment/chest/breastplate-layered-leather-brown.webp",
@@ -1380,288 +1563,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.hMkcI7cx19RvJuMJ"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.CnypSCL70HFZX79X"
     },
     {
       "effects": [],
-      "_id": "1GoRVspHRkrJihv4",
-      "name": "Minor Stamina Potion",
-      "type": "consumable",
-      "img": "icons/consumables/potions/potion-tube-corked-green.webp",
-      "system": {
-        "description": "<p>Clear 1d4 Stress.</p>",
-        "quantity": 1,
-        "actions": {
-          "fdjpkjhzHQOrZPm0": {
-            "type": "healing",
-            "_id": "fdjpkjhzHQOrZPm0",
-            "systemPath": "actions",
-            "description": "",
-            "chatDisplay": true,
-            "actionType": "action",
-            "cost": [
-              {
-                "scalable": false,
-                "key": "quantity",
-                "value": 1,
-                "itemId": "b6vGSPFWOlzZZDLO",
-                "step": null,
-                "consumeOnSuccess": false
-              }
-            ],
-            "uses": {
-              "value": null,
-              "max": "",
-              "recovery": null,
-              "consumeOnSuccess": false
-            },
-            "damage": {
-              "main": null,
-              "resources": {
-                "stress": {
-                  "value": {
-                    "custom": {
-                      "enabled": false,
-                      "formula": ""
-                    },
-                    "multiplier": "flat",
-                    "flatMultiplier": 1,
-                    "dice": "d4",
-                    "bonus": null
-                  },
-                  "applyTo": "stress",
-                  "base": false,
-                  "resultBased": false,
-                  "valueAlt": {
-                    "multiplier": "prof",
-                    "flatMultiplier": 1,
-                    "dice": "d6",
-                    "bonus": null,
-                    "custom": {
-                      "enabled": false,
-                      "formula": ""
-                    }
-                  },
-                  "fullRestore": false
-                }
-              }
-            },
-            "target": {
-              "type": "",
-              "amount": null
-            },
-            "effects": [],
-            "roll": {
-              "type": null,
-              "trait": null,
-              "difficulty": null,
-              "bonus": null,
-              "advState": "neutral",
-              "diceRolling": {
-                "multiplier": "prof",
-                "flatMultiplier": 1,
-                "dice": "d6",
-                "compare": null,
-                "treshold": null
-              },
-              "useDefault": false
-            },
-            "name": "Drink",
-            "img": "icons/consumables/potions/potion-tube-corked-green.webp",
-            "range": "",
-            "baseAction": false,
-            "originItem": {
-              "type": "itemCollection"
-            },
-            "triggers": [],
-            "areas": []
-          }
-        },
-        "consumeOnUse": true,
-        "attribution": {
-          "source": "Daggerheart SRD",
-          "page": 60,
-          "artist": ""
-        },
-        "gmNotes": ""
-      },
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.consumables.Item.b6vGSPFWOlzZZDLO",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.1GoRVspHRkrJihv4"
-    },
-    {
-      "effects": [],
-      "_id": "K5C0GkTf8BnfVQK2",
-      "name": "Neural Interface",
-      "type": "loot",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-third-eye.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>A direct neural implant allowing instant interaction with nearby technology.</p>",
-        "quantity": 1,
-        "actions": {},
-        "gmNotes": ""
-      },
-      "folder": "5c9Y4cL4PtzdpasO",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {
-        "dh-containers": {
-          "isContainer": false
-        }
-      },
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.9YIoGTcRmpuKKRs0",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.K5C0GkTf8BnfVQK2"
-    },
-    {
-      "_id": "8FHbKCAHuAB6kTe7",
-      "name": "Torch Attachment",
-      "img": "icons/sundries/lights/flash-light.webp",
-      "type": "loot",
-      "sort": 100000,
-      "folder": "lakUNIl4gMWLrnFk",
-      "system": {
-        "attribution": {},
-        "description": "",
-        "gmNotes": "",
-        "quantity": 1,
-        "actions": {}
-      },
-      "effects": [],
-      "flags": {
-        "dh-containers": {
-          "containerId": "aavl5hkqhlmGmiis",
-          "isContainer": false
-        }
-      },
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.8FHbKCAHuAB6kTe7"
-    },
-    {
-      "effects": [],
-      "_id": "kQcFleGgapcJNvca",
-      "name": "Basic Supplies",
-      "type": "loot",
-      "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
-      "system": {
-        "description": "",
-        "quantity": 1,
-        "actions": {},
-        "attribution": {},
-        "gmNotes": ""
-      },
-      "folder": "rY8M3uLGRwuLhzk0",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.kQcFleGgapcJNvca"
-    },
-    {
-      "effects": [],
-      "_id": "LHROu5ppqCudq3O2",
-      "name": "50ft of Rope",
-      "type": "loot",
-      "img": "icons/sundries/survival/rope-coiled-tan.webp",
-      "system": {
-        "description": "",
-        "quantity": 1,
-        "actions": {},
-        "attribution": {},
-        "gmNotes": ""
-      },
-      "folder": "rY8M3uLGRwuLhzk0",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.LHROu5ppqCudq3O2"
-    },
-    {
+      "_id": "SQYZja3amqTcE83V",
       "name": "Dagger",
       "type": "weapon",
-      "_id": "iStO0BbeMTTR0rQi",
       "img": "icons/weapons/daggers/dagger-straight-blue.webp",
       "system": {
         "description": "",
@@ -1770,31 +1686,87 @@
         "resource": null,
         "quantity": 1
       },
-      "effects": [],
+      "folder": "d7tdCsIUd94XuTtq",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.weapons.Item.iStO0BbeMTTR0rQi",
         "duplicateSource": null,
         "exportSource": null
       },
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "folder": null,
-      "sort": 0,
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.iStO0BbeMTTR0rQi"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.SQYZja3amqTcE83V"
     },
     {
+      "effects": [
+        {
+          "name": "Paired",
+          "description": "Add this Secondary Weapon's tier + 1 to your primary weapon against targets within Melee range",
+          "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
+          "system": {
+            "rangeDependence": {
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            },
+            "changes": [
+              {
+                "key": "system.bonuses.damage.primaryWeapon.bonus",
+                "type": "add",
+                "value": "ITEM.@system.tier + 1",
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "HKh73AHxImdgxgTg",
+          "type": "base",
+          "disabled": true,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736254,
+            "modifiedTime": 1787071736254,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!KlUsPs9wjsjGGOUE.gVwC1FAxGQtdkbCa.HKh73AHxImdgxgTg"
+        }
+      ],
+      "_id": "gVwC1FAxGQtdkbCa",
       "name": "Small Dagger",
       "type": "weapon",
-      "_id": "wKklDxs5nkzILNp4",
       "img": "icons/weapons/daggers/dagger-straight-cracked.webp",
       "system": {
         "description": "",
@@ -1911,72 +1883,358 @@
         "resource": null,
         "quantity": 1
       },
-      "effects": [
-        {
-          "name": "Paired",
-          "description": "Add this Secondary Weapon's tier + 1 to your primary weapon against targets within Melee range",
-          "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
-          "system": {
-            "rangeDependence": {
-              "type": "withinRange",
-              "target": "hostile",
-              "range": "melee"
-            },
-            "changes": [
-              {
-                "key": "system.bonuses.damage.primaryWeapon.bonus",
-                "type": "add",
-                "value": "ITEM.@system.tier + 1",
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": ""
-            },
-            "stacking": null,
-            "targetDispositions": []
-          },
-          "_id": "HKh73AHxImdgxgTg",
-          "type": "base",
-          "disabled": true,
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "origin": null,
-          "tint": "#ffffff",
-          "transfer": true,
-          "statuses": [],
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "compendiumSource": null,
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305025,
-            "modifiedTime": 1786988305025,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "start": null,
-          "showIcon": 1,
-          "folder": null,
-          "_key": "!actors.items.effects!QEjWiNcrlsjVPrpa.wKklDxs5nkzILNp4.HKh73AHxImdgxgTg"
-        }
-      ],
+      "folder": "mV306wqqkeIDd9EE",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305025,
-        "modifiedTime": 1786988305025,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.weapons.Item.wKklDxs5nkzILNp4",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.gVwC1FAxGQtdkbCa"
+    },
+    {
+      "effects": [],
+      "_id": "sdvIs9b49erIHfJB",
+      "name": "Minor Stamina Potion",
+      "type": "consumable",
+      "img": "icons/consumables/potions/potion-tube-corked-green.webp",
+      "system": {
+        "description": "<p>Clear 1d4 Stress.</p>",
+        "quantity": 1,
+        "actions": {
+          "fdjpkjhzHQOrZPm0": {
+            "type": "healing",
+            "_id": "fdjpkjhzHQOrZPm0",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "quantity",
+                "value": 1,
+                "itemId": "b6vGSPFWOlzZZDLO",
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "stress": {
+                  "value": {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d4",
+                    "bonus": null
+                  },
+                  "applyTo": "stress",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "fullRestore": false
+                }
+              }
+            },
+            "target": {
+              "type": "",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Drink",
+            "img": "icons/consumables/potions/potion-tube-corked-green.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "consumeOnUse": true,
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 60,
+          "artist": ""
+        },
+        "gmNotes": ""
+      },
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.consumables.Item.b6vGSPFWOlzZZDLO",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.sdvIs9b49erIHfJB"
+    },
+    {
+      "effects": [],
+      "_id": "oFXnS4ZsnbgY8dWJ",
+      "name": "Neural Interface",
+      "type": "loot",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-third-eye.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>A direct neural implant allowing instant interaction with nearby technology.</p>",
+        "quantity": 1,
+        "actions": {},
+        "gmNotes": ""
+      },
+      "folder": "5c9Y4cL4PtzdpasO",
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {
+        "dh-containers": {
+          "isContainer": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.9YIoGTcRmpuKKRs0",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.oFXnS4ZsnbgY8dWJ"
+    },
+    {
+      "effects": [],
+      "_id": "Rx0eczN2DPKKoh6k",
+      "name": "Torch Attachment",
+      "type": "loot",
+      "img": "icons/sundries/lights/flash-light.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You don't need any lighter for as long as you have batteries.</p>",
+        "quantity": 1,
+        "actions": {},
+        "gmNotes": ""
+      },
+      "folder": "lakUNIl4gMWLrnFk",
+      "sort": 500000,
+      "ownership": {
+        "default": 0,
+        "Wn7wESs3tNnOgRpn": 3,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {
+        "dh-containers": {
+          "containerId": "aavl5hkqhlmGmiis",
+          "isContainer": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.Rx0eczN2DPKKoh6k"
+    },
+    {
+      "effects": [],
+      "_id": "ACPmmorGWag5Fdhx",
+      "name": "Basic Supplies",
+      "type": "loot",
+      "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 300000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.ACPmmorGWag5Fdhx"
+    },
+    {
+      "effects": [],
+      "_id": "OjTiaXy73j2xGKTQ",
+      "name": "50ft of Rope",
+      "type": "loot",
+      "img": "icons/sundries/survival/rope-coiled-tan.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 400000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.OjTiaXy73j2xGKTQ"
+    },
+    {
+      "name": "Tactical Scan",
+      "type": "loot",
+      "_id": "CtBNI5R1uB4Lh9Hx",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/control-panel-handheld.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p><strong>Three times per rest</strong>, you can activate the tactical scan to detect signs of life and movement within a Far range around you. You know the general direction, general distance and approximate size of the life forms.</p>",
+        "gmNotes": "",
+        "quantity": 1,
+        "actions": {
+          "IatHQgNL7KysoeGM": {
+            "type": "effect",
+            "_id": "IatHQgNL7KysoeGM",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "3",
+              "recovery": "shortRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Activate",
+            "range": ""
+          }
+        }
+      },
+      "effects": [],
+      "flags": {
+        "dh-containers": {
+          "isContainer": false
+        }
+      },
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736254,
+        "modifiedTime": 1787071736254,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.CtBNI5R1uB4Lh9Hx",
         "duplicateSource": null,
         "exportSource": null
       },
@@ -1986,11 +2244,11 @@
       },
       "folder": null,
       "sort": 0,
-      "_key": "!actors.items!QEjWiNcrlsjVPrpa.wKklDxs5nkzILNp4"
+      "_key": "!actors.items!KlUsPs9wjsjGGOUE.CtBNI5R1uB4Lh9Hx"
     }
   ],
   "effects": [],
-  "sort": 100000,
+  "sort": 300000,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -1999,14 +2257,13 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
-    "createdTime": 1786988305025,
-    "modifiedTime": 1786988305025,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787071736254,
+    "modifiedTime": 1787071736254,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
-    "duplicateSource": "Actor.KlUsPs9wjsjGGOUE",
+    "duplicateSource": null,
     "exportSource": null
   },
-  "_id": "QEjWiNcrlsjVPrpa",
-  "_key": "!actors!QEjWiNcrlsjVPrpa"
+  "_key": "!actors!KlUsPs9wjsjGGOUE"
 }

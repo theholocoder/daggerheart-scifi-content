@@ -1,0 +1,77 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "You're Next!",
+  "type": "feature",
+  "_id": "57mfPuIM0De08TPG",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/inveigle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>After a successful attack, <strong>Spend 3 Hope</strong> to make the target <em>Vulnerable</em>. You then give the Spotlight to an ally. The GM cannot take the spotlight before your ally ended theirs.</p>",
+    "resource": null,
+    "actions": {
+      "ak2qp2o4O6J1i1mQ": {
+        "type": "effect",
+        "_id": "ak2qp2o4O6J1i1mQ",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Hope",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783671869003,
+    "modifiedTime": 1787067507857,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!57mfPuIM0De08TPG"
+}

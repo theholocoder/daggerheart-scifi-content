@@ -1,0 +1,68 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "I Shot First",
+  "type": "feature",
+  "_id": "onHfhZg2I1XP6WWs",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/rifle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per scene</strong>, you can <strong>spend a Hope</strong> to steal the Spotlight from the GM and give it to yourself or an ally of your choice.</p><p>This functions the same as if the GM spent a Fear to steal the Spotlight from the players. If the GM had spent Fear to steal the Spotlight right before you use I Shot First, the GM regains any Fear spent.</p>",
+    "resource": null,
+    "actions": {
+      "vKkEMgPjOkOX0otR": {
+        "type": "effect",
+        "_id": "vKkEMgPjOkOX0otR",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783673320652,
+    "modifiedTime": 1787057909701,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!onHfhZg2I1XP6WWs"
+}

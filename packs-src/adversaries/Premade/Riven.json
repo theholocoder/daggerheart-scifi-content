@@ -4,6 +4,15 @@
   "type": "character",
   "img": "modules/daggerheart-scifi-content/artwork/portraits/riven_f.webp",
   "system": {
+    "biography": {
+      "background": "<p>Riven est une Humaine Engineer \"Modder\". La technologie et la robotique sont ses passe-temps. Elle est capable d'inventer une solution technologique en quelques secondes, lui permettant d'accéder à des compétences qu'elle n'a pas habituellement !</p><hr><h2>Comment jouer Riven ?</h2><ul><li><p>Vous êtes humain, le Stress ça vous connaît, vous pouvez l'absorber mieux que d'autres.</p></li><li><p>Utilisez votre @UUID[Compendium.daggerheart-scifi-content.character-options.139uKV0SfomfSmUJ]{Ingenuity} pour éviter le pire !</p></li><li><p>Le savoir fait tout, @UUID[Compendium.daggerheart-scifi-content.character-options.6mUfKFyCbxLGh5BE]{Live and learn} vous permet de faire relancer un jet raté à un allié.</p></li><li><p><em>Eurêka</em> ! Allez chercher des cartes auxquelles vous n'avez normalement pas accès avec @UUID[Compendium.daggerheart-scifi-content.character-options.h8j0zd1pi39JFy12]{Just an Idea} !</p></li><li><p>Déployez des drones pour explorer les environs avec @UUID[Compendium.daggerheart-scifi-content.character-options.cWCfF37m7YPuRW2W]{Field Devices} !</p></li><li><p>Utilisez votre Scanner Tactique pour détecter les formes de vie autour de vous, avant de tomber dans une embuscade !</p></li></ul>",
+      "connections": "<p><strong>What piece of cobbled together tech did I use to save your life?</strong></p><br><p><strong>What did we build together that we swore never to speak?</strong></p><br><p><strong>When did you teach me the solution isn’t always technical or black and white?</strong></p>",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
     "resistance": {
       "physical": {
         "resistance": false,
@@ -65,13 +74,13 @@
       "severe": 0
     },
     "experiences": {
-      "nYLttHib05fSZ2dG": {
+      "tZLPJOIY8PeD6XYM": {
         "name": "C'est pas comme ça que je l'aurais construit",
         "value": 2,
         "core": true,
         "description": ""
       },
-      "qDECiIY87u8s0mKr": {
+      "gixM1Kf71Mtsjw82": {
         "name": "Démontage, remontage",
         "value": 2,
         "core": true,
@@ -85,19 +94,10 @@
       "chests": 0
     },
     "scars": 0,
-    "biography": {
-      "background": "",
-      "connections": "",
-      "characteristics": {
-        "pronouns": "",
-        "age": "",
-        "faith": ""
-      }
-    },
     "attack": {
       "name": "DAGGERHEART.GENERAL.unarmedAttack",
       "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
-      "_id": "xZR0Fttl2E3BrX5W",
+      "_id": "oKwbdPFJnpyLibnF",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -294,64 +294,20 @@
   },
   "items": [
     {
-      "folder": "4woyCicX6G5XxYyQ",
-      "name": "Field Devices",
+      "folder": "Z9lecBxunitGkjdF",
+      "name": "Live and learn",
       "type": "feature",
-      "_id": "mnswHd0JPT71PqtJ",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/mechanical-claw.webp",
+      "_id": "kzfUSH4iLTEWCfBD",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-microscope.webp",
       "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p><strong>Mark a Stress</strong> to <strong>deploy a Device</strong>.</p><p>A Device is deployed into the scene and remains until destroyed, recalled, or the scene ends. Devices have a range upon which you can control them. You can <strong>only have 1 device deployed</strong> at any given time.</p><p>Unless otherwise specified, devices cannot move, act or attack by thelselves, are destroyed if they take two hits, have an evasion of 9.</p><hr><p><strong>Recon Drone</strong></p><p>The recon drone flies and is equiped with a camera. It can move up to Far range.<br><strong>Control</strong>: up to Far range.<br><strong>Activate (Spellcast Roll (10))</strong>: reports back the position of all adversaries and important objects within Close range of the drone, that it can see.</p><hr><p><strong>Repair Drone</strong></p><p>The repair drone is filled with medical and technical supplies. It can heal a creature or repair equipment. It can move up to Close range.<br><strong>Control</strong>: up to Close range.<br><strong>Activate (Spellcast Roll (14))</strong>: Target a creature within melee range. On a success, clear 2 Hit Points or 2 Stress on the target. On a failure, clear a Hit Point or a Stress on the target. The device is then destroyed. You can't heal the same target with a Repair Drone again until your next long rest.</p><hr><p><strong>Barrier Projector</strong></p><p>Creates temporary energy field acting as cover from <strong>ranged</strong> attacks. It cannot move.<br><strong>Control</strong>: up to Very Close range.<br><strong>Activate (Spellcast Roll (10))</strong>: activate the energy field that has an Evasion of 8 and can sustain 3 hits from ranged attacks.</p><hr><p></p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": "class",
-        "multiclassOrigin": false,
-        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>When you or an ally fails a roll, you can <strong>spend 3 Hope</strong> to reroll with advantage.</p>",
         "gmNotes": "",
-        "identifier": "class"
-      },
-      "effects": [],
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.cmQ1erqGqemNvB7U",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.mnswHd0JPT71PqtJ"
-    },
-    {
-      "folder": "4woyCicX6G5XxYyQ",
-      "name": "Punch It!",
-      "type": "feature",
-      "_id": "T6OGiOYjzJPOWdpq",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/treasure/art-objects/major-art-object/enormous-chryselephantine-sculpture-by-a-legend.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p><strong>Spend 3 Hope</strong> to deploy a Target Dummy Drone that has an Evasion of 9 and one HP. Whenever this drone is destroyed and if you are within Close range of it, you can <strong>clear 2 Stress</strong>.</p><p>This does not count towards the device limit of @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices}.</p>",
         "resource": null,
         "actions": {
-          "rB6lHSMGnZyV8xCn": {
+          "PLmae2d2W7h7iwx5": {
             "type": "effect",
-            "_id": "rB6lHSMGnZyV8xCn",
+            "_id": "PLmae2d2W7h7iwx5",
             "systemPath": "actions",
             "baseAction": false,
             "description": "",
@@ -380,22 +336,20 @@
             },
             "effects": [],
             "target": {
-              "type": "self",
+              "type": "any",
               "amount": null
             },
             "name": "Spend Hope",
-            "range": "self",
-            "img": "icons/magic/holy/barrier-shield-winged-blue.webp"
+            "range": ""
           }
         },
         "originItemType": "class",
         "multiclassOrigin": false,
         "featureForm": "passive",
-        "gmNotes": "",
         "identifier": "hope"
       },
       "effects": [],
-      "sort": 0,
+      "sort": 100000,
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
@@ -404,39 +358,147 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.CzAuOXqC1ONCvleS",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.6mUfKFyCbxLGh5BE",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.T6OGiOYjzJPOWdpq"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.kzfUSH4iLTEWCfBD"
     },
     {
-      "folder": "4woyCicX6G5XxYyQ",
-      "name": "I can fix this",
+      "folder": "Z9lecBxunitGkjdF",
+      "name": "Ingenuity",
       "type": "feature",
-      "_id": "yJEwAvz2Cr9yWZla",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/tape.webp",
+      "_id": "aNwlnxzNtcam0cQD",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/brain-in-a-jar.webp",
       "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>You have advantage on repairing or tinkering tech devices or equipment.</p>",
+        "attribution": {},
+        "description": "<p><strong>Once per session</strong>, you may <strong>spend a Hope</strong> and explain with some technical and incomprehensible words why something that just happened isn't quite possible. Then do one of the following:</p><ul><li><p>Avoid marking a Hit Point, Stress or Armor Slot.</p></li><li><p>Add or substract 2 from any roll (include adversaries).</p></li></ul><p>After the first time you use this feature during a session and <strong>once per scene</strong>, you can use Ingenuity by <strong>giving the GM a Fear</strong> instead of spending a Hope.</p>",
+        "gmNotes": "",
         "resource": null,
-        "actions": {},
+        "actions": {
+          "qOo1majiSyrSNUwC": {
+            "type": "effect",
+            "_id": "qOo1majiSyrSNUwC",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "itemId": null,
+                "key": "hope",
+                "value": 1,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "session",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Spend Hope",
+            "range": ""
+          },
+          "eYW8w63eJ6rA1g8s": {
+            "type": "healing",
+            "_id": "eYW8w63eJ6rA1g8s",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "fear": {
+                  "base": false,
+                  "applyTo": "fear",
+                  "resultBased": false,
+                  "fullRestore": false,
+                  "value": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    }
+                  },
+                  "valueAlt": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Give Fear",
+            "range": ""
+          }
+        },
         "originItemType": "class",
         "multiclassOrigin": false,
         "featureForm": "passive",
-        "gmNotes": "",
         "identifier": "class"
       },
       "effects": [],
-      "sort": 0,
+      "sort": 300000,
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
@@ -445,48 +507,41 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.BXh24CNMwDERkIyY",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.139uKV0SfomfSmUJ",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.yJEwAvz2Cr9yWZla"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.aNwlnxzNtcam0cQD"
     },
     {
       "effects": [],
-      "_id": "pJ5gnP7K9PI7XLNa",
+      "_id": "8QucpeZUmk4KQwO7",
       "name": "Engineer",
       "type": "class",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hand-holding-wrench.webp",
       "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>Engineers don't cast spells or rely on brute force. They reshape the battlefield through invention, deploying advanced technology, autonomous devices, and experimental prototypes that can turn the tide of any encounter.</p>",
+        "attribution": {},
+        "description": "",
+        "gmNotes": "",
         "domains": [
-          "tech",
-          "bone"
+          "bone",
+          "tech"
         ],
         "classItems": [],
-        "hitPoints": 6,
+        "hitPoints": 5,
         "evasion": 10,
         "features": [
           {
-            "type": "class",
-            "item": "Compendium.daggerheart-scifi-content.character-options.Item.cmQ1erqGqemNvB7U"
-          },
-          {
             "type": "hope",
-            "item": "Compendium.daggerheart-scifi-content.character-options.Item.CzAuOXqC1ONCvleS"
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.6mUfKFyCbxLGh5BE"
           },
           {
             "type": "class",
-            "item": "Compendium.daggerheart-scifi-content.character-options.Item.BXh24CNMwDERkIyY"
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.139uKV0SfomfSmUJ"
           }
         ],
         "inventory": {
@@ -518,19 +573,18 @@
           "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
         },
         "backgroundQuestions": [
-          "",
-          "",
-          ""
+          "What’s the most important thing you’ve ever built… or destroyed?",
+          "Do you solve problems for the joy of the work, the challenge, the paycheck, or something else?",
+          "What piece of tech have you been trying to design for years but can’t get quite right?"
         ],
         "connections": [
-          "",
-          "",
-          ""
+          "What piece of cobbled together tech did I use to save your life?",
+          "What did we build together that we swore never to speak?",
+          "When did you teach me the solution isn’t always technical or black and white?"
         ],
-        "isMulticlass": false,
-        "gmNotes": ""
+        "isMulticlass": false
       },
-      "folder": "VkPCHPMxegNuCAW6",
+      "folder": "ohJUNgMTsGkgKyf7",
       "sort": 0,
       "ownership": {
         "default": 0,
@@ -540,21 +594,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.cWVvBkayU6lwVgYC",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.yGzafyT1yXFsiRc1",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.pJ5gnP7K9PI7XLNa"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.8QucpeZUmk4KQwO7"
     },
     {
       "folder": "dSAccOl5ccgXPyje",
       "name": "High Stamina",
       "type": "feature",
-      "_id": "k3FOtLHXVKRiIVDY",
+      "_id": "SypG5aPU58nBLyLW",
       "img": "icons/magic/control/buff-flight-wings-runes-purple-orange.webp",
       "system": {
         "description": "<p>Gain an additional Stress slot at character creation.</p>",
@@ -612,9 +666,9 @@
             "compendiumSource": null,
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305021,
-            "modifiedTime": 1786988305021,
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736209,
+            "modifiedTime": 1787071736209,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "duplicateSource": null,
             "exportSource": null
@@ -622,7 +676,7 @@
           "start": null,
           "showIcon": 1,
           "folder": null,
-          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.k3FOtLHXVKRiIVDY.Xl3TsKUJcl6vi1ly"
+          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.SypG5aPU58nBLyLW.Xl3TsKUJcl6vi1ly"
         }
       ],
       "sort": 0,
@@ -630,9 +684,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.ancestries.Item.HMXNJZ7ynzajR2KT",
         "duplicateSource": null,
@@ -642,13 +696,13 @@
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.k3FOtLHXVKRiIVDY"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.SypG5aPU58nBLyLW"
     },
     {
       "folder": "dSAccOl5ccgXPyje",
       "name": "Adaptability",
       "type": "feature",
-      "_id": "yUjuMR70uCfOiXEL",
+      "_id": "3SRGakD3SrBRxZzP",
       "img": "icons/magic/control/silhouette-hold-change-blue.webp",
       "system": {
         "description": "<p>When you fail a roll that utilized one of your Experiences, you can <strong>mark a Stress</strong> to reroll.</p>",
@@ -710,9 +764,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.ancestries.Item.BNofV1UC4ZbdFTkb",
         "duplicateSource": null,
@@ -722,13 +776,13 @@
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.yUjuMR70uCfOiXEL"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.3SRGakD3SrBRxZzP"
     },
     {
       "folder": "zJl3BQZGZBL6fWlH",
       "name": "Built to last",
       "type": "feature",
-      "_id": "5qMHtPllCYWkEAJq",
+      "_id": "GDEn39k0njiHZUSV",
       "img": "icons/skills/trades/smithing-tongs-metal-red.webp",
       "system": {
         "attribution": {
@@ -736,7 +790,7 @@
           "page": null,
           "artist": ""
         },
-        "description": "<p>You have Advantage on rolls to repair machinery, fabricate equipment, or understand how technological devices function.</p>",
+        "description": "<p>You have Advantage on the <strong>Work on a Project</strong> downtime move if it requires you to make a roll to advance a countdown. You can also take the <strong>Work on a Project</strong> downtime move during a short rest.</p>",
         "resource": null,
         "actions": {},
         "originItemType": "community",
@@ -754,75 +808,40 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.SgDVW4U8VTuY5hpR",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.5qMHtPllCYWkEAJq"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.GDEn39k0njiHZUSV"
     },
     {
-      "folder": "4woyCicX6G5XxYyQ",
-      "name": "Aerial Command",
+      "folder": "Z9lecBxunitGkjdF",
+      "name": "Just an Idea",
       "type": "feature",
-      "_id": "paI3w1w2mzKGM8zY",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-event-horizon-transcendent.webp",
+      "_id": "jWhF5UKDejmmueEC",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-alien-thowing-blade.webp",
       "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>When you make an Attack with Hope while flying, even if it fails, you may <strong>deploy</strong> or <strong>activate</strong> a @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Device} without making the associated Spellcast Roll.</p>",
-        "resource": null,
-        "actions": {},
-        "originItemType": "subclass",
-        "multiclassOrigin": false,
-        "featureForm": "passive",
+        "attribution": {},
+        "description": "<p>At the beggining of each session, place a number of Modder tokens on this card equal to your <strong>Finesse</strong> or <strong>Knowledge</strong> trait.</p><p>You can spend Modder tokens equal to the Recall Cost of any domain card you are eligible for that is not in your current loadout. If the Recall Cost is 0, it still costs one Modder token. Take that domain card into your loadout, it becomes a <em>Mod</em> card. If your loadout is full, place one of your cards in your Vault.</p><p>If you would ever place a <em>Mod</em> card in your vault, discard it instead.</p>",
         "gmNotes": "",
-        "identifier": "specialization"
-      },
-      "effects": [],
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.FeUEu4V7aGiImkSN",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.paI3w1w2mzKGM8zY"
-    },
-    {
-      "folder": "4woyCicX6G5XxYyQ",
-      "name": "Integrated Jet Pack",
-      "type": "feature",
-      "_id": "ukLd6BTxMvg3PWSt",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-pulse.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
+        "resource": {
+          "type": "simple",
+          "value": 2,
+          "max": "",
+          "recovery": null,
+          "progression": "decreasing",
+          "dieFaces": "d4",
+          "icon": "",
+          "diceStates": {}
         },
-        "description": "<p>You gain a permanent jetpack. You can fly. While flying you can do the following:</p><ul><li><p>You may deploy @UUID[Compendium.daggerheart-scifi-content.character-options.cmQ1erqGqemNvB7U]{Field Devices} while flying.</p></li><li><p><strong>Mark a Stress</strong> to gain +2 bonus to your Evasion until your next Spotlight.</p></li><li><p><strong>Spend a Hope</strong> to deal an extra 1d8 damage on a successful attack.</p></li></ul>",
-        "resource": null,
         "actions": {
-          "4lszEYj8ndveMQSf": {
+          "uZTJE28OpAZa3tm6": {
             "type": "effect",
-            "_id": "4lszEYj8ndveMQSf",
+            "_id": "uZTJE28OpAZa3tm6",
             "systemPath": "actions",
             "baseAction": false,
             "description": "",
@@ -836,9 +855,9 @@
             "cost": [
               {
                 "scalable": false,
-                "key": "hope",
-                "value": 2,
-                "itemId": null,
+                "key": "resource",
+                "value": 1,
+                "itemId": "h8j0zd1pi39JFy12",
                 "step": null,
                 "consumeOnSuccess": false
               }
@@ -849,92 +868,22 @@
               "recovery": null,
               "consumeOnSuccess": false
             },
-            "effects": [
-              {
-                "_id": "aiYS6ZThgV43Y9wU",
-                "onSave": false
-              }
-            ],
+            "effects": [],
             "target": {
-              "type": "self",
+              "type": "any",
               "amount": null
             },
-            "name": "Attack from above",
-            "range": "self"
+            "name": "Use",
+            "range": ""
           }
         },
         "originItemType": "subclass",
         "multiclassOrigin": false,
-        "featureForm": "passive",
-        "gmNotes": "",
+        "featureForm": "action",
         "identifier": "foundation"
       },
-      "effects": [
-        {
-          "name": "Attack from above",
-          "disabled": false,
-          "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-life-form.webp",
-          "description": "<p>Gain advantage and add a damage die to an attack while flying.</p>",
-          "transfer": false,
-          "statuses": [],
-          "system": {
-            "rangeDependence": null,
-            "changes": [
-              {
-                "key": "system.proficiency",
-                "type": "add",
-                "value": 1,
-                "priority": null,
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": "",
-              "type": ""
-            },
-            "stacking": {
-              "value": 1,
-              "max": null
-            },
-            "targetDispositions": []
-          },
-          "_id": "aiYS6ZThgV43Y9wU",
-          "type": "base",
-          "start": {
-            "time": 0,
-            "combat": null,
-            "combatant": null,
-            "initiative": null,
-            "round": null,
-            "turn": null
-          },
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "origin": null,
-          "tint": "#ffffff",
-          "showIcon": 1,
-          "folder": null,
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305021,
-            "modifiedTime": 1786988305021,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "compendiumSource": null,
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.ukLd6BTxMvg3PWSt.aiYS6ZThgV43Y9wU"
-        }
-      ],
-      "sort": 0,
+      "effects": [],
+      "sort": 400000,
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
@@ -943,39 +892,101 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.nA1YbYt5PuRUZJ9x",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.h8j0zd1pi39JFy12",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.ukLd6BTxMvg3PWSt"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.jWhF5UKDejmmueEC"
     },
     {
-      "folder": "4woyCicX6G5XxYyQ",
-      "name": "Tactical Overwatch",
+      "folder": "Z9lecBxunitGkjdF",
+      "name": "Breakthrough",
       "type": "feature",
-      "_id": "ILLQTEJ3RyxBaAdC",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hex-field-dispersed.webp",
+      "_id": "g2pouVwtVt01JRmX",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-test-tubes.webp",
       "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
+        "attribution": {},
+        "description": "<p><strong>Once per long rest</strong>, when you use @UUID[Compendium.daggerheart-scifi-content.character-options.h8j0zd1pi39JFy12]{Just an Idea} to take a domain card, you can choose a card from any domain up to one Tier below your current Tier.</p><p>You may only have one domain card from a domain you do not normally have access to in your loadout at any time.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {
+          "XVp1LLarHXNSQ7BR": {
+            "type": "effect",
+            "_id": "XVp1LLarHXNSQ7BR",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "longRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Use",
+            "range": ""
+          }
         },
-        "description": "<p>When you help an ally while flying, they may reroll their advantage die and keep the best result. If they deal damage through their action, they also deal <strong>1d10</strong> additional damage.</p>",
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "action",
+        "identifier": "specialization"
+      },
+      "effects": [],
+      "sort": 500000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.zDOA9DFaq6U67JkK",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.g2pouVwtVt01JRmX"
+    },
+    {
+      "folder": "Z9lecBxunitGkjdF",
+      "name": "Masterpiece",
+      "type": "feature",
+      "_id": "D27PfFCKalukyE58",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-emblem.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.zDOA9DFaq6U67JkK]{Breakthrough}, you can choose a card from any domain up to your level.</p>",
+        "gmNotes": "",
         "resource": null,
         "actions": {},
         "originItemType": "subclass",
         "multiclassOrigin": false,
         "featureForm": "passive",
-        "gmNotes": "",
         "identifier": "mastery"
       },
       "effects": [],
-      "sort": 0,
+      "sort": 600000,
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
@@ -984,19 +995,56 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.CWVLhyXPSDCc4CKH",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.B63BnnJOFSMD747R",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.ILLQTEJ3RyxBaAdC"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.D27PfFCKalukyE58"
+    },
+    {
+      "folder": "Z9lecBxunitGkjdF",
+      "name": "Recursive Modifications",
+      "type": "feature",
+      "_id": "2YqREAiCFAN6jrg6",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-banner.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.h8j0zd1pi39JFy12]{Just an Idea}, <strong>gain a Hope</strong> or <strong>clear a Stress</strong>.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "featureForm": "passive",
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "sort": 700000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.ht9veokgRQousrVK",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.2YqREAiCFAN6jrg6"
     },
     {
       "effects": [],
-      "_id": "JiERHUPVECNutMRK",
+      "_id": "BVJFrFqSr0S4gfgq",
       "name": "Human",
       "type": "ancestry",
       "img": "icons/skills/social/diplomacy-handshake-yellow.webp",
@@ -1006,7 +1054,7 @@
           "page": 30,
           "artist": ""
         },
-        "description": "<p>Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance. Their average height ranges from just under 5 feet to about 6 ½ feet. They have a wide variety of builds, with some being quite broad, others lithe, and many inhabiting the spectrum in between. Humans are physically adaptable and adjust to harsh climates with relative ease. In general, humans live to an age of about 100, with their bodies changing dramatically between their youngest and oldest years.</p>",
+        "description": "<p>Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance.</p>",
         "gmNotes": "",
         "features": [
           {
@@ -1017,7 +1065,8 @@
             "type": "secondary",
             "item": "Compendium.daggerheart.ancestries.Item.BNofV1UC4ZbdFTkb"
           }
-        ]
+        ],
+        "loreReference": "human"
       },
       "folder": null,
       "sort": 3400000,
@@ -1029,19 +1078,72 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.ancestries.Item.wtJ5V5qRppLQn61n",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.JiERHUPVECNutMRK"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.BVJFrFqSr0S4gfgq"
     },
     {
       "effects": [],
-      "_id": "Y8QLgWZpzfQLiYPw",
+      "_id": "wL0qTLHtRjos70rZ",
+      "name": "Modder",
+      "type": "subclass",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-battery.webp",
+      "system": {
+        "attribution": {},
+        "description": "",
+        "gmNotes": "",
+        "spellcastingTrait": "knowledge",
+        "features": [
+          {
+            "type": "foundation",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.h8j0zd1pi39JFy12"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.zDOA9DFaq6U67JkK"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.B63BnnJOFSMD747R"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.daggerheart-scifi-content.character-options.Item.ht9veokgRQousrVK"
+          }
+        ],
+        "featureState": 1,
+        "isMulticlass": false,
+        "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.yGzafyT1yXFsiRc1"
+      },
+      "folder": "w97TeqpD8t1wCZms",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.OBd1n01bV800Wyk1",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.wL0qTLHtRjos70rZ"
+    },
+    {
+      "effects": [],
+      "_id": "fDT0BSFKrBacKMbi",
       "name": "Forgeborne",
       "type": "community",
       "img": "icons/skills/trades/smithing-smelter-tongs.webp",
@@ -1055,7 +1157,8 @@
         "features": [
           "Compendium.daggerheart-scifi-content.character-options.Item.SgDVW4U8VTuY5hpR"
         ],
-        "gmNotes": ""
+        "gmNotes": "",
+        "loreReference": null
       },
       "folder": "6sFLVLCQU5XQ24Cr",
       "sort": 0,
@@ -1067,60 +1170,15 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.5B8E4wjsNUUG57Md",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.Y8QLgWZpzfQLiYPw"
-    },
-    {
-      "effects": [],
-      "_id": "TDWKrzEAKUOMcZqw",
-      "name": "Tactical Scan",
-      "type": "domainCard",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/control-panel-handheld.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p><strong>Spend a Hope</strong> to activate the Tactical Scan and select one of these modes:</p><ul><li><p>Broadcast mode</p></li><li><p>Targeted mode</p></li></ul><hr><p><strong>Broadcast mode.</strong></p><p>Detect signs of life and movement within a Far range around you. You know the general direction, general distance and approximate size of the life forms.</p><hr><p><strong>Targeted mode.</strong></p><p>You specifically configure the Tactical Scan to gather information about a life form within Close range that you know about. You can ask one information about the target such as its Difficulty, Damage Thresholds, Type, Size, total HP, Resistances or Immunities. The GM may also provide one more information.</p>",
-        "resource": null,
-        "actions": {},
-        "domain": "tech",
-        "level": 1,
-        "recallCost": 1,
-        "type": "ability",
-        "inVault": false,
-        "vaultActive": false,
-        "loadoutIgnore": false,
-        "domainTouched": null,
-        "gmNotes": ""
-      },
-      "folder": "YSkSfPaGAGbb6zu9",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.xkoWmw1g9uIJv2RJ",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.TDWKrzEAKUOMcZqw"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.fDT0BSFKrBacKMbi"
     },
     {
       "effects": [
@@ -1174,15 +1232,15 @@
           "_stats": {
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305021,
-            "modifiedTime": 1786988305021,
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736209,
+            "modifiedTime": 1787071736209,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null
           },
-          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.Ri0hvvJWpRJRPyEg.VzdGjWRO3qh0RZLV"
+          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.rCZ0phiqhS9SnjCE.VzdGjWRO3qh0RZLV"
         },
         {
           "name": "Overclocked Defenses",
@@ -1234,18 +1292,18 @@
           "_stats": {
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305021,
-            "modifiedTime": 1786988305021,
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736209,
+            "modifiedTime": 1787071736209,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null
           },
-          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.Ri0hvvJWpRJRPyEg.qQQAhJInq9o0Dncq"
+          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.rCZ0phiqhS9SnjCE.qQQAhJInq9o0Dncq"
         }
       ],
-      "_id": "Ri0hvvJWpRJRPyEg",
+      "_id": "rCZ0phiqhS9SnjCE",
       "name": "Overclock",
       "type": "domainCard",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-heroic-lightning-symbol.webp",
@@ -1345,72 +1403,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.QrIMvPvFpDQRBW6G",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.Ri0hvvJWpRJRPyEg"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.rCZ0phiqhS9SnjCE"
     },
     {
       "effects": [],
-      "_id": "f4BD3c8QpQKPAUbn",
-      "name": "Aeronaut",
-      "type": "subclass",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-wing-insignia.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>Play the Aeronaut to strategically fly around the battlefield and take or give advantage to strikes from above.</p>",
-        "spellcastingTrait": "knowledge",
-        "features": [
-          {
-            "type": "foundation",
-            "item": "Compendium.daggerheart-scifi-content.character-options.Item.nA1YbYt5PuRUZJ9x"
-          },
-          {
-            "type": "specialization",
-            "item": "Compendium.daggerheart-scifi-content.character-options.Item.FeUEu4V7aGiImkSN"
-          },
-          {
-            "type": "mastery",
-            "item": "Compendium.daggerheart-scifi-content.character-options.Item.CWVLhyXPSDCc4CKH"
-          }
-        ],
-        "featureState": 1,
-        "isMulticlass": false,
-        "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.cWVvBkayU6lwVgYC",
-        "gmNotes": ""
-      },
-      "folder": "w5P7W7UEhskNL81u",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.ZhyjCIH8Vt845ux4",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.f4BD3c8QpQKPAUbn"
-    },
-    {
-      "effects": [],
-      "_id": "CudfGg54Lisni0DN",
+      "_id": "gfIKCTf98TPaLQeh",
       "name": "Leather Armor",
       "type": "armor",
       "img": "icons/equipment/chest/breastplate-layered-leather-brown.webp",
@@ -1447,195 +1452,15 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.CudfGg54Lisni0DN"
-    },
-    {
-      "effects": [],
-      "_id": "utJ7a5DanHTHVmWI",
-      "name": "Blaster",
-      "type": "weapon",
-      "img": "icons/weapons/guns/pistol-auto-gold-black.webp",
-      "system": {
-        "description": "<p>Common compact sidearm firing low-energy laser pulses. Accurate and reliable.</p>",
-        "actions": {
-          "6fMYxxOq6v6PSl6K": {
-            "type": "effect",
-            "chatDisplay": true,
-            "name": "Quick",
-            "description": "When you make an attack, you can mark a Stress to target another creature within range.",
-            "img": "icons/skills/movement/arrow-upward-yellow.webp",
-            "cost": [
-              {
-                "key": "stress",
-                "value": 1,
-                "itemId": null,
-                "scalable": false,
-                "step": null,
-                "consumeOnSuccess": false
-              }
-            ],
-            "_id": "6fMYxxOq6v6PSl6K",
-            "effects": [],
-            "systemPath": "actions",
-            "baseAction": false,
-            "originItem": {
-              "type": "itemCollection"
-            },
-            "actionType": "action",
-            "triggers": [],
-            "areas": [],
-            "uses": {
-              "value": null,
-              "max": null,
-              "recovery": null,
-              "consumeOnSuccess": false
-            },
-            "target": {
-              "type": "any",
-              "amount": null
-            }
-          }
-        },
-        "tier": 1,
-        "equipped": true,
-        "secondary": false,
-        "burden": "oneHanded",
-        "weaponFeatures": [
-          {
-            "value": "quick",
-            "effectIds": [],
-            "actionIds": [
-              "6fMYxxOq6v6PSl6K"
-            ]
-          }
-        ],
-        "attack": {
-          "name": "Attack",
-          "img": "icons/skills/melee/blood-slash-foam-red.webp",
-          "_id": "i9jZXe5K5nIc58AG",
-          "baseAction": true,
-          "systemPath": "attack",
-          "type": "attack",
-          "range": "far",
-          "target": {
-            "type": "any",
-            "amount": 1
-          },
-          "roll": {
-            "trait": "finesse",
-            "type": "attack",
-            "difficulty": null,
-            "bonus": null,
-            "advState": "neutral",
-            "diceRolling": {
-              "multiplier": "prof",
-              "flatMultiplier": 1,
-              "dice": "d6",
-              "compare": null,
-              "treshold": null
-            },
-            "useDefault": false
-          },
-          "damage": {
-            "main": {
-              "value": {
-                "dice": "d6",
-                "bonus": 1,
-                "multiplier": "prof",
-                "flatMultiplier": 1,
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                }
-              },
-              "type": [
-                "physical"
-              ],
-              "applyTo": "hitPoints",
-              "resultBased": false,
-              "valueAlt": {
-                "multiplier": "prof",
-                "flatMultiplier": 1,
-                "dice": "d6",
-                "bonus": null,
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                }
-              },
-              "base": false,
-              "includeBase": false,
-              "direct": false,
-              "fullRestore": false
-            },
-            "resources": {}
-          },
-          "description": "",
-          "chatDisplay": false,
-          "actionType": "action",
-          "cost": [],
-          "uses": {
-            "value": null,
-            "max": null,
-            "recovery": null,
-            "consumeOnSuccess": false
-          },
-          "effects": [],
-          "save": {
-            "trait": null,
-            "difficulty": null,
-            "damageMod": "none"
-          },
-          "originItem": {
-            "type": "itemCollection"
-          },
-          "triggers": [],
-          "areas": []
-        },
-        "rules": {
-          "attack": {
-            "roll": {
-              "trait": null
-            }
-          }
-        },
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "resource": null,
-        "quantity": 1,
-        "gmNotes": ""
-      },
-      "folder": "U0za3at4rtifS0rY",
-      "sort": 150000,
-      "ownership": {
-        "default": 0,
-        "FecEtPuoQh6MpjQ0": 3,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.zxKt6qXe7uZB6ljm",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.utJ7a5DanHTHVmWI"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.gfIKCTf98TPaLQeh"
     },
     {
       "effects": [
@@ -1692,19 +1517,19 @@
           "_stats": {
             "coreVersion": "14.364",
             "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988305021,
-            "modifiedTime": 1786988305021,
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736209,
+            "modifiedTime": 1787071736209,
             "lastModifiedBy": "0qb2POwXFxKbaibe",
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null
           },
           "_id": "6f2UBdq8Q28MZ87w",
-          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.nLs3mBYLTIbQaL1X.6f2UBdq8Q28MZ87w"
+          "_key": "!actors.items.effects!U4QGMlVRHozCXAPC.vsccOIG93Qay7sin.6f2UBdq8Q28MZ87w"
         }
       ],
-      "_id": "nLs3mBYLTIbQaL1X",
+      "_id": "vsccOIG93Qay7sin",
       "name": "Phase Pistol",
       "type": "weapon",
       "img": "icons/weapons/guns/pistol-auto-tech-purple.webp",
@@ -1879,19 +1704,199 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.EunbtyD8UBBcSHOr",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.nLs3mBYLTIbQaL1X"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.vsccOIG93Qay7sin"
     },
     {
       "effects": [],
-      "_id": "XlJouWrpkuPF7zqq",
+      "_id": "moMabCl0meX9ECpE",
+      "name": "Blaster",
+      "type": "weapon",
+      "img": "icons/weapons/guns/pistol-auto-gold-black.webp",
+      "system": {
+        "description": "<p>Common compact sidearm firing low-energy laser pulses. Accurate and reliable.</p>",
+        "actions": {
+          "6fMYxxOq6v6PSl6K": {
+            "type": "effect",
+            "chatDisplay": true,
+            "name": "Quick",
+            "description": "When you make an attack, you can mark a Stress to target another creature within range.",
+            "img": "icons/skills/movement/arrow-upward-yellow.webp",
+            "cost": [
+              {
+                "key": "stress",
+                "value": 1,
+                "itemId": null,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "_id": "6fMYxxOq6v6PSl6K",
+            "effects": [],
+            "systemPath": "actions",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "uses": {
+              "value": null,
+              "max": null,
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            }
+          }
+        },
+        "tier": 1,
+        "equipped": true,
+        "secondary": false,
+        "burden": "oneHanded",
+        "weaponFeatures": [
+          {
+            "value": "quick",
+            "effectIds": [],
+            "actionIds": [
+              "6fMYxxOq6v6PSl6K"
+            ]
+          }
+        ],
+        "attack": {
+          "name": "Attack",
+          "img": "icons/skills/melee/blood-slash-foam-red.webp",
+          "_id": "i9jZXe5K5nIc58AG",
+          "baseAction": true,
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "far",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "finesse",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "main": {
+              "value": {
+                "dice": "d6",
+                "bonus": 1,
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": [
+                "physical"
+              ],
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "base": false,
+              "includeBase": false,
+              "direct": false,
+              "fullRestore": false
+            },
+            "resources": {}
+          },
+          "description": "",
+          "chatDisplay": false,
+          "actionType": "action",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          },
+          "originItem": {
+            "type": "itemCollection"
+          },
+          "triggers": [],
+          "areas": []
+        },
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        },
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "resource": null,
+        "quantity": 1,
+        "gmNotes": ""
+      },
+      "folder": "U0za3at4rtifS0rY",
+      "sort": 150000,
+      "ownership": {
+        "default": 0,
+        "FecEtPuoQh6MpjQ0": 3,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.zxKt6qXe7uZB6ljm",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.moMabCl0meX9ECpE"
+    },
+    {
+      "effects": [],
+      "_id": "j8SO0oj9MEN9E7Bn",
       "name": "Minor Stamina Potion",
       "type": "consumable",
       "img": "icons/consumables/potions/potion-tube-corked-green.webp",
@@ -2002,19 +2007,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.consumables.Item.b6vGSPFWOlzZZDLO",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.XlJouWrpkuPF7zqq"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.j8SO0oj9MEN9E7Bn"
     },
     {
       "effects": [],
-      "_id": "58EXqOClwTvTeK4B",
+      "_id": "TPrLLIFwKaivSk6g",
       "name": "Clé de 12",
       "type": "loot",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hand-holding-wrench.webp",
@@ -2029,8 +2034,8 @@
         "actions": {},
         "gmNotes": ""
       },
-      "folder": "XjmAyVsUdKsRWwJA",
-      "sort": 100000,
+      "folder": "XJbLdgDU4W0VfkzN",
+      "sort": 500000,
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
@@ -2043,31 +2048,40 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.I1UCEQ7oqRyfY3Kx",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.58EXqOClwTvTeK4B"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.TPrLLIFwKaivSk6g"
     },
     {
-      "_id": "PNEzQwcPOPn5bEt2",
-      "name": "Torch Attachment",
-      "img": "icons/sundries/lights/flash-light.webp",
-      "type": "loot",
-      "sort": 100000,
-      "folder": "lakUNIl4gMWLrnFk",
-      "system": {
-        "attribution": {},
-        "description": "",
-        "gmNotes": "",
-        "quantity": 1,
-        "actions": {}
-      },
       "effects": [],
+      "_id": "cFifUZqXcgMfD20Y",
+      "name": "Torch Attachment",
+      "type": "loot",
+      "img": "icons/sundries/lights/flash-light.webp",
+      "system": {
+        "attribution": {
+          "source": "TheHolocoder Homebrew",
+          "page": null,
+          "artist": ""
+        },
+        "description": "<p>You don't need any lighter for as long as you have batteries.</p>",
+        "quantity": 1,
+        "actions": {},
+        "gmNotes": ""
+      },
+      "folder": "lakUNIl4gMWLrnFk",
+      "sort": 400000,
+      "ownership": {
+        "default": 0,
+        "Wn7wESs3tNnOgRpn": 3,
+        "0qb2POwXFxKbaibe": 3
+      },
       "flags": {
         "dh-containers": {
           "containerId": "aavl5hkqhlmGmiis",
@@ -2077,101 +2091,126 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
         "duplicateSource": null,
         "exportSource": null
       },
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.PNEzQwcPOPn5bEt2"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.cFifUZqXcgMfD20Y"
     },
     {
-      "_id": "tutib35NXEEIpIES",
-      "name": "Basic Supplies",
-      "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
-      "type": "loot",
-      "sort": 0,
-      "folder": "rY8M3uLGRwuLhzk0",
-      "system": {
-        "attribution": {},
-        "description": "",
-        "gmNotes": "",
-        "quantity": 1,
-        "actions": {}
-      },
       "effects": [],
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.tutib35NXEEIpIES"
-    },
-    {
-      "_id": "r4N3NSy09fF7CzjO",
+      "_id": "83lLeNnjsuN0jOiw",
       "name": "50ft of Rope",
-      "img": "icons/sundries/survival/rope-coiled-tan.webp",
       "type": "loot",
-      "sort": 0,
-      "folder": "rY8M3uLGRwuLhzk0",
+      "img": "icons/sundries/survival/rope-coiled-tan.webp",
       "system": {
-        "attribution": {},
         "description": "",
-        "gmNotes": "",
         "quantity": 1,
-        "actions": {}
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
       },
-      "effects": [],
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
         "duplicateSource": null,
         "exportSource": null
       },
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.83lLeNnjsuN0jOiw"
+    },
+    {
+      "effects": [],
+      "_id": "8qajrArp03bAi4Pd",
+      "name": "Basic Supplies",
+      "type": "loot",
+      "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "actions": {},
+        "attribution": {},
+        "gmNotes": ""
+      },
+      "folder": "rY8M3uLGRwuLhzk0",
+      "sort": 300000,
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.r4N3NSy09fF7CzjO"
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.8qajrArp03bAi4Pd"
     },
     {
-      "name": "Recon Drone",
+      "name": "Tactical Scan",
       "type": "loot",
-      "_id": "r1mzXhckN6Pdc2sx",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/spaceship-thruster.webp",
+      "_id": "CtBNI5R1uB4Lh9Hx",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/control-panel-handheld.webp",
       "system": {
         "attribution": {
           "source": "TheHolocoder Homebrew",
           "page": null,
           "artist": ""
         },
-        "description": "<p>The recon drone flies and is equiped with a camera. It can move up to Far range.<br><strong>Control</strong>: up to Far range.<br><strong>Activate (Spellcast Roll (10))</strong>: reports back the position of all adversaries and important objects within Close range of the drone, that it can see.</p>",
+        "description": "<p><strong>Three times per rest</strong>, you can activate the tactical scan to detect signs of life and movement within a Far range around you. You know the general direction, general distance and approximate size of the life forms.</p>",
         "gmNotes": "",
         "quantity": 1,
-        "actions": {}
+        "actions": {
+          "IatHQgNL7KysoeGM": {
+            "type": "effect",
+            "_id": "IatHQgNL7KysoeGM",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "3",
+              "recovery": "shortRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Activate",
+            "range": ""
+          }
+        }
       },
       "effects": [],
       "flags": {
@@ -2182,11 +2221,11 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.r1mzXhckN6Pdc2sx",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.CtBNI5R1uB4Lh9Hx",
         "duplicateSource": null,
         "exportSource": null
       },
@@ -2196,89 +2235,215 @@
       },
       "folder": null,
       "sort": 0,
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.r1mzXhckN6Pdc2sx"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.CtBNI5R1uB4Lh9Hx"
     },
     {
-      "name": "Barrier Projector",
-      "type": "loot",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/spaceship-thruster.webp",
+      "name": "Field Devices",
+      "type": "domainCard",
+      "_id": "cWCfF37m7YPuRW2W",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/battery-pack.webp",
       "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>Creates temporary energy field acting as cover from <strong>ranged</strong> attacks. It cannot move.<br><strong>Control</strong>: up to Very Close range.<br><strong>Activate (Spellcast Roll (10))</strong>: activate the energy field that has an Evasion of 8 and can sustain 3 hits from ranged attacks.</p>",
+        "attribution": {},
+        "description": "<p><strong>Recon Drone</strong>: <strong>Mark a Stress</strong> to deploy a small floating bot that you can move anywhere within Very Far Range. While this ability is active, you can see through the bot as though you’re in its position. You can transition between using your own senses and seeing through the bot freely. If the bot takes damage or moves out of range, the ability ends.</p><p><strong>Medical Drone</strong>: Make a <strong>Spellcast Roll (13)</strong> and target a creature other than yourself within Melee range. On a success, <strong>mark a Stress</strong> to clear 1 Hit Point or 1 Stress on the target. You can't heal the same target again until your next long rest.</p><p><strong>Movement Detector</strong>: You can place a number of movement detectors up to your spellcasting trait. Each detector is able to sense movement in a Very Close range and send you a notification when it does.</p>",
         "gmNotes": "",
-        "quantity": 1,
-        "actions": {}
+        "resource": null,
+        "actions": {
+          "XIWXYVh41JvsBho3": {
+            "type": "healing",
+            "_id": "XIWXYVh41JvsBho3",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "consumeOnSuccess": true,
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "itemId": null,
+                "step": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "hitPoints": {
+                  "base": false,
+                  "applyTo": "hitPoints",
+                  "resultBased": false,
+                  "fullRestore": false,
+                  "value": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 0,
+                    "dice": "d6",
+                    "bonus": 1,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "valueAlt": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "spellcast",
+              "trait": null,
+              "difficulty": 13,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Use Medical Drone to gain HP",
+            "range": ""
+          },
+          "QfYVc9fWq4swGBD5": {
+            "type": "healing",
+            "_id": "QfYVc9fWq4swGBD5",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "consumeOnSuccess": true,
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "itemId": null,
+                "step": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "stress": {
+                  "base": false,
+                  "applyTo": "stress",
+                  "resultBased": false,
+                  "fullRestore": false,
+                  "value": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 0,
+                    "dice": "d6",
+                    "bonus": 1,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "valueAlt": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "spellcast",
+              "trait": null,
+              "difficulty": 13,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Use Medical Drone to clear Stress",
+            "range": ""
+          }
+        },
+        "domain": "tech",
+        "level": 1,
+        "recallCost": 2,
+        "type": "grimoire",
+        "inVault": false,
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null
       },
       "effects": [],
-      "flags": {
-        "dh-containers": {
-          "isContainer": false
-        }
-      },
+      "flags": {},
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736209,
+        "modifiedTime": 1787071736209,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "exportSource": null,
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.jTLHWV8QGYtXtVDa",
-        "duplicateSource": null
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.cWCfF37m7YPuRW2W",
+        "duplicateSource": null,
+        "exportSource": null
       },
-      "_id": "jTLHWV8QGYtXtVDa",
       "ownership": {
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
       "folder": null,
       "sort": 0,
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.jTLHWV8QGYtXtVDa"
-    },
-    {
-      "name": "Repair Drone",
-      "type": "loot",
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/spaceship-thruster.webp",
-      "system": {
-        "attribution": {
-          "source": "TheHolocoder Homebrew",
-          "page": null,
-          "artist": ""
-        },
-        "description": "<p>The repair drone is filled with medical and technical supplies. It can heal a creature or repair equipment. It can move up to Close range.<br><strong>Control</strong>: up to Close range.<br><strong>Activate (Spellcast Roll (14))</strong>: Target a creature within melee range. On a success, clear 2 Hit Points or 2 Stress on the target. On a failure, clear a Hit Point or a Stress on the target. The device is then destroyed. You can't heal the same target with a Repair Drone again until your next long rest.</p>",
-        "gmNotes": "",
-        "quantity": 1,
-        "actions": {}
-      },
-      "effects": [],
-      "flags": {
-        "dh-containers": {
-          "isContainer": false
-        }
-      },
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988305021,
-        "modifiedTime": 1786988305021,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "exportSource": null,
-        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.Nqo4zBZVOd1x1ZyR",
-        "duplicateSource": null
-      },
-      "_id": "Nqo4zBZVOd1x1ZyR",
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "folder": null,
-      "sort": 0,
-      "_key": "!actors.items!U4QGMlVRHozCXAPC.Nqo4zBZVOd1x1ZyR"
+      "_key": "!actors.items!U4QGMlVRHozCXAPC.cWCfF37m7YPuRW2W"
     }
   ],
   "effects": [],
@@ -2291,9 +2456,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
-    "createdTime": 1786988305021,
-    "modifiedTime": 1786988305021,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787071736209,
+    "modifiedTime": 1787071736209,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": "Actor.BTR8EL5BZLOS59Ax",

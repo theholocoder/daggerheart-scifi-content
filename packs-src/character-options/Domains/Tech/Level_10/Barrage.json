@@ -1,0 +1,136 @@
+{
+  "folder": "eYJm9byGp0zYAs5w",
+  "name": "Barrage",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flying-rocket.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Make a <strong>Spellcast Roll</strong> against all adversaries within Far range. <strong>Mark any number of Stress</strong> to shoot a barrage of fire or projectiles to your enemies. Targets you succeed against take 1d20+4 magic damage for each Stress marked.</p>",
+    "resource": null,
+    "actions": {
+      "DsDD104955MYCbHz": {
+        "type": "attack",
+        "_id": "DsDD104955MYCbHz",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": true,
+            "key": "stress",
+            "value": 1,
+            "step": 1,
+            "itemId": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": {
+            "base": false,
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "fullRestore": false,
+            "value": {
+              "multiplier": "flat",
+              "flatMultiplier": 1,
+              "dice": "d20",
+              "bonus": 4,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "valueAlt": {
+              "multiplier": "flat",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "includeBase": false,
+            "direct": false,
+            "type": [
+              "magical"
+            ]
+          },
+          "resources": {}
+        },
+        "target": {
+          "type": "hostile",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Use",
+        "range": "far"
+      }
+    },
+    "domain": "tech",
+    "level": 10,
+    "recallCost": 1,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783379617697,
+    "modifiedTime": 1787052353252,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "hB1OyxDAFD3MZoze",
+  "sort": -100000,
+  "_key": "!items!hB1OyxDAFD3MZoze"
+}

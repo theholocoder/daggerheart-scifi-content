@@ -1,0 +1,86 @@
+{
+  "folder": "Z9lecBxunitGkjdF",
+  "name": "Just an Idea",
+  "type": "feature",
+  "_id": "h8j0zd1pi39JFy12",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-alien-thowing-blade.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>At the beggining of each session, place a number of Modder tokens on this card equal to your <strong>Finesse</strong> or <strong>Knowledge</strong> trait.</p><p>You can spend Modder tokens equal to the Recall Cost of any domain card you are eligible for, that is not in your current loadout. If the Recall Cost is 0, it still costs one Modder token. Take that domain card into your loadout, it becomes a <em>Mod</em> card. If your loadout is full, place one of your cards in your Vault.</p><p>If you would ever place a <em>Mod</em> card in your vault, discard it instead.</p>",
+    "gmNotes": "",
+    "resource": {
+      "type": "simple",
+      "value": 0,
+      "max": "",
+      "recovery": null,
+      "progression": "decreasing",
+      "dieFaces": "d4",
+      "icon": ""
+    },
+    "actions": {
+      "uZTJE28OpAZa3tm6": {
+        "type": "effect",
+        "_id": "uZTJE28OpAZa3tm6",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "resource",
+            "value": 1,
+            "itemId": "h8j0zd1pi39JFy12",
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787054566679,
+    "modifiedTime": 1787067104952,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!h8j0zd1pi39JFy12"
+}

@@ -1,0 +1,70 @@
+{
+  "folder": "lakUNIl4gMWLrnFk",
+  "name": "Tactical Scan",
+  "type": "loot",
+  "_id": "CtBNI5R1uB4Lh9Hx",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/control-panel-handheld.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Three times per rest</strong>, you can activate the tactical scan to detect signs of life and movement within a Far range around you. You know the general direction, general distance and approximate size of the life forms.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "actions": {
+      "IatHQgNL7KysoeGM": {
+        "type": "effect",
+        "_id": "IatHQgNL7KysoeGM",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "3",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Activate",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {
+    "dh-containers": {
+      "isContainer": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787047246993,
+    "modifiedTime": 1787065707299,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!CtBNI5R1uB4Lh9Hx"
+}

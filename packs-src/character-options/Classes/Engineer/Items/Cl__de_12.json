@@ -1,5 +1,5 @@
 {
-  "folder": "XjmAyVsUdKsRWwJA",
+  "folder": "XJbLdgDU4W0VfkzN",
   "name": "Clé de 12",
   "type": "loot",
   "_id": "I1UCEQ7oqRyfY3Kx",
@@ -15,7 +15,7 @@
     "actions": {}
   },
   "effects": [],
-  "sort": 100000,
+  "sort": 200000,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -30,7 +30,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783344290884,
-    "modifiedTime": 1786982071396,
+    "modifiedTime": 1787052515462,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

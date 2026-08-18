@@ -5,7 +5,11 @@
   "_id": "lppq3objCi9orUKZ",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/pink-target-sign.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>When you make a weapon attack, you can choose to gain <strong data-start=\"1484\" data-end=\"1540\">+1 to your Proficiency for that attack's damage roll</strong>.</p><p data-start=\"1543\" data-end=\"1615\">You can do this a number of times per session equal to your Proficiency.</p>",
     "gmNotes": "",
     "resource": {
@@ -32,9 +36,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.7.4",
     "createdTime": 1786888190949,
-    "modifiedTime": 1786888244771,
+    "modifiedTime": 1787072117641,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

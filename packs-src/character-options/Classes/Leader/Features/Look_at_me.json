@@ -1,0 +1,40 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Look at me",
+  "type": "feature",
+  "_id": "k7SDbPHBnfImd4bT",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/darkened-eyes.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{I Shot First} to give the Spotlight to yourself, you have advantage on the <strong>Action Roll</strong> you make during that Spotlight.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787057856111,
+    "modifiedTime": 1787072073528,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!k7SDbPHBnfImd4bT"
+}

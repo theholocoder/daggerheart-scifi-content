@@ -10,9 +10,38 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you apply an @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion} to an adversary, place a Virus Token on them.</p><p>Whenever you damage an adversary with a Virus Token using your Primary or Secondary Weapon, deal an additional <strong>d6</strong> magic damage (virus damage).</p><p>Each adversary can only have one Virus Token.</p>",
+    "description": "<p><strong>After a rest</strong>, place up to 4 Virus tokens on this card. </p><p>When you make a successful weapon attack, you can spend a token to afflict the target with a virus. Choose a virus:</p><ul><li><p><strong>Zero day</strong>: The next attack against the target has Advantage.</p></li><li><p><strong>Segmentation fault</strong>: The target has disadvantage on its next attack.</p></li><li><p><strong>Stacktrace</strong>: You always know the target's location until the end of the scene.</p></li></ul>",
     "resource": null,
-    "actions": {},
+    "actions": {
+      "bQz0uz87puTIcNVl": {
+        "type": "effect",
+        "_id": "bQz0uz87puTIcNVl",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "4",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
     "originItemType": null,
     "multiclassOrigin": false,
     "featureForm": "passive"
@@ -27,9 +56,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.7.4",
     "createdTime": 1783383710186,
-    "modifiedTime": 1786835818585,
+    "modifiedTime": 1787060292229,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

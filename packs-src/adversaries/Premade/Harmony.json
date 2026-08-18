@@ -5,6 +5,15 @@
   "_id": "s4NwD0dWCT1WpnD3",
   "img": "modules/daggerheart-scifi-content/artwork/portraits/harmony_m.webp",
   "system": {
+    "biography": {
+      "background": "<p>Harmony est un Voidborn Mystic \"Lifebinder\". Il utilise une force méconnue appelée \"Résonance\" afin d'améliorer ses attaques ou soigner ses alliés. Ayant vécu dans l'espace, Hamony sait piloter et se déplacer efficacement en apesanteur.</p><hr><h2>Comment jouer Harmony ?</h2><ul><li><p>Le néant n'a pas de secret pour vous, votre corps y est adapté et vos sens vous permettent de savoir si le vide est derrière un mur ou une porte.</p></li><li><p>Utiliser vos @UUID[Compendium.daggerheart-scifi-content.character-options.ROG2ExnSWtgIBhG3]{Resonance Dice} pour attaquer et assister par la même occasion vos alliés proche de votre cible. Ou alors dépense-les pour leur rendre 1 HP.</p></li><li><p>Lancez des sorts d'effroi pour affaiblir vos adversaires</p></li><li><p>Votre sagesse vous permet d'aider vos alliés afin qu'ils retentent une action ratée.</p></li></ul>",
+      "connections": "",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
     "resistance": {
       "physical": {
         "resistance": false,
@@ -66,13 +75,13 @@
       "severe": 0
     },
     "experiences": {
-      "Saf2qAI4veOHG4HB": {
+      "HejCVz8eiaIanx6K": {
         "name": "La survie avant tout",
         "value": 2,
         "core": true,
         "description": ""
       },
-      "C4YHwjvUIAvpX6RT": {
+      "ui1BHyvcYVS3efcr": {
         "name": "L'espace n'est pas si vide",
         "value": 2,
         "core": true,
@@ -86,19 +95,10 @@
       "chests": 0
     },
     "scars": 0,
-    "biography": {
-      "background": "",
-      "connections": "",
-      "characteristics": {
-        "pronouns": "",
-        "age": "",
-        "faith": ""
-      }
-    },
     "attack": {
       "name": "DAGGERHEART.GENERAL.unarmedAttack",
       "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
-      "_id": "eH1zz7LCO9hITM6H",
+      "_id": "oKwbdPFJnpyLibnF",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -298,7 +298,7 @@
       "folder": "ofL2QCBUI9pCHDe8",
       "name": "Resonance Dice",
       "type": "feature",
-      "_id": "btjzFtKyFcJgs0bj",
+      "_id": "32vuGxUVRQ4GbMBH",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-cube.webp",
       "system": {
         "attribution": {
@@ -315,20 +315,7 @@
           "progression": "increasing",
           "dieFaces": "d6",
           "icon": "",
-          "diceStates": {
-            "0": {
-              "used": false,
-              "value": 2
-            },
-            "1": {
-              "used": false,
-              "value": 1
-            },
-            "2": {
-              "value": 6,
-              "used": false
-            }
-          }
+          "diceStates": {}
         },
         "actions": {},
         "originItemType": "class",
@@ -347,21 +334,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.ROG2ExnSWtgIBhG3",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.btjzFtKyFcJgs0bj"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.32vuGxUVRQ4GbMBH"
     },
     {
       "folder": "ofL2QCBUI9pCHDe8",
       "name": "Resonance Surge",
       "type": "feature",
-      "_id": "IAhf9IziRXUlAXEa",
+      "_id": "efvKZ5aUUi8XbKVn",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-gas-cloud.webp",
       "system": {
         "attribution": {
@@ -369,12 +356,50 @@
           "page": null,
           "artist": ""
         },
-        "description": "<p><strong>Spend 3 Hope</strong> to recover one spent Resonance Die.</p>",
+        "description": "<p><strong>Spend 3 Hope</strong> to <strong>clear a Hit Point</strong> on an ally or <strong>mark a Hit Point</strong> on an adversary.</p>",
         "resource": null,
-        "actions": {},
+        "actions": {
+          "t82AGW81N4MwU562": {
+            "type": "effect",
+            "_id": "t82AGW81N4MwU562",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "itemId": null,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Spend Hope",
+            "range": ""
+          }
+        },
         "originItemType": "class",
         "multiclassOrigin": false,
-        "featureForm": "passive",
+        "featureForm": "action",
         "gmNotes": "",
         "identifier": "hope"
       },
@@ -388,19 +413,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.ieg4S7OlNCg12Cke",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.IAhf9IziRXUlAXEa"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.efvKZ5aUUi8XbKVn"
     },
     {
       "effects": [],
-      "_id": "Q64PlQQkwCfvmsYO",
+      "_id": "F7yYaSEzh7EvORv7",
       "name": "Mystic",
       "type": "class",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-third-eye.webp",
@@ -479,21 +504,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.Gl9KUFTA1y87LErQ",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.Q64PlQQkwCfvmsYO"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.F7yYaSEzh7EvORv7"
     },
     {
       "folder": "qldZSEXSq5l7lKUo",
       "name": "Vacuum Adaptation",
       "type": "feature",
-      "_id": "8gbXoKOrO8yXXWKf",
+      "_id": "npgfMcsyTDKXKQCb",
       "img": "modules/daggerheart-scifi-content/artwork/icons/spells/penumbral-shroud.webp",
       "system": {
         "attribution": {
@@ -567,21 +592,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.7QkHj2slS8NJ062G",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.8gbXoKOrO8yXXWKf"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.npgfMcsyTDKXKQCb"
     },
     {
       "folder": "qldZSEXSq5l7lKUo",
       "name": "Cosmic Sense",
       "type": "feature",
-      "_id": "HFabQyjNPtee4xkU",
+      "_id": "1pyJ9Ve7Qj0E2HTF",
       "img": "modules/daggerheart-scifi-content/artwork/icons/spells/paralyze.webp",
       "system": {
         "attribution": {
@@ -608,21 +633,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.J5K0bHO7v7Q9hpWD",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.HFabQyjNPtee4xkU"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.1pyJ9Ve7Qj0E2HTF"
     },
     {
       "folder": "zJl3BQZGZBL6fWlH",
       "name": "Warp speed, Mr. Sulu",
       "type": "feature",
-      "_id": "voXbW6ztlkVXsOie",
+      "_id": "fc2URRGwfScH3RIz",
       "img": "icons/magic/air/air-wave-gust-smoke-yellow.webp",
       "system": {
         "attribution": {
@@ -648,21 +673,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.fBIayp2V9V7rUII8",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.voXbW6ztlkVXsOie"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.fc2URRGwfScH3RIz"
     },
     {
       "folder": "ofL2QCBUI9pCHDe8",
       "name": "Shared Resonance",
       "type": "feature",
-      "_id": "ZsRY5Z3XhEGbKhh0",
+      "_id": "FM1OrO43WnWMpoNL",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-triangle-sign.webp",
       "system": {
         "attribution": {
@@ -689,21 +714,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.XjqX7VBosOV2m7Pd",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.ZsRY5Z3XhEGbKhh0"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.FM1OrO43WnWMpoNL"
     },
     {
       "folder": "ofL2QCBUI9pCHDe8",
       "name": "I'm one with the Resonance and the Resonance is with me",
       "type": "feature",
-      "_id": "yY5EHfocmGWzOO18",
+      "_id": "HI7DFWf1RaCZpVgY",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-crystal.webp",
       "system": {
         "attribution": {
@@ -730,21 +755,21 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.4DGWeub3bXkteGhy",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.yY5EHfocmGWzOO18"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.HI7DFWf1RaCZpVgY"
     },
     {
       "folder": "ofL2QCBUI9pCHDe8",
       "name": "Resonant Restoration",
       "type": "feature",
-      "_id": "0wy1U52dpaeKjKjf",
+      "_id": "tsbXA6C0DRc8wPSZ",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-plus-sign.webp",
       "system": {
         "attribution": {
@@ -771,19 +796,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.VfWGQ5v5cx0ip2xJ",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.0wy1U52dpaeKjKjf"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.tsbXA6C0DRc8wPSZ"
     },
     {
       "effects": [],
-      "_id": "fp9awuPtFRlvRIXl",
+      "_id": "QhOW87Wb5yeu7fi8",
       "name": "Voidborn",
       "type": "ancestry",
       "img": "modules/daggerheart-scifi-content/artwork/icons/ancestries/ijtikri.webp",
@@ -804,7 +829,8 @@
             "type": "secondary",
             "item": "Compendium.daggerheart-scifi-content.character-options.Item.J5K0bHO7v7Q9hpWD"
           }
-        ]
+        ],
+        "loreReference": null
       },
       "folder": "KjbbtmNF7SEmZ9t0",
       "sort": 0,
@@ -816,19 +842,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.0CgE5eOXzm3IjkjH",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.fp9awuPtFRlvRIXl"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.QhOW87Wb5yeu7fi8"
     },
     {
       "effects": [],
-      "_id": "ihDHV8EsdxUTausn",
+      "_id": "ksDeWmAMYrzQ80Sd",
       "name": "Lifebinder",
       "type": "subclass",
       "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-paragon-of-health.webp",
@@ -865,19 +891,94 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.WQE5mFSnVPIePXe2",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.ihDHV8EsdxUTausn"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.ksDeWmAMYrzQ80Sd"
     },
     {
       "effects": [],
-      "_id": "GNP7RtDZpPy3JpeU",
+      "_id": "ZqaSi3b21pbfw1en",
+      "name": "Reassurance",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/splendor.png",
+      "system": {
+        "description": "<p>Once per rest, after an ally attempts an action roll but before the consequences take place, you can offer assistance or words of support. When you do, your ally can reroll their dice.</p>",
+        "domain": "splendor",
+        "recallCost": 0,
+        "level": 1,
+        "type": "ability",
+        "actions": {
+          "QZGSuYgLE6BMbFsD": {
+            "type": "effect",
+            "_id": "QZGSuYgLE6BMbFsD",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": 0,
+              "max": "1",
+              "recovery": "shortRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Reassure",
+            "img": "icons/sundries/gaming/dice-pair-white-green.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 132,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "resource": null,
+        "inVault": false,
+        "vaultActive": false,
+        "loadoutIgnore": false,
+        "domainTouched": null
+      },
+      "folder": "LlWJaBZOKh0Ot2kD",
+      "sort": 3400000,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.domains.Item.iYNVTB7uAD1FTCZu",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.ZqaSi3b21pbfw1en"
+    },
+    {
+      "effects": [],
+      "_id": "ijWp9DXC0nhP7Au6",
       "name": "Spaceborne",
       "type": "community",
       "img": "icons/environment/cosmos/astronomy-planetary-orbits.webp",
@@ -891,7 +992,8 @@
         "features": [
           "Compendium.daggerheart-scifi-content.character-options.Item.fBIayp2V9V7rUII8"
         ],
-        "gmNotes": ""
+        "gmNotes": "",
+        "loreReference": null
       },
       "folder": "6sFLVLCQU5XQ24Cr",
       "sort": 0,
@@ -903,19 +1005,128 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.Eu7PWsiI2xZK99Sf",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.GNP7RtDZpPy3JpeU"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.ijWp9DXC0nhP7Au6"
+    },
+    {
+      "effects": [
+        {
+          "name": "Flexible",
+          "description": "+1 to Evasion",
+          "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+          "_id": "v1FNEsypRF5W6vVc",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.evasion",
+                "type": "add",
+                "value": 1,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "disabled": false,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.4",
+            "createdTime": 1787071736188,
+            "modifiedTime": 1787071736188,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "start": null,
+          "showIcon": 1,
+          "folder": null,
+          "_key": "!actors.items.effects!s4NwD0dWCT1WpnD3.TO1qF9abhiuy9zcW.v1FNEsypRF5W6vVc"
+        }
+      ],
+      "_id": "TO1qF9abhiuy9zcW",
+      "name": "Gambeson Armor",
+      "type": "armor",
+      "img": "icons/equipment/chest/vest-leather-tattered-white.webp",
+      "system": {
+        "armor": {
+          "current": 0,
+          "max": 3
+        },
+        "description": "",
+        "actions": {},
+        "tier": 1,
+        "equipped": true,
+        "armorFeatures": [
+          {
+            "value": "flexible",
+            "effectIds": [
+              "v1FNEsypRF5W6vVc"
+            ],
+            "actionIds": []
+          }
+        ],
+        "baseThresholds": {
+          "major": 5,
+          "severe": 11
+        },
+        "attribution": {
+          "source": "Daggerheart SRD",
+          "page": 56,
+          "artist": ""
+        },
+        "gmNotes": "",
+        "resource": null,
+        "quantity": 1
+      },
+      "folder": "h4QgrovjVZ1oee7O",
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart.armors.Item.yJFp1bfpecDcStVK",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.TO1qF9abhiuy9zcW"
     },
     {
       "effects": [],
-      "_id": "YawFHntGiDNun2JB",
+      "_id": "X3MvNYSJky3D9FJi",
       "name": "Blighting Strike",
       "type": "domainCard",
       "img": "modules/the-void-unofficial/images/dread.webp",
@@ -1129,203 +1340,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.the-void-unofficial.domains.Item.BIze56vTneG5UJv6",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.YawFHntGiDNun2JB"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.X3MvNYSJky3D9FJi"
     },
     {
       "effects": [],
-      "_id": "icmW1SxLoTv1rZfE",
-      "name": "Reassurance",
-      "type": "domainCard",
-      "img": "systems/daggerheart/assets/icons/domains/domain-card/splendor.png",
-      "system": {
-        "description": "<p>Once per rest, after an ally attempts an action roll but before the consequences take place, you can offer assistance or words of support. When you do, your ally can reroll their dice.</p>",
-        "domain": "splendor",
-        "recallCost": 0,
-        "level": 1,
-        "type": "ability",
-        "actions": {
-          "QZGSuYgLE6BMbFsD": {
-            "type": "effect",
-            "_id": "QZGSuYgLE6BMbFsD",
-            "systemPath": "actions",
-            "description": "",
-            "chatDisplay": true,
-            "actionType": "action",
-            "cost": [],
-            "uses": {
-              "value": 0,
-              "max": "1",
-              "recovery": "shortRest",
-              "consumeOnSuccess": false
-            },
-            "effects": [],
-            "target": {
-              "type": "any",
-              "amount": null
-            },
-            "name": "Reassure",
-            "img": "icons/sundries/gaming/dice-pair-white-green.webp",
-            "range": "",
-            "baseAction": false,
-            "originItem": {
-              "type": "itemCollection"
-            },
-            "triggers": [],
-            "areas": []
-          }
-        },
-        "attribution": {
-          "source": "Daggerheart SRD",
-          "page": 132,
-          "artist": ""
-        },
-        "gmNotes": "",
-        "resource": null,
-        "inVault": false,
-        "vaultActive": false,
-        "loadoutIgnore": false,
-        "domainTouched": null
-      },
-      "folder": "LlWJaBZOKh0Ot2kD",
-      "sort": 3400000,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.domains.Item.iYNVTB7uAD1FTCZu",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.icmW1SxLoTv1rZfE"
-    },
-    {
-      "effects": [
-        {
-          "name": "Flexible",
-          "description": "+1 to Evasion",
-          "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
-          "_id": "v1FNEsypRF5W6vVc",
-          "type": "base",
-          "system": {
-            "changes": [
-              {
-                "key": "system.evasion",
-                "type": "add",
-                "value": 1,
-                "phase": "initial"
-              }
-            ],
-            "duration": {
-              "description": ""
-            },
-            "rangeDependence": null,
-            "stacking": null,
-            "targetDispositions": []
-          },
-          "disabled": false,
-          "duration": {
-            "value": null,
-            "units": "seconds",
-            "expiry": null,
-            "expired": false
-          },
-          "origin": null,
-          "tint": "#ffffff",
-          "transfer": true,
-          "statuses": [],
-          "sort": 0,
-          "flags": {},
-          "_stats": {
-            "compendiumSource": null,
-            "coreVersion": "14.364",
-            "systemId": "daggerheart",
-            "systemVersion": "2.7.3",
-            "createdTime": 1786988304973,
-            "modifiedTime": 1786988304973,
-            "lastModifiedBy": "0qb2POwXFxKbaibe",
-            "duplicateSource": null,
-            "exportSource": null
-          },
-          "start": null,
-          "showIcon": 1,
-          "folder": null,
-          "_key": "!actors.items.effects!s4NwD0dWCT1WpnD3.6DLXl80K87EIstiY.v1FNEsypRF5W6vVc"
-        }
-      ],
-      "_id": "6DLXl80K87EIstiY",
-      "name": "Gambeson Armor",
-      "type": "armor",
-      "img": "icons/equipment/chest/vest-leather-tattered-white.webp",
-      "system": {
-        "armor": {
-          "current": 0,
-          "max": 3
-        },
-        "description": "",
-        "actions": {},
-        "tier": 1,
-        "equipped": true,
-        "armorFeatures": [
-          {
-            "value": "flexible",
-            "effectIds": [
-              "v1FNEsypRF5W6vVc"
-            ],
-            "actionIds": []
-          }
-        ],
-        "baseThresholds": {
-          "major": 5,
-          "severe": 11
-        },
-        "attribution": {
-          "source": "Daggerheart SRD",
-          "page": 56,
-          "artist": ""
-        },
-        "gmNotes": "",
-        "resource": null,
-        "quantity": 1
-      },
-      "folder": "h4QgrovjVZ1oee7O",
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "0qb2POwXFxKbaibe": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.364",
-        "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
-        "lastModifiedBy": "0qb2POwXFxKbaibe",
-        "compendiumSource": "Compendium.daggerheart.armors.Item.yJFp1bfpecDcStVK",
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.6DLXl80K87EIstiY"
-    },
-    {
-      "effects": [],
-      "_id": "p6ro4w271KOY8p5K",
+      "_id": "8RiR63KUvMH72aBu",
       "name": "Dualstaff",
       "type": "weapon",
       "img": "icons/weapons/staves/staff-simple-blue.webp",
@@ -1446,19 +1473,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.weapons.Item.j8cdNeIUYxxzFVji",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.p6ro4w271KOY8p5K"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.8RiR63KUvMH72aBu"
     },
     {
       "effects": [],
-      "_id": "5ulUCVPoDARKQHpn",
+      "_id": "4LKz3mQCFPgj3Okd",
       "name": "Cheap Medpack",
       "type": "consumable",
       "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/other/med-pack.webp",
@@ -1568,19 +1595,19 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.ggm0BJAPnJihr57A",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.5ulUCVPoDARKQHpn"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.4LKz3mQCFPgj3Okd"
     },
     {
       "effects": [],
-      "_id": "pK2147BGZrfLnRKL",
+      "_id": "UnWIMsLMs9QvBD9U",
       "name": "Resonance Crystal",
       "type": "loot",
       "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/treasure/gems/greater-semiprecious-stones/tourmaline.webp",
@@ -1609,18 +1636,18 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.r5Z3ooJ5omRxXFeN",
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.pK2147BGZrfLnRKL"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.UnWIMsLMs9QvBD9U"
     },
     {
-      "_id": "ajKKQ8jjMaPE83YT",
+      "_id": "EwP3dP8pddFnb7VI",
       "name": "Torch Attachment",
       "img": "icons/sundries/lights/flash-light.webp",
       "type": "loot",
@@ -1643,9 +1670,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart-scifi-content.items.Item.wWyFIOQfG4L4ZseJ",
         "duplicateSource": null,
@@ -1655,10 +1682,10 @@
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.ajKKQ8jjMaPE83YT"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.EwP3dP8pddFnb7VI"
     },
     {
-      "_id": "OtL5CwKQkn8MWE3O",
+      "_id": "IcfzSmFVm4JkTrr0",
       "name": "50ft of Rope",
       "img": "icons/sundries/survival/rope-coiled-tan.webp",
       "type": "loot",
@@ -1676,9 +1703,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.classes.Item.hMST9iizQP1yz0MG",
         "duplicateSource": null,
@@ -1688,10 +1715,10 @@
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.OtL5CwKQkn8MWE3O"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.IcfzSmFVm4JkTrr0"
     },
     {
-      "_id": "DA5qIuhL6EHNd6V3",
+      "_id": "iv9HoLovsj9Ei5OW",
       "name": "Basic Supplies",
       "img": "icons/containers/bags/sack-leather-stitched-brown.webp",
       "type": "loot",
@@ -1709,9 +1736,9 @@
       "_stats": {
         "coreVersion": "14.364",
         "systemId": "daggerheart",
-        "systemVersion": "2.7.3",
-        "createdTime": 1786988304973,
-        "modifiedTime": 1786988304973,
+        "systemVersion": "2.7.4",
+        "createdTime": 1787071736188,
+        "modifiedTime": 1787071736188,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": "Compendium.daggerheart.classes.Item.uoG5iq09mxJPXfmk",
         "duplicateSource": null,
@@ -1721,7 +1748,7 @@
         "default": 0,
         "0qb2POwXFxKbaibe": 3
       },
-      "_key": "!actors.items!s4NwD0dWCT1WpnD3.DA5qIuhL6EHNd6V3"
+      "_key": "!actors.items!s4NwD0dWCT1WpnD3.iv9HoLovsj9Ei5OW"
     }
   ],
   "effects": [],
@@ -1734,12 +1761,12 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
-    "createdTime": 1786988304973,
-    "modifiedTime": 1786988304973,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787071736188,
+    "modifiedTime": 1787071736188,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
-    "duplicateSource": "Actor.s4NwD0dWCT1WpnD3",
+    "duplicateSource": null,
     "exportSource": null
   },
   "_key": "!actors!s4NwD0dWCT1WpnD3"

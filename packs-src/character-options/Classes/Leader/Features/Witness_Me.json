@@ -1,0 +1,40 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Witness Me",
+  "type": "feature",
+  "_id": "C5zXGGtvSZipmMXe",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/feeblemind.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per session, you can use @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{I Shot First} without <strong>spending a Hope</strong>. </p><p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.onHfhZg2I1XP6WWs]{I Shot First} to Spotlight yourself, an adversary you can see must <strong>mark a Stress</strong> and the GM <strong>loses a Fear</strong>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787058057077,
+    "modifiedTime": 1787072083856,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!C5zXGGtvSZipmMXe"
+}

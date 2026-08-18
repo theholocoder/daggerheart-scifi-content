@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You have Advantage on rolls to repair machinery, fabricate equipment, or understand how technological devices function.</p>",
+    "description": "<p>You have Advantage on the <strong>Work on a Project</strong> downtime move if it requires you to make a roll to advance a countdown. You can also take the <strong>Work on a Project</strong> downtime move during a short rest.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.4",
     "createdTime": 1783697470396,
-    "modifiedTime": 1783698106075,
+    "modifiedTime": 1787046496572,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

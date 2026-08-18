@@ -1,0 +1,40 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Worm database",
+  "type": "feature",
+  "_id": "g8hDA8Yb1yNFkxKZ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/greeb-alien-tentacle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You also know these Viruses to deliver with @UUID[Compendium.daggerheart-scifi-content.character-options.ipaUsRjjzM5mxZDu]{Viral Payload}:</p><ul><li><p><strong>Circuit eating worm</strong>: The target has a -3 penalty to their damage thresholds until the end of the scene.</p></li><li><p><strong>Shutdown</strong>: The target has a -2 penalty to their Difficulty until the end of the scene.</p></li></ul>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787059872718,
+    "modifiedTime": 1787072036810,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!g8hDA8Yb1yNFkxKZ"
+}

@@ -5,7 +5,11 @@
   "_id": "Bl23E5008K96BICg",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-ammunition.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>You can carry up to <strong data-start=\"1933\" data-end=\"1960\">four additional weapons</strong> in your inventory instead of two.</p><p data-start=\"1996\" data-end=\"2115\">Additionally, you can swap one of your active weapons with another weapon in your inventory <strong data-start=\"2088\" data-end=\"2114\">without marking Stress</strong>.</p>",
     "gmNotes": "",
     "resource": null,
@@ -24,9 +28,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.7.4",
     "createdTime": 1786888266073,
-    "modifiedTime": 1786888296659,
+    "modifiedTime": 1787072111839,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

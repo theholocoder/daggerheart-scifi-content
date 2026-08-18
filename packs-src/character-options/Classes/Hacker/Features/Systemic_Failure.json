@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you damage an adversary with a Virus Token with your Primary or Secondary Weapon, you may consume the Virus Token after @UUID[Compendium.daggerheart-scifi-content.character-options.WQ0F0R6SNEkMITCA]{Propagation}. If you do, choose one:</p><ul><li><p>Apply an Intrusion to every adversary damaged by @UUID[Compendium.daggerheart-scifi-content.character-options.WQ0F0R6SNEkMITCA]{Propagation} (they also gain a Virus Token this way).</p></li><li><p>Apply a different Intrusion to the original target.</p></li></ul>",
+    "description": "<p>When you deal damage to an adversary infected by one of your Virus, you can <strong>mark a Stress</strong> to force them to <strong>mark an additional Hit Point</strong>. </p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.7.4",
     "createdTime": 1783383878070,
-    "modifiedTime": 1786835899214,
+    "modifiedTime": 1787059852056,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

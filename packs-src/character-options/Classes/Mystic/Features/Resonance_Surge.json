@@ -10,12 +10,50 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Spend 3 Hope</strong> to recover one spent Resonance Die.</p>",
+    "description": "<p><strong>Spend 3 Hope</strong> to <strong>clear a Hit Point</strong> on an ally or <strong>mark a Hit Point</strong> on an adversary.</p>",
     "resource": null,
-    "actions": {},
+    "actions": {
+      "t82AGW81N4MwU562": {
+        "type": "effect",
+        "_id": "t82AGW81N4MwU562",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Hope",
+        "range": ""
+      }
+    },
     "originItemType": null,
     "multiclassOrigin": false,
-    "featureForm": "passive"
+    "featureForm": "action"
   },
   "effects": [],
   "sort": 0,
@@ -27,9 +65,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.4",
     "createdTime": 1783684248108,
-    "modifiedTime": 1783684395773,
+    "modifiedTime": 1787063399683,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

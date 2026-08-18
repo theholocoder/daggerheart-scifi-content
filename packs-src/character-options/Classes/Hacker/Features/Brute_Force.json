@@ -1,0 +1,40 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Brute Force",
+  "type": "feature",
+  "_id": "vMje7ustVabsMt3y",
+  "img": "icons/magic/acid/dissolve-bone-skull.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Your @UUID[Compendium.daggerheart-scifi-content.character-options.y4cUUgwOuWBlzF1e]{Intrusion} feature now uses <strong>d8s</strong> instead of d6s.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787060877728,
+    "modifiedTime": 1787072016033,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!vMje7ustVabsMt3y"
+}

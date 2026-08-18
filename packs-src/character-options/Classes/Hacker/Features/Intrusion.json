@@ -1,0 +1,77 @@
+{
+  "folder": "pdVzmZeMrqQxLCHA",
+  "name": "Intrusion",
+  "type": "feature",
+  "_id": "y4cUUgwOuWBlzF1e",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/greeb-alien-tentacle.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>On a successful weapon attack or Tech domain attack, you can <strong>mark a Stress</strong> to breach into the target eletronic defenses and make the target <em>Breached</em>.</p><p>When you deal damage to a target you <em>Breached</em>, add <strong>1d6</strong> to the damage roll.</p><p>You can only have one <em>Breached</em> adversary at a time. This condition lasts until you take a rest or the adversary is defeated.</p>",
+    "resource": null,
+    "actions": {
+      "p71ns01iFrY5JPGl": {
+        "type": "effect",
+        "_id": "p71ns01iFrY5JPGl",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Mark a Stress",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783382271322,
+    "modifiedTime": 1787063228253,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!y4cUUgwOuWBlzF1e"
+}

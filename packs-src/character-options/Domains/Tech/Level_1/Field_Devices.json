@@ -1,0 +1,212 @@
+{
+  "folder": "YSkSfPaGAGbb6zu9",
+  "name": "Field Devices",
+  "type": "domainCard",
+  "_id": "cWCfF37m7YPuRW2W",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/battery-pack.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Recon Drone</strong>: <strong>Mark a Stress</strong> to deploy a small floating bot that you can move anywhere within Very Far Range. While this ability is active, you can see through the bot as though you’re in its position. You can transition between using your own senses and seeing through the bot freely. If the bot takes damage or moves out of range, the ability ends.</p><p><strong>Medical Drone</strong>: Make a <strong>Spellcast Roll (13)</strong> and target a creature other than yourself within Melee range. On a success, <strong>mark a Stress</strong> to clear 1 Hit Point or 1 Stress on the target. You can't heal the same target again until your next long rest.</p><p><strong>Movement Detector</strong>: You can place a number of movement detectors up to your spellcasting trait. Each detector is able to sense movement in a Very Close range and send you a notification when it does.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "XIWXYVh41JvsBho3": {
+        "type": "healing",
+        "_id": "XIWXYVh41JvsBho3",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "consumeOnSuccess": true,
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {
+            "hitPoints": {
+              "base": false,
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "fullRestore": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 0,
+                "dice": "d6",
+                "bonus": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": 13,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Use Medical Drone to gain HP",
+        "range": ""
+      },
+      "QfYVc9fWq4swGBD5": {
+        "type": "healing",
+        "_id": "QfYVc9fWq4swGBD5",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "consumeOnSuccess": true,
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {
+            "stress": {
+              "base": false,
+              "applyTo": "stress",
+              "resultBased": false,
+              "fullRestore": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 0,
+                "dice": "d6",
+                "bonus": 1,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": 13,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Use Medical Drone to clear Stress",
+        "range": ""
+      }
+    },
+    "domain": "tech",
+    "level": 1,
+    "recallCost": 2,
+    "type": "grimoire",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787047457021,
+    "modifiedTime": 1787072329713,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cWCfF37m7YPuRW2W"
+}

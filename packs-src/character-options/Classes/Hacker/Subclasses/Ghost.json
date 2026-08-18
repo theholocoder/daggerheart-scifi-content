@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p>Play the Ghost if you want to exploit your Intrusions and your stalking to deal maximum damage to your target.</p>",
     "spellcastingTrait": "finesse",
     "features": [
       {
@@ -24,6 +24,14 @@
       {
         "type": "mastery",
         "item": "Compendium.daggerheart-scifi-content.character-options.Item.kPD5BGfaNAZlYNQN"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.z4uVjVbPY0uB7n1I"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.vMje7ustVabsMt3y"
       }
     ],
     "featureState": 1,
@@ -40,9 +48,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.4",
     "createdTime": 1783383031424,
-    "modifiedTime": 1783696278608,
+    "modifiedTime": 1787062867832,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

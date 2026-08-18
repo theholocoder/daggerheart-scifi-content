@@ -1,0 +1,44 @@
+{
+  "folder": "tPWB2cJH3AT6WZND",
+  "name": "Master of the Craft",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-wrench.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Gain a permanent +2 bonus to two of you Experiences or a permanent +3 bonus to one of your Experiences. Then place this card in your vault permanently.</p>",
+    "resource": null,
+    "actions": {},
+    "domain": "tech",
+    "level": 9,
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783380114018,
+    "modifiedTime": 1787051795817,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "nrPtBZ4ROhkoBllY",
+  "sort": 200000,
+  "_key": "!items!nrPtBZ4ROhkoBllY"
+}

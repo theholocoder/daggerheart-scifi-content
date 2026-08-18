@@ -1,0 +1,40 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Feedback",
+  "type": "feature",
+  "_id": "JphikpoMjKUk0Hid",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/actions/interact/trade.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Once per session, every PC in your party can comment your leadership:</p><ul><li><p>If they say something nice, they can <strong>gain a Hope</strong>.</p></li><li><p>If they say something disobliging, they can <strong>clear a Stress</strong>.</p></li></ul><p>Once everyone has made a comment, you can <strong>gain a Hope</strong> or <strong>clear a Stress</strong>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787056405237,
+    "modifiedTime": 1787072064261,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!JphikpoMjKUk0Hid"
+}

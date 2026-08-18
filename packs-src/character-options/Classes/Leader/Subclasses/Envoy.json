@@ -1,0 +1,56 @@
+{
+  "folder": "oFIBPc1R7YfxxzKy",
+  "name": "Envoy",
+  "type": "subclass",
+  "_id": "3m4RCEWH1Y4rrUWh",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-organization-insignia.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Play the Envoy if you want to make speeches, empower your allies, and make teamwork your greatest weapon.</p>",
+    "spellcastingTrait": "presence",
+    "features": [
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.llyFfNuAcNC8IEUi"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.1hqoSW8U0rU4D0Nm"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.z87N0emUQuSgtkbm"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.PmTKGbA0xcP4lMVU"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.LghJDwan9TGlKnaf"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783672182032,
+    "modifiedTime": 1787057396799,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!3m4RCEWH1Y4rrUWh"
+}

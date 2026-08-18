@@ -1,5 +1,5 @@
 {
-  "folder": "4woyCicX6G5XxYyQ",
+  "folder": "Z9lecBxunitGkjdF",
   "name": "Turret",
   "type": "feature",
   "_id": "n2IkOCWN7vOrczxA",
@@ -18,7 +18,7 @@
     "featureForm": "passive"
   },
   "effects": [],
-  "sort": 0,
+  "sort": 150000,
   "ownership": {
     "default": 0,
     "0qb2POwXFxKbaibe": 3
@@ -29,7 +29,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.7.3",
     "createdTime": 1783347897293,
-    "modifiedTime": 1786834300502,
+    "modifiedTime": 1787055447717,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

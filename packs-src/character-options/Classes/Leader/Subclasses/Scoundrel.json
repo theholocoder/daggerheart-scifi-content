@@ -1,0 +1,52 @@
+{
+  "folder": "oFIBPc1R7YfxxzKy",
+  "name": "Scoundrel",
+  "type": "subclass",
+  "_id": "TrhDZtbqdwVOHusX",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/features/classes/eldritch-trickster.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Play the Scoundrel if you want to outmaneuver your foes, chain stylish weapon attacks together, and win every fight by bending the rules.</p>",
+    "spellcastingTrait": "presence",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.onHfhZg2I1XP6WWs"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.k7SDbPHBnfImd4bT"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.C5zXGGtvSZipmMXe"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.LghJDwan9TGlKnaf"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1783673088052,
+    "modifiedTime": 1787058189781,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!TrhDZtbqdwVOHusX"
+}

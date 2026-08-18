@@ -1,0 +1,69 @@
+{
+  "folder": "Z9lecBxunitGkjdF",
+  "name": "Breakthrough",
+  "type": "feature",
+  "_id": "zDOA9DFaq6U67JkK",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-test-tubes.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p><strong>Once per long rest</strong>, when you use @UUID[Compendium.daggerheart-scifi-content.character-options.h8j0zd1pi39JFy12]{Just an Idea} to take a domain card, you can choose a card from any domain up to one Tier below your current Tier.</p><p>You may only have one domain card from a domain you do not normally have access to in your loadout at any time.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "XVp1LLarHXNSQ7BR": {
+        "type": "effect",
+        "_id": "XVp1LLarHXNSQ7BR",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 500000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787054895033,
+    "modifiedTime": 1787065649472,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!zDOA9DFaq6U67JkK"
+}

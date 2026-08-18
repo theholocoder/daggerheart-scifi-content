@@ -5,7 +5,11 @@
   "_id": "L7OZCyAjpYTkBvto",
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/machine-gun.webp",
   "system": {
-    "attribution": {},
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
     "description": "<p>Play the Vanguard if you like to move around the battlefield and alternate different weapon attacks to be unpredictible and assault your enemies with brutality.</p>",
     "gmNotes": "",
     "spellcastingTrait": null,
@@ -37,9 +41,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.7.4",
     "createdTime": 1786888329569,
-    "modifiedTime": 1786888843780,
+    "modifiedTime": 1787072246991,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

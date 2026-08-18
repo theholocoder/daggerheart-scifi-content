@@ -1,0 +1,57 @@
+{
+  "folder": "w97TeqpD8t1wCZms",
+  "name": "Modder",
+  "type": "subclass",
+  "_id": "OBd1n01bV800Wyk1",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-battery.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "",
+    "gmNotes": "",
+    "spellcastingTrait": "knowledge",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.h8j0zd1pi39JFy12"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.zDOA9DFaq6U67JkK"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.B63BnnJOFSMD747R"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.daggerheart-scifi-content.character-options.Item.ht9veokgRQousrVK"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.daggerheart-scifi-content.character-options.Item.yGzafyT1yXFsiRc1"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787054482133,
+    "modifiedTime": 1787065696960,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!OBd1n01bV800Wyk1"
+}

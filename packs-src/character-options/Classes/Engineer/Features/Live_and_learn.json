@@ -1,0 +1,78 @@
+{
+  "folder": "Z9lecBxunitGkjdF",
+  "name": "Live and learn",
+  "type": "feature",
+  "_id": "6mUfKFyCbxLGh5BE",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-microscope.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When you or an ally fails a roll, you can <strong>spend 3 Hope</strong> to reroll with advantage.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "cuzduoU5msDhymaq": {
+        "type": "effect",
+        "_id": "cuzduoU5msDhymaq",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Hope",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787052857498,
+    "modifiedTime": 1787065668798,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!6mUfKFyCbxLGh5BE"
+}

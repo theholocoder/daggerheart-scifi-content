@@ -1,0 +1,53 @@
+{
+  "folder": "BIjyJITjlrhYRjJv",
+  "name": "Jet Pack",
+  "type": "domainCard",
+  "_id": "yhLbJQke9LdfzQWV",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-pulse.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You have acquired and learned how to pilot a jet pack or other personal flight technology.</p><p>When you fly, make an <strong>Agility Roll (15)</strong>. On a success, place a number of tokens equal to your Proficiency +1 on this card. On a failure, place one token on the card. When you make an <strong>Action Roll</strong> while flying, spend a token from this card. After the action that spends the last token is resolved, you descend to a surface directly below you.</p>",
+    "gmNotes": "",
+    "resource": {
+      "type": "simple",
+      "value": 0,
+      "max": "10",
+      "recovery": null,
+      "progression": "decreasing",
+      "dieFaces": "d4",
+      "icon": ""
+    },
+    "actions": {},
+    "domain": "tech",
+    "level": 3,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787049082636,
+    "modifiedTime": 1787072361311,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!yhLbJQke9LdfzQWV"
+}

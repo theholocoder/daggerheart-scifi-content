@@ -1,0 +1,74 @@
+{
+  "folder": "BSJuts0uKOWuKsHm",
+  "name": "Many Toys",
+  "type": "domainCard",
+  "_id": "3qtAJdvjje0seNuv",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-cannister.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You have numerous devices stashed in your tech kit or armor. When you complete a rest, place a number of tokens on this card equal to your Tier. You may spend a token to:</p><ul><li><p>Make an adversary temporarily <em>Vulnerable</em>.</p></li><li><p>Make an adversary temporarily <em>Restrained</em>.</p></li><li><p>Move an adversary from Melee to Close range, or Close to Melee range.</p></li></ul><p>Unspent tokens are cleared when you rest.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "GI6jIGKEXTxw1NkW": {
+        "type": "effect",
+        "_id": "GI6jIGKEXTxw1NkW",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "range": ""
+      }
+    },
+    "domain": "tech",
+    "level": 2,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787048667731,
+    "modifiedTime": 1787072343419,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!3qtAJdvjje0seNuv"
+}

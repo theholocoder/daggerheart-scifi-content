@@ -1,0 +1,40 @@
+{
+  "folder": "Z9lecBxunitGkjdF",
+  "name": "Recursive Modifications",
+  "type": "feature",
+  "_id": "ht9veokgRQousrVK",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-banner.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>When you use @UUID[Compendium.daggerheart-scifi-content.character-options.h8j0zd1pi39JFy12]{Just an Idea}, <strong>gain a Hope</strong> or <strong>clear a Stress</strong>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 700000,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787055267247,
+    "modifiedTime": 1787065681903,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ht9veokgRQousrVK"
+}

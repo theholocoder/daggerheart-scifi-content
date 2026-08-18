@@ -1,0 +1,78 @@
+{
+  "folder": "jlz4P6meQQ6ccRFw",
+  "name": "Words of Encouragement",
+  "type": "feature",
+  "_id": "Po4XfEMCzIlyg6b0",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/falsify-heat.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>You now have the Words of Encouragement downtime activity. </p><p>During a short rest, describe how you encourage an aaly to keep going, then they can clear a number of Stress equal to 1d4 + your tier.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "vpKZXol0w8uR197U": {
+        "type": "effect",
+        "_id": "vpKZXol0w8uR197U",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Mark a Stress",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787056794428,
+    "modifiedTime": 1787072089845,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Po4XfEMCzIlyg6b0"
+}

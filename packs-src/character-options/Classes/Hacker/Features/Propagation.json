@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you damage an adversary holding a Virus Token with your Primary or Secondary Weapon, every adversary within Very Close range also suffers the Virus damage.</p>",
+    "description": "<p>When you deliver a @UUID[Compendium.daggerheart-scifi-content.character-options.ipaUsRjjzM5mxZDu]{Viral Payload} to a <em>Breached</em> target, you can spend an additional Virus token to spread a second virus to the same target or deliver the same virus to another target within Close range of the <em>Breached</em> target.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.4",
     "createdTime": 1783383784446,
-    "modifiedTime": 1783696084617,
+    "modifiedTime": 1787059404953,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
