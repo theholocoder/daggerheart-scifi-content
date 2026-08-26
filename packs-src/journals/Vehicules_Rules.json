@@ -1,0 +1,375 @@
+{
+  "name": "Vehicules Rules",
+  "_id": "HQ9v7FdZx9O7GlCy",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Introduction",
+      "type": "text",
+      "_id": "eQSVN4MALo9d56b8",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>These rules are not designed to simulate large-scale space battles. They are focused on emulating the movies and tv shows of the pulp action genre. Thus, the rules are focused on the perspective of the characters piloting their vehicle, often a starship.</p><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "yDdQhwObAcDa4F9R",
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787767458745,
+        "modifiedTime": 1787768062339,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.eQSVN4MALo9d56b8"
+    },
+    {
+      "sort": 200000,
+      "name": "Vehicule Crew Positions",
+      "type": "text",
+      "_id": "1G1hJvj70peMYt27",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>The vehicle crew positions define what each character is using the vehicle to accomplish, particularly in stressful or dangerous situations. Each crew position has a standard and dedicated effect. The standard effect is what a character in that position can use the vehicle to do. A dedicated effect is only active if the character filling that role is filling <strong>only</strong> that role. A character that has to pilot <strong>and</strong> shoot, has their attention divided, and cannot focus as much on their role as someone solely dedicated to a single task.</p><p>A character can hold any number of crew positions at a time. As long as it makes sense, multiple characters can fill the same role. Characters can usually freely switch or add positions. However, when under pressure or in danger, a character must <strong>mark a Stress</strong> to switch or add a position.</p><hr><h3>Commander</h3><p><strong>Standard</strong>: You give orders to your crewmates. When a willing crewmember needs to add or switch a crew position while under pressure or in danger, you can <strong>mark a Stress</strong> to allow them to do so without marking Stress themselves.</p><p><strong>Dedicated</strong>: You can lead a <strong>barrage</strong> against a target that has the <em>Lock On</em> condition. <strong>Mark a Stress</strong> and burn the <em>Lock On</em> to make an <strong>Action Roll</strong> against the target without gaining the normal <strong>d6</strong> for burning the <em>Lock On</em>. On a success, choose up to two Gunners or Systems Operators on your vehicle. Each chosen character may immediately make an attack against the target or use a system against the target. If this requires a roll, it is a <strong>Reaction Roll</strong>. Damage from each weapon that hits is applied separately.</p><hr><h3>Gunner</h3><p><strong>Standard</strong>: You control a weapon mount or mounts. If you control multiple mounts, you may only choose one mount to fire when you attack.</p><p><strong>Dedicated</strong>: If you participate in a <strong>barrage</strong>, gain the <strong>d6</strong> for burning <em>Lock On</em> to your <strong>Reaction Roll</strong> attack against the <strong>barrage</strong> target.</p><hr><h3>Mechanic</h3><p><strong>Standard</strong>: You can make a Repair Action to restore the vehicle's HP or repair a damaged vehicle system.</p><p><strong>Dedicated</strong>: You have Advantage on Action Rolls to repair the vehicle or recharge its shields while under pressure or in danger.</p><hr><h3>Pilot</h3><p><strong>Standard</strong>: You maneuver the vehicle. The vehicle's Evasion equals your Evasion, adjusted by vehicle-specific modifiers. If there are multiple pilots, use the highest Evasion among them.</p><p><strong>Dedicated</strong>: Gain +1 to <strong>Agility</strong> or <strong>Finesse</strong> <strong>Rolls</strong> made while piloting the vehicle. You may change this choice on a rest. If there are two Dedicated Pilots, both gain this bonus.</p><hr><h3>Systems Operator</h3><p><strong>Standard</strong>: You control the vehicle’s sensors and its systems, allowing you to use the Lock On action or any other action using the ship sensors or systems.</p><p><strong>Dedicated</strong>: Gain +1 to <strong>Knowledge</strong> or <strong>Finesse</strong> <strong>Rolls</strong> made while operating the vehicle's systems. You may change this choice on a rest. If there are two Dedicated Systems Operators, both gain this bonus.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "yDdQhwObAcDa4F9R",
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787767458745,
+        "modifiedTime": 1787768056143,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.1G1hJvj70peMYt27"
+    },
+    {
+      "sort": 300000,
+      "name": "Vehicule Damage",
+      "type": "text",
+      "_id": "iLOaQs3HBAGzBm0N",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Vehicles are attacked and suffer damage just like PCs, using <strong>Evasion</strong> to determine if an attack hits and thresholds to determine the amount of damage suffered. The vehicle has its own thresholds and marks its armor to reduce damage. When a PC vehicle marks its last hit point, roll a d6 and consult the table.</p><table><thead><tr><td><p>ROLL</p></td><td><p>RESULT</p></td><td><p>EFFECT</p></td></tr></thead><tbody><tr><td><p>6</p></td><td><p>Glancing Hit</p></td><td><p>The vehicle clears a HP, but its systems are disrupted. Any action using the vehicle suffers disadvantage until the disruption is fixed.</p></td></tr><tr><td><p>5</p></td><td><p>Engine Hit</p></td><td><p>The engines are severely damaged, leaving the ship adrift in the stars. All other systems function normally.</p></td></tr><tr><td><p>2-4</p></td><td><p>Systems Critical</p></td><td><p>The ship loses complete power, and roll 1d3, destroying a number of systems or weapons (PC choice) equal to the number rolled.</p></td></tr><tr><td><p>1</p></td><td><p>Direct Hit</p></td><td><p>The ship suffers catastrophic damage. All PCs aboard make a Death Move.</p></td></tr></tbody></table><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "yDdQhwObAcDa4F9R",
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787767458745,
+        "modifiedTime": 1787768068970,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.iLOaQs3HBAGzBm0N"
+    },
+    {
+      "sort": 400000,
+      "name": "Repairing Vehicles",
+      "type": "text",
+      "_id": "fi84CNhTfPlXnYZX",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Vehicles recover damage using the Tend to Wounds and Repair Armor downtime moves. When a character uses one of these these moves, they can apply the benefits to a vehicle, provided it makes sense within the fiction. A Short Rest downtime move can instead be used to repair a single damaged weapon or system. A Long Rest downtime move can be used to repair all damaged weapons and systems.</p><p>Instead of repairing the vehicle themselves, the crew may pay for professional repairs. As a guideline, it costs 1 stack of Denarii for the equivalent of a downtime move. Depending on the quality of the available facilities, this may provide the benefits of either a Short Rest or Long Rest downtime move.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "yDdQhwObAcDa4F9R",
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787767458745,
+        "modifiedTime": 1787768077061,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.fi84CNhTfPlXnYZX"
+    },
+    {
+      "sort": 500000,
+      "name": "Party's Group Ship",
+      "type": "text",
+      "category": "BeBRYerdI6c4WP2l",
+      "_id": "ik0MifpASXdk6NBH",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>The party can start with or acquire a spaceship.</p><hr><h3>Step 1: Choose Vehicle Frame</h3><p>The frame defines the base size, structure, and capabilities of the ship. </p><p></p><h3>Step 2: Weapons</h3><p>Each vehicle has two or more vehicle weapon mounts. Choose starting vehicle weapons appropriate for the vehicle’s mounts.</p><blockquote><p>If it makes sense for the story, the GM and/or players may decide not to put weapons on all mounts. They may even decide to start without weapons.</p></blockquote><p></p><h3>Step 3: Systems</h3><p>Every frame starts with system points. The characters may spend these system points to add standard vehicle systems. Advanced vehicle systems must be gained during play.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787771288694,
+        "modifiedTime": 1787771490197,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.ik0MifpASXdk6NBH"
+    },
+    {
+      "sort": 600000,
+      "name": "Ship level up",
+      "type": "text",
+      "category": "BeBRYerdI6c4WP2l",
+      "_id": "A8cdL4sX4j0mHm9X",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>When the PCs gain a level, their ship gains a benefit on the next long rest.</p><ul><li><p>At levels 2, 5, 8 and 10 add a <strong>Tier Feature</strong> to the ship.</p></li><li><p>At levels 3, 6 and 9 the vehicle gains 1 <strong>System Point</strong>.</p></li><li><p>At levels 4 and 7 the ship gains <strong>1 HP</strong>.</p></li></ul><p></p><h2>Tier Features</h2><p>TODO</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787771510075,
+        "modifiedTime": 1787771577189,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.A8cdL4sX4j0mHm9X"
+    },
+    {
+      "sort": 700000,
+      "name": "Vehicule Weapon and Weapon Mounts",
+      "type": "text",
+      "category": "BeBRYerdI6c4WP2l",
+      "_id": "KWyYwtqUs674NnlX",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Weapon mounts</h2><p>Vehicle weapons do not have Category and Burden like personal weapons. Instead, each weapon is has a mount type: Core, Support or Heavy. This define the type of capabilities of the weapon as well as the limitation per Weapon Mount.</p><p>On a Weapon Mount, you can either:</p><ul><li><p>attach one Core weapon.</p></li><li><p>attach 2 Support weapons.</p></li><li><p>attach one Heavy weapon.</p></li></ul><h2>Weapons</h2><h3>Core weapons</h3><p>TODO</p><p></p><h3>Heavy weapons</h3><p>TODO</p><p></p><h3>Support weapons</h3><p>TODO</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787771600742,
+        "modifiedTime": 1787771797394,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.KWyYwtqUs674NnlX"
+    },
+    {
+      "sort": 800000,
+      "name": "Vehicle Systems",
+      "type": "text",
+      "category": null,
+      "_id": "obeuDEmiC65CT44Z",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Standard systems</h2><p>TODO</p><p></p><h2>Advanced systems</h2><p>TODO</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "ownership": {
+        "default": -1,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787771810179,
+        "modifiedTime": 1787771832883,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!HQ9v7FdZx9O7GlCy.obeuDEmiC65CT44Z"
+    }
+  ],
+  "folder": null,
+  "categories": [
+    {
+      "name": "Rules, positions and actions",
+      "sort": 100000,
+      "_id": "yDdQhwObAcDa4F9R",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787767972541,
+        "modifiedTime": 1787768008718,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.categories!HQ9v7FdZx9O7GlCy.yDdQhwObAcDa4F9R"
+    },
+    {
+      "name": "Vehicule evolution and customization",
+      "sort": 200000,
+      "_id": "BeBRYerdI6c4WP2l",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787768010610,
+        "modifiedTime": 1787768034415,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.categories!HQ9v7FdZx9O7GlCy.BeBRYerdI6c4WP2l"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787767458745,
+    "modifiedTime": 1787768034415,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "sort": 0,
+  "_key": "!journal!HQ9v7FdZx9O7GlCy"
+}

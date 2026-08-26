@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Once per Long Rest</strong>, when you would gain Fear on an <strong>Action Roll</strong>, you may instead reroll your Hope die and keep the new result.</p>",
+    "description": "<p><strong>Once per Long Rest</strong>, when you roll with Fear on an <strong>Action Roll</strong>, you may reroll your Hope die and keep the new result.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.7.4",
     "createdTime": 1783697808199,
-    "modifiedTime": 1783698117213,
+    "modifiedTime": 1787264594309,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

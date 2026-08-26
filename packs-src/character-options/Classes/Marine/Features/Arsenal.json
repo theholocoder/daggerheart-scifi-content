@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You can carry up to <strong data-start=\"1933\" data-end=\"1960\">four additional weapons</strong> in your inventory instead of two.</p><p data-start=\"1996\" data-end=\"2115\">Additionally, you can swap one of your active weapons with another weapon in your inventory <strong data-start=\"2088\" data-end=\"2114\">without marking Stress</strong>.</p>",
+    "description": "<p>You can carry up to <strong data-start=\"1933\" data-end=\"1960\">four weapons</strong> in your inventory instead of two.</p><p data-start=\"1996\" data-end=\"2115\">Additionally, you can swap one of your active weapons with another weapon in your inventory <strong data-start=\"2088\" data-end=\"2114\">without marking Stress</strong>.</p>",
     "gmNotes": "",
     "resource": null,
     "actions": {},
@@ -30,7 +30,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.7.4",
     "createdTime": 1786888266073,
-    "modifiedTime": 1787072111839,
+    "modifiedTime": 1787263888669,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
