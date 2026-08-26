@@ -1,0 +1,36 @@
+{
+  "folder": "3cmfQdMksFVYSwKi",
+  "name": "Angle Shields",
+  "type": "feature",
+  "_id": "vKYlKnidBIdlw1SQ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-triad-hexagons.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><strong>Mark a Stress</strong> to double the Dominator’s damage thresholds until it becomes <em>Vulnerable</em>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "reaction"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787785468596,
+    "modifiedTime": 1787785502841,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!vKYlKnidBIdlw1SQ"
+}

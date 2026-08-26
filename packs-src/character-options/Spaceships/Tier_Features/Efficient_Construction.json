@@ -1,0 +1,36 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Efficient Construction",
+  "type": "feature",
+  "_id": "cBgRRmO1mNi6lXpC",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/battery-pack.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>The vehicle gains +2 System Points.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787776984436,
+    "modifiedTime": 1787776997425,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cBgRRmO1mNi6lXpC"
+}

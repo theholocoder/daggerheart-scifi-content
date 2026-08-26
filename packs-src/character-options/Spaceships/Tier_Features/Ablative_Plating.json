@@ -1,0 +1,97 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Ablative Plating",
+  "type": "feature",
+  "_id": "QDxQNgE1j7TC2In1",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-tech-remnant.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Increase your vehicle’s Base Armor by +2.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Ablative Plating",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.resources.stress.max",
+            "type": "add",
+            "value": 2,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "68jviqb2WRiR65vh",
+      "img": "icons/magic/life/heart-cross-blue.webp",
+      "disabled": false,
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787776797135,
+        "modifiedTime": 1787776889570,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!QDxQNgE1j7TC2In1.68jviqb2WRiR65vh"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787776767540,
+    "modifiedTime": 1787776794213,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!QDxQNgE1j7TC2In1"
+}

@@ -1,0 +1,36 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Modified Targeting Computer",
+  "type": "feature",
+  "_id": "joCxxcxMNn9EAQe4",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-chart.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Choose one of your Weapon Mounts and increase the range of any weapon mounted on it by one.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787777148933,
+    "modifiedTime": 1787777200302,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!joCxxcxMNn9EAQe4"
+}

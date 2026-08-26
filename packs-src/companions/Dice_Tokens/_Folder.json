@@ -1,27 +1,23 @@
 {
   "type": "Actor",
   "folder": null,
-  "name": "Spaceships",
-  "color": "#5a66c4",
-  "flags": {
-    "daggerheart": {
-      "defaultEntity": ""
-    }
-  },
+  "name": "Dice Tokens",
+  "color": "#c88232",
   "sorting": "a",
-  "_id": "QA6vOHTN2go33wU4",
+  "_id": "q0aMAGzlXn5K9Zgu",
   "description": "",
-  "sort": 0,
+  "sort": 100000,
+  "flags": {},
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.7.4",
-    "createdTime": 1787785049224,
-    "modifiedTime": 1787785049224,
+    "createdTime": 1787772413554,
+    "modifiedTime": 1787772413554,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!QA6vOHTN2go33wU4"
+  "_key": "!folders!q0aMAGzlXn5K9Zgu"
 }

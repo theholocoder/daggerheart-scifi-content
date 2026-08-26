@@ -3,21 +3,25 @@
   "folder": "iIPsmFkUgrTQK7rz",
   "name": "Weapons",
   "color": null,
+  "flags": {
+    "daggerheart": {
+      "defaultEntity": ""
+    }
+  },
   "sorting": "a",
-  "_id": "BxowJQE0kO1MquFT",
+  "_id": "NshXnvkXluJajNSm",
   "description": "",
   "sort": 0,
-  "flags": {},
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
-    "createdTime": 1783724904382,
-    "modifiedTime": 1783724904382,
+    "systemVersion": "2.7.4",
+    "createdTime": 1787768363973,
+    "modifiedTime": 1787768363973,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!BxowJQE0kO1MquFT"
+  "_key": "!folders!NshXnvkXluJajNSm"
 }

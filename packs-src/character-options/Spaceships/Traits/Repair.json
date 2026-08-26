@@ -1,0 +1,36 @@
+{
+  "folder": "6Wt2bSOoGWbEajUF",
+  "name": "Repair",
+  "type": "feature",
+  "_id": "w6vE4LM9dae0Q5rg",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-crossed-wrenches.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>While under pressure or danger, make a <strong>Knowledge</strong> or <strong>Finesse Action Roll (14)</strong>. On a success, <strong>spend 2 Hope</strong> to clear <strong>1 HP</strong> from the vehicle or restore <strong>1 Shield</strong> to the vehicule.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787773751703,
+    "modifiedTime": 1787777977149,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!w6vE4LM9dae0Q5rg"
+}

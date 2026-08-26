@@ -1,0 +1,43 @@
+{
+  "folder": "3cmfQdMksFVYSwKi",
+  "name": "Targeting Matrix",
+  "type": "feature",
+  "_id": "MRtNNKygFqeXCUOk",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-chart.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When you spotlight the Dominator and it doesn’t have a token on its stat block, it can’t act yet. Place a <strong>token</strong> on the Dominator’s stat block and choose a vehicle the Dominator is targeting. <strong>Mark 1 or more Stress</strong> to add additional tokens equal to the Stress marked.</p>",
+    "gmNotes": "",
+    "resource": {
+      "type": "simple",
+      "value": 0,
+      "max": null,
+      "recovery": null,
+      "progression": "increasing",
+      "dieFaces": "d4"
+    },
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787785198071,
+    "modifiedTime": 1787785320088,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!MRtNNKygFqeXCUOk"
+}

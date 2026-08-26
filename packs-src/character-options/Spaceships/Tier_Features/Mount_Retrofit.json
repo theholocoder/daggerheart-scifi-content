@@ -1,0 +1,36 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Mount Retrofit",
+  "type": "feature",
+  "_id": "VXfCWfKtMqpwXqBj",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-jet.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>If the vehicle has less than three Weapon Mounts, gain a Weapon Mount.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787777024611,
+    "modifiedTime": 1787777050684,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!VXfCWfKtMqpwXqBj"
+}

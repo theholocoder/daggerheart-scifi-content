@@ -1,0 +1,432 @@
+{
+  "folder": "QA6vOHTN2go33wU4",
+  "name": "Space Dominator",
+  "type": "adversary",
+  "_id": "muNvkJBX7zQ9oEW8",
+  "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
+  "system": {
+    "attribution": {},
+    "description": "<p>A superior fighter.</p>",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "size": "medium",
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 6
+      },
+      "stress": {
+        "value": 0,
+        "max": 5
+      }
+    },
+    "advantageSources": [],
+    "disadvantageSources": [],
+    "tier": 1,
+    "type": "bruiser",
+    "notes": "",
+    "difficulty": 12,
+    "hordeHp": 1,
+    "criticalThreshold": 20,
+    "damageThresholds": {
+      "major": 7,
+      "severe": 14
+    },
+    "attack": {
+      "name": "Attack",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-comet.webp",
+      "_id": "chU5QoA8AfVwfkhU",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "bonus": 1,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "main": {
+          "type": [
+            "magical"
+          ],
+          "applyTo": "hitPoints",
+          "value": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d4",
+            "bonus": 6,
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            }
+          },
+          "base": false,
+          "resultBased": false,
+          "fullRestore": false,
+          "valueAlt": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "bonus": null,
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            }
+          },
+          "includeBase": false,
+          "direct": false
+        },
+        "resources": {}
+      },
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "triggers": [],
+      "areas": [],
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "experiences": {},
+    "motivesAndTactics": "Overwhelm, barrage"
+  },
+  "prototypeToken": {
+    "name": "Space Dominator",
+    "displayName": 20,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Targeting Matrix",
+      "type": "feature",
+      "_id": "MRtNNKygFqeXCUOk",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-chart.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>When you spotlight the Dominator and it doesn’t have a token on its stat block, it can’t act yet. Place a <strong>token</strong> on the Dominator’s stat block and choose a vehicle the Dominator is targeting. <strong>Mark 1 or more Stress</strong> to add additional tokens equal to the Stress marked.</p>",
+        "gmNotes": "",
+        "resource": {
+          "type": "simple",
+          "value": 0,
+          "max": null,
+          "recovery": null,
+          "progression": "increasing",
+          "dieFaces": "d4",
+          "diceStates": {}
+        },
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787785361752,
+        "modifiedTime": 1787785361752,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.MRtNNKygFqeXCUOk",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!muNvkJBX7zQ9oEW8.MRtNNKygFqeXCUOk"
+    },
+    {
+      "name": "Weapon’s Free",
+      "type": "feature",
+      "_id": "DJ7bNB3cf87I2r2M",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flamethrower.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>When the Dominator has <strong>1 or more tokens</strong> on its card, spend all tokens to attack the target of the Targeting Matrix, making a number of attacks equal to the number of tokens spent. Combine the damage from any successful attacks before comparing to the damage thresholds.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "action"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787785458089,
+        "modifiedTime": 1787785458089,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.DJ7bNB3cf87I2r2M",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!muNvkJBX7zQ9oEW8.DJ7bNB3cf87I2r2M"
+    },
+    {
+      "name": "Angle Shields",
+      "type": "feature",
+      "_id": "vKYlKnidBIdlw1SQ",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-triad-hexagons.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p><strong>Mark a Stress</strong> to double the Dominator’s damage thresholds until it becomes <em>Vulnerable</em>.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "reaction"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787785510464,
+        "modifiedTime": 1787785510464,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.vKYlKnidBIdlw1SQ",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!muNvkJBX7zQ9oEW8.vKYlKnidBIdlw1SQ"
+    },
+    {
+      "name": "Finicky Matrix",
+      "type": "feature",
+      "_id": "0U2nuzriNElBj3WL",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hex-field-dispersed.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>If the Dominator gains the <em>Vulnerable</em> condition, <strong>remove 1 token</strong> from it.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787785567175,
+        "modifiedTime": 1787785567175,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.0U2nuzriNElBj3WL",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!muNvkJBX7zQ9oEW8.0U2nuzriNElBj3WL"
+    },
+    {
+      "name": "Massive",
+      "type": "feature",
+      "_id": "EFSqCFPCcW4bIcdI",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-ancient-armor.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Unless <em>Vulnerable</em>, this vehicle is immune to damage from attacks by creatures or vehicles without the <strong>Massive</strong> feature.</p><ul><li><p>If attacked by another <strong>Massive</strong> vehicle or creature, it suffers damage normally.</p></li><li><p>When this vehicle makes an attack against a target without this feature, that target must <strong>mark an Armor Slot</strong> without receiving its benefits (though they may still use armor to reduce damage).</p></li><li><p>If they cannot mark an Armor Slot, they must instead <strong>mark an additional HP</strong>.</p></li></ul>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787785582109,
+        "modifiedTime": 1787785582109,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.EFSqCFPCcW4bIcdI",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!muNvkJBX7zQ9oEW8.EFSqCFPCcW4bIcdI"
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787785062828,
+    "modifiedTime": 1787785156485,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!muNvkJBX7zQ9oEW8"
+}

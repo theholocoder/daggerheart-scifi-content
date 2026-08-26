@@ -1,0 +1,36 @@
+{
+  "folder": "esrRNtL0IeG3Rmp5",
+  "name": "Weapon: Gatling Pulse Rifle",
+  "type": "feature",
+  "_id": "gl8r2lCe9wUu9mxc",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-rocket-thrusters.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><strong>Attribute</strong>: [[/dr trait=agility]]</p><p><strong>Range</strong>: Far</p><p><strong>Damage</strong>: d10 mag</p><p><strong>Type:</strong> Heavy</p><hr><p><strong>Overcharge</strong>: <strong>Mark a Stress</strong> to add a d6 to this weapon’s damage. This d6 scales with proficiency just like the base damage.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787782314831,
+    "modifiedTime": 1787782429000,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!gl8r2lCe9wUu9mxc"
+}

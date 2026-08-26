@@ -1,27 +1,27 @@
 {
   "type": "Actor",
-  "folder": null,
-  "name": "Spaceships",
-  "color": "#5a66c4",
+  "folder": "EmCNK52oKc9X0vIx",
+  "name": "Frames Tier 3",
+  "color": "#af6b2c",
   "flags": {
     "daggerheart": {
       "defaultEntity": ""
     }
   },
   "sorting": "a",
-  "_id": "QA6vOHTN2go33wU4",
+  "_id": "woBxfja0WxhkkEtJ",
   "description": "",
-  "sort": 0,
+  "sort": 100000,
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.7.4",
-    "createdTime": 1787785049224,
-    "modifiedTime": 1787785049224,
+    "createdTime": 1787774400931,
+    "modifiedTime": 1787774403301,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!QA6vOHTN2go33wU4"
+  "_key": "!folders!woBxfja0WxhkkEtJ"
 }

@@ -1,0 +1,36 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Reactive Targeting Computer",
+  "type": "feature",
+  "_id": "YNaaKhZMOpAErXc4",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/orange-target-sign.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><strong>Once per scene</strong>, the vehicle’s Systems Operator can take the <strong>Lock On Action</strong> as a <strong>Reaction</strong> to another character targeting an adversary with a vehicle weapon. This ability can be used additional times per scene, but each use beyond the first costs 1 Hope.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "reaction"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787777272474,
+    "modifiedTime": 1787777606657,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!YNaaKhZMOpAErXc4"
+}

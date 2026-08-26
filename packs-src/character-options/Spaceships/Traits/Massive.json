@@ -1,0 +1,36 @@
+{
+  "folder": "6Wt2bSOoGWbEajUF",
+  "name": "Massive",
+  "type": "feature",
+  "_id": "EFSqCFPCcW4bIcdI",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-ancient-armor.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Unless <em>Vulnerable</em>, this vehicle is immune to damage from attacks by creatures or vehicles without the <strong>Massive</strong> feature.</p><ul><li><p>If attacked by another <strong>Massive</strong> vehicle or creature, it suffers damage normally.</p></li><li><p>When this vehicle makes an attack against a target without this feature, that target must <strong>mark an Armor Slot</strong> without receiving its benefits (though they may still use armor to reduce damage).</p></li><li><p>If they cannot mark an Armor Slot, they must instead <strong>mark an additional HP</strong>.</p></li></ul>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787774059555,
+    "modifiedTime": 1787774264539,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!EFSqCFPCcW4bIcdI"
+}

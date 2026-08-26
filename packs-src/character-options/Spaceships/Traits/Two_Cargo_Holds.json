@@ -1,0 +1,36 @@
+{
+  "folder": "6Wt2bSOoGWbEajUF",
+  "name": "Two Cargo Holds",
+  "type": "feature",
+  "_id": "DPxzob9rxLBFRGe4",
+  "img": "icons/containers/boxes/crate-tech-silver.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Two spacious bays for hauling large cargo. Can fit a few small vehicles and several cargo crates and/or pallets. A cargo hold full of standard-quality goods is usually worth 1 stack of Denarii. A hold full of higher-quality goods would be worth 1 case of Denarii or more.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787774712433,
+    "modifiedTime": 1787774821189,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!DPxzob9rxLBFRGe4"
+}

@@ -1,0 +1,36 @@
+{
+  "folder": "6Wt2bSOoGWbEajUF",
+  "name": "Dedicated Crew",
+  "type": "feature",
+  "_id": "mhaCRzlI2DtlqCbx",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/solar-fist.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>The ship is too large and complex to run efficiently without a moderately sized crew. The dedicated crew can operate the ship independently and fills all crew positions, providing the dedicated effect. When the dedicated crew takes Actions, the GM rolls a <strong>d20 + the vehicle’s Tier</strong> to resolve the action. When the dedicated crew pilots the ship, it has a base <strong>Evasion of 9 + Tier</strong>.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787776126029,
+    "modifiedTime": 1787776241227,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!mhaCRzlI2DtlqCbx"
+}

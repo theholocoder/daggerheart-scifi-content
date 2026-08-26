@@ -1,0 +1,104 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Redundant Components",
+  "type": "feature",
+  "_id": "pwIp1bdNoeaJ0qQ0",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-flame-in-cannister.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Increase your vehicle’s HP by +2 and add +5 to the vehicle’s severe damage threshold.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Redundant Components",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.resources.hitPoints.max",
+            "type": "add",
+            "value": 2,
+            "priority": null,
+            "phase": "initial"
+          },
+          {
+            "key": "system.damageThresholds.severe",
+            "type": "add",
+            "value": 5,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "Uqr7qisX6fMNHrh8",
+      "img": "icons/magic/life/heart-cross-blue.webp",
+      "disabled": false,
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787777656948,
+        "modifiedTime": 1787777773318,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!pwIp1bdNoeaJ0qQ0.Uqr7qisX6fMNHrh8"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787777625451,
+    "modifiedTime": 1787777651847,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!pwIp1bdNoeaJ0qQ0"
+}

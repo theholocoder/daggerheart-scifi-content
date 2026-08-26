@@ -1,0 +1,135 @@
+{
+  "folder": "ZjVwUoSvEIhmHxYy",
+  "name": "Position: Commander",
+  "type": "feature",
+  "_id": "URrDfAEl5C8ju5ju",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/military-organization-emblem.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><strong>Standard</strong>: You give orders to your crewmates. When a willing crewmember needs to add or switch a crew position while under pressure or in danger, you can <strong>mark a Stress</strong> to allow them to do so without marking Stress themselves.</p><p><strong>Dedicated</strong>: You can lead a <strong>barrage</strong> against a target that has the <em>Lock On</em> condition. <strong>Mark a Stress</strong> and burn the <em>Lock On</em> to make an <strong>Action Roll</strong> against the target without gaining the normal <strong>d6</strong> for burning the <em>Lock On</em>. On a success, choose up to two Gunners or Systems Operators on your vehicle. Each chosen character may immediately make an attack against the target or use a system against the target. If this requires a roll, it is a <strong>Reaction Roll</strong>. Damage from each weapon that hits is applied separately.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "Rh7PO8oPDxsRTh59": {
+        "type": "effect",
+        "_id": "Rh7PO8oPDxsRTh59",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "<p>You give orders to your crewmates. When a willing crewmember needs to add or switch a crew position while under pressure or in danger, you can <strong>mark a Stress</strong> to allow them to do so without marking Stress themselves.</p>",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Order (mark a Stress)",
+        "range": ""
+      },
+      "EXsmaHu2GUkKGN2U": {
+        "type": "attack",
+        "_id": "EXsmaHu2GUkKGN2U",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "<p>You can lead a <strong>barrage</strong> against a target that has the <em>Lock On</em> condition. <strong>Mark a Stress</strong> and burn the <em>Lock On</em> to make an <strong>Action Roll</strong> against the target without gaining the normal <strong>d6</strong> for burning the <em>Lock On</em>. On a success, choose up to two Gunners or Systems Operators on your vehicle. Each chosen character may immediately make an attack against the target or use a system against the target. If this requires a roll, it is a <strong>Reaction Roll</strong>. Damage from each weapon that hits is applied separately.</p>",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "attack",
+          "trait": "finesse",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Barrage (mark a Stress)",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787778302599,
+    "modifiedTime": 1787778640407,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!URrDfAEl5C8ju5ju"
+}

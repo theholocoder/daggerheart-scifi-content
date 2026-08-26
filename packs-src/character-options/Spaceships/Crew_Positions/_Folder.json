@@ -1,27 +1,27 @@
 {
-  "type": "Actor",
-  "folder": null,
-  "name": "Spaceships",
-  "color": "#5a66c4",
+  "type": "Item",
+  "folder": "iIPsmFkUgrTQK7rz",
+  "name": "Crew Positions",
+  "color": null,
   "flags": {
     "daggerheart": {
       "defaultEntity": ""
     }
   },
   "sorting": "a",
-  "_id": "QA6vOHTN2go33wU4",
+  "_id": "ZjVwUoSvEIhmHxYy",
   "description": "",
   "sort": 0,
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
     "systemVersion": "2.7.4",
-    "createdTime": 1787785049224,
-    "modifiedTime": 1787785049224,
+    "createdTime": 1787778256201,
+    "modifiedTime": 1787778256201,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!folders!QA6vOHTN2go33wU4"
+  "_key": "!folders!ZjVwUoSvEIhmHxYy"
 }

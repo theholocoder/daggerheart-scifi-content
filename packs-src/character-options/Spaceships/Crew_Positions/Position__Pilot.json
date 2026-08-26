@@ -1,0 +1,141 @@
+{
+  "folder": "ZjVwUoSvEIhmHxYy",
+  "name": "Position: Pilot",
+  "type": "feature",
+  "_id": "AVFJRgfoPOs4kWrx",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-mechanical-arm.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><strong>Standard</strong>: You maneuver the vehicle. The vehicle's Evasion equals your Evasion, adjusted by vehicle-specific modifiers. If there are multiple pilots, use the highest Evasion among them.</p><p><strong>Dedicated</strong>: Gain +1 to <strong>Agility</strong> or <strong>Finesse</strong> <strong>Rolls</strong> made while piloting the vehicle. You may change this choice on a rest. If there are two Dedicated Pilots, both gain this bonus.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "DmuvWYAsGOBknk0s": {
+        "type": "attack",
+        "_id": "DmuvWYAsGOBknk0s",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "trait",
+          "trait": "agility",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Maneuver (Agility)",
+        "range": ""
+      },
+      "vPCjDqL5MrDP21kB": {
+        "type": "attack",
+        "_id": "vPCjDqL5MrDP21kB",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "trait",
+          "trait": "finesse",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Stabilize (Finesse)",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787779256863,
+    "modifiedTime": 1787779529289,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!AVFJRgfoPOs4kWrx"
+}

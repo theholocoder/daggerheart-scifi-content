@@ -1,7 +1,7 @@
 {
   "id": "daggerheart-scifi-content",
   "title": "Daggerheart Sci-Fi Content",
-  "version": "14.0.0-alpha.3",
+  "version": "14.0.0-alpha.4",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -102,6 +102,17 @@
       }
     },
     {
+      "name": "companions",
+      "label": "Companions",
+      "path": "packs/companions",
+      "type": "Actor",
+      "system": "daggerheart",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "environments",
       "label": "Environments",
       "path": "packs/environments",
@@ -183,6 +194,7 @@
         "character-options",
         "items",
         "adversaries",
+        "companions",
         "environments",
         "journals",
         "scenes",

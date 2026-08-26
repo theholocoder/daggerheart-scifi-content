@@ -1,0 +1,36 @@
+{
+  "folder": "3cmfQdMksFVYSwKi",
+  "name": "Weapon’s Free",
+  "type": "feature",
+  "_id": "DJ7bNB3cf87I2r2M",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flamethrower.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When the Dominator has <strong>1 or more tokens</strong> on its card, spend all tokens to attack the target of the Targeting Matrix, making a number of attacks equal to the number of tokens spent. Combine the damage from any successful attacks before comparing to the damage thresholds.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787785377346,
+    "modifiedTime": 1787785455855,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!DJ7bNB3cf87I2r2M"
+}

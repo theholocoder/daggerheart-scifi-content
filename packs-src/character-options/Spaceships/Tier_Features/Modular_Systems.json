@@ -1,0 +1,36 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Modular Systems",
+  "type": "feature",
+  "_id": "Yx0yPY02huvxXeJz",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-circuit-board-2.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>When the characters take a long rest they can choose to clear <strong>1d4 + Tier</strong> Armor or <strong>1d4 + Tier</strong> HP on the vehicle without using a downtime action.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787777215010,
+    "modifiedTime": 1787777251598,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!Yx0yPY02huvxXeJz"
+}

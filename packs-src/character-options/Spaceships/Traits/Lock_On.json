@@ -1,0 +1,36 @@
+{
+  "folder": "6Wt2bSOoGWbEajUF",
+  "name": "Lock On",
+  "type": "feature",
+  "_id": "UXuee21aR3ZC59Wi",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>A character may make a Finesse Action Roll against a target’s difficulty to use the vehicle’s systems to apply the <em>Lock On</em> condition.</p><p>When a character makes an <strong>Action Roll</strong> against a target that has <em>Lock On</em>, they may burn the Lock On to gain an edge, adding a <strong>d6</strong> to their attack and damage roll. This removes the <em>Lock On</em> from the target.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "action"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787773598042,
+    "modifiedTime": 1787777964025,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!UXuee21aR3ZC59Wi"
+}

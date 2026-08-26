@@ -1,0 +1,97 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Superior Processor",
+  "type": "feature",
+  "_id": "XvjS8aRpe4pP9ggB",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-circuit-board.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>The vehicle gains immunity to the <em>Vulnerable</em> condition.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [
+    {
+      "name": "Superior Processor",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.rules.conditionImmunities.vulnerable",
+            "type": "add",
+            "value": 1,
+            "priority": null,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "oJlqXCTDuBvBNNJ5",
+      "img": "icons/magic/life/heart-cross-blue.webp",
+      "disabled": false,
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787777825757,
+        "modifiedTime": 1787777852758,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!XvjS8aRpe4pP9ggB.oJlqXCTDuBvBNNJ5"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787777805891,
+    "modifiedTime": 1787777821024,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!XvjS8aRpe4pP9ggB"
+}

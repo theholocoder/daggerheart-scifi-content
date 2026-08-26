@@ -250,7 +250,7 @@
       "image": {},
       "text": {
         "format": 1,
-        "content": "<h2>Weapon mounts</h2><p>Vehicle weapons do not have Category and Burden like personal weapons. Instead, each weapon is has a mount type: Core, Support or Heavy. This define the type of capabilities of the weapon as well as the limitation per Weapon Mount.</p><p>On a Weapon Mount, you can either:</p><ul><li><p>attach one Core weapon.</p></li><li><p>attach 2 Support weapons.</p></li><li><p>attach one Heavy weapon.</p></li></ul><h2>Weapons</h2><h3>Core weapons</h3><p>TODO</p><p></p><h3>Heavy weapons</h3><p>TODO</p><p></p><h3>Support weapons</h3><p>TODO</p>"
+        "content": "<h2>Weapon mounts</h2><p>Vehicle weapons do not have Category and Burden like personal weapons. Instead, each weapon is has a mount type: Core, Support or Heavy. This define the type of capabilities of the weapon as well as the limitation per Weapon Mount.</p><p>On a Weapon Mount, you can either:</p><ul><li><p>attach one Core weapon and one Support weapon.</p></li><li><p>attach 2 Support weapons.</p></li><li><p>attach one Heavy weapon.</p></li></ul><h2>Weapons</h2><h3>Core weapons</h3><p>TODO</p><p></p><h3>Heavy weapons</h3><p>TODO</p><p></p><h3>Support weapons</h3><p>TODO</p>"
       },
       "video": {
         "controls": true,
@@ -267,7 +267,7 @@
         "systemId": "daggerheart",
         "systemVersion": "2.7.4",
         "createdTime": 1787771600742,
-        "modifiedTime": 1787771797394,
+        "modifiedTime": 1787784449148,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -279,7 +279,7 @@
       "sort": 800000,
       "name": "Vehicle Systems",
       "type": "text",
-      "category": null,
+      "category": "BeBRYerdI6c4WP2l",
       "_id": "obeuDEmiC65CT44Z",
       "system": {},
       "title": {
@@ -306,7 +306,7 @@
         "systemId": "daggerheart",
         "systemVersion": "2.7.4",
         "createdTime": 1787771810179,
-        "modifiedTime": 1787771832883,
+        "modifiedTime": 1787784399845,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,

@@ -1,0 +1,36 @@
+{
+  "folder": "6Wt2bSOoGWbEajUF",
+  "name": "Crew Maximum (7)",
+  "type": "feature",
+  "img": "icons/environment/people/group.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Maximum Crew of 7.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787773104547,
+    "modifiedTime": 1787773249738,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "427GQ6WUUC9uHsOv",
+  "sort": 600000,
+  "_key": "!items!427GQ6WUUC9uHsOv"
+}

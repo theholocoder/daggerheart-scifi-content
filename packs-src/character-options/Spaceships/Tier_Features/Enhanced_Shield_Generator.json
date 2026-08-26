@@ -1,0 +1,36 @@
+{
+  "folder": "mWW3dndjJjvQfOBi",
+  "name": "Enhanced Shield Generator",
+  "type": "feature",
+  "_id": "cWXYeOwrbedEXQxh",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-dotted-hex.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Decrease the cost to benefit from the Repair Action to only 1 Hope to fix the SHeidls.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787776917182,
+    "modifiedTime": 1787776966777,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cWXYeOwrbedEXQxh"
+}

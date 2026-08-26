@@ -1,0 +1,635 @@
+{
+  "folder": "VkstqW0Cu6jHC7qC",
+  "name": "Frame: Frigate T1",
+  "type": "adversary",
+  "_id": "rkAQh28YVyRrv0J1",
+  "img": "icons/sundries/gaming/card-astronomy-pink.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>A fast, heavily armed escort ship designed to screen capital ships and defend convoys. Frigates form the backbone of most military fleets, balancing firepower, crew, and endurance.</p>",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "size": "large",
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 8
+      },
+      "stress": {
+        "value": 0,
+        "max": 4
+      }
+    },
+    "advantageSources": [],
+    "disadvantageSources": [],
+    "tier": 1,
+    "type": "BPOaO4JkKyUt8AVy",
+    "notes": "",
+    "difficulty": 0,
+    "hordeHp": 1,
+    "criticalThreshold": 20,
+    "damageThresholds": {
+      "major": 8,
+      "severe": 17
+    },
+    "attack": {
+      "name": "Attack",
+      "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "qgqI32IXBinbKfXv",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "main": null,
+        "resources": {}
+      },
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "triggers": [],
+      "areas": [],
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "experiences": {},
+    "motivesAndTactics": ""
+  },
+  "prototypeToken": {
+    "name": "Frigate",
+    "displayName": 20,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "icons/sundries/gaming/card-astronomy-pink.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Crew Maximum (20)",
+      "type": "feature",
+      "img": "icons/environment/people/group.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Maximum Crew of 20.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787775625786,
+        "modifiedTime": 1787775625786,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "exportSource": null,
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.F46oyFZv8Y335sYH",
+        "duplicateSource": null
+      },
+      "_id": "F46oyFZv8Y335sYH",
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.F46oyFZv8Y335sYH"
+    },
+    {
+      "name": "Passenger Maximum (100)",
+      "type": "feature",
+      "img": "icons/environment/people/group.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Maximum Passengers of 100.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787775627786,
+        "modifiedTime": 1787775627786,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "exportSource": null,
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.bf8Atg0tqojUsLs7",
+        "duplicateSource": null
+      },
+      "_id": "bf8Atg0tqojUsLs7",
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.bf8Atg0tqojUsLs7"
+    },
+    {
+      "name": "System Points (4)",
+      "type": "feature",
+      "_id": "0cSgNoMXeMlIqyqO",
+      "img": "icons/sundries/misc/admission-ticket-grey.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Every ship starts and has some amount of System Points. Players may spend these system points to add standard vehicle systems to the spaceship.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787775736238,
+        "modifiedTime": 1787775747345,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.0cSgNoMXeMlIqyqO",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.0cSgNoMXeMlIqyqO"
+    },
+    {
+      "name": "Very Heavy",
+      "type": "feature",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-tech-remnant.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>−2 to Evasion.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [
+        {
+          "name": "Very Heavy",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.difficulty",
+                "type": "subtract",
+                "value": 2,
+                "priority": null,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": "",
+              "type": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "KwBzn2E6tKIdFGCi",
+          "img": "icons/magic/life/heart-cross-blue.webp",
+          "disabled": false,
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "description": "",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.7.4",
+            "createdTime": 1787775840149,
+            "modifiedTime": 1787775840149,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!rkAQh28YVyRrv0J1.0uKLUh4ULeeus6ZZ.KwBzn2E6tKIdFGCi"
+        }
+      ],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787775840149,
+        "modifiedTime": 1787775840149,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "exportSource": null,
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.0uKLUh4ULeeus6ZZ",
+        "duplicateSource": null
+      },
+      "_id": "0uKLUh4ULeeus6ZZ",
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.0uKLUh4ULeeus6ZZ"
+    },
+    {
+      "name": "Docking Bay",
+      "type": "feature",
+      "_id": "jCrIqO5FYX0RL10i",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-gas-pump.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>The ship has bays that can accommodate up to four Fighters, two Transports, or one Patrol craft.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787776101936,
+        "modifiedTime": 1787776101936,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.jCrIqO5FYX0RL10i",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.jCrIqO5FYX0RL10i"
+    },
+    {
+      "name": "Cargo Hold",
+      "type": "feature",
+      "img": "icons/containers/boxes/crate-tech-silver.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>A spacious bay for hauling large cargo. Can fit a few small vehicles and several cargo crates and/or pallets. A cargo hold full of standard-quality goods is usually worth about 1 stack of Denarii. A hold full of higher-quality goods would be worth 1 case of Denarii or more.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787776107099,
+        "modifiedTime": 1787776107099,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "exportSource": null,
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.79Jlwa5EHxKrnWBt",
+        "duplicateSource": null
+      },
+      "_id": "79Jlwa5EHxKrnWBt",
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.79Jlwa5EHxKrnWBt"
+    },
+    {
+      "name": "Dedicated Crew",
+      "type": "feature",
+      "_id": "mhaCRzlI2DtlqCbx",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/solar-fist.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>The ship is too large and complex to run efficiently without a moderately sized crew. The dedicated crew can operate the ship independently and fills all crew positions, providing the dedicated effect. When the dedicated crew takes Actions, the GM rolls a <strong>d20 + the vehicle’s Tier</strong> to resolve the action. When the dedicated crew pilots the ship, it has a base <strong>Evasion of 9 + Tier</strong>.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787776245423,
+        "modifiedTime": 1787776245423,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.mhaCRzlI2DtlqCbx",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.mhaCRzlI2DtlqCbx"
+    },
+    {
+      "name": "Weapon Mounts (3)",
+      "type": "feature",
+      "_id": "O6myNY3FYv51Hpq2",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-thrusters.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>A spaceship usually starts with 2 weapon mounts and more can be added later. The Frigate starts with 3.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "passive"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787776284533,
+        "modifiedTime": 1787776338364,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.O6myNY3FYv51Hpq2",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.O6myNY3FYv51Hpq2"
+    },
+    {
+      "name": "Lock On",
+      "type": "feature",
+      "_id": "UXuee21aR3ZC59Wi",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>A character may make a Finesse Action Roll against a target’s difficulty to use the vehicle’s systems to apply the <em>Lock On</em> condition.</p><p>When a character makes an <strong>Action Roll</strong> against a target that has <em>Lock On</em>, they may burn the Lock On to gain an edge, adding a <strong>d6</strong> to their attack and damage roll. This removes the <em>Lock On</em> from the target.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "action"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787778189873,
+        "modifiedTime": 1787778189873,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.UXuee21aR3ZC59Wi",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.UXuee21aR3ZC59Wi"
+    },
+    {
+      "name": "Repair",
+      "type": "feature",
+      "_id": "w6vE4LM9dae0Q5rg",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-crossed-wrenches.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>While under pressure or danger, make a <strong>Knowledge</strong> or <strong>Finesse Action Roll (14)</strong>. On a success, <strong>spend 2 Hope</strong> to clear <strong>1 HP</strong> from the vehicle or restore <strong>1 Shield</strong> to the vehicule.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "featureForm": "action"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.7.4",
+        "createdTime": 1787778194728,
+        "modifiedTime": 1787778194728,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.w6vE4LM9dae0Q5rg",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!rkAQh28YVyRrv0J1.w6vE4LM9dae0Q5rg"
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787775514673,
+    "modifiedTime": 1787778201267,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!rkAQh28YVyRrv0J1"
+}

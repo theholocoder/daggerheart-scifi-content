@@ -1,0 +1,36 @@
+{
+  "folder": "3cmfQdMksFVYSwKi",
+  "name": "Finicky Matrix",
+  "type": "feature",
+  "_id": "0U2nuzriNElBj3WL",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hex-field-dispersed.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>If the Dominator gains the <em>Vulnerable</em> condition, <strong>remove 1 token</strong> from it.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.7.4",
+    "createdTime": 1787785518566,
+    "modifiedTime": 1787785561682,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!0U2nuzriNElBj3WL"
+}
