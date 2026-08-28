@@ -7,14 +7,15 @@
  * the rest of the Spaceship resource shape (Hope, HP, Stress, Evasion, Shield, Proficiency,
  * thresholds, stations, system points, weapon mounts, ...) is added by later tickets.
  *
- * `metadata` is *not* our own convention: `daggerheart`'s own `Actor`/`Token` document classes
- * (`CONFIG.Actor.documentClass`/`CONFIG.Token.objectClass`, both world-global, not overridable
- * per sub-type) unconditionally read `actor.system.metadata.usesSize` on actor creation, token
- * creation, and every render of the Actors sidebar - for *every* Actor in the world, including
- * foreign module-registered ones. Without this getter, creating a Spaceship actor throws
- * (`this.system.metadata is undefined`) and the sidebar breaks once one exists. Shape mirrors
- * `daggerheart`'s own `BaseDataActor.metadata` default (`module/data/actor/base.mjs`); every
- * flag is set to its safe/inert default since we don't use any of the features they gate.
+ * `metadata` and `getRollData` are *not* our own convention: `daggerheart`'s `Actor`/`Token`
+ * document classes (`CONFIG.Actor.documentClass`/`CONFIG.Token.objectClass`, both world-global,
+ * not overridable per sub-type) unconditionally read `actor.system.metadata.usesSize` on actor
+ * creation, token creation, and every render of the Actors sidebar, and unconditionally call
+ * `actor.system.getRollData()` from `DhpActor#getRollData` (itself called by core Foundry's
+ * `applyActiveEffects` during every data preparation) - for *every* Actor in the world, including
+ * foreign module-registered ones. Without these, creating a Spaceship actor throws. `metadata`'s
+ * shape mirrors `daggerheart`'s own `BaseDataActor.metadata` default (`module/data/actor/base.mjs`),
+ * every flag at its safe/inert default; `getRollData` mirrors its minimal default implementation.
  */
 export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   SpaceshipData.Schema,
@@ -35,6 +36,11 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
 
   get metadata(): SpaceshipData.Metadata {
     return (this.constructor as typeof SpaceshipData).metadata;
+  }
+
+  /** Data made available to roll formulas referencing this actor. Extended as ship stats are added. */
+  getRollData(): Record<string, unknown> {
+    return { level: this.level };
   }
 
   static override defineSchema(): SpaceshipData.Schema {

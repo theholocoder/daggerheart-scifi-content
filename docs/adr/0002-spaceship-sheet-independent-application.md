@@ -21,12 +21,13 @@ This decision applies to all future Spaceship-sheet work (stations, crew assignm
 
 Reading daggerheart's system-registered `game.settings` (e.g. the resource-pips appearance setting) or reusing its `armor`/`weapon` Item types on the ship Actor, as already decided in [[0001-spaceship-actor-subtype]], stays fine — that's public/system-scoped state, not a private sheet-class contract.
 
-## Addendum: `system.metadata` is unavoidable, just not from the sheet
+## Addendum: `system.metadata` and `system.getRollData()` are unavoidable, just not from the sheet
 
-Testing surfaced that the same `metadata` contract from the Finding above is *also* read, unconditionally, by daggerheart's `Actor`/`Token` **document** classes — `CONFIG.Actor.documentClass`/`CONFIG.Token.objectClass` are world-global, not overridable per sub-type, so they run for every Actor in the world regardless of which module registered its type:
+Testing surfaced that daggerheart's `Actor`/`Token` **document** classes read a small, undocumented contract off `system` unconditionally — `CONFIG.Actor.documentClass`/`CONFIG.Token.objectClass` are world-global, not overridable per sub-type, so they run for every Actor in the world regardless of which module registered its type:
 
 - `DhpActor#_preCreate` reads `this.system.metadata.usesSize` on every Actor creation.
 - `documents/token.mjs` and `documents/tokenManager.mjs` read `actor.system.metadata.usesSize` on token creation/placement.
 - `applications/sidebar/tabs/actorDirectory.mjs` reads `actor.system.metadata.usesSize` on every render of the Actors sidebar list.
+- `DhpActor#getRollData` unconditionally calls `this.system.getRollData()` — itself called from core Foundry's `applyActiveEffects` during every data-preparation pass, i.e. on every Actor create/update/render.
 
-Without a `metadata` getter, creating a Spaceship actor throws (`this.system.metadata is undefined`) and, worse, once one exists it breaks the whole Actors sidebar. This isn't a sheet-reuse question, so it doesn't reverse the Decision above: `SpaceshipData` (`src/module/data/actors/spaceship-data.ts`) defines its own `metadata` static/instance getter, matching the shape of daggerheart's own `BaseDataActor.metadata` (`module/data/actor/base.mjs`) with every flag at its safe/inert default. Future Spaceship DataModel work should keep this getter in sync if new unconditional `system.metadata.*` reads are found in daggerheart's document-level code (as opposed to its sheet code, which we still don't touch).
+Without these, creating a Spaceship actor throws (`this.system.metadata is undefined`, then `this.system.getRollData is not a function`) and, worse, once one exists it breaks the whole Actors sidebar. This isn't a sheet-reuse question, so it doesn't reverse the Decision above: `SpaceshipData` (`src/module/data/actors/spaceship-data.ts`) defines its own `metadata` static/instance getter (matching the shape of daggerheart's own `BaseDataActor.metadata`, `module/data/actor/base.mjs`, every flag at its safe/inert default) and its own minimal `getRollData()` (mirroring `BaseDataActor.getRollData`'s default). Future Spaceship DataModel work should keep both in sync if new unconditional `system.*` reads are found in daggerheart's document-level code (as opposed to its sheet code, which we still don't touch).
