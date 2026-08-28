@@ -9,7 +9,22 @@
   "DHSCIFI": {
     "Spaceship": {
       "NamePlaceholder": "Nom du vaisseau",
-      "Level": "Niveau"
+      "Level": "Niveau",
+      "TierMarked": "Palier marqué",
+      "Max": "Max",
+      "Hope": "Espoir",
+      "HitPoints": "PV",
+      "Stress": "Stress",
+      "Evasion": "Esquive",
+      "Proficiency": "Maîtrise",
+      "Traits": {
+        "agility": "Agilité",
+        "strength": "Force",
+        "finesse": "Finesse",
+        "instinct": "Instinct",
+        "presence": "Présence",
+        "knowledge": "Savoir"
+      }
     }
   }
 }
