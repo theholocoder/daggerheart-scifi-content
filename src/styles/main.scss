@@ -119,11 +119,11 @@ body {
       gap: 8px;
     }
 
+    // Official puts HP and Stress side by side (`.character-sidebar-sheet .resources-section`).
     .resources-section {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
+      justify-content: space-evenly;
+      width: 100%;
     }
 
     .status-section {
