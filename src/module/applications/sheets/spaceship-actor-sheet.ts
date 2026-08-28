@@ -21,10 +21,10 @@ export default class SpaceshipActorSheet extends BaseSheet {
     // docs/adr/0002-spaceship-sheet-independent-application.md). Adding them here only opts
     // this independent ApplicationV2 into that public theming, it doesn't subclass anything.
     classes: [MODULE_ID, "spaceship-sheet", "daggerheart", "dh-style"],
-    // Wide enough for the sidebar (180px) + all six trait boxes on one row, matching the
+    // Wide enough for the sidebar (220px) + all six trait boxes on one row, matching the
     // official character sheet's proportions instead of wrapping them into extra rows.
     position: {
-      width: 720,
+      width: 760,
       height: 700,
     },
     form: {
