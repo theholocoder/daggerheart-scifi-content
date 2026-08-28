@@ -24,5 +24,6 @@ function materializeDir(name) {
 }
 
 materializeDir("artwork");
+materializeDir("templates");
 materializeDir("lang");
 materializeDir("date-stellaire.json");

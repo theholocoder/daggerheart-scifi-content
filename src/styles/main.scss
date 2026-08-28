@@ -2,3 +2,42 @@
 body {
   background-color: black;
 }
+
+.daggerheart-scifi-content.spaceship-sheet {
+  .spaceship-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+
+    .spaceship-portrait img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .spaceship-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+
+      .spaceship-name {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+
+      .spaceship-level {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+
+        input {
+          width: 3rem;
+        }
+      }
+    }
+  }
+}

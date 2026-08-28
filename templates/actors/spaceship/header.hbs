@@ -1,0 +1,29 @@
+<header class="spaceship-header">
+    <div class="spaceship-portrait">
+        <img src="{{document.img}}" alt="{{document.name}}" data-action="editImage" data-edit="img">
+    </div>
+
+    <div class="spaceship-info">
+        <input
+            type="text"
+            name="name"
+            class="spaceship-name"
+            value="{{document.name}}"
+            placeholder="{{localize 'DHSCIFI.Spaceship.NamePlaceholder'}}"
+            autocomplete="off"
+            {{#unless editable}}disabled{{/unless}}
+        >
+
+        <label class="spaceship-level">
+            <span>{{localize 'DHSCIFI.Spaceship.Level'}}</span>
+            <input
+                type="number"
+                name="system.level"
+                value="{{document.system.level}}"
+                min="1"
+                step="1"
+                {{#unless editable}}disabled{{/unless}}
+            >
+        </label>
+    </div>
+</header>

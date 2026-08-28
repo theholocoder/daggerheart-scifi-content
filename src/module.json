@@ -15,6 +15,11 @@
       }
     ]
   },
+  "documentTypes": {
+    "Actor": {
+      "spaceship": {}
+    }
+  },
   "flags": {
     "canUpload": true,
     "hotReload": {
@@ -29,7 +34,7 @@
         "jpeg",
         "svg"
       ],
-      "paths": ["artwork", "packs"]
+      "paths": ["artwork", "packs", "templates"]
     }
   },
   "authors": [

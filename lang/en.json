@@ -1,1 +1,15 @@
-{}
+{
+  "TYPES": {
+    "Actor": {
+      "daggerheart-scifi-content": {
+        "spaceship": "Spaceship"
+      }
+    }
+  },
+  "DHSCIFI": {
+    "Spaceship": {
+      "NamePlaceholder": "Spaceship Name",
+      "Level": "Level"
+    }
+  }
+}
