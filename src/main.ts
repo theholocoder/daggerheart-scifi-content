@@ -3,6 +3,7 @@ import "./styles/main.scss";
 import { MODULE_ID, SPACESHIP_ACTOR_TYPE } from "./module/constants";
 import SpaceshipData from "./module/data/actors/spaceship-data";
 import SpaceshipActorSheet from "./module/applications/sheets/spaceship-actor-sheet";
+import registerCharacterOnlyPatches from "./module/compat/character-only-patches";
 
 Hooks.once("init", async function () {
   console.log("DHSciFi | Initializing...");
@@ -10,6 +11,8 @@ Hooks.once("init", async function () {
   Object.assign(CONFIG.Actor.dataModels, {
     [SPACESHIP_ACTOR_TYPE]: SpaceshipData,
   });
+
+  registerCharacterOnlyPatches();
 
   // Builds the pip-row array for a `{value, max}` resource (Hope/HP/Stress), so sheet templates
   // can `{{#each}}` over plain box objects. Registered here (own helper) rather than relying on

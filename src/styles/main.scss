@@ -69,7 +69,12 @@ body {
     }
   }
 
-  input {
+  // `:not(.inventory-item-quantity)`: that one input is left to daggerheart's own unscoped
+  // `.dh-style input[type='number']` rule (`color`/`border` from its `--dh-input-color-*` tokens,
+  // themed correctly for dark/light) - this rule's `border: 1px solid transparent`/`color: inherit`
+  // otherwise wins on specificity and blanks that styling out. See the Inventory tab addendum
+  // below for the rest of this "don't fight daggerheart's own free CSS" story.
+  input:not(.inventory-item-quantity) {
     background: transparent;
     border: 1px solid transparent;
     color: inherit;
@@ -373,6 +378,68 @@ body {
   // dimmed + "coming soon" tooltip until their tickets (#6-#12) land.
   .dhscifi-placeholder {
     opacity: 0.45;
+  }
+
+  /*
+   * Inventory tab (#6): weapon/armor/consumable/loot lists, no currency section. Item-row markup
+   * (`fieldset.glassy`/`legend`, `items-list`, `inventory-item`/`item-main`/`inventory-item-header`/
+   * `img-portait`/`item-label`/`item-tags`/`item-resource`/`controls`) reuses `daggerheart`'s own
+   * classes verbatim (templates/sheets/global/partials/inventory-item-V2.hbs) - `daggerheart.css`
+   * themes all of those unscoped under `.application.daggerheart.dh-style` (no `.character`/
+   * sheet-type prefix required), so they're styled for free here, same reasoning as this file's
+   * top-of-file addendum comment. `.items-section` *is* `.character`/`.party`-scoped there, so its
+   * layout (flex column, scroll, gutter) is copied by value below; `.mounts-count` is our own.
+   */
+  .spaceship-inventory {
+    flex: 1;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .items-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 8px 0.75rem 4px 0.75rem;
+      overflow-y: auto;
+    }
+
+    .mounts-count {
+      font-weight: normal;
+      opacity: 0.85;
+      font-size: var(--font-size-12, 0.75rem);
+    }
+
+    // `.item-name`/`.inventory-description`/`.controls a` have no color rule of their own in
+    // daggerheart.css, so they inherit whatever ambient `color` is in scope - on the official
+    // character sheet that's a light, near-white value inherited from core Foundry's own
+    // `.application` base styling (`--color-text-primary`); on ours it was our own root's
+    // `color: var(--color-text-emphatic)` (a gold/amber tone, set for the header/sidebar elsewhere
+    // on this sheet), read as "yellow". Reset to the same core token the official sheet actually
+    // inherits, not a hardcoded white.
+    //
+    // `.item-buttons button` genuinely already has its own correct, themed color in
+    // daggerheart.css (`--dh-button-color-text`, dark text against its light button background)
+    // and stays untouched here - overriding it to white was a real mistake (confirmed: made the
+    // button's dark-on-light text unreadable).
+    //
+    // `.item-tags .tag` *does* have its own daggerheart.css rule too (`color: var(--color-light-
+    // 2)`), which traced through the stylesheet should already win on specificity - but removing
+    // this override still showed yellow tags live, twice, so something about how `--color-light-2`
+    // resolves in this actual sheet isn't matching that trace. Reinstated on user-confirmed report
+    // rather than theory; worth a proper look with real devtools access before removing again.
+    .inventory-item {
+      .item-name,
+      .inventory-description,
+      .controls a {
+        color: var(--color-text-primary);
+      }
+
+      .item-tags .tag {
+        color: #fff;
+      }
+    }
   }
 
   // Stub body shown in each not-yet-built tab (Features/Inventory/Stations/Effects).

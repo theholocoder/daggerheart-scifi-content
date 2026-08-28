@@ -20,6 +20,25 @@
       "SystemPoints": "System Points",
       "WeaponMounts": "Mounts",
       "ComingSoon": "Coming soon",
+      "Inventory": {
+        "Weapons": "Weapons",
+        "Armor": "Armor",
+        "Consumables": "Consumables",
+        "Loot": "Loot",
+        "CreateItem": "Create Item",
+        "EditItem": "Edit Item",
+        "UseItem": "Use/Roll",
+        "SendToChat": "Send to Chat",
+        "MoreOptions": "More Options",
+        "Equip": "Equip",
+        "Unequip": "Unequip",
+        "MountsFull": "No weapon mounts available.",
+        "InvalidItemType": "Only weapons, armor, consumables, and loot can be added to a ship's inventory.",
+        "DeleteItem": {
+          "title": "Delete Item",
+          "body": "Delete {name}?"
+        }
+      },
       "Thresholds": {
         "minor": "Minor",
         "major": "Major",
@@ -46,7 +65,8 @@
         "basics": "Basics",
         "hopeMax": "Max Hope",
         "hitPointsMax": "Max HP",
-        "stressMax": "Max Stress"
+        "stressMax": "Max Stress",
+        "maxWeaponMounts": "Weapon Mounts"
       }
     }
   }

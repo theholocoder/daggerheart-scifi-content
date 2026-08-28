@@ -4,6 +4,84 @@ import SpaceshipSettings from "../settings/spaceship-settings";
 const BaseSheet = foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2);
 
 /**
+ * The `daggerheart` system Item types the Inventory tab lists (#6), per the issue's "reusing the
+ * existing weapon/armor/consumable/loot item types". docs/adr/0002-spaceship-sheet-independent-
+ * application.md explicitly clears `armor`/`weapon` for reuse on a foreign Actor sub-type
+ * (public/system-scoped state, not a private sheet-class contract); `consumable`/`loot` aren't
+ * separately named there but are the same kind of system-registered Item type.
+ */
+const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot"] as const;
+type InventoryItemType = (typeof INVENTORY_ITEM_TYPES)[number];
+
+/**
+ * Fields this sheet reads off an inventory item's `system` - not the full daggerheart schema.
+ * `equipped`/`burden` are weapon/armor-only in practice; `quantity` is consumable/loot-only.
+ * One shared shape (rather than a type per Item type) because `LooseItem` below is itself a
+ * loosened stand-in for all four Item types, not just weapon/armor.
+ */
+interface InventoryItemSystem {
+  equipped?: boolean;
+  burden?: "oneHanded" | "twoHanded";
+  quantity?: number;
+  description?: string;
+  getEnrichedDescription?: () => Promise<string>;
+}
+
+/**
+ * fvtt-types has no knowledge of daggerheart's Item sub-types (`weapon`/`armor`/`consumable`/
+ * `loot`) or their `system` schemas - the same "no `game.system.api`" gap the sheet class itself
+ * works around (docs/adr/0002-spaceship-sheet-independent-application.md). The Inventory tab's
+ * item-management methods below work through this loose `LooseItem`/`LooseActor` shape rather
+ * than fighting fvtt-types' strict, daggerheart-unaware `Item.type`/`Item.CreateData` unions.
+ */
+interface LooseItem {
+  id: string;
+  uuid: string;
+  type: string;
+  name: string;
+  img: string | null;
+  system: InventoryItemSystem;
+  parent?: { uuid?: string } | null;
+  sheet?: { render: (options?: unknown) => unknown } | null;
+  isOwner?: boolean;
+  // Daggerheart's own `Item`-level mixin (not sheet code - see class doc comment on
+  // `isItemValid`), used here by the Inventory tab template to render the same tag chips
+  // ("Finesse", "One-Handed", "d8+1 (Phy)", "Base Score: 3"...) the character sheet shows,
+  // without reimplementing daggerheart's per-item-type tag logic ourselves.
+  _getTags?: () => string[];
+  // Also `Item`-level (not sheet code): whether the item has description/feature text worth
+  // expanding. `system.getEnrichedDescription` is the actual enriched-HTML source used once
+  // expanded (see `#enrichInventoryDescriptions`); `system.description` is its plain fallback.
+  hasDescription?: boolean;
+  // Also `Item`-level: whether clicking the portrait should roll/use the item's action instead of
+  // opening its sheet - `false` for a ship item without `src/module/compat/character-only-
+  // patches.ts`'s `usable` patch (daggerheart's own `usable` getter hard-gates non-`character`
+  // actors, same restriction `_getTags`/`hasDescription` above are *not* subject to).
+  usable?: boolean;
+  // Item-level: posts the item's description to chat, same as the character sheet's own "Send to
+  // Chat" control - not gated to `character` actors anywhere found so far, used as-is.
+  toChat?: (uuid: string) => Promise<unknown>;
+  update(data: Record<string, unknown>): Promise<unknown>;
+  delete(): Promise<unknown>;
+  toObject(): Record<string, unknown>;
+}
+
+interface LooseActor {
+  uuid: string;
+  system: { maxWeaponMounts: number };
+  items: Iterable<LooseItem> & { get(id: string): LooseItem | undefined };
+  createEmbeddedDocuments(type: "Item", data: Record<string, unknown>[]): Promise<unknown>;
+}
+
+/** One row of the Inventory tab's per-type item lists: the item plus its precomputed display bits. */
+interface InventoryEntry {
+  item: LooseItem;
+  tags: string[];
+  hasDescription: boolean;
+  usable: boolean;
+}
+
+/**
  * Minimal sheet for the `daggerheart-scifi-content.spaceship` Actor sub-type.
  *
  * Independent ApplicationV2 class - does not extend the `daggerheart` system's own sheet base
@@ -36,12 +114,18 @@ export default class SpaceshipActorSheet extends BaseSheet {
       toggleHitPoints: SpaceshipActorSheet.#onToggleResourceBox,
       toggleStress: SpaceshipActorSheet.#onToggleResourceBox,
       openSettings: SpaceshipActorSheet.#onOpenSettings,
+      createItem: SpaceshipActorSheet.#onCreateItem,
+      editItem: SpaceshipActorSheet.#onEditItem,
+      toggleEquipItem: SpaceshipActorSheet.#onToggleEquipItem,
+      toggleExtended: SpaceshipActorSheet.#onToggleExtended,
+      useItem: SpaceshipActorSheet.#onUseItem,
+      toChat: SpaceshipActorSheet.#onToChat,
     },
   };
 
   // Same part split as the official character sheet (sidebar / header / one part per tab);
-  // our SCSS places them on the same window-content grid the official sheet uses. The four
-  // tab parts share one placeholder template until tickets #6-#12 build them for real.
+  // our SCSS places them on the same window-content grid the official sheet uses. Inventory has
+  // its own template (#6); the remaining tab parts still share the placeholder until #8-#12.
   static override PARTS = {
     sidebar: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/sidebar.hbs`,
@@ -53,7 +137,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
     },
     inventory: {
-      template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
+      template: `modules/${MODULE_ID}/templates/actors/spaceship/inventory.hbs`,
     },
     stations: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
@@ -105,7 +189,70 @@ export default class SpaceshipActorSheet extends BaseSheet {
       tab?: foundry.applications.api.ApplicationV2.Tab;
     };
     if (withTabs.tabs && partId in withTabs.tabs) withTabs.tab = withTabs.tabs[partId];
+    if (partId === "inventory") {
+      Object.assign(context, {
+        inventory: SpaceshipActorSheet.#buildInventoryContext(this.document as unknown as LooseActor),
+      });
+    }
     return context;
+  }
+
+  /**
+   * Group the ship's `weapon`/`armor`/`consumable`/`loot` items for the Inventory tab (#6), plus
+   * the weapon-mount usage (`equipped` count vs `maxWeaponMounts`) shown next to the weapons list.
+   * Passes the live `LooseItem`s through as-is (not a flattened row shape) so `inventory.hbs` can
+   * call `item._getTags`/`item.system.*` directly, same as daggerheart's own inventory template.
+   */
+  static #buildInventoryContext(actor: LooseActor): {
+    weapons: InventoryEntry[];
+    armor: InventoryEntry[];
+    consumables: InventoryEntry[];
+    loot: InventoryEntry[];
+    mounts: { value: number; max: number };
+  } {
+    const rows: Record<InventoryItemType, InventoryEntry[]> = { weapon: [], armor: [], consumable: [], loot: [] };
+
+    for (const item of actor.items) {
+      if (SpaceshipActorSheet.#isInventoryItemType(item.type)) {
+        // Tags are computed here, not read as `item._getTags` from the template: Handlebars only
+        // binds a resolved-function's `this` correctly to the object it's a *direct* property of
+        // (daggerheart's own item-tags.hbs partial relies on exactly that, invoking `_getTags` as
+        // a bare path with `item` as the partial's context) - a nested path like `item._getTags`
+        // would call it with the wrong `this` and break every tag that reads `this.attack`/etc.
+        rows[item.type].push({
+          item,
+          tags: item._getTags?.() ?? [],
+          hasDescription: item.hasDescription ?? false,
+          usable: item.usable ?? false,
+        });
+      }
+    }
+
+    return {
+      weapons: rows.weapon,
+      armor: rows.armor,
+      consumables: rows.consumable,
+      loot: rows.loot,
+      mounts: {
+        value: SpaceshipActorSheet.#countEquippedWeapons(actor),
+        max: actor.system.maxWeaponMounts,
+      },
+    };
+  }
+
+  static #isInventoryItemType(type: string): type is InventoryItemType {
+    return (INVENTORY_ITEM_TYPES as readonly string[]).includes(type);
+  }
+
+  /**
+   * One equipped weapon = one used mount, regardless of `burden` (#6/CONTEXT.md's "Weapon
+   * Mount" entry): unlike the character sheet's primary/secondary pairing, a ship doesn't halve
+   * the cost of two one-handed weapons sharing a mount - each equipped weapon item gets its own.
+   * Single source of truth for this count - both `#buildInventoryContext` (display) and the
+   * equip/drop handlers below (cap enforcement) call this rather than each re-deriving it.
+   */
+  static #countEquippedWeapons(actor: LooseActor): number {
+    return Array.from(actor.items).filter((item) => item.type === "weapon" && item.system.equipped === true).length;
   }
 
   /**
@@ -175,4 +322,283 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const newValue = current >= boxValue ? boxValue - 1 : boxValue;
     await this.document.update({ [path]: newValue });
   }
+
+  /** Create a new embedded Item of the type named by the clicked button's `data-item-type`. */
+  static async #onCreateItem(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const itemType = target.dataset.itemType ?? "";
+    if (!SpaceshipActorSheet.#isInventoryItemType(itemType)) return;
+
+    const actor = this.document as unknown as LooseActor;
+    // fvtt-types' `getDefaultArtwork` only accepts its strict, daggerheart-unaware `type` union
+    // (same gap `LooseItem`/`LooseActor` work around above) - called through a loosened signature.
+    const getDefaultArtwork = CONFIG.Item.documentClass.getDefaultArtwork as (data: {
+      type: string;
+    }) => { img: string | null };
+    const { img } = getDefaultArtwork({ type: itemType });
+    await actor.createEmbeddedDocuments("Item", [
+      {
+        type: itemType,
+        name: game.i18n!.localize(`TYPES.Item.${itemType}`),
+        img,
+      },
+    ]);
+  }
+
+  /** Open the embedded Item's own sheet, from `data-item-id` on the clicked row. */
+  static async #onEditItem(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const item = SpaceshipActorSheet.#getRowItem(this.document as unknown as LooseActor, target);
+    item?.sheet?.render(true);
+  }
+
+  /**
+   * Delete an embedded Item after a confirm dialog - called from the row's context menu
+   * (`#bindItemContextMenu`), the only way to delete an item now that the controls match the
+   * character sheet's own default set (equip/Send to Chat/kebab, not standalone edit/delete
+   * icons - see `inventory.hbs`'s comment).
+   */
+  static async #deleteItemWithConfirm(item: LooseItem): Promise<void> {
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window: { title: game.i18n!.localize("DHSCIFI.Spaceship.Inventory.DeleteItem.title") },
+      content: `<p>${game.i18n!.format("DHSCIFI.Spaceship.Inventory.DeleteItem.body", { name: item.name })}</p>`,
+    });
+    if (!confirmed) return;
+
+    await item.delete();
+  }
+
+  /**
+   * Equip/unequip a `weapon` or `armor` item, from `data-item-id` on the clicked row.
+   *
+   * Weapons: equipping beyond `maxWeaponMounts` is blocked - one mount per equipped weapon
+   * regardless of `burden` (see `#countEquippedWeapons`).
+   * Armor: equipping one unequips any other equipped armor (only one Shield source at a time,
+   * mirroring the character sheet's single-armor-slot rule); ticket #7 derives Shield from it.
+   */
+  static async #onToggleEquipItem(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const actor = this.document as unknown as LooseActor;
+    const item = SpaceshipActorSheet.#getRowItem(actor, target);
+    if (!item || (item.type !== "weapon" && item.type !== "armor")) return;
+
+    const equipping = !item.system.equipped;
+
+    if (equipping && item.type === "weapon" && SpaceshipActorSheet.#countEquippedWeapons(actor) >= actor.system.maxWeaponMounts) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Inventory.MountsFull"));
+      return;
+    }
+
+    await item.update({ "system.equipped": equipping });
+
+    if (equipping && item.type === "armor") {
+      const otherEquippedArmor = Array.from(actor.items).filter(
+        (other) => other.type === "armor" && other.id !== item.id && other.system.equipped === true,
+      );
+      await Promise.all(otherEquippedArmor.map((other) => other.update({ "system.equipped": false })));
+    }
+  }
+
+  /** Resolve the embedded Item referenced by the closest `[data-item-id]` ancestor of `target`. */
+  static #getRowItem(actor: LooseActor, target: HTMLElement): LooseItem | undefined {
+    const itemId = target.closest<HTMLElement>("[data-item-id]")?.dataset.itemId;
+    return itemId ? actor.items.get(itemId) : undefined;
+  }
+
+  /**
+   * Expand/collapse an item row's description, from `data-action="toggleExtended"` on
+   * `.inventory-item-header` - mirrors daggerheart's own `DHSheetV2#toggleExtended` exactly (a
+   * plain class toggle, no actor/item access at all, so nothing about it is `character`-only).
+   */
+  static #onToggleExtended(_event: PointerEvent, target: HTMLElement): void {
+    const extensible = target.closest(".inventory-item")?.querySelector(".extensible");
+    extensible?.classList.toggle("extended");
+  }
+
+  /**
+   * Run one of an item's own `system.actions` (e.g. a Medpack's "Clear 1d4 HP" Healing action),
+   * from `data-item-uuid` on the clicked `.item-buttons` button - resolves the Action document by
+   * UUID and calls its own `use(event)`, mirroring daggerheart's own `useItem` action exactly
+   * (Action-document-level behavior, not sheet code, same reuse category as `item._getTags`).
+   * Only reachable at all because of `src/module/compat/actions-list-patch.ts` - without it,
+   * `item.system.actions.size` still renders truthfully, but daggerheart's own `actionsList` gate
+   * hides the action from its "Use" dialog's cost resolution, and it throws.
+   */
+  static async #onUseItem(event: PointerEvent, target: HTMLElement): Promise<void> {
+    const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
+    if (!uuid) return;
+
+    const action = (await fromUuid(uuid)) as { use?: (event: PointerEvent) => Promise<unknown> } | null;
+    await action?.use?.(event);
+  }
+
+  /**
+   * Post an item's description to chat, from `data-action="toChat"` - mirrors the character
+   * sheet's own "Send to Chat" control (`item.toChat(item.uuid)`, Item-document-level behavior,
+   * not sheet code).
+   */
+  static async #onToChat(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const item = SpaceshipActorSheet.#getRowItem(this.document as unknown as LooseActor, target);
+    await item?.toChat?.(item.id);
+  }
+
+  // Same `any`/`any` reasoning as `_prepareContext`/`_preparePartContext` above.
+  protected override async _onRender(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    context: any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    options: any,
+  ): Promise<void> {
+    await super._onRender(context, options);
+    this.#bindQuantityInputs();
+    this.#bindItemContextMenu();
+    void this.#enrichInventoryDescriptions();
+  }
+
+  /**
+   * The Inventory tab's per-row context menu (the kebab/"..." button - Edit/Delete), matching the
+   * character sheet's own default controls exactly (equip toggle, "Send to Chat", kebab menu -
+   * not standalone edit/delete icons, see `inventory.hbs`'s comment). Built with core's own
+   * `ContextMenu` class, not daggerheart's `triggerContextMenu` handler (sheet code, out of reach
+   * per docs/adr/0002).
+   *
+   * Cached on the instance and only constructed once, same reasoning as `ActorSheetV2`'s own
+   * cached `_dragDrop`: `ContextMenu`'s constructor binds a listener to `container` (`this.element`
+   * here, which persists across re-renders - only the parts inside it get replaced), so
+   * constructing a new one on every render would accumulate listeners on that same element.
+   */
+  #bindItemContextMenu(): void {
+    if (this.#itemContextMenu) return;
+
+    const actor = this.document as unknown as LooseActor;
+    this.#itemContextMenu = new foundry.applications.ux.ContextMenu.implementation(
+      this.element,
+      ".spaceship-inventory .inventory-item [data-action='triggerContextMenu']",
+      [
+        {
+          name: "DHSCIFI.Spaceship.Inventory.EditItem",
+          icon: '<i class="fa-solid fa-edit"></i>',
+          callback: (target: HTMLElement) => {
+            const item = SpaceshipActorSheet.#getRowItem(actor, target);
+            item?.sheet?.render(true);
+          },
+        },
+        {
+          name: "DHSCIFI.Spaceship.Inventory.DeleteItem.title",
+          icon: '<i class="fa-solid fa-trash"></i>',
+          callback: (target: HTMLElement) => {
+            const item = SpaceshipActorSheet.#getRowItem(actor, target);
+            if (item) void SpaceshipActorSheet.#deleteItemWithConfirm(item);
+          },
+        },
+      ],
+      { eventName: "click", jQuery: false },
+    );
+  }
+
+  #itemContextMenu: InstanceType<typeof foundry.applications.ux.ContextMenu.implementation> | null = null;
+
+  /**
+   * Accept an Item dropped onto the sheet, restricted to the Inventory tab's four types and
+   * capped at `maxWeaponMounts`. `ActorSheetV2` (our base class) already wires up drag-drop
+   * itself - `_onRender` calls `this._dragDrop.bind(this.element)`, and its default `_onDrop`
+   * routes an Item drop through this exact hook - so this overrides that hook rather than
+   * building a second, competing drop listener (an earlier version of this method did that, and
+   * every drop created the item twice: once from each listener firing on the same event).
+   * The base class's own `_onDropItem` does the actual embedding (also handling same-actor
+   * reorder, compendium source items, and ownership - all for free); items whose type isn't one
+   * of `INVENTORY_ITEM_TYPES` are rejected before that with a warning instead of embedded.
+   *
+   * Not typed as a real override (fvtt-types doesn't declare `_onDropItem`/`_dragDrop`/`_onDrop`
+   * anywhere in its `ActorSheetV2` definition, the same gap already worked around for
+   * `_prepareContext`/`_preparePartContext` above) - called via the prototype chain rather than
+   * `super.` since TS won't resolve a `super` member it has no type for.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async _onDropItem(event: any, item: any): Promise<any> {
+    const droppedItem = item as LooseItem;
+    if (!SpaceshipActorSheet.#isInventoryItemType(droppedItem.type)) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Inventory.InvalidItemType"));
+      return null;
+    }
+
+    const base = Object.getPrototypeOf(SpaceshipActorSheet.prototype) as {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      _onDropItem(event: any, item: any): Promise<any>;
+    };
+    const result = (await base._onDropItem.call(this, event, item)) as LooseItem | null;
+
+    // A weapon that landed equipped beyond the mount cap (e.g. dragged in already-equipped from
+    // another actor): unequip the *new* copy, same rule `#onToggleEquipItem` enforces - `count`
+    // already includes this just-created item, so `>` (not `>=`) means it pushed things over.
+    const actor = this.document as unknown as LooseActor;
+    if (
+      result?.type === "weapon" &&
+      result.system.equipped &&
+      SpaceshipActorSheet.#countEquippedWeapons(actor) > actor.system.maxWeaponMounts
+    ) {
+      await result.update({ "system.equipped": false });
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Inventory.MountsFull"));
+    }
+
+    return result;
+  }
+
+  /**
+   * `.inventory-item-quantity` (consumable/loot rows, `inventory-item.hbs`'s own markup/class -
+   * matches daggerheart's real inventory item template) is a plain `<input>`, not wired to a
+   * `data-action` (core `ApplicationV2` actions only fire on click) - bind its `change` here
+   * instead, same rebind-per-render reasoning as `#bindInventoryDrop`.
+   */
+  #bindQuantityInputs(): void {
+    const actor = this.document as unknown as LooseActor;
+    const inputs = this.element.querySelectorAll<HTMLInputElement>(".spaceship-inventory .inventory-item-quantity");
+    inputs.forEach((input) => {
+      input.addEventListener("change", () => {
+        const item = SpaceshipActorSheet.#getRowItem(actor, input);
+        const quantity = Number.parseInt(input.value, 10);
+        if (item && !Number.isNaN(quantity)) void item.update({ "system.quantity": Math.max(0, quantity) });
+      });
+    });
+  }
+
+  /**
+   * Fill in each expandable row's `.inventory-description` with the item's own enriched
+   * description HTML, mirroring daggerheart's own `#prepareInventoryDescription` (item-level
+   * `getEnrichedDescription()` + `TextEditor.enrichHTML`, not sheet code) - Handlebars can't
+   * `await`, so `inventory.hbs` renders the container empty and this fills it in post-render.
+   */
+  async #enrichInventoryDescriptions(): Promise<void> {
+    const rows = this.element.querySelectorAll<HTMLElement>(".spaceship-inventory .inventory-item[data-item-uuid]");
+    for (const row of rows) {
+      const uuid = row.dataset.itemUuid;
+      const descriptionElement = row.querySelector<HTMLElement>(".inventory-description");
+      if (!uuid || !descriptionElement) continue;
+
+      const item = (await fromUuid(uuid)) as unknown as LooseItem | null;
+      if (!item) continue;
+
+      const description = item.system.getEnrichedDescription
+        ? await item.system.getEnrichedDescription()
+        : (item.system.description ?? "");
+      descriptionElement.innerHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+        description,
+        { secrets: item.isOwner ?? false },
+      );
+    }
+  }
+
 }

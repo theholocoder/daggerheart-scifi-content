@@ -20,6 +20,25 @@
       "SystemPoints": "Points de système",
       "WeaponMounts": "Affûts",
       "ComingSoon": "Bientôt disponible",
+      "Inventory": {
+        "Weapons": "Armes",
+        "Armor": "Armure",
+        "Consumables": "Consommables",
+        "Loot": "Butin",
+        "CreateItem": "Créer un objet",
+        "EditItem": "Modifier l'objet",
+        "UseItem": "Utiliser/Lancer",
+        "SendToChat": "Envoyer au chat",
+        "MoreOptions": "Plus d'options",
+        "Equip": "Équiper",
+        "Unequip": "Déséquiper",
+        "MountsFull": "Aucun affût disponible.",
+        "InvalidItemType": "Seuls les armes, armures, consommables et butins peuvent être ajoutés à l'inventaire d'un vaisseau.",
+        "DeleteItem": {
+          "title": "Supprimer l'objet",
+          "body": "Supprimer {name} ?"
+        }
+      },
       "Thresholds": {
         "minor": "Mineur",
         "major": "Majeur",
@@ -46,7 +65,8 @@
         "basics": "Essentiels",
         "hopeMax": "Espoir max",
         "hitPointsMax": "PV max",
-        "stressMax": "Stress max"
+        "stressMax": "Stress max",
+        "maxWeaponMounts": "Affûts d'armes"
       }
     }
   }
