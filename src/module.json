@@ -47,7 +47,6 @@
   "description": "This module contains Sci-Fi content for Daggerheart",
   "esmodules": ["daggerheart-scifi-content.js"],
   "styles": ["styles/daggerheart-scifi-content.css"],
-  "scripts": ["daggerheart-scifi-content.js"],
   "url": "https://github.com/theholocoder/daggerheart-scifi-content",
   "manifest": "https://raw.githubusercontent.com/theholocoder/daggerheart-scifi-content/main/module.json",
   "download": "https://github.com/theholocoder/daggerheart-scifi-content/releases/latest/download/module.zip",
