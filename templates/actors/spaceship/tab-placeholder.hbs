@@ -1,0 +1,12 @@
+{{!--
+    Shared stub body for the Features / Inventory / Stations / Effects tabs. Each of tickets
+    #6-#12 replaces its tab's use of this template with a real one. `tab` is injected per-part
+    by SpaceshipActorSheet._preparePartContext from the sheet's TABS config.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="dhscifi-placeholder-body">
+        <i class="fa-solid fa-person-digging"></i>
+        <h3>{{localize tab.label}}</h3>
+        <p>{{localize "DHSCIFI.Spaceship.ComingSoon"}}</p>
+    </div>
+</section>

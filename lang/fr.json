@@ -11,12 +11,20 @@
       "NamePlaceholder": "Nom du vaisseau",
       "Level": "Niveau",
       "TierMarked": "Palier marqué",
-      "Max": "Max",
       "Hope": "Espoir",
       "HitPoints": "PV",
       "Stress": "Stress",
       "Evasion": "Esquive",
       "Proficiency": "Maîtrise",
+      "Shield": "Bouclier",
+      "SystemPoints": "Points de système",
+      "WeaponMounts": "Affûts",
+      "ComingSoon": "Bientôt disponible",
+      "Thresholds": {
+        "minor": "Mineur",
+        "major": "Majeur",
+        "severe": "Sévère"
+      },
       "Traits": {
         "agility": "Agilité",
         "strength": "Force",
@@ -24,6 +32,21 @@
         "instinct": "Instinct",
         "presence": "Présence",
         "knowledge": "Savoir"
+      },
+      "Tabs": {
+        "features": "Aptitudes",
+        "inventory": "Inventaire",
+        "stations": "Postes",
+        "effects": "Effets"
+      },
+      "Settings": {
+        "title": "Configurer le vaisseau",
+        "open": "Ouvrir la configuration du vaisseau",
+        "traits": "Traits",
+        "basics": "Essentiels",
+        "hopeMax": "Espoir max",
+        "hitPointsMax": "PV max",
+        "stressMax": "Stress max"
       }
     }
   }

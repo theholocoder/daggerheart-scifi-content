@@ -1,0 +1,59 @@
+{{!--
+    "Configure Spaceship" dialog body, mirroring the official Character Settings details tab
+    (systems/daggerheart/templates/sheets-settings/character-settings/details.hbs). Marked
+    `.tab.details.active` so the system's dialog CSS (scoped `.daggerheart.dh-style.dialog`)
+    styles it; there is no tab navigation - this is the dialog's only section.
+--}}
+<section class="tab details active" data-tab="details" data-group="primary">
+    <fieldset class="one-column">
+        <legend>{{localize "DHSCIFI.Spaceship.Settings.traits"}}</legend>
+
+        <div class="nest-inputs">
+            <div class="traits-inner-container">
+                {{#each source.system.traits as |trait key|}}
+                    <div class="trait-container">
+                        <span>{{localize (concat "DHSCIFI.Spaceship.Traits." key)}}</span>
+                        <input type="number" name="system.traits.{{key}}.value" value="{{trait.value}}" step="1" />
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="one-column">
+        <legend>{{localize "DHSCIFI.Spaceship.Settings.basics"}}</legend>
+
+        <div class="two-columns even">
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.hopeMax"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.resources.hope.max" value="{{source.system.resources.hope.max}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.hitPointsMax"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.resources.hitPoints.max" value="{{source.system.resources.hitPoints.max}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.stressMax"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.resources.stress.max" value="{{source.system.resources.stress.max}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Evasion"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.evasion" value="{{source.system.evasion}}" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Proficiency"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.proficiency" value="{{source.system.proficiency}}" min="1" step="1" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</section>

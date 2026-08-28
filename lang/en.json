@@ -11,12 +11,20 @@
       "NamePlaceholder": "Spaceship Name",
       "Level": "Level",
       "TierMarked": "Tier Marked",
-      "Max": "Max",
       "Hope": "Hope",
       "HitPoints": "HP",
       "Stress": "Stress",
       "Evasion": "Evasion",
       "Proficiency": "Proficiency",
+      "Shield": "Shield",
+      "SystemPoints": "System Points",
+      "WeaponMounts": "Mounts",
+      "ComingSoon": "Coming soon",
+      "Thresholds": {
+        "minor": "Minor",
+        "major": "Major",
+        "severe": "Severe"
+      },
       "Traits": {
         "agility": "Agility",
         "strength": "Strength",
@@ -24,6 +32,21 @@
         "instinct": "Instinct",
         "presence": "Presence",
         "knowledge": "Knowledge"
+      },
+      "Tabs": {
+        "features": "Features",
+        "inventory": "Inventory",
+        "stations": "Stations",
+        "effects": "Effects"
+      },
+      "Settings": {
+        "title": "Configure Spaceship",
+        "open": "Open Spaceship Settings",
+        "traits": "Traits",
+        "basics": "Basics",
+        "hopeMax": "Max Hope",
+        "hitPointsMax": "Max HP",
+        "stressMax": "Max Stress"
       }
     }
   }
