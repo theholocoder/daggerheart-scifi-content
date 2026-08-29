@@ -238,6 +238,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       toggleStation: SpaceshipActorSheet.#onToggleStation,
       removeCrew: SpaceshipActorSheet.#onRemoveCrew,
       openCrew: SpaceshipActorSheet.#onOpenCrew,
+      triggerContextMenu: SpaceshipActorSheet.#onTriggerContextMenu,
     },
   };
 
@@ -1070,10 +1071,21 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * The per-row context menu (the kebab/"..." button), matching the character sheet's own default
-   * controls exactly (equip toggle, "Send to Chat", kebab menu - not standalone edit/delete icons,
-   * see `inventory.hbs`'s comment). Built with core's own `ContextMenu` class, not daggerheart's
-   * `triggerContextMenu` handler (sheet code, out of reach per docs/adr/0002).
+   * The per-row context menu, matching the character sheet's own default controls exactly (equip
+   * toggle, "Send to Chat", kebab menu - not standalone edit/delete icons, see `inventory.hbs`'s
+   * comment). Built with core's own `ContextMenu` class, not daggerheart's `DHContextMenu` (sheet
+   * code, out of reach per docs/adr/0002).
+   *
+   * Bound to the *row* (`.inventory-item[data-item-uuid]`), not the kebab button, with no
+   * `eventName` override - core `ContextMenu` defaults that to `"contextmenu"`, so right-clicking
+   * anywhere on a row opens the menu, exactly like daggerheart's own row context menus (registered
+   * against `[data-item-uuid]` the same way). The kebab button (`data-action="triggerContextMenu"`)
+   * is a second way in for anyone who'd rather click than right-click: `#onTriggerContextMenu`
+   * mirrors daggerheart's own `DHContextMenu.triggerContextMenu` - synthesizing a `contextmenu`
+   * `PointerEvent` on the row rather than opening a second menu instance, so both paths hit this
+   * one binding and can never show different entries for the same row. An earlier version bound
+   * the menu directly to the kebab button with `eventName: "click"`, which made the button work but
+   * left right-clicking the row itself inert.
    *
    * One menu for every row on the sheet, its entries switched on the row's `data-type` via core
    * `ContextMenu`'s own `condition` callback. Daggerheart instead registers *two* menus against two
@@ -1095,7 +1107,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       this.element,
       // Every `.inventory-item` on the sheet, not just the Inventory tab's - Features (#7) and
       // Effects (#9) render through the same row partial and get the same menu.
-      ".inventory-item [data-action='triggerContextMenu']",
+      ".inventory-item[data-item-uuid]",
       [
         {
           name: "DHSCIFI.Rows.EnableEffect",
@@ -1171,8 +1183,38 @@ export default class SpaceshipActorSheet extends BaseSheet {
       // the Popover API, appended to `document.body` (`_setFixedPosition`,
       // `client/applications/ux/context-menu.mjs`) - floats above the whole sheet window, immune
       // to any ancestor's `overflow`, positioned at the triggering click's own coordinates
-      // (`relative`'s default, `"cursor"`).
-      { eventName: "click", jQuery: false, fixed: true },
+      // (`relative`'s default, `"cursor"`). No `eventName` override, so it defaults to
+      // `"contextmenu"` - see this method's doc comment for why (real right-click support).
+      { jQuery: false, fixed: true },
+    );
+  }
+
+  /**
+   * The kebab button's click handler (`data-action="triggerContextMenu"`). Mirrors daggerheart's
+   * own `DHContextMenu.triggerContextMenu`: rather than opening a second menu, it synthesizes a
+   * `contextmenu` `PointerEvent` on the row and dispatches it there, so the *same* right-click
+   * binding (`#bindItemContextMenu`) handles it - one menu, two ways to open it, always agreeing
+   * on what it offers. `stopPropagation` keeps the synthetic event from also being read as a plain
+   * click by anything else listening on the row (there's nothing today, but a future row-level
+   * click handler shouldn't have to know this button fakes a different event type).
+   */
+  static #onTriggerContextMenu(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    event: PointerEvent,
+    target: HTMLElement,
+  ): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const row = target.closest<HTMLElement>(".inventory-item[data-item-uuid]");
+    row?.dispatchEvent(
+      new PointerEvent("contextmenu", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+        clientX: event.clientX,
+        clientY: event.clientY,
+      }),
     );
   }
 
