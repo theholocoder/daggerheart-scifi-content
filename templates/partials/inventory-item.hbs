@@ -75,12 +75,12 @@
                   portrait behavior exactly), otherwise open its sheet. The hover-reveal dice icon
                   (`.roll-img`) is daggerheart's own unscoped CSS. --}}
             {{#if usable}}
-                <div class="img-portait" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Rows.UseItem'}}">
+                <div class="img-portait" draggable="true" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Rows.UseItem'}}">
                     <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
                     <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
                 </div>
             {{else}}
-                <div class="img-portait" data-action="editItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Rows.EditEffect'}}{{else}}{{#if isAction}}{{localize 'DHSCIFI.Rows.EditAction'}}{{else}}{{localize 'DHSCIFI.Rows.EditItem'}}{{/if}}{{/if}}">
+                <div class="img-portait" draggable="true" data-action="editItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Rows.EditEffect'}}{{else}}{{#if isAction}}{{localize 'DHSCIFI.Rows.EditAction'}}{{else}}{{localize 'DHSCIFI.Rows.EditItem'}}{{/if}}{{/if}}">
                     {{#if item.img}}
                         <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
                     {{else}}
@@ -92,7 +92,7 @@
                 </div>
             {{/if}}
 
-            <div class="item-label">
+            <div class="item-label" draggable="true">
                 <span class="item-name">
                     {{item.name}}
                     {{#if hasDescription}}<span class="expanded-icon"><i class="fa-solid fa-expand"></i></span>{{/if}}

@@ -227,10 +227,16 @@ body {
           justify-content: center;
           background: light-dark(transparent, var(--dark-blue, #18162e));
 
+          // Same root-inherited-yellow bug as `.inventory-item .item-name` below (see that
+          // comment): `p` has no color rule of its own in daggerheart.css, so Evasion/Proficiency
+          // (#14) inherited our root's `--color-text-emphatic` (gold) instead of the near-white
+          // `--color-text-primary` the official sheet's own status-number tiles show. Same fix,
+          // same token, not a hardcoded white.
           p {
             font-size: 1.2rem;
             font-weight: 600;
             text-align: center;
+            color: var(--color-text-primary);
           }
         }
 

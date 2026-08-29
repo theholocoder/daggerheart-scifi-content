@@ -103,6 +103,11 @@ interface LooseDoc {
   update(data: Record<string, unknown>): Promise<unknown>;
   delete(): Promise<unknown>;
   toObject(): Record<string, unknown>;
+  // Core `ClientDocumentMixin` behavior (both Item and ActiveEffect get it), used by
+  // `_onDragStart` (#14) to build the same drag payload daggerheart's own default
+  // `ActorSheetV2#_onDragStart` would - see that override's comment for why it's called
+  // through here rather than left to the base class's dataset-based lookup.
+  toDragData?: () => Record<string, unknown>;
 }
 
 interface LooseActor {
@@ -728,7 +733,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     target: HTMLElement,
   ): Promise<void> {
     const item = SpaceshipActorSheet.#getRowDocument(target);
-    await item?.toChat?.(item.id);
+    await item?.toChat?.(item.uuid);
   }
 
   /**
@@ -901,6 +906,32 @@ export default class SpaceshipActorSheet extends BaseSheet {
     return actor;
   }
 
+  /**
+   * Write the drag payload for an Item or ActiveEffect row being dragged off the sheet (#14),
+   * overriding core `ActorSheetV2`'s own `_onDragStart` rather than its default dataset-based
+   * lookup (`actor.items.get(target.dataset.itemId)`, then `.effects.get(target.dataset.effectId)`
+   * for an effect) - that lookup reads `data-item-id`/`data-effect-id` straight off the dragged
+   * element, which is not what this sheet's rows carry (`data-item-uuid` on the row, resolved via
+   * `resolveUuidSync` - the same gap `#getRowDocument` exists to close for click handlers, since a
+   * row can hold a top-level ActiveEffect (#9) as well as an Item). `event.currentTarget` is
+   * whichever `.img-portait`/`.item-label` element core's own default `dragSelector` (`.draggable`,
+   * unchanged - see `partials/inventory-item.hbs`) actually matched, so `#getRowDocument` walks up
+   * from it to the row's `[data-item-uuid]` rather than reading its own dataset.
+   *
+   * `toDragData()` is core `ClientDocumentMixin` behavior, both Item and ActiveEffect get it - same
+   * document-level reuse category as `toChat`/`_getTags` above, not sheet code. Same wiring story
+   * as `_onDropItem`/`_onDropActor`: nothing here binds a second listener, this only overrides the
+   * hook `_dragDrop`'s cached `dragstart` callback already calls (`this._onDragStart.bind(this)`,
+   * resolved through the prototype chain to this override) - and fvtt-types doesn't declare it,
+   * hence the `any`.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  _onDragStart(event: any): void {
+    const target = event.currentTarget as HTMLElement;
+    const dragData = SpaceshipActorSheet.#getRowDocument(target)?.toDragData?.();
+    if (dragData) event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+  }
+
   // Same `any`/`any` reasoning as `_prepareContext`/`_preparePartContext` above.
   protected override async _onRender(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -1065,7 +1096,17 @@ export default class SpaceshipActorSheet extends BaseSheet {
           },
         },
       ],
-      { eventName: "click", jQuery: false },
+      // `fixed: true` (#14): core `ContextMenu`'s default (`fixed: false`) injects the menu as a
+      // child of `target` itself, positioned with `position: absolute` - fine for a row near the
+      // top of a tall list, but the Inventory/Features/Effects tabs (`.items-list`, scrolled
+      // internally - see `docs/adr/0002`'s `.items-section` note) clip that absolute child to
+      // their own scroll bounds, so a menu opened on a row near the bottom renders off-screen
+      // below the visible list instead of over it. `fixed: true` instead renders the menu through
+      // the Popover API, appended to `document.body` (`_setFixedPosition`,
+      // `client/applications/ux/context-menu.mjs`) - floats above the whole sheet window, immune
+      // to any ancestor's `overflow`, positioned at the triggering click's own coordinates
+      // (`relative`'s default, `"cursor"`).
+      { eventName: "click", jQuery: false, fixed: true },
     );
   }
 
