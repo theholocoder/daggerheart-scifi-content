@@ -410,35 +410,61 @@ body {
       opacity: 0.85;
       font-size: var(--font-size-12, 0.75rem);
     }
+  }
 
-    // `.item-name`/`.inventory-description`/`.controls a` have no color rule of their own in
-    // daggerheart.css, so they inherit whatever ambient `color` is in scope - on the official
-    // character sheet that's a light, near-white value inherited from core Foundry's own
-    // `.application` base styling (`--color-text-primary`); on ours it was our own root's
-    // `color: var(--color-text-emphatic)` (a gold/amber tone, set for the header/sidebar elsewhere
-    // on this sheet), read as "yellow". Reset to the same core token the official sheet actually
-    // inherits, not a hardcoded white.
-    //
-    // `.item-buttons button` genuinely already has its own correct, themed color in
-    // daggerheart.css (`--dh-button-color-text`, dark text against its light button background)
-    // and stays untouched here - overriding it to white was a real mistake (confirmed: made the
-    // button's dark-on-light text unreadable).
-    //
-    // `.item-tags .tag` *does* have its own daggerheart.css rule too (`color: var(--color-light-
-    // 2)`), which traced through the stylesheet should already win on specificity - but removing
-    // this override still showed yellow tags live, twice, so something about how `--color-light-2`
-    // resolves in this actual sheet isn't matching that trace. Reinstated on user-confirmed report
-    // rather than theory; worth a proper look with real devtools access before removing again.
-    .inventory-item {
-      .item-name,
-      .inventory-description,
-      .controls a {
-        color: var(--color-text-primary);
-      }
+  /*
+   * Features tab (#7): same row markup as the Inventory tab (both render through
+   * `templates/actors/spaceship/partials/inventory-item.hbs`), so everything above applies here
+   * too - only the scroll container differs. `.features-sections` is the character sheet's own
+   * class for it, and `daggerheart.css` scopes that rule to `.character`, so its layout is copied
+   * by value below just like `.items-section` was.
+   */
+  .spaceship-features {
+    flex: 1;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
 
-      .item-tags .tag {
-        color: #fff;
-      }
+    .features-sections {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 7px 0.75rem 4px 0.75rem;
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+  }
+
+  // Item-row text colors, shared by every list on the sheet (Inventory and Features alike).
+  //
+  // `.item-name`/`.inventory-description`/`.controls a` have no color rule of their own in
+  // daggerheart.css, so they inherit whatever ambient `color` is in scope - on the official
+  // character sheet that's a light, near-white value inherited from core Foundry's own
+  // `.application` base styling (`--color-text-primary`); on ours it was our own root's
+  // `color: var(--color-text-emphatic)` (a gold/amber tone, set for the header/sidebar elsewhere
+  // on this sheet), read as "yellow". Reset to the same core token the official sheet actually
+  // inherits, not a hardcoded white.
+  //
+  // `.item-buttons button` genuinely already has its own correct, themed color in
+  // daggerheart.css (`--dh-button-color-text`, dark text against its light button background)
+  // and stays untouched here - overriding it to white was a real mistake (confirmed: made the
+  // button's dark-on-light text unreadable).
+  //
+  // `.item-tags .tag` *does* have its own daggerheart.css rule too (`color: var(--color-light-
+  // 2)`), which traced through the stylesheet should already win on specificity - but removing
+  // this override still showed yellow tags live, twice, so something about how `--color-light-2`
+  // resolves in this actual sheet isn't matching that trace. Reinstated on user-confirmed report
+  // rather than theory; worth a proper look with real devtools access before removing again.
+  .inventory-item {
+    .item-name,
+    .inventory-description,
+    .controls a {
+      color: var(--color-text-primary);
+    }
+
+    .item-tags .tag {
+      color: #fff;
     }
   }
 

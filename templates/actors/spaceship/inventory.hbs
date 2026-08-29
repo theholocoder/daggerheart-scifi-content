@@ -1,182 +1,45 @@
 {{!--
     Inventory tab (#6): weapons/armor/consumables/loot lists reusing daggerheart's existing item
-    types. Markup/classes are copied by value from the system's own
-    templates/sheets/global/partials/inventory-fieldset-items-V2.hbs and inventory-item-V2.hbs
-    (fieldset.glassy/legend, items-list, inventory-item/item-main/inventory-item-header/img-portait/
-    item-label/item-name/item-tags/item-resource/controls) - `daggerheart.css` themes all of these
-    unscoped under `.application.daggerheart.dh-style` (no `.character`/sheet-type prefix), so they
-    render identically here for free, same reasoning as docs/adr/0002's CSS-by-value addendum.
-    `.controls` matches the character sheet's own *default* set exactly - equip toggle, "Send to
-    Chat" (`toChat`), then a kebab context menu (`triggerContextMenu`, bound in
-    `#bindItemContextMenu` using core's own `ContextMenu` class) with Edit/Delete - not standalone
-    edit/delete icons, which is what daggerheart's inventory list only falls back to when a caller
-    explicitly passes `hideContextMenu`; the character sheet's own Inventory tab never does. Own
-    action wiring (createItem/editItem/toggleEquipItem/toggleExtended/useItem/toChat), not the
-    system's sheet JS - see that ADR. `tags`/`hasDescription` (per entry, precomputed in
-    spaceship-actor-sheet.ts from the item's own `_getTags()`/`hasDescription` - both
-    `daggerheart` `Item`-level, not sheet code) reuse the same per-item-type tag chips
-    ("Finesse"/"One-Handed"/"Base Score: 3"...) and expand-for-description affordance the
-    character sheet shows; the description itself is enriched and injected in `_onRender`
-    (`item.system.getEnrichedDescription()` + `TextEditor.enrichHTML`, both item-level). `toChat`
-    posts the item's description to chat via the item's own `toChat(uuid)` method, same as the
-    character sheet.
-
-    `.item-buttons` (an item's own `system.actions`, e.g. a Medpack's "Clear 1d4 HP" Healing
-    action): `useItem` resolves `data-item-uuid` via `fromUuid` and calls the Action's own
-    `.use(event)` - Action-document-level behavior, not sheet code. This only works because of
-    `src/module/compat/character-only-patches.ts` (patches `actionsList`, `usable`, and
-    `rollTrait` - see that file's comment and ADR 0002's addendum for the full story of why this
-    needed real patches, not a "safe default" fill-in, and why one of the three is a plain monkey-
-    patch instead of `lib-wrapper`).
+    types. The row/fieldset markup lives in `partials/inventory-item.hbs` and
+    `partials/inventory-fieldset-items.hbs` (see those files for the copied-by-value class names
+    and behavior notes) - the same partial split daggerheart itself uses, and shared with the
+    Features tab (#7) exactly as the character sheet shares its own between the two.
 
     No currency/gold section (System Points, #6's sibling ticket, replaces it on a ship).
-
-    `{{#*inline "row"}}` is a Handlebars *local* partial (scoped to this template, no
-    `loadTemplates`/`getTemplate` registration needed) shared by all four item lists below.
 --}}
-{{#*inline "row"}}
-    <li class="inventory-item" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-uuid="{{item.uuid}}">
-        <div class="item-main">
-            <div class="inventory-item-header" {{#if hasDescription}}data-action="toggleExtended"{{/if}}>
-                {{!-- Roll/use the item if it has a usable action (mirrors the character sheet's
-                      portrait behavior exactly - `usable`, precomputed in spaceship-actor-sheet.ts
-                      from the item's own `usable` getter, patched non-`character`-safe by
-                      src/module/compat/character-only-patches.ts), otherwise open its sheet. The
-                      hover-reveal dice icon (`.roll-img`) is daggerheart's own unscoped CSS. --}}
-                {{#if usable}}
-                    <div class="img-portait" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.UseItem'}}">
-                        <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
-                        <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
-                    </div>
-                {{else}}
-                    <div class="img-portait" data-action="editItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.EditItem'}}">
-                        <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
-                    </div>
-                {{/if}}
-
-                <div class="item-label">
-                    <span class="item-name">
-                        {{item.name}}
-                        {{#if hasDescription}}<span class="expanded-icon"><i class="fa-solid fa-expand"></i></span>{{/if}}
-                    </span>
-                    <div class="item-tags">
-                        {{#each tags}}
-                            <div class="tag">{{this}}</div>
-                        {{/each}}
-                    </div>
-                </div>
-
-                {{#if quantifiable}}
-                    <div class="item-resource">
-                        <input type="number" class="inventory-item-quantity" value="{{item.system.quantity}}" min="0" />
-                    </div>
-                {{/if}}
-
-                <div class="controls">
-                    {{#if equipIcon}}
-                        {{#if item.system.equipped}}
-                            <a data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.Unequip'}}">
-                                <i class="fa-solid {{equipIcon}}" inert></i>
-                            </a>
-                        {{else}}
-                            <a class="unequipped" data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.Equip'}}">
-                                <i class="fa-solid {{equipIcon}}" inert></i>
-                            </a>
-                        {{/if}}
-                    {{/if}}
-                    <a data-action="toChat" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.SendToChat'}}">
-                        <i class="fa-regular fa-fw fa-message" inert></i>
-                    </a>
-                    <a data-action="triggerContextMenu" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.MoreOptions'}}">
-                        <i class="fa-solid fa-fw fa-ellipsis-vertical" inert></i>
-                    </a>
-                </div>
-            </div>
-
-            {{#if hasDescription}}
-                <div class="inventory-item-content extensible">
-                    {{!-- Filled in `_onRender` (spaceship-actor-sheet.ts) via the item's own
-                          `getEnrichedDescription()`/`TextEditor.enrichHTML` - Handlebars can't
-                          await, so this starts empty and is populated right after render. --}}
-                    <div class="inventory-description"></div>
-                </div>
-            {{/if}}
-        </div>
-
-        {{#if item.system.actions.size}}
-            <div class="item-buttons">
-                {{#each item.system.actions as |action|}}
-                    <div class="item-button">
-                        <button type="button" data-action="useItem" data-item-uuid="{{action.uuid}}">
-                            <i class="fa-solid {{action.typeIcon}} action-icon"></i>
-                            {{action.name}}
-                        </button>
-                    </div>
-                {{/each}}
-            </div>
-        {{/if}}
-    </li>
-{{/inline}}
-
 <section class="tab {{tab.id}} {{tab.cssClass}} spaceship-inventory" data-tab="{{tab.id}}" data-group="{{tab.group}}">
     <div class="items-section">
-        <fieldset class="glassy drop-section">
-            <legend>
-                {{localize "TYPES.Item.weapon"}}
-                <a data-action="createItem" data-item-type="weapon" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.CreateItem'}}">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-                <span class="mounts-count" data-tooltip="{{localize 'DHSCIFI.Spaceship.WeaponMounts'}}">
-                    ({{inventory.mounts.value}} / {{inventory.mounts.max}})
-                </span>
-            </legend>
-            <ul class="items-list">
-                {{#each inventory.weapons as |entry|}}
-                    {{> row item=entry.item tags=entry.tags equipIcon="fa-hands"}}
-                {{/each}}
-            </ul>
-        </fieldset>
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.weapon"
+            createType="weapon"
+            isGlassy=true
+            collection=inventory.weapons
+            equipIcon="fa-hands"
+            mounts=inventory.mounts
+        }}
 
-        <fieldset class="glassy drop-section">
-            <legend>
-                {{localize "TYPES.Item.armor"}}
-                <a data-action="createItem" data-item-type="armor" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.CreateItem'}}">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-            </legend>
-            <ul class="items-list">
-                {{#each inventory.armor as |entry|}}
-                    {{> row item=entry.item tags=entry.tags equipIcon="fa-fw fa-shield"}}
-                {{/each}}
-            </ul>
-        </fieldset>
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.armor"
+            createType="armor"
+            isGlassy=true
+            collection=inventory.armor
+            equipIcon="fa-fw fa-shield"
+        }}
 
-        <fieldset class="glassy drop-section">
-            <legend>
-                {{localize "TYPES.Item.consumable"}}
-                <a data-action="createItem" data-item-type="consumable" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.CreateItem'}}">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-            </legend>
-            <ul class="items-list">
-                {{#each inventory.consumables as |entry|}}
-                    {{> row item=entry.item tags=entry.tags quantifiable=true}}
-                {{/each}}
-            </ul>
-        </fieldset>
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.consumable"
+            createType="consumable"
+            isGlassy=true
+            collection=inventory.consumables
+            quantifiable=true
+        }}
 
-        <fieldset class="glassy drop-section">
-            <legend>
-                {{localize "TYPES.Item.loot"}}
-                <a data-action="createItem" data-item-type="loot" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.CreateItem'}}">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-            </legend>
-            <ul class="items-list">
-                {{#each inventory.loot as |entry|}}
-                    {{> row item=entry.item tags=entry.tags quantifiable=true}}
-                {{/each}}
-            </ul>
-        </fieldset>
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.loot"
+            createType="loot"
+            isGlassy=true
+            collection=inventory.loot
+            quantifiable=true
+        }}
     </div>
 </section>

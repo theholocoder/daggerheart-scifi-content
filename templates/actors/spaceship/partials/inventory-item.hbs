@@ -1,0 +1,138 @@
+{{!--
+    One item row, shared by every list on this sheet (Inventory's weapons/armor/consumables/loot,
+    Features' features). Extracted from what #6 had written inline in `inventory.hbs`, into the
+    same partial split `daggerheart` itself uses - its own character sheet renders its Features
+    tab through the *exact same* `daggerheart.inventory-item` partial as its Inventory tab
+    (`templates/sheets/actors/character/features.hbs` -> `daggerheart.inventory-items` ->
+    `daggerheart.inventory-item`), so mirroring that split is what makes a ship's Features tab
+    match the character sheet's for free rather than by re-deriving markup.
+
+    Registered as `dhscifi.inventory-item` in `src/main.ts`.
+
+    Markup/classes are still copied by value from the system's own
+    templates/sheets/global/partials/inventory-item-V2.hbs (inventory-item/item-main/
+    inventory-item-header/img-portait/item-label/item-name/item-tags/item-resource/controls) -
+    `daggerheart.css` themes all of these unscoped under `.application.daggerheart.dh-style` (no
+    `.character`/sheet-type prefix), so they render identically here for free, same reasoning as
+    docs/adr/0002's CSS-by-value addendum. `.controls` matches the character sheet's own *default*
+    set exactly - equip toggle, "Send to Chat" (`toChat`), then a kebab context menu
+    (`triggerContextMenu`, bound in `#bindItemContextMenu` using core's own `ContextMenu` class)
+    with Edit/Delete - not standalone edit/delete icons, which is what daggerheart's inventory list
+    only falls back to when a caller explicitly passes `hideContextMenu`; the character sheet's own
+    Inventory/Features tabs never do. Own action wiring (editItem/toggleEquipItem/toggleExtended/
+    useItem/toChat), not the system's sheet JS - see that ADR.
+
+    Parameters:
+    - item {LooseItem} : the embedded Item to render.
+    - tags {string[]} : the item's tag chips, precomputed in spaceship-actor-sheet.ts from the
+      item's own `_getTags()` (`daggerheart` `Item`-level, not sheet code) - see that file for why
+      it can't be called from the template.
+    - hasDescription {boolean} : item-level `hasDescription`; drives the expand affordance. The
+      description itself is enriched and injected in `_onRender`
+      (`item.system.getEnrichedDescription()` + `TextEditor.enrichHTML`, both item-level).
+    - usable {boolean} : item-level `usable`, already ANDed with the sheet's `editable` in
+      spaceship-actor-sheet.ts; portrait rolls/uses the item instead of opening it. The character
+      sheet reaches the same result by passing `showActions=@root.editable` from *both* its tabs
+      into `inventory-item-V2.hbs`, whose portrait falls back to edit when `showActions` is false -
+      one uniform flag there, so resolved once in TS here rather than threaded as a param.
+    - equipIcon {string} : Font Awesome classes for the equip toggle. Omitted = no equip control
+      (consumables/loot/features, same as the character sheet).
+    - quantifiable {boolean} : show the quantity input (consumables/loot).
+
+    `.item-buttons` (an item's own `system.actions`, e.g. a Medpack's "Clear 1d4 HP" Healing
+    action): `useItem` resolves `data-item-uuid` via `fromUuid` and calls the Action's own
+    `.use(event)` - Action-document-level behavior, not sheet code. This only works because of
+    `src/module/compat/character-only-patches.ts` (patches `actionsList`, `usable`, `rollClass`,
+    and `rollTrait` - see that file's comment and ADR 0002's addendum).
+--}}
+<li class="inventory-item" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-uuid="{{item.uuid}}">
+    <div class="item-main">
+        <div class="inventory-item-header" {{#if hasDescription}}data-action="toggleExtended"{{/if}}>
+            {{!-- Roll/use the item if it has a usable action (mirrors the character sheet's
+                  portrait behavior exactly), otherwise open its sheet. The hover-reveal dice icon
+                  (`.roll-img`) is daggerheart's own unscoped CSS. --}}
+            {{#if usable}}
+                <div class="img-portait" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.UseItem'}}">
+                    <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
+                    <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
+                </div>
+            {{else}}
+                <div class="img-portait" data-action="editItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.EditItem'}}">
+                    <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
+                </div>
+            {{/if}}
+
+            <div class="item-label">
+                <span class="item-name">
+                    {{item.name}}
+                    {{#if hasDescription}}<span class="expanded-icon"><i class="fa-solid fa-expand"></i></span>{{/if}}
+                </span>
+                <div class="item-tags">
+                    {{#each tags}}
+                        <div class="tag">{{this}}</div>
+                    {{/each}}
+                </div>
+            </div>
+
+            {{#if quantifiable}}
+                <div class="item-resource">
+                    <input type="number" class="inventory-item-quantity" value="{{item.system.quantity}}" min="0" {{#unless @root.editable}}disabled{{/unless}} />
+                </div>
+            {{/if}}
+
+            <div class="controls">
+                {{!-- Equip toggle and the kebab menu (Edit/Delete) mutate the actor, so they're
+                      gated on `@root.editable` exactly as the character sheet gates its own
+                      (`{{#if @root.editable}}` around the equip toggles, `hideModifyControls`
+                      around Edit/Delete). "Send to Chat" stays ungated - it's read-only. --}}
+                {{#if @root.editable}}
+                    {{#if equipIcon}}
+                        {{#if item.system.equipped}}
+                            <a data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.Unequip'}}">
+                                <i class="fa-solid {{equipIcon}}" inert></i>
+                            </a>
+                        {{else}}
+                            <a class="unequipped" data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.Equip'}}">
+                                <i class="fa-solid {{equipIcon}}" inert></i>
+                            </a>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                <a data-action="toChat" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.SendToChat'}}">
+                    <i class="fa-regular fa-fw fa-message" inert></i>
+                </a>
+                {{#if @root.editable}}
+                    <a data-action="triggerContextMenu" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.MoreOptions'}}">
+                        <i class="fa-solid fa-fw fa-ellipsis-vertical" inert></i>
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+
+        {{#if hasDescription}}
+            <div class="inventory-item-content extensible">
+                {{!-- Filled in `_onRender` (spaceship-actor-sheet.ts) via the item's own
+                      `getEnrichedDescription()`/`TextEditor.enrichHTML` - Handlebars can't await,
+                      so this starts empty and is populated right after render. --}}
+                <div class="inventory-description"></div>
+            </div>
+        {{/if}}
+    </div>
+
+    {{!-- Action buttons roll/spend resources, so they follow `@root.editable` too - the character
+          sheet gets the same effect by passing `showActions=@root.editable` from both its tabs. --}}
+    {{#if @root.editable}}
+    {{#if item.system.actions.size}}
+        <div class="item-buttons">
+            {{#each item.system.actions as |action|}}
+                <div class="item-button">
+                    <button type="button" data-action="useItem" data-item-uuid="{{action.uuid}}">
+                        <i class="fa-solid {{action.typeIcon}} action-icon"></i>
+                        {{action.name}}
+                    </button>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+    {{/if}}
+</li>

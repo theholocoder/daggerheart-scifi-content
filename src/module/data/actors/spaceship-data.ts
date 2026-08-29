@@ -1,3 +1,5 @@
+import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES } from "../../constants";
+
 /**
  * DataModel for the module-registered `daggerheart-scifi-content.spaceship` Actor sub-type.
  *
@@ -58,13 +60,21 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   }
 
   /**
-   * Gate for `Item.createDocuments` (see class doc comment): only `weapon`/`armor`/`consumable`/
-   * `loot` Items - the Inventory tab's four types (#6) - can be created/dropped on a ship.
-   * Mirrors `daggerheart`'s own `BaseDataActor#isItemValid` default exactly.
+   * Gate for `Item.createDocuments` (see class doc comment): only the Inventory tab's four types
+   * (`weapon`/`armor`/`consumable`/`loot`, #6) plus `feature` (the Features tab, #7) can be
+   * created/dropped on a ship. The inventory half mirrors `daggerheart`'s own
+   * `BaseDataActor#isItemValid` default exactly, `hasInventory` gate included; the `feature`
+   * branch bypasses that gate the same way daggerheart's own feature-bearing DataModels widen
+   * the default (`super.isItemValid(source) || source.type === 'feature'`, e.g. `DHAncestry`/
+   * `DHCommunity`) - a feature isn't inventory, so it shouldn't hang off an inventory flag.
+   *
+   * `SpaceshipActorSheet` enforces the same rule one level up (rejecting a bad drop/create with
+   * our own message before this ever sees it), so both read the shared `constants.ts` lists
+   * rather than each spelling out their own copy.
    */
   isItemValid(source: { type: string }): boolean {
-    const inventoryTypes = ["weapon", "armor", "consumable", "loot"];
-    return this.metadata.hasInventory && inventoryTypes.includes(source.type);
+    const isInventoryType = (INVENTORY_ITEM_TYPES as readonly string[]).includes(source.type);
+    return (this.metadata.hasInventory && isInventoryType) || source.type === FEATURE_ITEM_TYPE;
   }
 
   static override defineSchema(): SpaceshipData.Schema {

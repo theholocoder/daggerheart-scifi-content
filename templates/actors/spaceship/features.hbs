@@ -1,0 +1,30 @@
+{{!--
+    Features tab (#7): the ship's embedded `feature` items, rendered through the exact same
+    row/fieldset partials as the Inventory tab (`partials/inventory-item.hbs` /
+    `partials/inventory-fieldset-items.hbs`).
+
+    That sharing is what the character sheet does too: daggerheart's own
+    `templates/sheets/actors/character/features.hbs` renders its feature list through
+    `daggerheart.inventory-items` -> `daggerheart.inventory-item`, the same pair its Inventory tab
+    uses - so a feature row on a ship gets the same portrait/name/tags/description-expand/controls
+    treatment as one on a character, for free. `.features-sections` is the character sheet's own
+    container class for that tab (its CSS *is* `.character`-scoped there, so the layout is copied
+    by value into `main.scss`, same as `.items-section` was for #6).
+
+    The character sheet splits features into several sections (class/subclass/ancestry/community
+    granters, off `system.sheetLists`); a ship has none of those concepts (CONTEXT.md: no
+    domains/loadout, class/subclass, ancestry/community), so this is a single section - the same
+    shape daggerheart's own generic `templates/sheets/global/tabs/tab-features.hbs` uses for
+    non-character actors.
+
+    No equip toggle or quantity input on a feature row, matching the character sheet.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}} spaceship-features" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="features-sections">
+        {{> "dhscifi.inventory-items"
+            title="DHSCIFI.Spaceship.Features.title"
+            createType="feature"
+            collection=features
+        }}
+    </div>
+</section>

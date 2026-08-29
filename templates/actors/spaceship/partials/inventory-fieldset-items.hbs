@@ -1,0 +1,60 @@
+{{!--
+    One titled, droppable section of item rows - the fieldset/legend/create-button/list wrapper
+    around `dhscifi.inventory-item`. Mirrors `daggerheart`'s own
+    templates/sheets/global/partials/inventory-fieldset-items-V2.hbs split (see that partial's
+    doc comment); registered as `dhscifi.inventory-items` in `src/main.ts`.
+
+    `fieldset.glassy`/`legend`/`drop-section`/`items-list` are daggerheart classes reused by
+    value - themed unscoped under `.application.daggerheart.dh-style`, per docs/adr/0002.
+
+    `@root.editable` (core `DocumentSheetV2`'s own render-context flag: can this user actually edit
+    this document?) gates the create button here and the mutating row controls in
+    `dhscifi.inventory-item` - the character sheet gates the same things on the same flag
+    (`canCreate=@root.editable`/`showActions=@root.editable` in its own `features.hbs`, `{{#if
+    @root.editable}}` around the equip toggles in `inventory-item-V2.hbs`), so an observer/limited
+    user sees a read-only list rather than create/delete affordances that would fail server-side.
+
+    Parameters:
+    - title {string} : localization key for the legend.
+    - createType {string} : Item type the legend's "+" creates (`data-item-type` on the
+      `createItem` action). Omitted = no create button.
+    - collection {ItemRowEntry[]} : rows to render (`{item, tags, hasDescription, usable}`,
+      built in spaceship-actor-sheet.ts).
+    - isGlassy {boolean} : apply daggerheart's `glassy` fieldset treatment. Matches the character
+      sheet's own split - its Inventory tab passes it, its Features tab doesn't.
+    - equipIcon {string} : passed through to `dhscifi.inventory-item`.
+    - quantifiable {boolean} : passed through to `dhscifi.inventory-item`.
+    - mounts {{value, max}} : optional weapon-mount usage shown next to the legend (weapons only).
+--}}
+<fieldset class="{{#if isGlassy}}glassy {{/if}}drop-section">
+    <legend>
+        {{localize title}}
+        {{!-- Nested plain `{{#if}}`s rather than an `(and ...)` subexpression: this module
+              registers only its own Handlebars helpers (ADR 0002) and doesn't depend on
+              daggerheart's `and`/`or`/`eq` set being present. --}}
+        {{#if @root.editable}}
+            {{#if createType}}
+                <a data-action="createItem" data-item-type="{{createType}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.CreateItem'}}">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            {{/if}}
+        {{/if}}
+        {{#if mounts}}
+            <span class="mounts-count" data-tooltip="{{localize 'DHSCIFI.Spaceship.WeaponMounts'}}">
+                ({{mounts.value}} / {{mounts.max}})
+            </span>
+        {{/if}}
+    </legend>
+    <ul class="items-list">
+        {{#each collection as |entry|}}
+            {{> "dhscifi.inventory-item"
+                item=entry.item
+                tags=entry.tags
+                hasDescription=entry.hasDescription
+                usable=entry.usable
+                equipIcon=../equipIcon
+                quantifiable=../quantifiable
+            }}
+        {{/each}}
+    </ul>
+</fieldset>

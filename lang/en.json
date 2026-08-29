@@ -20,6 +20,9 @@
       "SystemPoints": "System Points",
       "WeaponMounts": "Mounts",
       "ComingSoon": "Coming soon",
+      "Features": {
+        "title": "Features"
+      },
       "Inventory": {
         "Weapons": "Weapons",
         "Armor": "Armor",
@@ -33,7 +36,7 @@
         "Equip": "Equip",
         "Unequip": "Unequip",
         "MountsFull": "No weapon mounts available.",
-        "InvalidItemType": "Only weapons, armor, consumables, and loot can be added to a ship's inventory.",
+        "InvalidItemType": "Only weapons, armor, consumables, loot, and features can be added to a ship.",
         "DeleteItem": {
           "title": "Delete Item",
           "body": "Delete {name}?"

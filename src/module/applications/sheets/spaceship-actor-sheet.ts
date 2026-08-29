@@ -1,17 +1,17 @@
-import { MODULE_ID } from "../../constants";
+import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, MODULE_ID, SPACESHIP_ITEM_TYPES } from "../../constants";
 import SpaceshipSettings from "../settings/spaceship-settings";
 
 const BaseSheet = foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2);
 
 /**
- * The `daggerheart` system Item types the Inventory tab lists (#6), per the issue's "reusing the
- * existing weapon/armor/consumable/loot item types". docs/adr/0002-spaceship-sheet-independent-
- * application.md explicitly clears `armor`/`weapon` for reuse on a foreign Actor sub-type
- * (public/system-scoped state, not a private sheet-class contract); `consumable`/`loot` aren't
- * separately named there but are the same kind of system-registered Item type.
+ * The Item types this sheet's two item tabs deal with. Both lists live in `constants.ts`, shared
+ * with `SpaceshipData#isItemValid` (the document-level half of the same accept/reject rule) so
+ * widening either is one edit - see that file, and docs/adr/0002-spaceship-sheet-independent-
+ * application.md, for why reusing daggerheart's own Item types on a foreign Actor sub-type is
+ * sanctioned in the first place (public/system-scoped state, not a private sheet contract).
  */
-const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot"] as const;
 type InventoryItemType = (typeof INVENTORY_ITEM_TYPES)[number];
+type SpaceshipItemType = (typeof SPACESHIP_ITEM_TYPES)[number];
 
 /**
  * Fields this sheet reads off an inventory item's `system` - not the full daggerheart schema.
@@ -73,8 +73,8 @@ interface LooseActor {
   createEmbeddedDocuments(type: "Item", data: Record<string, unknown>[]): Promise<unknown>;
 }
 
-/** One row of the Inventory tab's per-type item lists: the item plus its precomputed display bits. */
-interface InventoryEntry {
+/** One row of an item list (Inventory or Features): the item plus its precomputed display bits. */
+interface ItemRowEntry {
   item: LooseItem;
   tags: string[];
   hasDescription: boolean;
@@ -124,8 +124,9 @@ export default class SpaceshipActorSheet extends BaseSheet {
   };
 
   // Same part split as the official character sheet (sidebar / header / one part per tab);
-  // our SCSS places them on the same window-content grid the official sheet uses. Inventory has
-  // its own template (#6); the remaining tab parts still share the placeholder until #8-#12.
+  // our SCSS places them on the same window-content grid the official sheet uses. Features (#7)
+  // and Inventory (#6) have their own templates; the remaining tab parts still share the
+  // placeholder until #8-#12.
   static override PARTS = {
     sidebar: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/sidebar.hbs`,
@@ -134,7 +135,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/header.hbs`,
     },
     features: {
-      template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
+      template: `modules/${MODULE_ID}/templates/actors/spaceship/features.hbs`,
     },
     inventory: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/inventory.hbs`,
@@ -189,12 +190,52 @@ export default class SpaceshipActorSheet extends BaseSheet {
       tab?: foundry.applications.api.ApplicationV2.Tab;
     };
     if (withTabs.tabs && partId in withTabs.tabs) withTabs.tab = withTabs.tabs[partId];
+    const actor = this.document as unknown as LooseActor;
+    const editable = this.isEditable;
     if (partId === "inventory") {
-      Object.assign(context, {
-        inventory: SpaceshipActorSheet.#buildInventoryContext(this.document as unknown as LooseActor),
-      });
+      Object.assign(context, { inventory: SpaceshipActorSheet.#buildInventoryContext(actor, editable) });
+    }
+    if (partId === "features") {
+      Object.assign(context, { features: SpaceshipActorSheet.#buildFeaturesContext(actor, editable) });
     }
     return context;
+  }
+
+  /**
+   * One row of a shared item list: the live `LooseItem` plus the display bits the template can't
+   * compute itself.
+   *
+   * `tags` is resolved here, not read as `item._getTags` from the template: Handlebars only binds
+   * a resolved function's `this` correctly to the object it's a *direct* property of (daggerheart's
+   * own item-tags.hbs partial relies on exactly that, invoking `_getTags` as a bare path with
+   * `item` as the partial's context) - a nested path like `item._getTags` would call it with the
+   * wrong `this` and break every tag that reads `this.attack`/etc.
+   *
+   * `usable` (does the portrait roll the item, or just open its sheet?) is ANDed with `editable`
+   * here rather than gated in the template, because the character sheet's equivalent is one
+   * uniform flag: *both* its tabs pass `showActions=@root.editable` into `inventory-item-V2.hbs`,
+   * whose portrait falls back to "open the sheet" whenever that's false. Nothing on this sheet
+   * wants the two to differ, so it collapses to one precomputed boolean.
+   */
+  static #toEntry(item: LooseItem, editable: boolean): ItemRowEntry {
+    return {
+      item,
+      tags: item._getTags?.() ?? [],
+      hasDescription: item.hasDescription ?? false,
+      usable: editable && (item.usable ?? false),
+    };
+  }
+
+  /**
+   * The ship's embedded `feature` items for the Features tab (#7) - the same `ItemRowEntry`
+   * rows the Inventory tab uses, since both tabs render through the same partials (see
+   * `features.hbs`). A single flat list: unlike a character, a ship has no class/subclass/
+   * ancestry/community granters to group features under (CONTEXT.md).
+   */
+  static #buildFeaturesContext(actor: LooseActor, editable: boolean): ItemRowEntry[] {
+    return Array.from(actor.items)
+      .filter((item) => item.type === FEATURE_ITEM_TYPE)
+      .map((item) => SpaceshipActorSheet.#toEntry(item, editable));
   }
 
   /**
@@ -203,28 +244,21 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * Passes the live `LooseItem`s through as-is (not a flattened row shape) so `inventory.hbs` can
    * call `item._getTags`/`item.system.*` directly, same as daggerheart's own inventory template.
    */
-  static #buildInventoryContext(actor: LooseActor): {
-    weapons: InventoryEntry[];
-    armor: InventoryEntry[];
-    consumables: InventoryEntry[];
-    loot: InventoryEntry[];
+  static #buildInventoryContext(
+    actor: LooseActor,
+    editable: boolean,
+  ): {
+    weapons: ItemRowEntry[];
+    armor: ItemRowEntry[];
+    consumables: ItemRowEntry[];
+    loot: ItemRowEntry[];
     mounts: { value: number; max: number };
   } {
-    const rows: Record<InventoryItemType, InventoryEntry[]> = { weapon: [], armor: [], consumable: [], loot: [] };
+    const rows: Record<InventoryItemType, ItemRowEntry[]> = { weapon: [], armor: [], consumable: [], loot: [] };
 
     for (const item of actor.items) {
       if (SpaceshipActorSheet.#isInventoryItemType(item.type)) {
-        // Tags are computed here, not read as `item._getTags` from the template: Handlebars only
-        // binds a resolved-function's `this` correctly to the object it's a *direct* property of
-        // (daggerheart's own item-tags.hbs partial relies on exactly that, invoking `_getTags` as
-        // a bare path with `item` as the partial's context) - a nested path like `item._getTags`
-        // would call it with the wrong `this` and break every tag that reads `this.attack`/etc.
-        rows[item.type].push({
-          item,
-          tags: item._getTags?.() ?? [],
-          hasDescription: item.hasDescription ?? false,
-          usable: item.usable ?? false,
-        });
+        rows[item.type].push(SpaceshipActorSheet.#toEntry(item, editable));
       }
     }
 
@@ -242,6 +276,11 @@ export default class SpaceshipActorSheet extends BaseSheet {
 
   static #isInventoryItemType(type: string): type is InventoryItemType {
     return (INVENTORY_ITEM_TYPES as readonly string[]).includes(type);
+  }
+
+  /** Whether `type` is an Item type this sheet can create/accept at all (inventory + `feature`). */
+  static #isSpaceshipItemType(type: string): type is SpaceshipItemType {
+    return (SPACESHIP_ITEM_TYPES as readonly string[]).includes(type);
   }
 
   /**
@@ -330,7 +369,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     target: HTMLElement,
   ): Promise<void> {
     const itemType = target.dataset.itemType ?? "";
-    if (!SpaceshipActorSheet.#isInventoryItemType(itemType)) return;
+    if (!SpaceshipActorSheet.#isSpaceshipItemType(itemType)) return;
 
     const actor = this.document as unknown as LooseActor;
     // fvtt-types' `getDefaultArtwork` only accepts its strict, daggerheart-unaware `type` union
@@ -486,7 +525,9 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const actor = this.document as unknown as LooseActor;
     this.#itemContextMenu = new foundry.applications.ux.ContextMenu.implementation(
       this.element,
-      ".spaceship-inventory .inventory-item [data-action='triggerContextMenu']",
+      // Every `.inventory-item` on the sheet, not just the Inventory tab's - the Features tab
+      // (#7) renders through the same row partial and gets the same Edit/Delete menu.
+      ".inventory-item [data-action='triggerContextMenu']",
       [
         {
           name: "DHSCIFI.Spaceship.Inventory.EditItem",
@@ -512,15 +553,19 @@ export default class SpaceshipActorSheet extends BaseSheet {
   #itemContextMenu: InstanceType<typeof foundry.applications.ux.ContextMenu.implementation> | null = null;
 
   /**
-   * Accept an Item dropped onto the sheet, restricted to the Inventory tab's four types and
-   * capped at `maxWeaponMounts`. `ActorSheetV2` (our base class) already wires up drag-drop
+   * Accept an Item dropped onto the sheet, restricted to `SPACESHIP_ITEM_TYPES` (the Inventory tab's
+   * four types plus `feature`) and capped at `maxWeaponMounts`. Keep this set in sync with
+   * `SpaceshipData#isItemValid`, which rejects the same types one level down (daggerheart's own
+   * `Item.createDocuments` override consults it for *every* embedded create, drops included), so
+   * a type allowed here but not there fails with the system's own generic warning instead of
+   * ours. `ActorSheetV2` (our base class) already wires up drag-drop
    * itself - `_onRender` calls `this._dragDrop.bind(this.element)`, and its default `_onDrop`
    * routes an Item drop through this exact hook - so this overrides that hook rather than
    * building a second, competing drop listener (an earlier version of this method did that, and
    * every drop created the item twice: once from each listener firing on the same event).
    * The base class's own `_onDropItem` does the actual embedding (also handling same-actor
    * reorder, compendium source items, and ownership - all for free); items whose type isn't one
-   * of `INVENTORY_ITEM_TYPES` are rejected before that with a warning instead of embedded.
+   * of `SPACESHIP_ITEM_TYPES` are rejected before that with a warning instead of embedded.
    *
    * Not typed as a real override (fvtt-types doesn't declare `_onDropItem`/`_dragDrop`/`_onDrop`
    * anywhere in its `ActorSheetV2` definition, the same gap already worked around for
@@ -530,7 +575,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async _onDropItem(event: any, item: any): Promise<any> {
     const droppedItem = item as LooseItem;
-    if (!SpaceshipActorSheet.#isInventoryItemType(droppedItem.type)) {
+    if (!SpaceshipActorSheet.#isSpaceshipItemType(droppedItem.type)) {
       ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Inventory.InvalidItemType"));
       return null;
     }
@@ -558,14 +603,15 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * `.inventory-item-quantity` (consumable/loot rows, `inventory-item.hbs`'s own markup/class -
-   * matches daggerheart's real inventory item template) is a plain `<input>`, not wired to a
-   * `data-action` (core `ApplicationV2` actions only fire on click) - bind its `change` here
-   * instead, same rebind-per-render reasoning as `#bindInventoryDrop`.
+   * `.inventory-item-quantity` (consumable/loot rows, `partials/inventory-item.hbs`'s own markup/
+   * class - matches daggerheart's real inventory item template) is a plain `<input>`, not wired to
+   * a `data-action` (core `ApplicationV2` actions only fire on click) - bind its `change` here
+   * instead. Re-bound on every render (unlike `#bindItemContextMenu`, which caches): a render
+   * replaces the part's DOM, so these are always freshly-created elements with no listener yet.
    */
   #bindQuantityInputs(): void {
     const actor = this.document as unknown as LooseActor;
-    const inputs = this.element.querySelectorAll<HTMLInputElement>(".spaceship-inventory .inventory-item-quantity");
+    const inputs = this.element.querySelectorAll<HTMLInputElement>(".inventory-item-quantity");
     inputs.forEach((input) => {
       input.addEventListener("change", () => {
         const item = SpaceshipActorSheet.#getRowItem(actor, input);
@@ -579,10 +625,11 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * Fill in each expandable row's `.inventory-description` with the item's own enriched
    * description HTML, mirroring daggerheart's own `#prepareInventoryDescription` (item-level
    * `getEnrichedDescription()` + `TextEditor.enrichHTML`, not sheet code) - Handlebars can't
-   * `await`, so `inventory.hbs` renders the container empty and this fills it in post-render.
+   * `await`, so `partials/inventory-item.hbs` renders the container empty and this fills it in
+   * post-render. Covers every `.inventory-item` on the sheet (Inventory and Features alike).
    */
   async #enrichInventoryDescriptions(): Promise<void> {
-    const rows = this.element.querySelectorAll<HTMLElement>(".spaceship-inventory .inventory-item[data-item-uuid]");
+    const rows = this.element.querySelectorAll<HTMLElement>(".inventory-item[data-item-uuid]");
     for (const row of rows) {
       const uuid = row.dataset.itemUuid;
       const descriptionElement = row.querySelector<HTMLElement>(".inventory-description");
