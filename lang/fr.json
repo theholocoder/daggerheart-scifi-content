@@ -42,6 +42,28 @@
           "body": "Supprimer {name} ?"
         }
       },
+      "Stations": {
+        "Roles": {
+          "pilot": "Pilote",
+          "mechanic": "Mécanicien",
+          "commander": "Commandant",
+          "systemsOperator": "Opérateur système",
+          "gunner": "Artilleur"
+        },
+        "Enable": "Activer le poste",
+        "Disable": "Désactiver le poste",
+        "DropHere": "Déposez un personnage ici",
+        "DropOnStation": "Déposez le personnage sur un poste.",
+        "StationDisabled": "Ce poste est désactivé sur ce vaisseau.",
+        "InvalidActorType": "Seuls les personnages peuvent être affectés à un poste.",
+        "AlreadyAssigned": "Ce personnage est déjà affecté à ce poste.",
+        "OpenActor": "Ouvrir la fiche du personnage",
+        "UnknownCrew": "Inconnu",
+        "RemoveCrew": {
+          "title": "Retirer l'affectation",
+          "body": "Retirer {name} de ce poste ?"
+        }
+      },
       "Thresholds": {
         "minor": "Mineur",
         "major": "Majeur",

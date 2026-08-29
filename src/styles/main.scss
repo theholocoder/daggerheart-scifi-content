@@ -399,15 +399,17 @@ body {
    * hidden - which is exactly the bug where every tab's content rendered stacked on top of the
    * others (shipped in #6, only visible once #7 gave a second tab real content). The system itself
    * never does this: it puts `display: flex` on the inner container (`.features-sections`,
-   * `.items-section`, `.effects-sections`), never on `.tab`. Same rule for #8-#12's tabs.
+   * `.items-section`, `.effects-sections`), never on `.tab`. Same rule for #9-#12's tabs.
    */
   .spaceship-inventory,
-  .spaceship-features {
+  .spaceship-features,
+  .spaceship-stations {
     // Only the inner section scrolls; the tab wrapper itself never does.
     overflow-y: hidden;
 
     .items-section,
-    .features-sections {
+    .features-sections,
+    .stations-sections {
       // `flex: 1` works because `.tab.active` (above) supplies the flex column context.
       flex: 1;
       display: flex;
@@ -417,7 +419,8 @@ body {
       scrollbar-gutter: stable;
     }
 
-    .items-section {
+    .items-section,
+    .stations-sections {
       padding: 8px 0.75rem 4px 0.75rem;
     }
 
@@ -429,6 +432,64 @@ body {
       font-weight: normal;
       opacity: 0.85;
       font-size: var(--font-size-12, 0.75rem);
+    }
+  }
+
+  /*
+   * Stations tab (#8). Same shape as the two tabs above - the tab element itself must never get a
+   * `display` (see the IMPORTANT note there); the inner `.stations-sections` is the flex column
+   * that scrolls, copied by value from `.items-section` exactly as that one was.
+   *
+   * The station fieldsets and their crew rows reuse daggerheart's own unscoped classes
+   * (`fieldset.glassy`/`legend`/`items-list`/`inventory-item`/`img-portait`/`item-label`/
+   * `controls`), so only what's genuinely ours or `.party`-scoped upstream needs rules here:
+   * `.actors-dragger` (the dashed drop hint, copied by value from
+   * `.party .tab.partyMembers .actors-dragger`), `.delete-icon`'s size (same), and the
+   * disabled/missing dimming.
+   */
+  .spaceship-stations {
+    /*
+     * A disabled station keeps showing whatever crew it holds (disabling is non-destructive), but
+     * reads as inactive.
+     *
+     * The dimming deliberately does NOT go on the fieldset: `opacity` below 1 creates an opacity
+     * group, and a descendant can never render more opaque than its group - so `opacity: 0.5` on
+     * the fieldset with a `legend a { opacity: 1 }` "exception" does nothing, and the re-enable
+     * toggle (the only way back out of the disabled state) dims along with everything else. Dim
+     * the station's *contents* and re-colour the legend text instead, both of which leave the
+     * toggle at full strength.
+     */
+    .station-disabled {
+      > legend {
+        color: var(--color-text-secondary, inherit);
+      }
+
+      > .items-list {
+        opacity: 0.5;
+      }
+    }
+
+    // A crew reference whose Actor no longer resolves ("Unknown"), same dimming the sheet's other
+    // not-yet-real elements use.
+    .crew-assignment-missing .item-main {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .actors-dragger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      border: 1px dashed light-dark(var(--dark-blue-50, #18162e50), var(--beige-50, #efe6d850));
+      border-radius: 3px;
+      color: light-dark(var(--dark-blue-50, #18162e50), var(--beige-50, #efe6d850));
+    }
+
+    .delete-icon {
+      font-size: 0.75em;
     }
   }
 
@@ -464,7 +525,7 @@ body {
     }
   }
 
-  // Stub body shown in each not-yet-built tab (Features/Inventory/Stations/Effects).
+  // Stub body shown in each not-yet-built tab (Effects, until #9-#12).
   .dhscifi-placeholder-body {
     flex: 1;
     display: flex;

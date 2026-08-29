@@ -42,6 +42,28 @@
           "body": "Delete {name}?"
         }
       },
+      "Stations": {
+        "Roles": {
+          "pilot": "Pilot",
+          "mechanic": "Mechanic",
+          "commander": "Commander",
+          "systemsOperator": "Systems Operator",
+          "gunner": "Gunner"
+        },
+        "Enable": "Enable Station",
+        "Disable": "Disable Station",
+        "DropHere": "Drop a character here",
+        "DropOnStation": "Drop the character onto a station.",
+        "StationDisabled": "That station is disabled on this ship.",
+        "InvalidActorType": "Only characters can be assigned to a station.",
+        "AlreadyAssigned": "That character is already assigned to this station.",
+        "OpenActor": "Open Character Sheet",
+        "UnknownCrew": "Unknown",
+        "RemoveCrew": {
+          "title": "Remove Assignment",
+          "body": "Remove {name} from this station?"
+        }
+      },
       "Thresholds": {
         "minor": "Minor",
         "major": "Major",

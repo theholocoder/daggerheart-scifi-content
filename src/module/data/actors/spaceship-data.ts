@@ -1,4 +1,4 @@
-import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES } from "../../constants";
+import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, STATION_IDS } from "../../constants";
 
 /**
  * DataModel for the module-registered `daggerheart-scifi-content.spaceship` Actor sub-type.
@@ -99,6 +99,41 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
         max: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 6 }),
       });
 
+    /**
+     * One Station (#8): whether this ship has the role at all, plus its crew assignments.
+     *
+     * `enabled` defaults to `true` - a freshly-created ship has all five roles, and the GM
+     * disables the ones its Frame lacks. Disabling is non-destructive: `crew` is left untouched so
+     * re-enabling restores the previous assignments (the sheet just refuses new drops and renders
+     * the station dimmed).
+     *
+     * `crew` is a plain array of Actor UUID *strings* (core's own `DocumentUUIDField`, which
+     * validates the string's shape without dereferencing it) - deliberately not daggerheart's
+     * `ForeignDocumentUUIDArrayField`, which initializes to live Documents and is system-internal
+     * (docs/adr/0002). A one-way reference, per CONTEXT.md's "Crew assignment" entry: no back-link
+     * on the PC, no sync, and an Actor deleted out from under an entry stays a dangling string that
+     * the sheet resolves to "Unknown" rather than something that has to be cleaned up here.
+     */
+    const stationField = () =>
+      new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+        // No explicit options: `ArrayField`'s own defaults are already
+        // `{required: true, nullable: false, initial: []}`.
+        crew: new fields.ArrayField(new fields.DocumentUUIDField({ type: "Actor" })),
+      });
+
+    /**
+     * One `stationField()` per `STATION_IDS` entry, keyed by id - built from that list rather than
+     * spelling the five keys out again here, so the ids (and their sheet-facing order) stay
+     * defined in exactly one place.
+     *
+     * Assigned into a pre-cast empty object rather than built with `Object.fromEntries`, which
+     * only ever yields `Record<string, ...>` - TS can't narrow that to the five literal keys,
+     * whereas `stations[id] = ...` still type-checks each field against `StationField`.
+     */
+    const stations = {} as SpaceshipData.StationsSchema;
+    for (const id of STATION_IDS) stations[id] = stationField();
+
     return {
       level: new fields.NumberField({
         required: true,
@@ -123,6 +158,7 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       evasion: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
       proficiency: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, initial: 1 }),
       maxWeaponMounts: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 1 }),
+      stations: new fields.SchemaField(stations),
       // `rules` (#6): NOT read through `getRollData()` - `DhpActor#getRollData` (document-level,
       // not sheet code) builds the actor's final roll-data object as
       // `{...createShallowProxy(this.system), system: this.system.getRollData(), ...}`: the
@@ -171,6 +207,15 @@ namespace SpaceshipData {
     max: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; min: 0; initial: 6 }>;
   }>;
 
+  /** One Station (#8): `{enabled, crew: Actor UUID string[]}`. */
+  export type StationField = foundry.data.fields.SchemaField<{
+    enabled: foundry.data.fields.BooleanField<{ required: true; nullable: false; initial: true }>;
+    crew: foundry.data.fields.ArrayField<foundry.data.fields.DocumentUUIDField<{ type: "Actor" }>>;
+  }>;
+
+  /** The `stations` sub-schema: exactly one `StationField` per `STATION_IDS` entry. */
+  export type StationsSchema = Record<(typeof STATION_IDS)[number], StationField>;
+
   export interface Schema extends foundry.data.fields.DataSchema {
     level: foundry.data.fields.NumberField<{
       required: true;
@@ -207,6 +252,7 @@ namespace SpaceshipData {
       min: 0;
       initial: 1;
     }>;
+    stations: foundry.data.fields.SchemaField<StationsSchema>;
     rules: foundry.data.fields.ObjectField<{ required: false; nullable: false; initial: Record<string, never> }>;
   }
 }

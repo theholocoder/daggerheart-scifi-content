@@ -3,6 +3,27 @@ export const MODULE_ID = "daggerheart-scifi-content";
 /** Namespaced Actor sub-type, per Foundry's module `documentTypes` mechanism. */
 export const SPACESHIP_ACTOR_TYPE = `${MODULE_ID}.spaceship`;
 
+/**
+ * The five fixed crew Stations a Spaceship has (#8, CONTEXT.md's "Station" entry). Fixed, not
+ * user-extensible: a ship enables/disables individual stations rather than adding its own.
+ *
+ * Shared between `SpaceshipData`'s schema (one sub-field per id) and `SpaceshipActorSheet`'s
+ * Stations tab context/drop handler, so the set and its iteration order are defined once. Each id
+ * is also a localization key suffix under `DHSCIFI.Spaceship.Stations.Roles`.
+ */
+export const STATION_IDS = ["pilot", "mechanic", "commander", "systemsOperator", "gunner"] as const;
+
+/**
+ * Actor types a Station accepts as a crew assignment (#8). Just `character`: CONTEXT.md defines a
+ * crew assignment as a reference to a *PC* Actor, and daggerheart's `character` is that type.
+ *
+ * A list rather than a bare comparison so widening it later (NPC crew, companions - daggerheart's
+ * own party sheet accepts `['character','companion','adversary','npc']`) is one edit; the
+ * user-facing rejection message in `lang/*.json` names the same set in prose and still has to be
+ * updated by hand, same as `SPACESHIP_ITEM_TYPES`'s.
+ */
+export const CREW_ACTOR_TYPES = ["character"] as const;
+
 /** The `daggerheart` Item types the Spaceship sheet's Inventory tab lists (#6). */
 export const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot"] as const;
 

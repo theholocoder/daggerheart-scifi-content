@@ -1,4 +1,11 @@
-import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, MODULE_ID, SPACESHIP_ITEM_TYPES } from "../../constants";
+import {
+  CREW_ACTOR_TYPES,
+  FEATURE_ITEM_TYPE,
+  INVENTORY_ITEM_TYPES,
+  MODULE_ID,
+  SPACESHIP_ITEM_TYPES,
+  STATION_IDS,
+} from "../../constants";
 import SpaceshipSettings from "../settings/spaceship-settings";
 
 const BaseSheet = foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2);
@@ -68,9 +75,37 @@ interface LooseItem {
 
 interface LooseActor {
   uuid: string;
-  system: { maxWeaponMounts: number };
+  system: {
+    maxWeaponMounts: number;
+    // One entry per `STATION_IDS` id (#8) - `crew` is a plain array of Actor UUID strings, see
+    // `SpaceshipData`'s `stationField`.
+    stations: Record<StationId, { enabled: boolean; crew: string[] }>;
+  };
   items: Iterable<LooseItem> & { get(id: string): LooseItem | undefined };
   createEmbeddedDocuments(type: "Item", data: Record<string, unknown>[]): Promise<unknown>;
+}
+
+type StationId = (typeof STATION_IDS)[number];
+
+/**
+ * One crew assignment as the Stations tab renders it: the stored UUID plus whatever the referenced
+ * Actor still provides. `missing` is the "the Actor was deleted" case the ticket calls for - a
+ * dangling reference renders as "Unknown" with a placeholder portrait instead of erroring the
+ * sheet, and stays stored (the reference is one-way and never synced, per CONTEXT.md).
+ */
+interface CrewEntry {
+  uuid: string;
+  name: string;
+  img: string;
+  missing: boolean;
+}
+
+/** One station row: its id, its label key, whether it's enabled, and its resolved crew. */
+interface StationRow {
+  id: StationId;
+  label: string;
+  enabled: boolean;
+  crew: CrewEntry[];
 }
 
 /** One row of an item list (Inventory or Features): the item plus its precomputed display bits. */
@@ -120,13 +155,16 @@ export default class SpaceshipActorSheet extends BaseSheet {
       toggleExtended: SpaceshipActorSheet.#onToggleExtended,
       useItem: SpaceshipActorSheet.#onUseItem,
       toChat: SpaceshipActorSheet.#onToChat,
+      toggleStation: SpaceshipActorSheet.#onToggleStation,
+      removeCrew: SpaceshipActorSheet.#onRemoveCrew,
+      openCrew: SpaceshipActorSheet.#onOpenCrew,
     },
   };
 
   // Same part split as the official character sheet (sidebar / header / one part per tab);
-  // our SCSS places them on the same window-content grid the official sheet uses. Features (#7)
-  // and Inventory (#6) have their own templates; the remaining tab parts still share the
-  // placeholder until #8-#12.
+  // our SCSS places them on the same window-content grid the official sheet uses. Features (#7),
+  // Inventory (#6), and Stations (#8) have their own templates; the remaining tab parts still
+  // share the placeholder until #9-#12.
   static override PARTS = {
     sidebar: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/sidebar.hbs`,
@@ -141,7 +179,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/inventory.hbs`,
     },
     stations: {
-      template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
+      template: `modules/${MODULE_ID}/templates/actors/spaceship/stations.hbs`,
     },
     effects: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
@@ -197,6 +235,9 @@ export default class SpaceshipActorSheet extends BaseSheet {
     }
     if (partId === "features") {
       Object.assign(context, { features: SpaceshipActorSheet.#buildFeaturesContext(actor, editable) });
+    }
+    if (partId === "stations") {
+      Object.assign(context, { stations: SpaceshipActorSheet.#buildStationsContext(actor) });
     }
     return context;
   }
@@ -272,6 +313,64 @@ export default class SpaceshipActorSheet extends BaseSheet {
         max: actor.system.maxWeaponMounts,
       },
     };
+  }
+
+  /**
+   * The five Stations (#8) in `STATION_IDS` order, each with its crew assignments resolved for
+   * display. Built per-render rather than cached: a crew Actor can be renamed, re-portraited, or
+   * deleted at any time without this sheet hearing about it (the reference is one-way and never
+   * synced - CONTEXT.md's "Crew assignment").
+   */
+  static #buildStationsContext(actor: LooseActor): StationRow[] {
+    return STATION_IDS.map((id) => {
+      const station = actor.system.stations[id];
+      return {
+        id,
+        label: `DHSCIFI.Spaceship.Stations.Roles.${id}`,
+        enabled: station.enabled,
+        crew: station.crew.map((uuid) => SpaceshipActorSheet.#resolveCrewEntry(uuid)),
+      };
+    });
+  }
+
+  /**
+   * Resolve one stored crew UUID to a name/portrait, or to the `missing` placeholder the ticket
+   * requires when the referenced Actor is gone.
+   *
+   * `fromUuidSync` (not the async `fromUuid`) because Handlebars can't await and the Stations tab
+   * has no post-render fill-in step; it returns the live Actor for a world document and a plain
+   * index record (`{name, img, ...}`, enough for both fields here) for a compendium one. It
+   * *throws* rather than returning null for a compendium UUID whose pack index isn't loaded, so
+   * the call is guarded - an unresolvable reference of any kind is the same "Unknown" outcome.
+   */
+  static #resolveCrewEntry(uuid: string): CrewEntry {
+    let doc: { name?: string | null; img?: string | null } | null = null;
+    try {
+      doc = fromUuidSync(uuid) as { name?: string | null; img?: string | null } | null;
+    } catch {
+      doc = null;
+    }
+
+    if (!doc?.name) {
+      return {
+        uuid,
+        name: game.i18n!.localize("DHSCIFI.Spaceship.Stations.UnknownCrew"),
+        img: "icons/svg/mystery-man.svg",
+        missing: true,
+      };
+    }
+
+    return { uuid, name: doc.name, img: doc.img ?? "icons/svg/mystery-man.svg", missing: false };
+  }
+
+  static #isStationId(id: string): id is StationId {
+    return (STATION_IDS as readonly string[]).includes(id);
+  }
+
+  /** Resolve the `data-station` of the closest station container (fieldset or crew row) to `el`. */
+  static #getStationId(el: HTMLElement): StationId | undefined {
+    const id = el.closest<HTMLElement>("[data-station]")?.dataset.station;
+    return id && SpaceshipActorSheet.#isStationId(id) ? id : undefined;
   }
 
   static #isInventoryItemType(type: string): type is InventoryItemType {
@@ -492,6 +591,122 @@ export default class SpaceshipActorSheet extends BaseSheet {
   ): Promise<void> {
     const item = SpaceshipActorSheet.#getRowItem(this.document as unknown as LooseActor, target);
     await item?.toChat?.(item.id);
+  }
+
+  /**
+   * Enable/disable a Station (#8), from `data-station` on the legend's toggle.
+   *
+   * Non-destructive: the station's existing `crew` array is left alone, so re-enabling restores
+   * the previous assignments. A disabled station just refuses new drops (`_onDropActor`) and
+   * renders dimmed.
+   */
+  static async #onToggleStation(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const stationId = SpaceshipActorSheet.#getStationId(target);
+    if (!stationId) return;
+
+    const path = `system.stations.${stationId}.enabled`;
+    const current = foundry.utils.getProperty(this.document, path) as boolean;
+    await this.document.update({ [path]: !current });
+  }
+
+  /**
+   * Remove one crew assignment, from `data-station`/`data-uuid` on the clicked row.
+   *
+   * Confirms first unless Shift is held - the same pattern daggerheart's own party sheet uses for
+   * removing a party member. Filters by UUID rather than by index so a station holding the same
+   * Actor twice can't be desynced by a concurrent edit; duplicates can't be created through
+   * `_onDropActor` anyway.
+   */
+  static async #onRemoveCrew(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const row = target.closest<HTMLElement>("[data-uuid]");
+    const uuid = row?.dataset.uuid;
+    const stationId = SpaceshipActorSheet.#getStationId(target);
+    if (!uuid || !stationId) return;
+
+    if (!event.shiftKey) {
+      const { name } = SpaceshipActorSheet.#resolveCrewEntry(uuid);
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window: { title: game.i18n!.localize("DHSCIFI.Spaceship.Stations.RemoveCrew.title") },
+        content: `<p>${game.i18n!.format("DHSCIFI.Spaceship.Stations.RemoveCrew.body", { name })}</p>`,
+      });
+      if (!confirmed) return;
+    }
+
+    const actor = this.document as unknown as LooseActor;
+    const crew = actor.system.stations[stationId].crew.filter((entry) => entry !== uuid);
+    await this.document.update({ [`system.stations.${stationId}.crew`]: crew });
+  }
+
+  /**
+   * Open an assigned Actor's own sheet, from `data-uuid` on the clicked row - the Stations tab's
+   * equivalent of an item row's portrait opening the Item sheet. Never rendered for a `missing`
+   * entry (nothing to open), but still guarded: the reference can go stale between render and
+   * click.
+   */
+  static async #onOpenCrew(_event: PointerEvent, target: HTMLElement): Promise<void> {
+    const uuid = target.closest<HTMLElement>("[data-uuid]")?.dataset.uuid;
+    if (!uuid) return;
+
+    const doc = (await fromUuid(uuid)) as { sheet?: { render: (options?: unknown) => unknown } | null } | null;
+    doc?.sheet?.render(true);
+  }
+
+  /**
+   * Assign a dropped PC Actor to the Station it was dropped on (#8), storing a one-way UUID
+   * reference on the ship (`system.stations.<id>.crew`) - no back-link on the PC and no sync, per
+   * CONTEXT.md's "Crew assignment" entry.
+   *
+   * Same wiring story as `_onDropItem` below: core `ActorSheetV2`'s own drag-drop already routes an
+   * Actor drop here, so this overrides that hook rather than adding a competing listener - and
+   * fvtt-types doesn't declare it, hence the `any`s. Unlike `_onDropItem` there's no base behavior
+   * worth delegating to (core's default does nothing for an Actor dropped on an Actor sheet), so
+   * this handles the drop outright.
+   *
+   * Which station? The drop's own `event.target` - stations are separate drop targets within the
+   * one tab, so a drop that didn't land inside a `[data-station]` fieldset is rejected rather than
+   * guessed at.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async _onDropActor(event: any, actor: any): Promise<any> {
+    const dropped = actor as { uuid: string; type: string };
+    const target = event.target as HTMLElement | null;
+    const stationId = target ? SpaceshipActorSheet.#getStationId(target) : undefined;
+    if (!stationId) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Stations.DropOnStation"));
+      return null;
+    }
+
+    if (!(CREW_ACTOR_TYPES as readonly string[]).includes(dropped.type)) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Stations.InvalidActorType"));
+      return null;
+    }
+
+    const ship = this.document as unknown as LooseActor;
+    const station = ship.system.stations[stationId];
+    if (!station.enabled) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Stations.StationDisabled"));
+      return null;
+    }
+
+    if (station.crew.includes(dropped.uuid)) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Stations.AlreadyAssigned"));
+      return null;
+    }
+
+    await this.document.update({ [`system.stations.${stationId}.crew`]: [...station.crew, dropped.uuid] });
+    // Core's contract for this hook (`client/applications/sheets/actor-sheet.mjs`): return an Actor
+    // to signal success, a nullish value to signal failure or no action taken - and
+    // `_onDropDocument` propagates whatever comes back. Every rejection above returns `null`; this
+    // path succeeded, so it returns the dropped Actor.
+    return actor;
   }
 
   // Same `any`/`any` reasoning as `_prepareContext`/`_preparePartContext` above.
