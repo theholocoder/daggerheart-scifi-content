@@ -351,6 +351,11 @@ body {
     // visible border/underline at rest). This stylesheet's own general `input` rule already
     // handles the hover/focus state correctly (`border-color: var(--color-border)`, this sheet's
     // rule above) - the earlier two mistakes were both about the *resting* state, not hover.
+    // Gold, matching the official sheet's name field - reached there via a mechanism our markup
+    // doesn't have (the input sits inside an `<h1>`, and `.dh-style h1` sets
+    // `--dh-input-color-text: var(--color-text-emphatic)`, which the shared `.dh-style
+    // input[type='text'] { color: var(--dh-input-color-text) }` rule then picks up). Same visual
+    // result, set directly instead of restructuring the markup to add an `<h1>` wrapper.
     .actor-name {
       flex: 1;
       min-width: 0;
@@ -359,6 +364,7 @@ body {
       text-align: start;
       border: 1px solid var(--soft-shadow, rgba(0, 0, 0, 0.05));
       background-color: light-dark(var(--dark-15, #22222215), var(--soft-white-shadow, rgba(255, 255, 255, 0.05)));
+      color: var(--color-text-emphatic);
     }
 
     .level-div {
@@ -366,11 +372,15 @@ body {
       display: flex;
       justify-content: end;
 
+      // Gold, same "Level" label + value as the official header - the label text and the
+      // level-value input (which inherits via this stylesheet's own `input { color: inherit }`
+      // rule) both pick it up from here.
       .label {
         display: flex;
         align-items: baseline;
         gap: 4px;
         font-family: var(--dh-font-subtitle, "Cinzel"), serif;
+        color: var(--color-text-emphatic);
       }
 
       // Same resting-state fix as `.actor-name` above, same source rule, same reasoning.
@@ -420,11 +430,17 @@ body {
       gap: 8px;
     }
 
+    // Also the box for System Points and Weapon Mounts (#11/#17) - `.hope-section` reused as-is,
+    // same as the official sheet's own class. `color` here is the container-level rule the
+    // official CSS itself sets (not just on the `h4` label) - it's what makes the pip/dice icon
+    // and the `.chip-value` counts (System Points/Mounts' `current / max` text) gold too, not
+    // just the label; missed the first time this was fixed, only the label got its own override.
     .hope-section {
       position: relative;
       display: flex;
       gap: 4px;
       background-color: light-dark(transparent, var(--dark-blue, #18162e));
+      color: var(--color-text-emphatic);
       padding: 5px 10px;
       border: 1px solid var(--color-border);
       border-radius: 6px;
@@ -432,14 +448,11 @@ body {
       width: fit-content;
       height: 30px;
 
-      // HOPE/SYSTEM POINTS/MOUNTS: explicit golden/yellow, matching the official sheet's own
-      // "HOPE" label - same "no color rule of its own, inherits ambient" story the threshold
-      // labels had, just the opposite direction (that one needed it made explicit too).
       h4 {
         font-size: var(--font-size-14, 0.875rem);
         font-weight: bold;
         text-transform: uppercase;
-        color: var(--golden, #f3c267);
+        color: var(--color-text-emphatic);
       }
 
       .hope-value {
