@@ -548,6 +548,69 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   }
 
   /**
+   * Spend Shield to blunt an incoming hit, no owner prompt (#10 addendum) - `SpaceshipDamagePatch`
+   * calls this in place of daggerheart's `armorSlot` dialog query, which assumes a character's
+   * per-item armor marking UI a ship has no equivalent of. `hpDamage` is the already-converted
+   * threshold tier (1/2/3, from `convertDamageToThreshold`), not raw damage - same value the
+   * dialog reduces, and what gets returned here.
+   *
+   * Deliberately the *automatic* half of the rule only: a mark always costs 1 Shield for 1 tier of
+   * reduction (`increasePerArmorMark`), spent up to `maxArmorMarked.value` marks per hit - both
+   * read live off `rules.damageReduction` rather than hard-coded 1s, so a class feature or effect
+   * that raises either (the game's own "spend more Armor" upgrades) takes effect with no further
+   * change here, same as it would feeding the character dialog. What's *not* reproduced is the
+   * dialog's Stress-spending option (`stressDamageReduction`/`maxArmorMarked.stressExtra`) - that
+   * trades a resource the owner might want to keep for later, which is exactly the kind of call
+   * auto-spend has no prompt to make, so it's left alone rather than guessed at.
+   */
+  async autoSpendShield(hpDamage: number, damageTypes: Iterable<string>): Promise<number> {
+    // `rules` is a plain `ObjectField` (see `defineSchema`'s doc comment on it), so fvtt-types
+    // only knows its `initial` value's literal shape - narrowed back to the fields this method
+    // actually reads, all of which `defineSchema`'s `rules.damageReduction` default seeds.
+    const dr = this.rules.damageReduction as
+      | {
+          magical?: boolean;
+          physical?: boolean;
+          disabledArmor?: boolean;
+          maxArmorMarked?: { value?: number };
+          increasePerArmorMark?: number;
+          thresholdImmunities?: Record<string, boolean>;
+        }
+      | undefined;
+    if (!dr || hpDamage <= 0) return hpDamage;
+
+    const types = Array.from(damageTypes);
+    let remaining = hpDamage;
+
+    // Same `armorApplicableDamageTypes` rule daggerheart's `DhCharacter` getter derives -
+    // `magical`/`physical` here each disable armor against the *other* damage type, not their own.
+    const armorApplicable = { physical: !dr.magical, magical: !dr.physical } as Record<string, boolean | undefined>;
+    const canUseArmor =
+      !dr.disabledArmor &&
+      this.armorScore.value < this.armorScore.max &&
+      types.every((t) => armorApplicable[t] !== false);
+
+    if (canUseArmor) {
+      const maxArmorUsed = dr.maxArmorMarked?.value ?? 0;
+      const spend = Math.max(0, Math.min(maxArmorUsed, this.armorScore.max - this.armorScore.value));
+      const perMark = dr.increasePerArmorMark ?? 0;
+      if (spend > 0 && perMark > 0) {
+        await this.markShield(this.armorScore.value + spend);
+        remaining = Math.max(remaining - spend * perMark, 0);
+      }
+    }
+
+    // Mirrors the dialog's own full-negate reading of `thresholdImmunities`, not the `adversary`
+    // branch's "one tier less" one (`SpaceshipDamagePatch` routes ships through this method
+    // instead of either upstream branch, so it picks one - the dialog's, since auto-spend is
+    // standing in for that flow specifically).
+    const key = ["none", "minor", "major", "severe", "massive"][remaining];
+    if (key && dr.thresholdImmunities?.[key]) remaining = 0;
+
+    return remaining;
+  }
+
+  /**
    * Every place a Shield slot can actually be stored, in the order marks fill them.
    *
    * Effects first, the equipped armor Item last - the order daggerheart's own `getArmorSources`
@@ -848,10 +911,28 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       // even though its one read (`getTotalBonus`, an ActiveEffect-change scan) already defaults
       // safely - keeping both present mirrors `character`'s real defaults instead of leaving a second
       // foot-gun for the next unguarded read to find.
+      //
+      // `damageReduction` is the same story for `autoSpendShield` above (`SpaceshipDamagePatch`'s
+      // replacement for the `armorSlot` dialog): every field it reads - `disabledArmor`,
+      // `magical`/`physical`, `maxArmorMarked.value`, `increasePerArmorMark`, `thresholdImmunities`
+      // - is optional-chained in `autoSpendShield` itself (`dr?.`, `dr.maxArmorMarked?.value ?? 0`,
+      // ...), so nothing here crashes on a bare `{}` the way `attack.damage` did. These defaults
+      // exist so a *fresh* ship's numbers match the rulebook (1 Shield spent = 1 tier of reduction,
+      // one mark per hit) without a GM having to know to configure them, not to prevent a crash.
       rules: new fields.ObjectField({
         required: false,
         nullable: false,
-        initial: { attack: { damage: { hpDamageMultiplier: 1, hpDamageTakenMultiplier: 1 } } },
+        initial: {
+          attack: { damage: { hpDamageMultiplier: 1, hpDamageTakenMultiplier: 1 } },
+          damageReduction: {
+            magical: false,
+            physical: false,
+            disabledArmor: false,
+            maxArmorMarked: { value: 1 },
+            increasePerArmorMark: 1,
+            thresholdImmunities: { minor: false },
+          },
+        },
       }),
     };
   }
@@ -1027,7 +1108,17 @@ namespace SpaceshipData {
     rules: foundry.data.fields.ObjectField<{
       required: false;
       nullable: false;
-      initial: { attack: { damage: { hpDamageMultiplier: 1; hpDamageTakenMultiplier: 1 } } };
+      initial: {
+        attack: { damage: { hpDamageMultiplier: 1; hpDamageTakenMultiplier: 1 } };
+        damageReduction: {
+          magical: false;
+          physical: false;
+          disabledArmor: false;
+          maxArmorMarked: { value: 1 };
+          increasePerArmorMark: 1;
+          thresholdImmunities: { minor: false };
+        };
+      };
     }>;
   }
 }

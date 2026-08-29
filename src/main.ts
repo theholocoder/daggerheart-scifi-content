@@ -6,6 +6,7 @@ import SystemItemData from "./module/data/items/system-item-data";
 import SpaceshipActorSheet from "./module/applications/sheets/spaceship-actor-sheet";
 import SystemItemSheet from "./module/applications/sheets/system-item-sheet";
 import registerCharacterOnlyPatches from "./module/compat/character-only-patches";
+import registerSpaceshipDamagePatch from "./module/compat/spaceship-damage-patch";
 
 Hooks.once("init", async function () {
   console.log("DHSciFi | Initializing...");
@@ -19,6 +20,7 @@ Hooks.once("init", async function () {
   });
 
   registerCharacterOnlyPatches();
+  registerSpaceshipDamagePatch();
 
   // Shared Handlebars partials for every document list in this module, named after (and split the
   // same way as) daggerheart's own `daggerheart.inventory-items`/`daggerheart.inventory-item`
