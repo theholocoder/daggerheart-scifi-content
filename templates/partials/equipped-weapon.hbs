@@ -12,21 +12,29 @@
 
     Read-only by design (no equip toggle, no context menu): this list mirrors the Inventory tab's
     equip state rather than managing it, the same one-way relationship Shield and the damage
-    thresholds already have to the equipped armor item. The portrait still opens the weapon's own
-    sheet (`editItem`, already wired on this sheet) so the row isn't a dead end.
+    thresholds already have to the equipped armor item. The portrait still rolls/opens the weapon
+    exactly like the Inventory tab's own row does (`usable` -> `useItem`, hover-reveal duality dice
+    icon; otherwise `editItem`) - both actions already wired on this sheet.
 
     Registered as `dhscifi.equipped-weapon` in `src/main.ts`.
 
     Parameters:
-    - weapon {EquippedWeaponRow} : `{uuid, name, img, labels}` - built in
+    - weapon {EquippedWeaponRow} : `{uuid, name, img, labels, usable}` - built in
       `spaceship-actor-sheet.ts`'s `#buildEquippedWeapons`. `labels` is the weapon's own
       `_getLabels()` array (trait/range short forms plus damage, `daggerheart` `Item`-level, not
       sheet code) - a plain string, or `{value, icons}` for the damage entry's damage-type chips.
 --}}
 <li class="inventory-item inventory-item-compact" data-item-uuid="{{weapon.uuid}}">
-    <div class="img-portait" data-action="editItem" data-tooltip="{{localize 'DHSCIFI.Rows.EditItem'}}">
-        <img src="{{weapon.img}}" class="item-img" alt="{{weapon.name}}" />
-    </div>
+    {{#if weapon.usable}}
+        <div class="img-portait" data-action="useItem" data-item-uuid="{{weapon.uuid}}" data-tooltip="{{localize 'DHSCIFI.Rows.UseItem'}}">
+            <img src="{{weapon.img}}" class="item-img" alt="{{weapon.name}}" />
+            <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
+        </div>
+    {{else}}
+        <div class="img-portait" data-action="editItem" data-tooltip="{{localize 'DHSCIFI.Rows.EditItem'}}">
+            <img src="{{weapon.img}}" class="item-img" alt="{{weapon.name}}" />
+        </div>
+    {{/if}}
 
     <span class="item-name">{{weapon.name}}</span>
 

@@ -180,6 +180,9 @@ interface EquippedWeaponRow {
   name: string;
   img: string | null;
   labels: WeaponLabel[];
+  /** Same `editable && item.usable` flag `toRowEntry` resolves - rolls the weapon's attack from
+   *  the portrait instead of opening its sheet, exactly like the Inventory tab's own row. */
+  usable: boolean;
 }
 
 /**
@@ -311,7 +314,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       });
     }
     if (partId === "sidebar") {
-      Object.assign(context, { equippedWeapons: SpaceshipActorSheet.#buildEquippedWeapons(actor) });
+      Object.assign(context, { equippedWeapons: SpaceshipActorSheet.#buildEquippedWeapons(actor, editable) });
     }
     if (partId === "inventory") {
       Object.assign(context, { inventory: SpaceshipActorSheet.#buildInventoryContext(actor, editable) });
@@ -499,14 +502,17 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * The sidebar's equipped-weapons list (#17), one row per `#getEquippedWeapons` entry. `labels`
    * comes from the weapon's own `_getLabels()` (falling back to an empty array for a ship item
    * without it, though every real weapon has one) - see `LooseDoc._getLabels`'s doc comment for why
-   * this reads that rather than `_getTags()` (the fuller Inventory-tab tag set).
+   * this reads that rather than `_getTags()` (the fuller Inventory-tab tag set). `usable` is the
+   * same `editable && item.usable` flag `toRowEntry` resolves for the Inventory tab's own row, so
+   * the portrait here hovers/rolls the weapon's attack exactly like that one does.
    */
-  static #buildEquippedWeapons(actor: LooseActor): EquippedWeaponRow[] {
+  static #buildEquippedWeapons(actor: LooseActor, editable: boolean): EquippedWeaponRow[] {
     return SpaceshipActorSheet.#getEquippedWeapons(actor).map((item) => ({
       uuid: item.uuid,
       name: item.name,
       img: item.img,
       labels: item._getLabels?.() ?? [],
+      usable: editable && (item.usable ?? false),
     }));
   }
 
