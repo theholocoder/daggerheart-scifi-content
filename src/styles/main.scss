@@ -258,6 +258,7 @@ body {
     // unscoped by `daggerheart.css` and needs nothing of ours (see `equipped-weapon.hbs`).
     .equipped-weapons-section {
       width: 100%;
+      margin-top: 12px;
       padding: 0 0.75rem;
 
       .title {

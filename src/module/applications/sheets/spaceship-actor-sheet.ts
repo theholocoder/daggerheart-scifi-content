@@ -303,6 +303,13 @@ export default class SpaceshipActorSheet extends BaseSheet {
     if (withTabs.tabs && partId in withTabs.tabs) withTabs.tab = withTabs.tabs[partId];
     const actor = this.document as unknown as LooseActor;
     const editable = this.isEditable;
+    // `context` is the same object mutated across every part render, not a fresh copy per part
+    // (core's `HandlebarsApplicationMixin#_renderHTML` reuses one reference) - so a key set for
+    // one part otherwise leaks into every later one. `mounts` is header-only (the weapon-mount
+    // chip, #17); reset it here so a later tab's `dhscifi.inventory-items` partial call, which
+    // falls through to ambient context when it doesn't pass its own `mounts`, doesn't inherit the
+    // header's chip and show a stray "(n / n)" next to e.g. the Features legend.
+    Object.assign(context, { mounts: undefined });
     if (partId === "header") {
       // Only offer the level-up history control once there is a history to review (#12).
       Object.assign(context, {
