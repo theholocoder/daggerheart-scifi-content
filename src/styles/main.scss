@@ -28,7 +28,16 @@ body {
     box-sizing: border-box;
   }
 
-  color: var(--color-text-emphatic);
+  // Ambient text color: `--color-text-primary` (core Foundry's own near-white token, the same
+  // one `.application`'s base styling already sets), not `--color-text-emphatic` (gold) - this
+  // used to be set to the emphatic/gold token here, which is not what the official character
+  // sheet does (confirmed by reading the installed system's actual CSS: it never sets an
+  // emphatic ambient anywhere on `.character-header-sheet`/`.character-sidebar-sheet` - every
+  // gold element on it, `.hope-section`/`.threshold-section`/`.trait-name`/..., opts in with its
+  // own explicit `color: var(--color-text-emphatic)` rule instead). That one wrong ambient
+  // token is what made Evasion/Proficiency, trait modifiers, and item-row text all read gold
+  // instead of near-white - fixed at the source now, rather than patched element by element.
+  color: var(--color-text-primary);
   font-family: var(--dh-font-body, "Montserrat"), sans-serif;
 
   .window-content {
@@ -227,18 +236,13 @@ body {
           justify-content: center;
           background: light-dark(transparent, var(--dark-blue, #18162e));
 
-          // Same root-inherited-yellow bug as `.inventory-item .item-name` below (see that
-          // comment): `p` has no color rule of its own in daggerheart.css, so Evasion/Proficiency
-          // (#14) inherited our root's `--color-text-emphatic` (gold) instead of the near-white
-          // `--color-text-primary` the official sheet's own status-number tiles show. Same fix,
-          // same token, not a hardcoded white.
-          // Not bold on the official sheet's own Evasion/Proficiency tiles - `font-weight: 600`
-          // here was our own addition, not something copied by value from it.
+          // `p` has no color/weight rule of its own in daggerheart.css - it now inherits the
+          // sheet root's `--color-text-primary` ambient for free (font-weight 600 here was our
+          // own addition, not something copied by value; the official tiles aren't bold).
           p {
             font-size: 1.2rem;
             font-weight: normal;
             text-align: center;
-            color: var(--color-text-primary);
           }
         }
 
@@ -517,10 +521,9 @@ body {
         display: flex;
         position: relative;
 
-        // Same root-inherited-yellow trap as Evasion/Proficiency and the item-row text above:
-        // no color rule of its own, so it picked up the root's `--color-text-emphatic` (gold)
-        // instead of the near-white the official sheet's own trait modifiers show. `.trait-name`
-        // (the "AGILITY" label) is correctly gold and untouched - only the value.
+        // Matches the official CSS exactly: `.trait-value` has no color rule of its own, so it
+        // inherits the sheet root's `--color-text-primary` ambient. `.trait-name` (the "AGILITY"
+        // label) has its own explicit `color: var(--color-text-emphatic)` and stays gold.
         .trait-value {
           position: absolute;
           inset: 0;
@@ -530,7 +533,6 @@ body {
           font-weight: 600;
           font-size: var(--font-size-20, 1.25rem);
           margin-bottom: 0.375rem;
-          color: var(--color-text-primary);
         }
       }
 
@@ -669,12 +671,9 @@ body {
   // Item-row text colors, shared by every list on the sheet (Inventory and Features alike).
   //
   // `.item-name`/`.inventory-description`/`.controls a` have no color rule of their own in
-  // daggerheart.css, so they inherit whatever ambient `color` is in scope - on the official
-  // character sheet that's a light, near-white value inherited from core Foundry's own
-  // `.application` base styling (`--color-text-primary`); on ours it was our own root's
-  // `color: var(--color-text-emphatic)` (a gold/amber tone, set for the header/sidebar elsewhere
-  // on this sheet), read as "yellow". Reset to the same core token the official sheet actually
-  // inherits, not a hardcoded white.
+  // daggerheart.css - now that the sheet root's ambient is `--color-text-primary` (fixed at the
+  // source, see that rule's comment), they inherit the right value for free and need no override
+  // here any more.
   //
   // `.item-buttons button` genuinely already has its own correct, themed color in
   // daggerheart.css (`--dh-button-color-text`, dark text against its light button background)
@@ -682,17 +681,12 @@ body {
   // button's dark-on-light text unreadable).
   //
   // `.item-tags .tag` *does* have its own daggerheart.css rule too (`color: var(--color-light-
-  // 2)`), which traced through the stylesheet should already win on specificity - but removing
-  // this override still showed yellow tags live, twice, so something about how `--color-light-2`
-  // resolves in this actual sheet isn't matching that trace. Reinstated on user-confirmed report
-  // rather than theory; worth a proper look with real devtools access before removing again.
+  // 2)`, a light beige, `#efe6d8`), which traced through the stylesheet should already win on
+  // specificity - but removing this override still showed yellow tags live, twice, so something
+  // about how `--color-light-2` resolves in this actual sheet isn't matching that trace.
+  // Reinstated on user-confirmed report rather than theory; worth a proper look with real
+  // devtools access before removing again.
   .inventory-item {
-    .item-name,
-    .inventory-description,
-    .controls a {
-      color: var(--color-text-primary);
-    }
-
     .item-tags .tag {
       color: #fff;
     }
