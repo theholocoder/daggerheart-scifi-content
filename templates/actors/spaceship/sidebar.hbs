@@ -3,8 +3,15 @@
         <img src="{{document.img}}" alt="{{document.name}}" data-action="editImage" data-edit="img">
     </div>
 
-    <div class="info-section">
+    <div class="info-section {{#if useResourcePips}}pip-display{{/if}}">
         <div class="resources-section">
+            {{! HP/Stress (#10 addendum): "Pip display for Resources" world setting. Pip branch
+                unchanged from before; the number-bar branch is the official character sheet's
+                `resource-bar.hbs` else-branch by value, minus the `<progress>` bar's own color
+                class (that partial hard-codes none for these two, only Shield's stress-color one
+                below carries one) - `name` binds straight to the persisted resource field, so the
+                sheet's own `submitOnChange` form handles the write with no listener needed. }}
+            {{#if useResourcePips}}
             <div class="slot-value">
                 <div class="slot-bar">
                     {{#each (dhscifiResourceBoxes document.system.resources.hitPoints.value document.system.resources.hitPoints.max) as |box|}}
@@ -38,9 +45,34 @@
                     <span class="value">{{document.system.resources.stress.value}} / {{document.system.resources.stress.max}}</span>
                 </div>
             </div>
+            {{else}}
+            <div class="status-bar">
+                <div class="status-value">
+                    <progress class="progress-bar" max="{{document.system.resources.hitPoints.max}}" value="{{document.system.resources.hitPoints.value}}"></progress>
+                    <input class="bar-input" name="system.resources.hitPoints.value" min="0" max="{{document.system.resources.hitPoints.max}}" value="{{document.system.resources.hitPoints.value}}" type="number">
+                    <span>/</span>
+                    <span class="bar-label">{{document.system.resources.hitPoints.max}}</span>
+                </div>
+                <div class="status-label pointy">
+                    <h4>{{localize "DHSCIFI.Spaceship.HitPoints"}}</h4>
+                </div>
+            </div>
+
+            <div class="status-bar">
+                <div class="status-value">
+                    <progress class="progress-bar" max="{{document.system.resources.stress.max}}" value="{{document.system.resources.stress.value}}"></progress>
+                    <input class="bar-input" name="system.resources.stress.value" min="0" max="{{document.system.resources.stress.max}}" value="{{document.system.resources.stress.value}}" type="number">
+                    <span>/</span>
+                    <span class="bar-label">{{document.system.resources.stress.max}}</span>
+                </div>
+                <div class="status-label pointy">
+                    <h4>{{localize "DHSCIFI.Spaceship.Stress"}}</h4>
+                </div>
+            </div>
+            {{/if}}
         </div>
 
-        <div class="status-section">
+        <div class="status-section {{#if useResourcePips}}pip-display{{/if}}">
             <div class="status-number evasion-stat">
                 <div class="status-value">
                     <p>{{document.system.evasion}}</p>
@@ -50,10 +82,14 @@
                 </div>
             </div>
             {{! Shield (#10): the equipped armor item's score, marked off slot by slot. Same two
-                branches, classes, and icons as the official character sheet's armor slots - the
-                pip variant only, since this sheet renders Hope/HP/Stress as pips unconditionally. }}
+                branches, classes, and icons as the official character sheet's armor slots, now
+                including its `useResourcePips` split - the number-bar branch's input has no
+                `name` (`armorScore` is derived, nothing to bind straight to) and instead goes
+                through `#bindShieldInput`/`markShield`, same as core's `.armor-marks-input`/
+                `updateArmorMarks` pairing. }}
             {{#if document.system.armorScore.max}}
                 <div class="status-bar armor-slots shield-stat">
+                    {{#if useResourcePips}}
                     <div class="slot-value">
                         <div class="slot-bar armor">
                             {{#each (dhscifiResourceBoxes document.system.armorScore.value document.system.armorScore.max) as |box|}}
@@ -73,6 +109,17 @@
                             </div>
                         </div>
                     </div>
+                    {{else}}
+                    <div class="status-value">
+                        <progress class="progress-bar stress-color" value="{{document.system.armorScore.value}}" max="{{document.system.armorScore.max}}"></progress>
+                        <input class="bar-input shield-marks-input" value="{{document.system.armorScore.value}}" type="number" id="{{document.uuid}}-shield-slots">
+                        <span>/</span>
+                        <span class="bar-label">{{document.system.armorScore.max}}</span>
+                    </div>
+                    <div class="status-label">
+                        <h4>{{localize "DHSCIFI.Spaceship.Shield"}}</h4>
+                    </div>
+                    {{/if}}
                 </div>
             {{else}}
                 <div class="status-number armor-slots shield-stat">

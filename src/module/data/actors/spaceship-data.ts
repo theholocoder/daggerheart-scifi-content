@@ -702,6 +702,24 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
     const stations = {} as SpaceshipData.StationsSchema;
     for (const id of STATION_IDS) stations[id] = stationField();
 
+    /**
+     * One damage-type resistance entry: `{resistance, immunity, reduction}`, same shape as core's
+     * `resistanceField()` on `character`/`adversary`. Ships have no sheet UI for this yet (the
+     * schema exists purely so `system.resistance` is populated) but the field is unconditionally
+     * required: `daggerheart`'s own `takeDamage` → `getDamageTypeReduction` does
+     * `Object.entries(this.system.resistance)` with no `?.` guard, so any actor type missing this
+     * key throws `TypeError: can't convert undefined to object` the moment it's dealt damage in
+     * combat - `metadata.hasResistances` above only gates whether *core's* actor base class adds
+     * the field, and ships don't extend that base class, so leaving it out here is fatal even
+     * though hasResistances is false.
+     */
+    const resistanceField = () =>
+      new fields.SchemaField({
+        resistance: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+        immunity: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+        reduction: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+      });
+
     return {
       level: new fields.NumberField({
         required: true,
@@ -753,6 +771,12 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       damageThresholds: new fields.SchemaField({
         major: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
         severe: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+      }),
+      // See `resistanceField()` above for why this is present despite `metadata.hasResistances`
+      // being false and there being no sheet UI for it yet.
+      resistance: new fields.SchemaField({
+        physical: resistanceField(),
+        magical: resistanceField(),
       }),
       maxWeaponMounts: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 1 }),
       // Crew/passenger capacity (#16): informational only, per user story 22 (#3) - nothing checks
@@ -813,8 +837,22 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       // be a genuine schema field here, an empty `getRollData()` addition does nothing. An empty
       // object is enough: every field daggerheart reads under `rules.dualityRoll` is itself
       // optional-chained with a sensible fallback (12-sided Hope/Fear dice, etc.), so this doesn't
-      // need to replicate `character`'s actual house-rule schema, just exist as an object.
-      rules: new fields.ObjectField({ required: false, nullable: false, initial: {} }),
+      // need to replicate `character`'s actual house-rule schema, just exist as an object - *except*
+      // `rules.attack.damage.hpDamageTakenMultiplier`, which daggerheart's `applyDamage` reads the
+      // same optional-chained way but then multiplies straight into the incoming damage total with
+      // no `?? 1` fallback: `Math.ceil(total * actor.system.rules?.attack?.damage
+      // ?.hpDamageTakenMultiplier)`. With no `attack` key at all that chain resolves to `undefined`,
+      // and `total * undefined` is `NaN` - which then makes every threshold comparison in
+      // `convertDamageToThreshold` false, so damage silently always reads as the lowest tier (1 HP)
+      // no matter the actual hit. `hpDamageMultiplier` is included alongside it for the same reason,
+      // even though its one read (`getTotalBonus`, an ActiveEffect-change scan) already defaults
+      // safely - keeping both present mirrors `character`'s real defaults instead of leaving a second
+      // foot-gun for the next unguarded read to find.
+      rules: new fields.ObjectField({
+        required: false,
+        nullable: false,
+        initial: { attack: { damage: { hpDamageMultiplier: 1, hpDamageTakenMultiplier: 1 } } },
+      }),
     };
   }
 }
@@ -857,6 +895,13 @@ namespace SpaceshipData {
 
   /** The `stations` sub-schema: exactly one `StationField` per `STATION_IDS` entry. */
   export type StationsSchema = Record<(typeof STATION_IDS)[number], StationField>;
+
+  /** One damage-type resistance entry: `{resistance, immunity, reduction}` (see `resistanceField()`). */
+  type ResistanceField = foundry.data.fields.SchemaField<{
+    resistance: foundry.data.fields.BooleanField<{ required: true; nullable: false; initial: false }>;
+    immunity: foundry.data.fields.BooleanField<{ required: true; nullable: false; initial: false }>;
+    reduction: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
+  }>;
 
   /** One stored point-buy tick (#12) - the schema counterpart of `ShipLevelSelection`. */
   type SelectionSchema = {
@@ -919,6 +964,11 @@ namespace SpaceshipData {
       major: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
       severe: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
     }>;
+    /** See `resistanceField()` in `defineSchema` for why this exists despite no sheet UI yet. */
+    resistance: foundry.data.fields.SchemaField<{
+      physical: ResistanceField;
+      magical: ResistanceField;
+    }>;
     maxWeaponMounts: foundry.data.fields.NumberField<{
       required: true;
       nullable: false;
@@ -973,6 +1023,11 @@ namespace SpaceshipData {
       >;
     }>;
     stations: foundry.data.fields.SchemaField<StationsSchema>;
-    rules: foundry.data.fields.ObjectField<{ required: false; nullable: false; initial: Record<string, never> }>;
+    /** See `rules` in `defineSchema` for why `attack.damage` isn't the empty object it looks like. */
+    rules: foundry.data.fields.ObjectField<{
+      required: false;
+      nullable: false;
+      initial: { attack: { damage: { hpDamageMultiplier: 1; hpDamageTakenMultiplier: 1 } } };
+    }>;
   }
 }

@@ -289,7 +289,48 @@ export default class SpaceshipActorSheet extends BaseSheet {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> {
     const context = await super._prepareContext(options);
-    return Object.assign(context, { tabs: this._prepareTabs("primary") });
+    return Object.assign(context, {
+      tabs: this._prepareTabs("primary"),
+      // The wrench-icon "Pip display for Resources" world setting (#10): read the same way
+      // `daggerheart`'s own `DHBaseActorSheet#_prepareContext` does, off its public `CONFIG.DH`
+      // registry rather than a hard-coded module/setting-key string - so HP/Stress/Shield fall
+      // back to the same number-bar-and-input rendering the official character sheet uses when a
+      // GM turns pips off, instead of this sheet's pips staying on regardless of the setting.
+      useResourcePips: SpaceshipActorSheet.#useResourcePips(),
+    });
+  }
+
+  /**
+   * `game.settings.get(CONFIG.DH.id, CONFIG.DH.SETTINGS.gameSettings.appearance).useResourcePips`
+   * - `CONFIG.DH` is daggerheart's own public registry (same one `character-only-patches.ts`
+   * reaches through), not typed by fvtt-types, hence the cast.
+   *
+   * Called as `game.settings.get(...)`, not through a detached reference: `game.settings.get` is
+   * itself `libWrapper`-wrapped by other installed modules (force-client-settings, here), and a
+   * bare `const getSetting = game.settings.get` followed by `getSetting(...)` invokes it with no
+   * receiver - every `this.foo` inside core's real `get()` (`this.storage`, `this.settings`, ...)
+   * then reads off `undefined`, which surfaced through that wrapper chain as `TypeError: can't
+   * convert undefined to object` deep inside core, no daggerheart/dhscifi frame in the stack. Kept
+   * behind `try`/`catch` regardless: `client`-scope settings route through whatever
+   * `libWrapper`-registered modules are installed, a chain this module doesn't control, so a
+   * genuinely broken installation degrades to pip display (this sheet's pre-#10-addendum default)
+   * rather than failing the whole render.
+   */
+  static #useResourcePips(): boolean {
+    try {
+      const dh = (
+        CONFIG as unknown as { DH?: { id?: string; SETTINGS?: { gameSettings?: { appearance?: string } } } }
+      ).DH;
+      if (!dh?.id || !dh.SETTINGS?.gameSettings?.appearance) return true;
+
+      const appearance = game.settings?.get(dh.id as never, dh.SETTINGS.gameSettings.appearance as never) as
+        | { useResourcePips?: boolean }
+        | undefined;
+      return appearance?.useResourcePips ?? false;
+    } catch (error) {
+      console.warn("DHSciFi | could not read daggerheart's useResourcePips setting - defaulting to pip display.", error);
+      return true;
+    }
   }
 
   /** Expose the part's own tab entry as `tab` for that tab's template, plus its own list context. */
@@ -942,8 +983,33 @@ export default class SpaceshipActorSheet extends BaseSheet {
     await super._onRender(context, options);
     this.#bindLevelInput();
     this.#bindQuantityInputs();
+    this.#bindShieldInput();
     this.#bindItemContextMenu();
     void this.#enrichRowDescriptions();
+  }
+
+  /**
+   * The Shield number-bar's input, shown in `sidebar.hbs` only with "Pip display for Resources"
+   * off. Carries no `name`: like `armorScore` itself, it has nothing on the actor to bind
+   * straight to (see `SpaceshipData#markShield`'s doc comment) - typing a value has to go through
+   * `markShield`, the same as clicking a pip does, not a form field the submit-on-change form
+   * could write on its own. Mirrors daggerheart's own `.armor-marks-input`/`updateArmorMarks`
+   * pairing on the character sheet, minus the delta math: `markShield` already takes (and clamps)
+   * the target total, so this only has to parse the field.
+   */
+  #bindShieldInput(): void {
+    const input = this.element.querySelector<HTMLInputElement>(".shield-marks-input");
+    if (!input || !this.isEditable) return;
+
+    input.addEventListener("change", () => {
+      const actor = this.document as unknown as LooseActor;
+      const value = Number.parseInt(input.value, 10);
+      if (Number.isNaN(value)) {
+        input.value = String(actor.system.armorScore.value);
+        return;
+      }
+      void actor.system.markShield(value);
+    });
   }
 
   /**
