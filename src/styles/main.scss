@@ -310,14 +310,21 @@ body {
       width: fit-content;
       height: 30px;
 
+      // MINOR/MAJOR/SEVERE labels: explicit golden/yellow rather than relying on the
+      // `--color-text-emphatic` this section (and the sheet root) already set as ambient
+      // `color` - same "inherited yellow" trap as the item-row/status-number fixes above, just
+      // in reverse here: it happened to read close enough to right, but wasn't guaranteed to
+      // survive an unrelated ambient-color change. Bumped a size step too (labels and value
+      // both read as too small against the rest of the sidebar).
       h4 {
-        font-size: var(--font-size-11, 0.6875rem);
+        font-size: var(--font-size-13, 0.8125rem);
         font-weight: bold;
         text-transform: uppercase;
+        color: var(--golden, #f3c267);
 
         &.threshold-value {
           color: light-dark(var(--dark, #222222), var(--beige, #efe6d8));
-          font-size: var(--font-size-14, 0.875rem);
+          font-size: var(--font-size-16, 1rem);
         }
       }
     }
