@@ -83,13 +83,12 @@
                 </span>
             </div>
 
-            {{! Placeholder: weapon-mount capacity. The real `equipped / maxWeaponMounts` count
-                landed with #6, but only in the Inventory tab's own part context - surfacing it
-                here needs header-part context this sheet doesn't build yet, so the chip is still
-                hardcoded. Tracked by #14 (polish backlog). }}
-            <div class="hope-section dhscifi-placeholder" data-tooltip="{{localize 'DHSCIFI.Spaceship.ComingSoon'}}">
+            {{! Weapon-mount capacity (#17): live `equipped / maxWeaponMounts`, off the same
+                `#countEquippedWeapons` the Inventory tab's own mount display and equip cap use -
+                see `spaceship-actor-sheet.ts`'s `#getEquippedWeapons` doc comment. }}
+            <div class="hope-section">
                 <h4>{{localize "DHSCIFI.Spaceship.WeaponMounts"}}</h4>
-                <span class="chip-value"><i class="fa-solid fa-crosshairs"></i> 2 / 3</span>
+                <span class="chip-value"><i class="fa-solid fa-crosshairs"></i> {{mounts.value}} / {{mounts.max}}</span>
             </div>
         </div>
     </div>

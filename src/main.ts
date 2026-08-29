@@ -31,6 +31,8 @@ Hooks.once("init", async function () {
   await foundry.applications.handlebars.loadTemplates({
     "dhscifi.inventory-items": `modules/${MODULE_ID}/templates/partials/inventory-fieldset-items.hbs`,
     "dhscifi.inventory-item": `modules/${MODULE_ID}/templates/partials/inventory-item.hbs`,
+    // Spaceship sidebar's equipped-weapons list (#17) - see that partial's own header comment.
+    "dhscifi.equipped-weapon": `modules/${MODULE_ID}/templates/partials/equipped-weapon.hbs`,
   });
 
   // Builds the pip-row array for a `{value, max}` resource (Hope/HP/Stress), so sheet templates

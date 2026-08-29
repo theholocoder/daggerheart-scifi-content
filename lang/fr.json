@@ -80,7 +80,8 @@
       "SystemPoints": "Points de système",
       "SystemPointsAvailable": "Points de système disponibles",
       "WeaponMounts": "Affûts",
-      "ComingSoon": "Bientôt disponible",
+      "EquippedWeapons": "Armes équipées",
+      "NoEquippedWeapons": "Aucune arme équipée.",
       "Features": {
         "title": "Aptitudes"
       },

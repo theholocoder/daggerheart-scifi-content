@@ -71,6 +71,12 @@ interface LooseDoc {
   // ("Finesse", "One-Handed", "d8+1 (Phy)", "Base Score: 3"...) the character sheet shows,
   // without reimplementing daggerheart's per-item-type tag logic ourselves.
   _getTags?: () => string[];
+  // Also `Item`-level (not sheet code, weapon-only in practice): the same label array
+  // `daggerheart`'s own character sidebar reads for its equipped-weapons list (#17) - trait/range
+  // short forms plus damage, the damage entries carrying `icons` for the damage-type chips. A
+  // shorter, sidebar-appropriate cousin of `_getTags` above (which lists burden and the full damage
+  // string for the Inventory tab's row); see `#buildEquippedWeapons`.
+  _getLabels?: () => WeaponLabel[];
   // Also `Item`-level (not sheet code): whether the item has description/feature text worth
   // expanding. `system.getEnrichedDescription` is the actual enriched-HTML source used once
   // expanded (see `#enrichRowDescriptions`); `system.description` is its plain fallback.
@@ -153,6 +159,27 @@ interface StationRow {
   label: string;
   enabled: boolean;
   crew: CrewEntry[];
+}
+
+/**
+ * One entry of `Item#_getLabels()` (weapon-only in practice, see `LooseDoc._getLabels`): a plain
+ * localized string (trait/range short forms), or a damage entry pairing its formula string with
+ * damage-type icons - the same shape daggerheart's own `inventory-item-compact.hbs` renders.
+ */
+type WeaponLabel = string | { value: string; icons: string[] };
+
+/**
+ * One row of the sidebar's equipped-weapons list (#17): the fields
+ * `templates/partials/equipped-weapon.hbs` needs, resolved here rather than read off the live
+ * document in the template - `_getLabels` only binds `this` correctly when Handlebars invokes it as
+ * a bare path on the object it's a direct property of (same reasoning `toRowEntry`'s own doc
+ * comment gives for `tags`), which a nested `weapon.item._getLabels` path would break.
+ */
+interface EquippedWeaponRow {
+  uuid: string;
+  name: string;
+  img: string | null;
+  labels: WeaponLabel[];
 }
 
 /**
@@ -275,7 +302,16 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const editable = this.isEditable;
     if (partId === "header") {
       // Only offer the level-up history control once there is a history to review (#12).
-      Object.assign(context, { hasLevelups: Object.keys(actor.system.levelups).length > 0 });
+      Object.assign(context, {
+        hasLevelups: Object.keys(actor.system.levelups).length > 0,
+        // Weapon-mount chip (#17): live `equipped / maxWeaponMounts`, reusing the same
+        // `#countEquippedWeapons` the Inventory tab's own mount display and cap enforcement use -
+        // see that method's doc comment for the counting rule.
+        mounts: { value: SpaceshipActorSheet.#countEquippedWeapons(actor), max: actor.system.maxWeaponMounts },
+      });
+    }
+    if (partId === "sidebar") {
+      Object.assign(context, { equippedWeapons: SpaceshipActorSheet.#buildEquippedWeapons(actor) });
     }
     if (partId === "inventory") {
       Object.assign(context, { inventory: SpaceshipActorSheet.#buildInventoryContext(actor, editable) });
@@ -439,14 +475,39 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
+   * Every currently-equipped `weapon` item on the ship, in item order - the single source of truth
+   * behind both the header's mount-count chip and the sidebar's equipped-weapons list (#17), so
+   * the two can never disagree about which weapons count. `#countEquippedWeapons` and
+   * `#buildEquippedWeapons` both call this rather than each re-deriving the filter.
+   */
+  static #getEquippedWeapons(actor: LooseActor): LooseDoc[] {
+    return Array.from(actor.items).filter((item) => item.type === "weapon" && item.system.equipped === true);
+  }
+
+  /**
    * One equipped weapon = one used mount, regardless of `burden` (#6/CONTEXT.md's "Weapon
    * Mount" entry): unlike the character sheet's primary/secondary pairing, a ship doesn't halve
    * the cost of two one-handed weapons sharing a mount - each equipped weapon item gets its own.
-   * Single source of truth for this count - both `#buildInventoryContext` (display) and the
-   * equip/drop handlers below (cap enforcement) call this rather than each re-deriving it.
+   * Single source of truth for this count - `#buildInventoryContext`/the header chip (display) and
+   * the equip/drop handlers below (cap enforcement) call this rather than each re-deriving it.
    */
   static #countEquippedWeapons(actor: LooseActor): number {
-    return Array.from(actor.items).filter((item) => item.type === "weapon" && item.system.equipped === true).length;
+    return SpaceshipActorSheet.#getEquippedWeapons(actor).length;
+  }
+
+  /**
+   * The sidebar's equipped-weapons list (#17), one row per `#getEquippedWeapons` entry. `labels`
+   * comes from the weapon's own `_getLabels()` (falling back to an empty array for a ship item
+   * without it, though every real weapon has one) - see `LooseDoc._getLabels`'s doc comment for why
+   * this reads that rather than `_getTags()` (the fuller Inventory-tab tag set).
+   */
+  static #buildEquippedWeapons(actor: LooseActor): EquippedWeaponRow[] {
+    return SpaceshipActorSheet.#getEquippedWeapons(actor).map((item) => ({
+      uuid: item.uuid,
+      name: item.name,
+      img: item.img,
+      labels: item._getLabels?.() ?? [],
+    }));
   }
 
   /** The actor's portrait. Same `FilePicker` flow as the System item sheet's, shared with it. */

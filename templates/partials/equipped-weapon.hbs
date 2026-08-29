@@ -1,0 +1,46 @@
+{{!--
+    One row of the Spaceship sidebar's equipped-weapons list (#17): name, icon, and damage for a
+    single equipped weapon, below the damage-thresholds section (`templates/actors/spaceship/
+    sidebar.hbs`). Mirrors the fields daggerheart's own character sidebar shows for an equipped
+    item - `templates/sheets/actors/character/sidebar.hbs`'s `.equipment-section`, rendered
+    through its own `inventory-item-compact.hbs`.
+
+    Markup/classes are copied by value from that partial - `inventory-item`/
+    `inventory-item-compact`/`img-portait`/`item-name`/`item-labels`/`label` are all styled
+    unscoped under `.application.daggerheart.dh-style` (`daggerheart.css`), so they render
+    identically here for free, same reasoning as `inventory-item.hbs`'s own header comment.
+
+    Read-only by design (no equip toggle, no context menu): this list mirrors the Inventory tab's
+    equip state rather than managing it, the same one-way relationship Shield and the damage
+    thresholds already have to the equipped armor item. The portrait still opens the weapon's own
+    sheet (`editItem`, already wired on this sheet) so the row isn't a dead end.
+
+    Registered as `dhscifi.equipped-weapon` in `src/main.ts`.
+
+    Parameters:
+    - weapon {EquippedWeaponRow} : `{uuid, name, img, labels}` - built in
+      `spaceship-actor-sheet.ts`'s `#buildEquippedWeapons`. `labels` is the weapon's own
+      `_getLabels()` array (trait/range short forms plus damage, `daggerheart` `Item`-level, not
+      sheet code) - a plain string, or `{value, icons}` for the damage entry's damage-type chips.
+--}}
+<li class="inventory-item inventory-item-compact" data-item-uuid="{{weapon.uuid}}">
+    <div class="img-portait" data-action="editItem" data-tooltip="{{localize 'DHSCIFI.Rows.EditItem'}}">
+        <img src="{{weapon.img}}" class="item-img" alt="{{weapon.name}}" />
+    </div>
+
+    <span class="item-name">{{weapon.name}}</span>
+
+    <div class="item-labels">
+        <div class="label">
+            {{#each weapon.labels as |label|}}
+                {{#if label.value}}{{label.value}}{{else}}{{label}}{{/if}}
+                {{#each label.icons as |icon|}}
+                    <i class="fa-solid {{icon}}"></i>
+                {{/each}}
+                {{#unless @last}}
+                    <span>-</span>
+                {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+</li>

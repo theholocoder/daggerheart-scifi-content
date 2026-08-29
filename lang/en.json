@@ -80,7 +80,8 @@
       "SystemPoints": "System Points",
       "SystemPointsAvailable": "System Points left to spend",
       "WeaponMounts": "Mounts",
-      "ComingSoon": "Coming soon",
+      "EquippedWeapons": "Equipped Weapons",
+      "NoEquippedWeapons": "No weapons equipped.",
       "Features": {
         "title": "Features"
       },

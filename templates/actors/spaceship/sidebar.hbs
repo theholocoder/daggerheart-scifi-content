@@ -104,4 +104,26 @@
             <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.severe"}}</h4>
         </div>
     </div>
+
+    {{! Equipped-weapons list (#17), below the thresholds section: every currently-equipped
+        `weapon` item, mirroring the fields (name/icon/damage) daggerheart's own character sidebar
+        shows for its equipped items - see `templates/partials/equipped-weapon.hbs`. Same
+        `equippedWeapons` derivation the header's mount chip counts (`#buildEquippedWeapons`),
+        so the two can never disagree about which weapons are equipped. }}
+    <div class="equipped-weapons-section">
+        <div class="title">
+            <side-line-div class="invert"></side-line-div>
+            <h3>{{localize "DHSCIFI.Spaceship.EquippedWeapons"}}</h3>
+            <side-line-div></side-line-div>
+        </div>
+        {{#if equippedWeapons.length}}
+            <ul class="items-sidebar-list">
+                {{#each equippedWeapons as |weapon|}}
+                    {{> "dhscifi.equipped-weapon" weapon=weapon}}
+                {{/each}}
+            </ul>
+        {{else}}
+            <p class="no-equipped-weapons">{{localize "DHSCIFI.Spaceship.NoEquippedWeapons"}}</p>
+        {{/if}}
+    </div>
 </aside>

@@ -251,6 +251,43 @@ body {
       }
     }
 
+    // Equipped-weapons list (#17). `.items-sidebar-list`/`.equipment-section .title`/`h3` are
+    // copies by value of the official `.character-sidebar-sheet` rules of the same name, scoped
+    // under our own `.equipped-weapons-section` instead - the row markup itself
+    // (`inventory-item.inventory-item-compact`/`img-portait`/`item-name`/`item-labels`) is styled
+    // unscoped by `daggerheart.css` and needs nothing of ours (see `equipped-weapon.hbs`).
+    .equipped-weapons-section {
+      width: 100%;
+      padding: 0 0.75rem;
+
+      .title {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        h3 {
+          font-size: var(--font-size-20, 1.25rem);
+        }
+      }
+
+      .no-equipped-weapons {
+        font-style: italic;
+        opacity: 0.7;
+        text-align: center;
+      }
+    }
+
+    .items-sidebar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 10px;
+
+      .inventory-item {
+        padding-left: 10px;
+      }
+    }
+
     // Copy of the official `.character-sidebar-sheet .info-section .threshold-section` rules.
     .threshold-section {
       position: relative;
@@ -468,12 +505,6 @@ body {
   .tab-navigation button[data-action="openSettings"] {
     margin-right: 12px;
     width: auto;
-  }
-
-  // Not-yet-implemented stat displays (weapon mounts): dimmed + "coming soon" tooltip until
-  // their tickets land. Shield/thresholds went live with #10, System Points with #11.
-  .dhscifi-placeholder {
-    opacity: 0.45;
   }
 
   /*
