@@ -29,7 +29,7 @@ One unit of a Spaceship's `maxWeaponMounts` capacity. One mount holds exactly on
 _Avoid_: Core/Support/Heavy weapon (older terminology, superseded by the one-handed/two-handed system)
 
 **System Points**:
-A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus level-up gains. Available is computed, never stored (`systemPoints` − `systemPointsSpent`), and deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend.
+A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus level-up gains. Available is computed, never stored (`systemPoints` − `systemPointsSpent`), and deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend. Only available is shown on the sheet - it is the balance a player spends against; the base total and the spent count are GM bookkeeping and stay on the wrench dialog.
 _Avoid_: Currency, gold, credits (not tracked for ships)
 
 **System** (Item):

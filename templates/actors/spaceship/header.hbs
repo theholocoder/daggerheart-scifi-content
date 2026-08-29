@@ -46,20 +46,16 @@
                 {{/each}}
             </div>
 
-            {{! System Points (#11): available (base - spent) over the base total, plus the spent
-                count itself. Both numbers are GM-set on the wrench dialog for now - #15's `system`
-                Item sub-type turns the spent half into a sum over installed systems. Read straight
-                off the model (`systemPointsAvailable` is a getter on `SpaceshipData`), so this part
-                needs no sheet context of its own. }}
+            {{! System Points (#11): the spendable balance only (base - spent). Points are a
+                currency for buying System items, so the one number worth surfacing is what is
+                left to spend - the base total and the spent count are GM bookkeeping and stay on
+                the wrench dialog. Read straight off the model (`systemPointsAvailable` is a getter
+                on `SpaceshipData`), so this part needs no sheet context of its own. }}
             <div class="hope-section">
                 <h4>{{localize "DHSCIFI.Spaceship.SystemPoints"}}</h4>
                 <span class="chip-value" data-tooltip="{{localize 'DHSCIFI.Spaceship.SystemPointsAvailable'}}">
                     <i class="fa-solid fa-bolt"></i>
-                    {{document.system.systemPointsAvailable}} / {{document.system.systemPoints}}
-                </span>
-                <span class="chip-value chip-value-muted" data-tooltip="{{localize 'DHSCIFI.Spaceship.SystemPointsSpent'}}">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                    {{document.system.systemPointsSpent}}
+                    {{document.system.systemPointsAvailable}}
                 </span>
             </div>
 

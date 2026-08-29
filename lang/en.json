@@ -18,8 +18,7 @@
       "Proficiency": "Proficiency",
       "Shield": "Shield",
       "SystemPoints": "System Points",
-      "SystemPointsAvailable": "System Points available / total",
-      "SystemPointsSpent": "System Points spent on installed systems",
+      "SystemPointsAvailable": "System Points left to spend",
       "WeaponMounts": "Mounts",
       "ComingSoon": "Coming soon",
       "Features": {

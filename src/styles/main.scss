@@ -358,14 +358,6 @@ body {
         font-weight: 600;
         white-space: nowrap;
       }
-
-      // The System Points chip (#11) carries a second value - what is already spent - beside the
-      // available/total one. Dimmed so the available count stays the number the eye lands on.
-      // Our own rule, not copied from daggerheart: the system has no equivalent two-value chip.
-      .chip-value-muted {
-        opacity: 0.7;
-        font-weight: normal;
-      }
     }
   }
 
