@@ -1,4 +1,5 @@
 import {
+  ARMOR_ITEM_TYPE,
   CREW_ACTOR_TYPES,
   FEATURE_ITEM_TYPE,
   INVENTORY_ITEM_TYPES,
@@ -100,6 +101,12 @@ interface LooseActor {
     // One entry per `STATION_IDS` id (#8) - `crew` is a plain array of Actor UUID strings, see
     // `SpaceshipData`'s `stationField`.
     stations: Record<StationId, { enabled: boolean; crew: string[] }>;
+    // Shield (#10), derived in `SpaceshipData#prepareBaseData`: `max` is the equipped armor's
+    // score, `value` the slots already marked off it.
+    armorScore: { value: number; max: number };
+    // Writes a Shield-slot click through to the equipped armor Item (`SpaceshipData#markShield`) -
+    // `armorScore` above is derived, so there is nothing on the actor to update directly.
+    markShield(value: number): Promise<void>;
   };
   items: Iterable<LooseDoc> & { get(id: string): LooseDoc | undefined };
   /**
@@ -185,6 +192,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       toggleHope: SpaceshipActorSheet.#onToggleResourceBox,
       toggleHitPoints: SpaceshipActorSheet.#onToggleResourceBox,
       toggleStress: SpaceshipActorSheet.#onToggleResourceBox,
+      toggleShield: SpaceshipActorSheet.#onToggleShield,
       openSettings: SpaceshipActorSheet.#onOpenSettings,
       createItem: SpaceshipActorSheet.#onCreateItem,
       editItem: SpaceshipActorSheet.#onEditItem,
@@ -516,11 +524,18 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * Toggle a markable resource box (Hope/HP/Stress), mirroring the `daggerheart` character
-   * sheet's click pattern: clicking a box sets the resource's value to that box's 1-based
-   * index, unless the value is already at/above it, in which case it steps back down to
-   * `index - 1`. `data-resource` names the resource key (`hope`/`hitPoints`/`stress`),
-   * `data-value` the clicked box's 1-based index.
+   * The `daggerheart` sheets' pip-click rule, shared by every markable row on this sheet
+   * (Hope/HP/Stress and, since #10, the Shield slots - upstream repeats it per handler):
+   * clicking a pip marks up to it, unless it is already marked, in which case it steps back down
+   * to the pip before it. `clicked` is 1-based, as `data-value` renders it.
+   */
+  static #togglePipValue(current: number, clicked: number): number {
+    return current >= clicked ? clicked - 1 : clicked;
+  }
+
+  /**
+   * Toggle a markable resource box (Hope/HP/Stress) via `#togglePipValue`. `data-resource` names
+   * the resource key (`hope`/`hitPoints`/`stress`), `data-value` the clicked box's 1-based index.
    */
   static async #onToggleResourceBox(
     this: foundry.applications.sheets.ActorSheetV2.Any,
@@ -533,8 +548,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
 
     const path = `system.resources.${resource}.value`;
     const current = foundry.utils.getProperty(this.document, path) as number;
-    const newValue = current >= boxValue ? boxValue - 1 : boxValue;
-    await this.document.update({ [path]: newValue });
+    await this.document.update({ [path]: SpaceshipActorSheet.#togglePipValue(current, boxValue) });
   }
 
   /** Create a new embedded Item of the type named by the clicked button's `data-item-type`. */
@@ -602,7 +616,9 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * Weapons: equipping beyond `maxWeaponMounts` is blocked - one mount per equipped weapon
    * regardless of `burden` (see `#countEquippedWeapons`).
    * Armor: equipping one unequips any other equipped armor (only one Shield source at a time,
-   * mirroring the character sheet's single-armor-slot rule); ticket #7 derives Shield from it.
+   * mirroring the character sheet's single-armor-slot rule) - that single item is what
+   * `SpaceshipData#prepareBaseData` derives Shield and the damage thresholds from (#10), so both
+   * update live as this runs.
    */
   static async #onToggleEquipItem(
     this: foundry.applications.sheets.ActorSheetV2.Any,
@@ -611,7 +627,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
   ): Promise<void> {
     const actor = this.document as unknown as LooseActor;
     const item = SpaceshipActorSheet.#getRowDocument(target);
-    if (!item || (item.type !== "weapon" && item.type !== "armor")) return;
+    if (!item || (item.type !== "weapon" && item.type !== ARMOR_ITEM_TYPE)) return;
 
     const equipping = !item.system.equipped;
 
@@ -622,12 +638,31 @@ export default class SpaceshipActorSheet extends BaseSheet {
 
     await item.update({ "system.equipped": equipping });
 
-    if (equipping && item.type === "armor") {
+    if (equipping && item.type === ARMOR_ITEM_TYPE) {
       const otherEquippedArmor = Array.from(actor.items).filter(
-        (other) => other.type === "armor" && other.id !== item.id && other.system.equipped === true,
+        (other) => other.type === ARMOR_ITEM_TYPE && other.id !== item.id && other.system.equipped === true,
       );
       await Promise.all(otherEquippedArmor.map((other) => other.update({ "system.equipped": false })));
     }
+  }
+
+  /**
+   * Mark/unmark a Shield slot (#10), from `data-value` on the clicked pip.
+   *
+   * Only resolves the click to a value; the write itself belongs to `SpaceshipData#markShield`,
+   * which owns both the equipped armor Item the value lands on and the clamp that keeps it in
+   * range - the same split daggerheart has between its `toggleArmor` action and `updateArmorValue`.
+   */
+  static async #onToggleShield(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const actor = this.document as unknown as LooseActor;
+    const slot = Number.parseInt(target.dataset.value ?? "", 10);
+    if (Number.isNaN(slot)) return;
+
+    await actor.system.markShield(SpaceshipActorSheet.#togglePipValue(actor.system.armorScore.value, slot));
   }
 
   /**

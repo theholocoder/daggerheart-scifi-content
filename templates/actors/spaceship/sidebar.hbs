@@ -49,15 +49,41 @@
                     <h4>{{localize "DHSCIFI.Spaceship.Evasion"}}</h4>
                 </div>
             </div>
-            {{! Placeholder: Shield tile (ticket #7 replaces with the real armor-item-derived Shield) }}
-            <div class="status-number shield-stat dhscifi-placeholder" data-tooltip="{{localize 'DHSCIFI.Spaceship.ComingSoon'}}">
-                <div class="status-value">
-                    <p>-</p>
+            {{! Shield (#10): the equipped armor item's score, marked off slot by slot. Same two
+                branches, classes, and icons as the official character sheet's armor slots - the
+                pip variant only, since this sheet renders Hope/HP/Stress as pips unconditionally. }}
+            {{#if document.system.armorScore.max}}
+                <div class="status-bar armor-slots shield-stat">
+                    <div class="slot-value">
+                        <div class="slot-bar armor">
+                            {{#each (dhscifiResourceBoxes document.system.armorScore.value document.system.armorScore.max) as |box|}}
+                                <a class="slot" data-action="toggleShield" data-value="{{box.index}}">
+                                    {{#if box.filled}}
+                                        <i class="fa-solid fa-shield"></i>
+                                    {{else}}
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    {{/if}}
+                                </a>
+                            {{/each}}
+                        </div>
+                        <div class="slot-label">
+                            <span class="label">{{localize "DHSCIFI.Spaceship.Shield"}}</span>
+                            <div class="slot-value-container">
+                                <span class="value">{{document.system.armorScore.value}} / {{document.system.armorScore.max}}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="status-label">
-                    <h4>{{localize "DHSCIFI.Spaceship.Shield"}}</h4>
+            {{else}}
+                <div class="status-number armor-slots shield-stat">
+                    <div class="status-value">
+                        <p>-</p>
+                    </div>
+                    <div class="status-label">
+                        <h4>{{localize "DHSCIFI.Spaceship.Shield"}}</h4>
+                    </div>
                 </div>
-            </div>
+            {{/if}}
             <div class="status-number proficiency-stat">
                 <div class="status-value">
                     <p>{{document.system.proficiency}}</p>
@@ -68,12 +94,13 @@
             </div>
         </div>
 
-        {{! Placeholder: damage thresholds (ticket #7 replaces with real armor-derived thresholds) }}
-        <div class="threshold-section dhscifi-placeholder" data-tooltip="{{localize 'DHSCIFI.Spaceship.ComingSoon'}}">
+        {{! Damage thresholds (#10). Same label/value interleaving as the official sheet: each
+            value is the *boundary* between the band named to its left and the one to its right. }}
+        <div class="threshold-section">
             <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.minor"}}</h4>
-            <h4 class="threshold-value">7</h4>
+            <h4 class="threshold-value">{{document.system.damageThresholds.major}}</h4>
             <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.major"}}</h4>
-            <h4 class="threshold-value">14</h4>
+            <h4 class="threshold-value">{{document.system.damageThresholds.severe}}</h4>
             <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.severe"}}</h4>
         </div>
     </div>

@@ -135,6 +135,79 @@ body {
       display: flex;
       gap: 8px;
       justify-content: center;
+      // Official's `.status-section.pip-display`: the Shield pip bar is taller than the flat
+      // Evasion/Proficiency tiles, so the row is bottom-aligned rather than stretched.
+      align-items: end;
+
+      // Shield (#10). `daggerheart.css` defines `.status-bar`/`.slot-bar`/`.slot`/`.slot-value`/
+      // `.slot-label` fully unscoped (shield icons, pip borders, the label's gold plate), so those
+      // apply to our markup for free - as the file header already records for the Hope/HP/Stress
+      // bars. What it then scopes under `.character-sidebar-sheet` is the `armor-slots` variant of
+      // those same classes, which is what this block copies by value: not only widths and radii but
+      // the bar's own `background`/`border-bottom` and the label's colors, since the armor bar
+      // deliberately looks unlike a plain pip row. The pip-display variant only - this sheet has no
+      // progress-bar mode. Upstream's `.status-label` hover rules are deliberately *not* copied:
+      // the character's label opens its armor-management dialog, ours is inert text.
+      .status-bar.armor-slots {
+        display: flex;
+        width: 100px;
+        height: auto;
+        white-space: nowrap;
+
+        .slot-value {
+          position: relative;
+          height: auto;
+          width: 80px;
+          font-size: 1.2rem;
+          flex-direction: column;
+          color: light-dark(var(--dark-blue, #18162e), var(--beige, #efe6d8));
+
+          .slot-bar {
+            background: var(--dark-blue, #18162e);
+            justify-content: center;
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+          }
+
+          .slot-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 120%;
+            padding: 0 5px;
+            font-weight: bold;
+            font-size: var(--font-size-12, 0.75rem);
+            border-radius: 5px;
+            color: light-dark(var(--beige, #efe6d8), var(--dark-blue, #18162e));
+            background: light-dark(var(--dark-blue, #18162e), var(--golden, #f3c267));
+
+            .label {
+              padding-right: 1px;
+              border-bottom: 1px solid var(--dark-golden, #2b1d03);
+            }
+
+            .slot-value-container {
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+            }
+
+            .value {
+              padding-left: 6px;
+              border-left: 0;
+            }
+          }
+        }
+      }
+
+      // Unarmored Shield tile ("-"): upstream's own `.status-number.armor-slots { width: 95px }`,
+      // which keeps the tile the width of the pip bar it stands in for.
+      .status-number.armor-slots {
+        width: 95px;
+      }
 
       .status-number {
         display: flex;

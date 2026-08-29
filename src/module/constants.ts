@@ -27,6 +27,14 @@ export const CREW_ACTOR_TYPES = ["character"] as const;
 /** The `daggerheart` Item types the Spaceship sheet's Inventory tab lists (#6). */
 export const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot"] as const;
 
+/**
+ * The `daggerheart` Item type a Spaceship's Shield and damage thresholds derive from (#10) - the
+ * system's ordinary `armor` item, not a ship-only mechanic (CONTEXT.md's "Shield" entry). Named
+ * here because three places key off it: `SpaceshipData`'s `armor` getter, the sheet's
+ * single-equipped-armor rule, and its Shield-slot handler.
+ */
+export const ARMOR_ITEM_TYPE = "armor";
+
 /** The `daggerheart` Item type the Spaceship sheet's Features tab lists (#7). */
 export const FEATURE_ITEM_TYPE = "feature";
 

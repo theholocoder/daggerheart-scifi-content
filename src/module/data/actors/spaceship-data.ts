@@ -1,4 +1,31 @@
-import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, STATION_IDS } from "../../constants";
+import { ARMOR_ITEM_TYPE, FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, STATION_IDS } from "../../constants";
+
+/**
+ * The `daggerheart` `armor` Item fields this model reads to derive Shield/thresholds (#10).
+ * fvtt-types knows nothing of daggerheart's Item sub-type schemas (docs/adr/0002), so the equipped
+ * armor is narrowed through this loose shape rather than `Item.Implementation`'s strict union -
+ * the same workaround `SpaceshipActorSheet`'s `LooseDoc` uses for the item lists.
+ */
+interface ArmorItemLike {
+  type: string;
+  system: {
+    equipped?: boolean;
+    /** `current` = Shield slots already marked, `max` = the item's armor score. */
+    armor?: { current: number; max: number };
+    baseThresholds?: { major: number; severe: number };
+  };
+  update(data: Record<string, unknown>): Promise<unknown>;
+}
+
+/**
+ * One applied ActiveEffect as the severe-threshold rule below inspects it: daggerheart's own
+ * `DhActiveEffect` sub-type carries a `system.changes` array whose `armor`-typed entries can set a
+ * base damage threshold, exactly like an armor Item does. Optional throughout - a plain core
+ * ActiveEffect with no daggerheart `system` must read as "no threshold change".
+ */
+interface EffectLike {
+  system?: { changes?: { type?: string; value?: { damageThresholds?: unknown } }[] };
+}
 
 /**
  * DataModel for the module-registered `daggerheart-scifi-content.spaceship` Actor sub-type.
@@ -6,8 +33,9 @@ import { FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, STATION_IDS } from "../../cons
  * Deliberately independent from the `daggerheart` system's own actor DataModels (see
  * docs/adr/0001-spaceship-actor-subtype.md) and from its sheet base classes (see
  * docs/adr/0002-spaceship-sheet-independent-application.md). `level`, the six traits, and the
- * core resources (Hope, HP, Stress, Evasion, Proficiency) are modeled here (#5); Shield,
- * thresholds, stations, system points, and weapon mounts are added by later tickets.
+ * core resources (Hope, HP, Stress, Evasion, Proficiency) are modeled here (#5), plus weapon
+ * mounts (#6), stations (#8), and Shield/damage thresholds (#10); system points are added by a
+ * later ticket.
  *
  * The traits and resources mirror `daggerheart`'s own `character` schema shape (`attributeField`/
  * `ResourcesField` in the system bundle) - same `{value, tierMarked}` for traits and `{value, max}`
@@ -57,6 +85,83 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   /** Data made available to roll formulas referencing this actor. Extended as ship stats are added. */
   getRollData(): Record<string, unknown> {
     return { level: this.level };
+  }
+
+  /**
+   * The ship's single equipped `armor` Item, if any - the sole source of Shield and damage
+   * thresholds (#10). Same one-liner as `daggerheart`'s own character `get armor()`
+   * (`items.find(x => x.type === 'armor' && x.system.equipped)`): the sheet enforces that at most
+   * one armor item is equipped at a time, so `find` is the whole rule, not a first-match heuristic.
+   */
+  get armor(): ArmorItemLike | undefined {
+    const items = this.parent.items as unknown as Iterable<ArmorItemLike>;
+    return Array.from(items).find((item) => item.type === ARMOR_ITEM_TYPE && item.system.equipped === true);
+  }
+
+  /**
+   * Derive Shield (`armorScore`) and damage thresholds from the equipped armor plus `level` (#10),
+   * mirroring `daggerheart`'s character `prepareBaseData` derivation exactly - the ship reuses the
+   * system's armor-item mechanic rather than owning a parallel one (CONTEXT.md's "Shield" entry).
+   *
+   * Runs in `prepareBaseData`, before core Foundry applies ActiveEffects, so an effect targeting
+   * `system.armorScore.max` or `system.damageThresholds.*` adds on top of the armor-derived value
+   * instead of being overwritten by it - the "and eventual effects" half of the ticket. With no
+   * armor equipped this lands back on the unarmored baseline (`0` Shield, `level`/`level * 2`
+   * thresholds), which is what makes unequipping drop the numbers with no extra bookkeeping.
+   *
+   * The `severeThresholdMultiplier` is daggerheart's own rule, copied by value: an unarmored actor
+   * gets double level on severe, *unless* something else already sets a base threshold - either
+   * armor or an `armor`-typed ActiveEffect change carrying `damageThresholds`.
+   */
+  override prepareBaseData(): void {
+    super.prepareBaseData();
+
+    const armor = this.armor;
+
+    this.armorScore = {
+      max: armor?.system.armor?.max ?? 0,
+      value: armor?.system.armor?.current ?? 0,
+    };
+
+    // `?? []`: core fills `appliedEffects` during `applyActiveEffects`, which runs *after* this -
+    // so this reads the previous preparation's array (exactly as daggerheart's character does),
+    // and on the very first preparation of a freshly-constructed Actor there may be none yet.
+    const effects = (this.parent.appliedEffects ?? []) as unknown as Iterable<EffectLike>;
+    const hasThresholdEffect = Array.from(effects).some((effect) =>
+      effect.system?.changes?.some((change) => change.type === "armor" && change.value?.damageThresholds),
+    );
+    this.damageThresholds = {
+      major: (armor?.system.baseThresholds?.major ?? 0) + this.level,
+      severe: armor
+        ? (armor.system.baseThresholds?.severe ?? 0) + this.level
+        // Upstream writes this multiplier as `armor || hasThresholdEffect ? 1 : 2`; the `armor`
+        // disjunct is unreachable here, since it is only ever read on this armor-less branch.
+        : this.level * (hasThresholdEffect ? 1 : 2),
+    };
+  }
+
+  /**
+   * Mark Shield slots up to `value` (#10) - the write half of the sheet's Shield pip bar.
+   *
+   * Lives on the model, not the sheet, because everything it touches is this model's: the equipped
+   * armor Item is `this.armor`, and `armorScore` is derived from that Item's `system.armor.current`
+   * every `prepareBaseData`, so the click has to land on the Item rather than on the derived field.
+   * Daggerheart's character does the same thing through its multi-source `updateArmorValue`, which
+   * distributes the change across the armor item *and* any `armor`-typed ActiveEffect carrying its
+   * own `armorData`; a ship has the one armor item, so the single update is that logic here.
+   *
+   * Known gap, deliberate: an effect that raises `system.armorScore.max` grows the pip row, but the
+   * extra slots can't be marked - the clamp is the *Item's* own `system.armor.max`, since there is
+   * nowhere else to store them without upstream's per-source distribution. Clamping to the derived
+   * `armorScore.max` instead would write `current > max` onto the Item and silently lose those
+   * marks when the effect ends.
+   */
+  async markShield(value: number): Promise<void> {
+    const armor = this.armor;
+    if (!armor) return;
+
+    const max = armor.system.armor?.max ?? 0;
+    await armor.update({ "system.armor.current": Math.clamp(value, 0, max) });
   }
 
   /**
@@ -157,6 +262,26 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       }),
       evasion: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
       proficiency: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, initial: 1 }),
+      // Shield (#10): `max` is the equipped armor's score, `value` the slots marked off it. Both
+      // are recomputed from the armor Item every `prepareBaseData`, so the field exists only to
+      // give ActiveEffects (and daggerheart's own damage-application code, which reads
+      // `actor.system.armorScore` on any actor) a schema-declared place to find them.
+      // Daggerheart declares its character equivalent `{persisted: false}`; fvtt-types
+      // 13.346-beta's `SchemaField` options type predates that Foundry option and rejects it
+      // (TS2353), so this one is left persisted. Harmless in play: nothing writes to it and
+      // `prepareBaseData` overwrites whatever was stored on every data preparation - the only cost
+      // is two dead numbers riding along in the actor's stored source data (and so in an export).
+      armorScore: new fields.SchemaField({
+        value: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+        max: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+      }),
+      // Damage thresholds (#10) - persisted the same way, and in daggerheart's character schema
+      // genuinely so: the stored value is the level-1 unarmored baseline a fresh actor shows
+      // before `prepareBaseData` ever overwrites it.
+      damageThresholds: new fields.SchemaField({
+        major: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+        severe: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+      }),
       maxWeaponMounts: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 1 }),
       stations: new fields.SchemaField(stations),
       // `rules` (#6): NOT read through `getRollData()` - `DhpActor#getRollData` (document-level,
@@ -244,6 +369,22 @@ namespace SpaceshipData {
       integer: true;
       min: 1;
       initial: 1;
+    }>;
+    /** Shield (#10): `{value: slots marked, max: equipped armor's score}`. Never persisted. */
+    armorScore: foundry.data.fields.SchemaField<{
+      value: foundry.data.fields.NumberField<{
+        required: true;
+        nullable: false;
+        integer: true;
+        min: 0;
+        initial: 0;
+      }>;
+      max: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; min: 0; initial: 0 }>;
+    }>;
+    /** Damage thresholds (#10), derived from the equipped armor + level in `prepareBaseData`. */
+    damageThresholds: foundry.data.fields.SchemaField<{
+      major: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
+      severe: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
     }>;
     maxWeaponMounts: foundry.data.fields.NumberField<{
       required: true;
