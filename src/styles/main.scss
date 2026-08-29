@@ -381,58 +381,54 @@ body {
   }
 
   /*
-   * Inventory tab (#6): weapon/armor/consumable/loot lists, no currency section. Item-row markup
-   * (`fieldset.glassy`/`legend`, `items-list`, `inventory-item`/`item-main`/`inventory-item-header`/
-   * `img-portait`/`item-label`/`item-tags`/`item-resource`/`controls`) reuses `daggerheart`'s own
-   * classes verbatim (templates/sheets/global/partials/inventory-item-V2.hbs) - `daggerheart.css`
-   * themes all of those unscoped under `.application.daggerheart.dh-style` (no `.character`/
-   * sheet-type prefix required), so they're styled for free here, same reasoning as this file's
-   * top-of-file addendum comment. `.items-section` *is* `.character`/`.party`-scoped there, so its
-   * layout (flex column, scroll, gutter) is copied by value below; `.mounts-count` is our own.
+   * Inventory (#6) and Features (#7) tabs. Item-row markup (`fieldset.glassy`/`legend`,
+   * `items-list`, `inventory-item`/`item-main`/`inventory-item-header`/`img-portait`/`item-label`/
+   * `item-tags`/`item-resource`/`controls`) reuses `daggerheart`'s own classes verbatim
+   * (templates/sheets/global/partials/inventory-item-V2.hbs) - `daggerheart.css` themes all of
+   * those unscoped under `.application.daggerheart.dh-style` (no `.character`/sheet-type prefix
+   * required), so they're styled for free here, same reasoning as this file's top-of-file
+   * addendum comment. The two scroll containers (`.items-section`, `.features-sections`) *are*
+   * `.character`/`.party`-scoped there, so their layout is copied by value below;
+   * `.mounts-count` is our own.
+   *
+   * IMPORTANT: nothing here may set `display` on the tab element itself (the `<section>` carrying
+   * both `.tab` and `.spaceship-inventory`/`.spaceship-features`). Core Foundry hides an inactive
+   * tab with a `display: none` rule on `.tab`, and this file's own `.tab.active` rule above is
+   * what turns the *active* one back into a flex column. A `display: flex` here lands on that same
+   * element at higher specificity than core's, so it wins in both states and the tab can never be
+   * hidden - which is exactly the bug where every tab's content rendered stacked on top of the
+   * others (shipped in #6, only visible once #7 gave a second tab real content). The system itself
+   * never does this: it puts `display: flex` on the inner container (`.features-sections`,
+   * `.items-section`, `.effects-sections`), never on `.tab`. Same rule for #8-#12's tabs.
    */
-  .spaceship-inventory {
-    flex: 1;
+  .spaceship-inventory,
+  .spaceship-features {
+    // Only the inner section scrolls; the tab wrapper itself never does.
     overflow-y: hidden;
-    display: flex;
-    flex-direction: column;
 
-    .items-section {
+    .items-section,
+    .features-sections {
+      // `flex: 1` works because `.tab.active` (above) supplies the flex column context.
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      padding: 8px 0.75rem 4px 0.75rem;
       overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+
+    .items-section {
+      padding: 8px 0.75rem 4px 0.75rem;
+    }
+
+    .features-sections {
+      padding: 7px 0.75rem 4px 0.75rem;
     }
 
     .mounts-count {
       font-weight: normal;
       opacity: 0.85;
       font-size: var(--font-size-12, 0.75rem);
-    }
-  }
-
-  /*
-   * Features tab (#7): same row markup as the Inventory tab (both render through
-   * `templates/actors/spaceship/partials/inventory-item.hbs`), so everything above applies here
-   * too - only the scroll container differs. `.features-sections` is the character sheet's own
-   * class for it, and `daggerheart.css` scopes that rule to `.character`, so its layout is copied
-   * by value below just like `.items-section` was.
-   */
-  .spaceship-features {
-    flex: 1;
-    overflow-y: hidden;
-    display: flex;
-    flex-direction: column;
-
-    .features-sections {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 7px 0.75rem 4px 0.75rem;
-      overflow-y: auto;
-      scrollbar-gutter: stable;
     }
   }
 
