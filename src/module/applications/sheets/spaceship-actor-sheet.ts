@@ -142,6 +142,26 @@ interface LooseActor {
    */
   allApplicableEffects(options?: { noSelfArmor?: boolean; noTransferArmor?: boolean }): Iterable<LooseDoc>;
   createEmbeddedDocuments(type: "Item", data: Record<string, unknown>[]): Promise<unknown>;
+  /**
+   * `DhpActor#rollTrait` (daggerheart core) - builds and posts a Duality check for one of this
+   * actor's traits. Not gated to `character` type (see #19), so it works unmodified on a ship.
+   * Return shape is whatever daggerheart's own `CharacterSheet#rollAttribute` consumes: `null`
+   * when the roll was cancelled, otherwise the applied costs and a `resourceUpdates` helper to
+   * flush them.
+   */
+  rollTrait(
+    trait: string,
+    options: { event: PointerEvent },
+  ): Promise<{
+    costs?: { enabled: boolean; value: number }[];
+    resourceUpdates: {
+      // daggerheart's own #rollAttribute passes either an array of cost entries or (when there
+      // were none) a bare `{}` - see `#onRollAttribute` below - so `addResources` has to accept
+      // both, not just the keyed-object shape its name suggests.
+      addResources(costs: { value: number }[] | Record<string, unknown>): void;
+      updateResources(): Promise<void>;
+    };
+  } | null>;
 }
 
 type StationId = (typeof STATION_IDS)[number];
@@ -219,7 +239,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     },
     actions: {
       editImage: SpaceshipActorSheet.#onEditImage,
-      toggleTraitTier: SpaceshipActorSheet.#onToggleTraitTier,
+      rollAttribute: SpaceshipActorSheet.#onRollAttribute,
       toggleHope: SpaceshipActorSheet.#onToggleResourceBox,
       toggleHitPoints: SpaceshipActorSheet.#onToggleResourceBox,
       toggleStress: SpaceshipActorSheet.#onToggleResourceBox,
@@ -579,19 +599,30 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * Toggle a trait's `tierMarked` flag, from `data-trait="agility"` etc. on the tier-mark box.
+   * Roll a trait's Duality check, from `data-attribute="agility"` etc. on the trait box - mirrors
+   * daggerheart's own `CharacterSheet#rollAttribute` (issue #19). `DhpActor#rollTrait` isn't
+   * gated to `character` (only `rollClass` and the roll-config `rollTrait` getter are, and both
+   * are already patched for ships in `character-only-patches.ts`), so this is sheet-side wiring
+   * only - the same document method posts the same chat card a character's trait roll does.
    */
-  static async #onToggleTraitTier(
+  static async #onRollAttribute(
     this: foundry.applications.sheets.ActorSheetV2.Any,
-    _event: PointerEvent,
+    event: PointerEvent,
     target: HTMLElement,
   ): Promise<void> {
-    const trait = target.dataset.trait;
-    if (!trait) return;
+    const attribute = target.dataset.attribute;
+    if (!attribute) return;
 
-    const path = `system.traits.${trait}.tierMarked`;
-    const current = foundry.utils.getProperty(this.document, path) as boolean;
-    await this.document.update({ [path]: !current });
+    const actor = this.document as unknown as LooseActor;
+    const result = await actor.rollTrait(attribute, { event });
+    if (!result) return;
+
+    // Mirrors daggerheart's own #rollAttribute: apply any costs the roll config carries (Hope
+    // spent on Experience bonuses, etc.) through the same resourceUpdates helper it uses.
+    const costResources =
+      result.costs?.filter((cost) => cost.enabled).map((cost) => ({ ...cost, value: -cost.value })) ?? {};
+    result.resourceUpdates.addResources(costResources);
+    await result.resourceUpdates.updateResources();
   }
 
   /** Open the "Configure Spaceship" dialog for this actor (wrench button in the tab bar). */

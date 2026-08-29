@@ -95,12 +95,10 @@
 
     <div class="character-traits">
         {{#each document.system.traits as |trait key|}}
-            <div class="trait">
+            <div class="trait" data-action="rollAttribute" data-attribute="{{key}}" data-value="{{trait.value}}">
                 <div class="trait-name">
                     <div
                         class="tier-mark {{#if trait.tierMarked}}marked{{/if}}"
-                        data-action="toggleTraitTier"
-                        data-trait="{{key}}"
                         data-tooltip="{{localize 'DHSCIFI.Spaceship.TierMarked'}}"
                     ></div>
                     <span>{{localize (concat "DHSCIFI.Spaceship.Traits." key)}}</span>
