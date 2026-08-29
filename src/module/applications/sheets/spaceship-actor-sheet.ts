@@ -21,10 +21,12 @@ type InventoryItemType = (typeof INVENTORY_ITEM_TYPES)[number];
 type SpaceshipItemType = (typeof SPACESHIP_ITEM_TYPES)[number];
 
 /**
- * Fields this sheet reads off an inventory item's `system` - not the full daggerheart schema.
+ * Fields this sheet reads off a row document's `system` - not the full daggerheart schema.
  * `equipped`/`burden` are weapon/armor-only in practice; `quantity` is consumable/loot-only.
- * One shared shape (rather than a type per Item type) because `LooseItem` below is itself a
- * loosened stand-in for all four Item types, not just weapon/armor.
+ * One shared shape (rather than a type per Item type) because `LooseDoc` below is itself a
+ * loosened stand-in for all four Item types, not just weapon/armor. An ActiveEffect (#9) has a
+ * `system` too (daggerheart gives its ActiveEffects typed sub-types), it just carries none of
+ * these fields - every one of them is optional, so the same shape covers it.
  */
 interface InventoryItemSystem {
   equipped?: boolean;
@@ -38,10 +40,18 @@ interface InventoryItemSystem {
  * fvtt-types has no knowledge of daggerheart's Item sub-types (`weapon`/`armor`/`consumable`/
  * `loot`) or their `system` schemas - the same "no `game.system.api`" gap the sheet class itself
  * works around (docs/adr/0002-spaceship-sheet-independent-application.md). The Inventory tab's
- * item-management methods below work through this loose `LooseItem`/`LooseActor` shape rather
+ * item-management methods below work through this loose `LooseDoc`/`LooseActor` shape rather
  * than fighting fvtt-types' strict, daggerheart-unaware `Item.type`/`Item.CreateData` unions.
+ *
+ * "Doc", not "Item": the Effects tab (#9) renders ActiveEffects through the *same* row partial and
+ * the same row-resolution/edit/delete/description code paths as items, exactly as daggerheart's own
+ * sheets do (one `inventory-item` partial, one `getDocFromElement` helper, for both). Most of the
+ * shape is genuinely shared: `DhActiveEffect` defines its own `_getTags` (origin/status chips),
+ * `hasDescription`, and `toChat`, so an effect row lights up the same controls an item row does.
+ * Only `usable` is Item-only (already optional here), and the two fields an effect adds over an
+ * Item (`active`, `disabled`) are optional in turn.
  */
-interface LooseItem {
+interface LooseDoc {
   id: string;
   uuid: string;
   type: string;
@@ -58,7 +68,7 @@ interface LooseItem {
   _getTags?: () => string[];
   // Also `Item`-level (not sheet code): whether the item has description/feature text worth
   // expanding. `system.getEnrichedDescription` is the actual enriched-HTML source used once
-  // expanded (see `#enrichInventoryDescriptions`); `system.description` is its plain fallback.
+  // expanded (see `#enrichRowDescriptions`); `system.description` is its plain fallback.
   hasDescription?: boolean;
   // Also `Item`-level: whether clicking the portrait should roll/use the item's action instead of
   // opening its sheet - `false` for a ship item without `src/module/compat/character-only-
@@ -68,6 +78,16 @@ interface LooseItem {
   // Item-level: posts the item's description to chat, same as the character sheet's own "Send to
   // Chat" control - not gated to `character` actors anywhere found so far, used as-is.
   toChat?: (uuid: string) => Promise<unknown>;
+  // ActiveEffect-only (#9), both core Foundry fields rather than daggerheart's: `disabled` is the
+  // stored flag the Effects tab's toggle flips, `active` the derived "is it actually applying?"
+  // (false when disabled *or* suppressed - e.g. an effect transferred from unequipped armor) that
+  // daggerheart's own effects tab splits its two lists on.
+  active?: boolean;
+  disabled?: boolean;
+  // ActiveEffect-only: an effect's description lives at the document's top level, not under
+  // `system` like an Item's - see `#enrichRowDescriptions`, which falls back to it exactly as
+  // daggerheart's own `#prepareInventoryDescription` does.
+  description?: string;
   update(data: Record<string, unknown>): Promise<unknown>;
   delete(): Promise<unknown>;
   toObject(): Record<string, unknown>;
@@ -81,7 +101,18 @@ interface LooseActor {
     // `SpaceshipData`'s `stationField`.
     stations: Record<StationId, { enabled: boolean; crew: string[] }>;
   };
-  items: Iterable<LooseItem> & { get(id: string): LooseItem | undefined };
+  items: Iterable<LooseDoc> & { get(id: string): LooseDoc | undefined };
+  /**
+   * Core Foundry's own generator over every ActiveEffect that applies to this Actor - its own
+   * effects plus the `transfer` effects of its items. Daggerheart *overrides* it (on
+   * `CONFIG.Actor.documentClass`, so our ship gets the override too) purely to add the
+   * `noSelfArmor`/`noTransferArmor` filters; the override is actor-type agnostic, unlike the
+   * `character`-only gates `src/module/compat/character-only-patches.ts` has to work around.
+   * `noTransferArmor: true` is what daggerheart's own effects tab passes: an armor item's
+   * transferred effect is already represented by the Shield/threshold numbers (#10), so listing it
+   * again as a togglable row would be a second, contradictory control over the same value.
+   */
+  allApplicableEffects(options?: { noSelfArmor?: boolean; noTransferArmor?: boolean }): Iterable<LooseDoc>;
   createEmbeddedDocuments(type: "Item", data: Record<string, unknown>[]): Promise<unknown>;
 }
 
@@ -108,12 +139,18 @@ interface StationRow {
   crew: CrewEntry[];
 }
 
-/** One row of an item list (Inventory or Features): the item plus its precomputed display bits. */
+/**
+ * One row of a document list (Inventory, Features, or Effects): the document plus its precomputed
+ * display bits. Kept under the key `item` because the row partial is daggerheart's own
+ * `inventory-item` markup copied by value, where that's what the document is called.
+ */
 interface ItemRowEntry {
-  item: LooseItem;
+  item: LooseDoc;
   tags: string[];
   hasDescription: boolean;
   usable: boolean;
+  canChat: boolean;
+  disabled: boolean;
 }
 
 /**
@@ -155,6 +192,8 @@ export default class SpaceshipActorSheet extends BaseSheet {
       toggleExtended: SpaceshipActorSheet.#onToggleExtended,
       useItem: SpaceshipActorSheet.#onUseItem,
       toChat: SpaceshipActorSheet.#onToChat,
+      createEffect: SpaceshipActorSheet.#onCreateEffect,
+      toggleEffect: SpaceshipActorSheet.#onToggleEffect,
       toggleStation: SpaceshipActorSheet.#onToggleStation,
       removeCrew: SpaceshipActorSheet.#onRemoveCrew,
       openCrew: SpaceshipActorSheet.#onOpenCrew,
@@ -162,9 +201,8 @@ export default class SpaceshipActorSheet extends BaseSheet {
   };
 
   // Same part split as the official character sheet (sidebar / header / one part per tab);
-  // our SCSS places them on the same window-content grid the official sheet uses. Features (#7),
-  // Inventory (#6), and Stations (#8) have their own templates; the remaining tab parts still
-  // share the placeholder until #9-#12.
+  // our SCSS places them on the same window-content grid the official sheet uses. Every tab has
+  // its own template as of #9 - Features (#7), Inventory (#6), Stations (#8), Effects (#9).
   static override PARTS = {
     sidebar: {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/sidebar.hbs`,
@@ -182,7 +220,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       template: `modules/${MODULE_ID}/templates/actors/spaceship/stations.hbs`,
     },
     effects: {
-      template: `modules/${MODULE_ID}/templates/actors/spaceship/tab-placeholder.hbs`,
+      template: `modules/${MODULE_ID}/templates/actors/spaceship/effects.hbs`,
     },
   };
 
@@ -213,7 +251,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     return Object.assign(context, { tabs: this._prepareTabs("primary") });
   }
 
-  /** Expose the part's own tab entry as `tab` for the shared tab-placeholder template. */
+  /** Expose the part's own tab entry as `tab` for that tab's template, plus its own list context. */
   protected override async _preparePartContext(
     partId: string,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -239,11 +277,14 @@ export default class SpaceshipActorSheet extends BaseSheet {
     if (partId === "stations") {
       Object.assign(context, { stations: SpaceshipActorSheet.#buildStationsContext(actor) });
     }
+    if (partId === "effects") {
+      Object.assign(context, { effects: SpaceshipActorSheet.#buildEffectsContext(actor, editable) });
+    }
     return context;
   }
 
   /**
-   * One row of a shared item list: the live `LooseItem` plus the display bits the template can't
+   * One row of a shared item list: the live `LooseDoc` plus the display bits the template can't
    * compute itself.
    *
    * `tags` is resolved here, not read as `item._getTags` from the template: Handlebars only binds
@@ -257,14 +298,49 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * uniform flag: *both* its tabs pass `showActions=@root.editable` into `inventory-item-V2.hbs`,
    * whose portrait falls back to "open the sheet" whenever that's false. Nothing on this sheet
    * wants the two to differ, so it collapses to one precomputed boolean.
+   *
+   * `canChat` mirrors daggerheart's own `{{#if (hasProperty item "toChat")}}` guard around the same
+   * control - every document these lists render (Item and ActiveEffect alike) does define `toChat`
+   * today, so it is true throughout; the guard exists so a row type that doesn't gets no button
+   * rather than one that hands `#onToChat` nothing to call. Resolved here rather than in the
+   * template for the same reason `tags` is - this module registers only its own Handlebars helpers
+   * (ADR 0002) and has no `hasProperty`.
+   *
+   * `disabled` is ActiveEffect-only and drives the row's `data-disabled` marker, which is what the
+   * context menu's Enable/Disable entries key off - same attribute, same purpose, as daggerheart's
+   * own `#getEffectContextOptions`.
    */
-  static #toEntry(item: LooseItem, editable: boolean): ItemRowEntry {
+  static #toEntry(item: LooseDoc, editable: boolean): ItemRowEntry {
     return {
       item,
       tags: item._getTags?.() ?? [],
       hasDescription: item.hasDescription ?? false,
       usable: editable && (item.usable ?? false),
+      canChat: typeof item.toChat === "function",
+      disabled: item.disabled ?? false,
     };
+  }
+
+  /**
+   * The ActiveEffects applying to the ship, split into active/inactive lists for the Effects tab
+   * (#9) - the same two-list split, off the same `effect.active` flag and the same
+   * `allApplicableEffects({ noTransferArmor: true })` source, as daggerheart's own
+   * `DHBaseActorSheet#_prepareEffectsContext`.
+   *
+   * Rows go through the same `#toEntry` as items, and mostly light up the same way:
+   * `DhActiveEffect` has its own `_getTags` (an origin chip plus one per applied status condition),
+   * `hasDescription`, and `toChat`. Only `usable` is absent, so an effect's portrait opens its
+   * config sheet rather than rolling anything - which is what daggerheart's own row does too.
+   */
+  static #buildEffectsContext(actor: LooseActor, editable: boolean): { actives: ItemRowEntry[]; inactives: ItemRowEntry[] } {
+    const actives: ItemRowEntry[] = [];
+    const inactives: ItemRowEntry[] = [];
+
+    for (const effect of actor.allApplicableEffects({ noTransferArmor: true })) {
+      (effect.active ? actives : inactives).push(SpaceshipActorSheet.#toEntry(effect, editable));
+    }
+
+    return { actives, inactives };
   }
 
   /**
@@ -282,7 +358,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
   /**
    * Group the ship's `weapon`/`armor`/`consumable`/`loot` items for the Inventory tab (#6), plus
    * the weapon-mount usage (`equipped` count vs `maxWeaponMounts`) shown next to the weapons list.
-   * Passes the live `LooseItem`s through as-is (not a flattened row shape) so `inventory.hbs` can
+   * Passes the live `LooseDoc`s through as-is (not a flattened row shape) so `inventory.hbs` can
    * call `item._getTags`/`item.system.*` directly, same as daggerheart's own inventory template.
    */
   static #buildInventoryContext(
@@ -472,7 +548,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
 
     const actor = this.document as unknown as LooseActor;
     // fvtt-types' `getDefaultArtwork` only accepts its strict, daggerheart-unaware `type` union
-    // (same gap `LooseItem`/`LooseActor` work around above) - called through a loosened signature.
+    // (same gap `LooseDoc`/`LooseActor` work around above) - called through a loosened signature.
     const getDefaultArtwork = CONFIG.Item.documentClass.getDefaultArtwork as (data: {
       type: string;
     }) => { img: string | null };
@@ -486,34 +562,42 @@ export default class SpaceshipActorSheet extends BaseSheet {
     ]);
   }
 
-  /** Open the embedded Item's own sheet, from `data-item-id` on the clicked row. */
+  /**
+   * Open the row document's own sheet, from `data-item-uuid` on the clicked row - an Item's Item
+   * sheet or an ActiveEffect's ActiveEffectConfig (#9), whichever the row holds. One action for
+   * both, exactly as daggerheart has one `editDoc`.
+   */
   static async #onEditItem(
     this: foundry.applications.sheets.ActorSheetV2.Any,
     _event: PointerEvent,
     target: HTMLElement,
   ): Promise<void> {
-    const item = SpaceshipActorSheet.#getRowItem(this.document as unknown as LooseActor, target);
-    item?.sheet?.render(true);
+    const doc = SpaceshipActorSheet.#getRowDocument(target);
+    doc?.sheet?.render(true);
   }
 
   /**
-   * Delete an embedded Item after a confirm dialog - called from the row's context menu
-   * (`#bindItemContextMenu`), the only way to delete an item now that the controls match the
-   * character sheet's own default set (equip/Send to Chat/kebab, not standalone edit/delete
+   * Delete an embedded document after a confirm dialog - called from the row's context menu
+   * (`#bindItemContextMenu`), the only way to delete an item or effect now that the controls match
+   * the character sheet's own default set (equip/Send to Chat/kebab, not standalone edit/delete
    * icons - see `inventory.hbs`'s comment).
+   *
+   * `titleKey`/`bodyKey`: the Effects tab's rows are ActiveEffects, so the menu entry and this
+   * dialog have to say "effect", not "item" - the wording is the only thing that differs, so the
+   * two callers pass their own keys rather than each getting a near-identical method.
    */
-  static async #deleteItemWithConfirm(item: LooseItem): Promise<void> {
+  static async #deleteDocWithConfirm(doc: LooseDoc, titleKey: string, bodyKey: string): Promise<void> {
     const confirmed = await foundry.applications.api.DialogV2.confirm({
-      window: { title: game.i18n!.localize("DHSCIFI.Spaceship.Inventory.DeleteItem.title") },
-      content: `<p>${game.i18n!.format("DHSCIFI.Spaceship.Inventory.DeleteItem.body", { name: item.name })}</p>`,
+      window: { title: game.i18n!.localize(titleKey) },
+      content: `<p>${game.i18n!.format(bodyKey, { name: doc.name })}</p>`,
     });
     if (!confirmed) return;
 
-    await item.delete();
+    await doc.delete();
   }
 
   /**
-   * Equip/unequip a `weapon` or `armor` item, from `data-item-id` on the clicked row.
+   * Equip/unequip a `weapon` or `armor` item, from `data-item-uuid` on the clicked row.
    *
    * Weapons: equipping beyond `maxWeaponMounts` is blocked - one mount per equipped weapon
    * regardless of `burden` (see `#countEquippedWeapons`).
@@ -526,7 +610,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     target: HTMLElement,
   ): Promise<void> {
     const actor = this.document as unknown as LooseActor;
-    const item = SpaceshipActorSheet.#getRowItem(actor, target);
+    const item = SpaceshipActorSheet.#getRowDocument(target);
     if (!item || (item.type !== "weapon" && item.type !== "armor")) return;
 
     const equipping = !item.system.equipped;
@@ -546,10 +630,25 @@ export default class SpaceshipActorSheet extends BaseSheet {
     }
   }
 
-  /** Resolve the embedded Item referenced by the closest `[data-item-id]` ancestor of `target`. */
-  static #getRowItem(actor: LooseActor, target: HTMLElement): LooseItem | undefined {
-    const itemId = target.closest<HTMLElement>("[data-item-id]")?.dataset.itemId;
-    return itemId ? actor.items.get(itemId) : undefined;
+  /**
+   * Resolve the embedded document referenced by the closest `[data-item-uuid]` ancestor of
+   * `target` - mirrors daggerheart's own `getDocFromElementSync` helper, which every one of its
+   * row actions (`editDoc`/`deleteDoc`/`toChat`/`toggleEffect`/...) goes through for exactly this
+   * reason: a row can hold an Item *or* an ActiveEffect (#9), and a UUID resolves either, where
+   * `actor.items.get(id)` (what this was before #9) only ever finds an Item.
+   *
+   * `fromUuidSync` throws rather than returning null for a compendium UUID whose pack index isn't
+   * loaded, so the call is guarded, same as `#resolveCrewEntry`'s.
+   */
+  static #getRowDocument(target: HTMLElement): LooseDoc | undefined {
+    const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
+    if (!uuid) return undefined;
+
+    try {
+      return (fromUuidSync(uuid) as unknown as LooseDoc | null) ?? undefined;
+    } catch {
+      return undefined;
+    }
   }
 
   /**
@@ -589,8 +688,55 @@ export default class SpaceshipActorSheet extends BaseSheet {
     _event: PointerEvent,
     target: HTMLElement,
   ): Promise<void> {
-    const item = SpaceshipActorSheet.#getRowItem(this.document as unknown as LooseActor, target);
+    const item = SpaceshipActorSheet.#getRowDocument(target);
     await item?.toChat?.(item.id);
+  }
+
+  /**
+   * Create a new ActiveEffect on the ship (#9), from the "+" on an Effects tab legend.
+   *
+   * Mirrors daggerheart's own `createDoc` action for `type='effect'`: the `base` ActiveEffect
+   * sub-type, named by the document class's own `defaultName`, and `disabled: true` when the "+"
+   * clicked belongs to the *inactive* list (`data-disabled` on the anchor) - the same convention
+   * its `inventory-fieldset-items-V2.hbs` legend uses, so creating from the inactive section lands
+   * the new effect in that section rather than jumping to the active one.
+   *
+   * Shift-click skips opening the new effect's sheet, again matching daggerheart's `createDoc`.
+   */
+  static async #onCreateEffect(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    // fvtt-types' `ActiveEffect.create` signature is daggerheart-unaware (it has no knowledge of
+    // the system's `base` ActiveEffect sub-type), the same gap `LooseDoc`/`LooseActor` work around
+    // for Items - called through a loosened signature for the same reason.
+    const cls = getDocumentClass("ActiveEffect") as unknown as {
+      defaultName(context: { type: string; parent: unknown }): string;
+      create(data: Record<string, unknown>, context: Record<string, unknown>): Promise<unknown>;
+    };
+    const parent = this.document;
+    await cls.create(
+      {
+        name: cls.defaultName({ type: "base", parent }),
+        type: "base",
+        // `img`, not `icon`: core renamed the field in v12 and the row partial reads `item.img`.
+        img: "icons/svg/aura.svg",
+        disabled: target.dataset.disabled === "true",
+      },
+      { parent, renderSheet: !event.shiftKey },
+    );
+  }
+
+  /**
+   * Enable/disable an ActiveEffect (#9), from `data-action="toggleEffect"` on the row's toggle -
+   * the same one-line `update({ disabled: !disabled })` as daggerheart's own `toggleEffect` action.
+   */
+  static async #onToggleEffect(_event: PointerEvent, target: HTMLElement): Promise<void> {
+    const effect = SpaceshipActorSheet.#getRowDocument(target);
+    if (!effect) return;
+
+    await effect.update({ disabled: !effect.disabled });
   }
 
   /**
@@ -719,15 +865,27 @@ export default class SpaceshipActorSheet extends BaseSheet {
     await super._onRender(context, options);
     this.#bindQuantityInputs();
     this.#bindItemContextMenu();
-    void this.#enrichInventoryDescriptions();
+    void this.#enrichRowDescriptions();
+  }
+
+  /** Whether the row `target` sits in holds an ActiveEffect rather than an Item (`data-type`). */
+  static #isEffectRow(target: HTMLElement): boolean {
+    return target.closest<HTMLElement>("[data-item-uuid]")?.dataset.type === "effect";
   }
 
   /**
-   * The Inventory tab's per-row context menu (the kebab/"..." button - Edit/Delete), matching the
-   * character sheet's own default controls exactly (equip toggle, "Send to Chat", kebab menu -
-   * not standalone edit/delete icons, see `inventory.hbs`'s comment). Built with core's own
-   * `ContextMenu` class, not daggerheart's `triggerContextMenu` handler (sheet code, out of reach
-   * per docs/adr/0002).
+   * The per-row context menu (the kebab/"..." button), matching the character sheet's own default
+   * controls exactly (equip toggle, "Send to Chat", kebab menu - not standalone edit/delete icons,
+   * see `inventory.hbs`'s comment). Built with core's own `ContextMenu` class, not daggerheart's
+   * `triggerContextMenu` handler (sheet code, out of reach per docs/adr/0002).
+   *
+   * One menu for every row on the sheet, its entries switched on the row's `data-type` via core
+   * `ContextMenu`'s own `condition` callback. Daggerheart instead registers *two* menus against two
+   * selectors (`[data-type="effect"]` and `[data-type="feature"]`), because its base sheet class
+   * takes a declarative `contextMenus` array; with one hand-built `ContextMenu` here, conditioned
+   * entries are the same result with one binding. The Enable/Disable pair mirrors its own
+   * `#getEffectContextOptions` (a conditioned pair keyed off the row's disabled state), and
+   * Edit/Delete mirror the `_getContextMenuCommonOptions` every one of its menus appends.
    *
    * Cached on the instance and only constructed once, same reasoning as `ActorSheetV2`'s own
    * cached `_dragDrop`: `ContextMenu`'s constructor binds a listener to `container` (`this.element`
@@ -737,27 +895,76 @@ export default class SpaceshipActorSheet extends BaseSheet {
   #bindItemContextMenu(): void {
     if (this.#itemContextMenu) return;
 
-    const actor = this.document as unknown as LooseActor;
     this.#itemContextMenu = new foundry.applications.ux.ContextMenu.implementation(
       this.element,
-      // Every `.inventory-item` on the sheet, not just the Inventory tab's - the Features tab
-      // (#7) renders through the same row partial and gets the same Edit/Delete menu.
+      // Every `.inventory-item` on the sheet, not just the Inventory tab's - Features (#7) and
+      // Effects (#9) render through the same row partial and get the same menu.
       ".inventory-item [data-action='triggerContextMenu']",
       [
         {
+          name: "DHSCIFI.Spaceship.Effects.Enable",
+          icon: '<i class="fa-regular fa-lightbulb"></i>',
+          condition: (target: HTMLElement) =>
+            SpaceshipActorSheet.#isEffectRow(target) &&
+            target.closest<HTMLElement>("[data-item-uuid]")?.dataset.disabled === "true",
+          callback: (target: HTMLElement) => {
+            void SpaceshipActorSheet.#getRowDocument(target)?.update({ disabled: false });
+          },
+        },
+        {
+          name: "DHSCIFI.Spaceship.Effects.Disable",
+          icon: '<i class="fa-solid fa-lightbulb"></i>',
+          condition: (target: HTMLElement) =>
+            SpaceshipActorSheet.#isEffectRow(target) &&
+            target.closest<HTMLElement>("[data-item-uuid]")?.dataset.disabled !== "true",
+          callback: (target: HTMLElement) => {
+            void SpaceshipActorSheet.#getRowDocument(target)?.update({ disabled: true });
+          },
+        },
+        {
+          name: "DHSCIFI.Spaceship.Effects.EditEffect",
+          icon: '<i class="fa-solid fa-edit"></i>',
+          condition: SpaceshipActorSheet.#isEffectRow,
+          callback: (target: HTMLElement) => {
+            SpaceshipActorSheet.#getRowDocument(target)?.sheet?.render(true);
+          },
+        },
+        {
+          name: "DHSCIFI.Spaceship.Effects.DeleteEffect.title",
+          icon: '<i class="fa-solid fa-trash"></i>',
+          condition: SpaceshipActorSheet.#isEffectRow,
+          callback: (target: HTMLElement) => {
+            const effect = SpaceshipActorSheet.#getRowDocument(target);
+            if (effect) {
+              void SpaceshipActorSheet.#deleteDocWithConfirm(
+                effect,
+                "DHSCIFI.Spaceship.Effects.DeleteEffect.title",
+                "DHSCIFI.Spaceship.Effects.DeleteEffect.body",
+              );
+            }
+          },
+        },
+        {
           name: "DHSCIFI.Spaceship.Inventory.EditItem",
           icon: '<i class="fa-solid fa-edit"></i>',
+          condition: (target: HTMLElement) => !SpaceshipActorSheet.#isEffectRow(target),
           callback: (target: HTMLElement) => {
-            const item = SpaceshipActorSheet.#getRowItem(actor, target);
-            item?.sheet?.render(true);
+            SpaceshipActorSheet.#getRowDocument(target)?.sheet?.render(true);
           },
         },
         {
           name: "DHSCIFI.Spaceship.Inventory.DeleteItem.title",
           icon: '<i class="fa-solid fa-trash"></i>',
+          condition: (target: HTMLElement) => !SpaceshipActorSheet.#isEffectRow(target),
           callback: (target: HTMLElement) => {
-            const item = SpaceshipActorSheet.#getRowItem(actor, target);
-            if (item) void SpaceshipActorSheet.#deleteItemWithConfirm(item);
+            const item = SpaceshipActorSheet.#getRowDocument(target);
+            if (item) {
+              void SpaceshipActorSheet.#deleteDocWithConfirm(
+                item,
+                "DHSCIFI.Spaceship.Inventory.DeleteItem.title",
+                "DHSCIFI.Spaceship.Inventory.DeleteItem.body",
+              );
+            }
           },
         },
       ],
@@ -789,7 +996,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async _onDropItem(event: any, item: any): Promise<any> {
-    const droppedItem = item as LooseItem;
+    const droppedItem = item as LooseDoc;
     if (!SpaceshipActorSheet.#isSpaceshipItemType(droppedItem.type)) {
       ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Inventory.InvalidItemType"));
       return null;
@@ -799,7 +1006,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       _onDropItem(event: any, item: any): Promise<any>;
     };
-    const result = (await base._onDropItem.call(this, event, item)) as LooseItem | null;
+    const result = (await base._onDropItem.call(this, event, item)) as LooseDoc | null;
 
     // A weapon that landed equipped beyond the mount cap (e.g. dragged in already-equipped from
     // another actor): unequip the *new* copy, same rule `#onToggleEquipItem` enforces - `count`
@@ -825,11 +1032,10 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * replaces the part's DOM, so these are always freshly-created elements with no listener yet.
    */
   #bindQuantityInputs(): void {
-    const actor = this.document as unknown as LooseActor;
     const inputs = this.element.querySelectorAll<HTMLInputElement>(".inventory-item-quantity");
     inputs.forEach((input) => {
       input.addEventListener("change", () => {
-        const item = SpaceshipActorSheet.#getRowItem(actor, input);
+        const item = SpaceshipActorSheet.#getRowDocument(input);
         const quantity = Number.parseInt(input.value, 10);
         if (item && !Number.isNaN(quantity)) void item.update({ "system.quantity": Math.max(0, quantity) });
       });
@@ -837,28 +1043,32 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * Fill in each expandable row's `.inventory-description` with the item's own enriched
-   * description HTML, mirroring daggerheart's own `#prepareInventoryDescription` (item-level
+   * Fill in each expandable row's `.inventory-description` with the document's own enriched
+   * description HTML, mirroring daggerheart's own `#prepareInventoryDescription` (document-level
    * `getEnrichedDescription()` + `TextEditor.enrichHTML`, not sheet code) - Handlebars can't
    * `await`, so `partials/inventory-item.hbs` renders the container empty and this fills it in
-   * post-render. Covers every `.inventory-item` on the sheet (Inventory and Features alike).
+   * post-render. Covers every `.inventory-item` on the sheet (Inventory, Features, and Effects).
+   *
+   * The `doc.description` fallback is the ActiveEffect case (#9): an effect's description is a
+   * top-level document field, not `system.description` like an Item's. Same two-step fallback
+   * daggerheart's own version does (`doc.system?.description ?? doc.description`).
    */
-  async #enrichInventoryDescriptions(): Promise<void> {
+  async #enrichRowDescriptions(): Promise<void> {
     const rows = this.element.querySelectorAll<HTMLElement>(".inventory-item[data-item-uuid]");
     for (const row of rows) {
       const uuid = row.dataset.itemUuid;
       const descriptionElement = row.querySelector<HTMLElement>(".inventory-description");
       if (!uuid || !descriptionElement) continue;
 
-      const item = (await fromUuid(uuid)) as unknown as LooseItem | null;
-      if (!item) continue;
+      const doc = (await fromUuid(uuid)) as unknown as LooseDoc | null;
+      if (!doc) continue;
 
-      const description = item.system.getEnrichedDescription
-        ? await item.system.getEnrichedDescription()
-        : (item.system.description ?? "");
+      const description = doc.system.getEnrichedDescription
+        ? await doc.system.getEnrichedDescription()
+        : (doc.system.description ?? doc.description ?? "");
       descriptionElement.innerHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
         description,
-        { secrets: item.isOwner ?? false },
+        { secrets: doc.isOwner ?? false },
       );
     }
   }

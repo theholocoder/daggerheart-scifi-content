@@ -381,7 +381,7 @@ body {
   }
 
   /*
-   * Inventory (#6) and Features (#7) tabs. Item-row markup (`fieldset.glassy`/`legend`,
+   * Inventory (#6), Features (#7), and Effects (#9) tabs. Item-row markup (`fieldset.glassy`/`legend`,
    * `items-list`, `inventory-item`/`item-main`/`inventory-item-header`/`img-portait`/`item-label`/
    * `item-tags`/`item-resource`/`controls`) reuses `daggerheart`'s own classes verbatim
    * (templates/sheets/global/partials/inventory-item-V2.hbs) - `daggerheart.css` themes all of
@@ -403,13 +403,15 @@ body {
    */
   .spaceship-inventory,
   .spaceship-features,
-  .spaceship-stations {
+  .spaceship-stations,
+  .spaceship-effects {
     // Only the inner section scrolls; the tab wrapper itself never does.
     overflow-y: hidden;
 
     .items-section,
     .features-sections,
-    .stations-sections {
+    .stations-sections,
+    .effects-sections {
       // `flex: 1` works because `.tab.active` (above) supplies the flex column context.
       flex: 1;
       display: flex;
@@ -424,7 +426,10 @@ body {
       padding: 8px 0.75rem 4px 0.75rem;
     }
 
-    .features-sections {
+    // Same 7px top padding daggerheart's own `.character .tab.effects .effects-sections` uses,
+    // which is also what its features tab uses - copied by value, same as the two above.
+    .features-sections,
+    .effects-sections {
       padding: 7px 0.75rem 4px 0.75rem;
     }
 
@@ -525,30 +530,6 @@ body {
     }
   }
 
-  // Stub body shown in each not-yet-built tab (Effects, until #9-#12).
-  .dhscifi-placeholder-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    opacity: 0.45;
-
-    i {
-      font-size: 2rem;
-    }
-
-    h3 {
-      font-family: var(--dh-font-subtitle, "Cinzel"), serif;
-    }
-
-    p {
-      font-style: italic;
-      font-size: var(--font-size-12, 0.75rem);
-      text-transform: uppercase;
-    }
-  }
 }
 
 /*

@@ -23,6 +23,18 @@
       "Features": {
         "title": "Features"
       },
+      "Effects": {
+        "Active": "Active Effects",
+        "Inactive": "Inactive Effects",
+        "CreateEffect": "Create Effect",
+        "EditEffect": "Edit Effect",
+        "Enable": "Enable Effect",
+        "Disable": "Disable Effect",
+        "DeleteEffect": {
+          "title": "Delete Effect",
+          "body": "Delete {name}?"
+        }
+      },
       "Inventory": {
         "Weapons": "Weapons",
         "Armor": "Armor",

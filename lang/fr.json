@@ -23,6 +23,18 @@
       "Features": {
         "title": "Aptitudes"
       },
+      "Effects": {
+        "Active": "Effets actifs",
+        "Inactive": "Effets inactifs",
+        "CreateEffect": "Créer un effet",
+        "EditEffect": "Modifier l'effet",
+        "Enable": "Activer l'effet",
+        "Disable": "Désactiver l'effet",
+        "DeleteEffect": {
+          "title": "Supprimer l'effet",
+          "body": "Supprimer {name} ?"
+        }
+      },
       "Inventory": {
         "Weapons": "Armes",
         "Armor": "Armure",

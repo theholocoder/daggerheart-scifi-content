@@ -38,6 +38,17 @@
     - equipIcon {string} : Font Awesome classes for the equip toggle. Omitted = no equip control
       (consumables/loot/features, same as the character sheet).
     - quantifiable {boolean} : show the quantity input (consumables/loot).
+    - canChat {boolean} : the document actually has a `toChat` method. Same guard as daggerheart's
+      own `{{#if (hasProperty item "toChat")}}`, resolved in TS because this module registers no
+      `hasProperty` helper (ADR 0002). True for every row type today (`DhActiveEffect` defines
+      `toChat` just as `DHItem` does).
+    - isEffect {boolean} : this row holds an ActiveEffect (#9), not an Item. Mirrors the
+      `type='effect'` branches of daggerheart's own `inventory-item-V2.hbs`: an enable/disable
+      toggle in place of the equip toggle, and `data-type="effect"` so the sheet's one context menu
+      can offer the effect entries (Enable/Disable/Edit/Delete) instead of the item ones.
+    - disabled {boolean} : effects only - the effect's stored `disabled` flag, rendered as
+      `data-disabled` (daggerheart's own attribute and its own name for it) and read back by both
+      the toggle's tooltip/icon and the context menu's Enable/Disable condition.
 
     `.item-buttons` (an item's own `system.actions`, e.g. a Medpack's "Clear 1d4 HP" Healing
     action): `useItem` resolves `data-item-uuid` via `fromUuid` and calls the Action's own
@@ -45,7 +56,8 @@
     `src/module/compat/character-only-patches.ts` (patches `actionsList`, `usable`, `rollClass`,
     and `rollTrait` - see that file's comment and ADR 0002's addendum).
 --}}
-<li class="inventory-item" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-uuid="{{item.uuid}}">
+<li class="inventory-item" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-uuid="{{item.uuid}}"
+    {{#if isEffect}}data-type="effect" data-disabled="{{#if disabled}}true{{else}}false{{/if}}"{{/if}}>
     <div class="item-main">
         <div class="inventory-item-header" {{#if hasDescription}}data-action="toggleExtended"{{/if}}>
             {{!-- Roll/use the item if it has a usable action (mirrors the character sheet's
@@ -57,7 +69,7 @@
                     <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
                 </div>
             {{else}}
-                <div class="img-portait" data-action="editItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.EditItem'}}">
+                <div class="img-portait" data-action="editItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Spaceship.Effects.EditEffect'}}{{else}}{{localize 'DHSCIFI.Spaceship.Inventory.EditItem'}}{{/if}}">
                     <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
                 </div>
             {{/if}}
@@ -97,10 +109,26 @@
                             </a>
                         {{/if}}
                     {{/if}}
+                    {{!-- An effect's enable/disable toggle sits in the equip toggle's slot, same
+                          `fa-toggle-on`/`fa-toggle-off` pair and same position in `.controls` as
+                          daggerheart's own `type='effect'` branch. --}}
+                    {{#if isEffect}}
+                        {{#if disabled}}
+                            <a data-action="toggleEffect" data-tooltip="{{localize 'DHSCIFI.Spaceship.Effects.Enable'}}">
+                                <i class="fa-solid fa-toggle-off" inert></i>
+                            </a>
+                        {{else}}
+                            <a data-action="toggleEffect" data-tooltip="{{localize 'DHSCIFI.Spaceship.Effects.Disable'}}">
+                                <i class="fa-solid fa-toggle-on" inert></i>
+                            </a>
+                        {{/if}}
+                    {{/if}}
                 {{/if}}
-                <a data-action="toChat" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.SendToChat'}}">
-                    <i class="fa-regular fa-fw fa-message" inert></i>
-                </a>
+                {{#if canChat}}
+                    <a data-action="toChat" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.SendToChat'}}">
+                        <i class="fa-regular fa-fw fa-message" inert></i>
+                    </a>
+                {{/if}}
                 {{#if @root.editable}}
                     <a data-action="triggerContextMenu" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.MoreOptions'}}">
                         <i class="fa-solid fa-fw fa-ellipsis-vertical" inert></i>
