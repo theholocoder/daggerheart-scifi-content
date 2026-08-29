@@ -61,6 +61,18 @@
                 </div>
             </div>
             <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.maxCrew"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.maxCrew" value="{{source.system.maxCrew}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.maxPassengers"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.maxPassengers" value="{{source.system.maxPassengers}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
                 <label>{{localize "DHSCIFI.Spaceship.Settings.systemPoints"}}</label>
                 <div class="form-fields">
                     <input type="number" name="system.systemPoints" value="{{source.system.systemPoints}}" min="0" step="1" />

@@ -103,6 +103,28 @@
             <h4 class="threshold-value">{{document.system.damageThresholds.severe}}</h4>
             <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.severe"}}</h4>
         </div>
+
+        {{! Crew/passenger capacity (#16): informational only (user story 22, #3) - GM-entered
+            maximums with no live count to compare against, so each is a single-value stat, same
+            `status-number` markup the Evasion/Proficiency stats above use. }}
+        <div class="status-section">
+            <div class="status-number crew-stat">
+                <div class="status-value">
+                    <p>{{document.system.maxCrew}}</p>
+                </div>
+                <div class="status-label">
+                    <h4>{{localize "DHSCIFI.Spaceship.Crew"}}</h4>
+                </div>
+            </div>
+            <div class="status-number passengers-stat">
+                <div class="status-value">
+                    <p>{{document.system.maxPassengers}}</p>
+                </div>
+                <div class="status-label">
+                    <h4>{{localize "DHSCIFI.Spaceship.Passengers"}}</h4>
+                </div>
+            </div>
+        </div>
     </div>
 
     {{! Equipped-weapons list (#17), below the thresholds section: every currently-equipped

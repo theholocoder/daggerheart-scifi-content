@@ -687,6 +687,10 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
         severe: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
       }),
       maxWeaponMounts: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 1 }),
+      // Crew/passenger capacity (#16): informational only, per user story 22 (#3) - nothing checks
+      // these against the Stations tab's actual crew assignments.
+      maxCrew: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+      maxPassengers: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
       // System Points (#11). `systemPoints` is the base total from the ship's Frame, entered by the
       // GM on the wrench dialog; #12's level-up wizard adds its gains into this same field.
       systemPoints: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
@@ -850,6 +854,21 @@ namespace SpaceshipData {
       integer: true;
       min: 0;
       initial: 1;
+    }>;
+    /** Crew/passenger capacity (#16): informational only, GM-entered. */
+    maxCrew: foundry.data.fields.NumberField<{
+      required: true;
+      nullable: false;
+      integer: true;
+      min: 0;
+      initial: 0;
+    }>;
+    maxPassengers: foundry.data.fields.NumberField<{
+      required: true;
+      nullable: false;
+      integer: true;
+      min: 0;
+      initial: 0;
     }>;
     /** System Points (#11): the base total from the ship's Frame, GM-entered. */
     systemPoints: foundry.data.fields.NumberField<{

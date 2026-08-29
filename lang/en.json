@@ -77,6 +77,8 @@
       "Evasion": "Evasion",
       "Proficiency": "Proficiency",
       "Shield": "Shield",
+      "Crew": "Crew",
+      "Passengers": "Passengers",
       "SystemPoints": "System Points",
       "SystemPointsAvailable": "System Points left to spend",
       "WeaponMounts": "Mounts",
@@ -143,6 +145,8 @@
         "hitPointsMax": "Max HP",
         "stressMax": "Max Stress",
         "maxWeaponMounts": "Weapon Mounts",
+        "maxCrew": "Crew Capacity",
+        "maxPassengers": "Passenger Capacity",
         "systemPoints": "System Points"
       }
     },
