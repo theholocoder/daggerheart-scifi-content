@@ -35,6 +35,14 @@ export const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot"] as
  */
 export const ARMOR_ITEM_TYPE = "armor";
 
+/**
+ * The `system.changes` entry type daggerheart uses for an ActiveEffect that grants Shield slots
+ * and/or base damage thresholds (`CONFIG.DH.EFFECTS.customChangeTypes.armor.id`, #10). Same
+ * spelling as `ARMOR_ITEM_TYPE` above, deliberately kept separate: one names an Item sub-type, the
+ * other a key in daggerheart's effect-change registry, and only coincidence makes them equal.
+ */
+export const ARMOR_EFFECT_CHANGE_TYPE = "armor";
+
 /** The `daggerheart` Item type the Spaceship sheet's Features tab lists (#7). */
 export const FEATURE_ITEM_TYPE = "feature";
 

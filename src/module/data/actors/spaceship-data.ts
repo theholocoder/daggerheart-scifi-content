@@ -1,4 +1,10 @@
-import { ARMOR_ITEM_TYPE, FEATURE_ITEM_TYPE, INVENTORY_ITEM_TYPES, STATION_IDS } from "../../constants";
+import {
+  ARMOR_EFFECT_CHANGE_TYPE,
+  ARMOR_ITEM_TYPE,
+  FEATURE_ITEM_TYPE,
+  INVENTORY_ITEM_TYPES,
+  STATION_IDS,
+} from "../../constants";
 
 /**
  * The `daggerheart` `armor` Item fields this model reads to derive Shield/thresholds (#10).
@@ -18,13 +24,40 @@ interface ArmorItemLike {
 }
 
 /**
- * One applied ActiveEffect as the severe-threshold rule below inspects it: daggerheart's own
- * `DhActiveEffect` sub-type carries a `system.changes` array whose `armor`-typed entries can set a
- * base damage threshold, exactly like an armor Item does. Optional throughout - a plain core
- * ActiveEffect with no daggerheart `system` must read as "no threshold change".
+ * One entry of a `DhActiveEffect`'s `system.changes` array. An `armor`-typed change is daggerheart's
+ * way of granting Shield from something other than an armor Item: applying it adds `value.current`
+ * to `system.armorScore.value` and `value.max` to `system.armorScore.max`, and (when present) its
+ * `damageThresholds` set a base threshold the same way an armor Item's `baseThresholds` do.
+ *
+ * `value.max` is a *formula string* upstream (`'1'`, `'@level'`, ...), not a number - see
+ * `#parseGrantedSlots`.
+ */
+interface ArmorChangeLike {
+  type?: string;
+  value?: { current?: number; max?: string | number; damageThresholds?: unknown };
+}
+
+/**
+ * One applied ActiveEffect, as both the severe-threshold rule and the Shield-marking distribution
+ * below inspect it. Optional throughout - a plain core ActiveEffect with no daggerheart `system`
+ * carries none of this and must read as "grants no Shield, sets no threshold".
  */
 interface EffectLike {
-  system?: { changes?: { type?: string; value?: { damageThresholds?: unknown } }[] };
+  disabled?: boolean;
+  isSuppressed?: boolean;
+  system?: { changes?: ArmorChangeLike[] };
+  update(data: Record<string, unknown>): Promise<unknown>;
+}
+
+/**
+ * One place Shield slots can be marked off: the equipped armor Item, or an `armor`-typed change on
+ * an applied ActiveEffect. The sheet's pip row shows the *sum* of these, so marking a pip has to be
+ * spread across them - `write` is how each source stores its own share back.
+ */
+interface ShieldSource {
+  current: number;
+  max: number;
+  write(current: number): Promise<unknown>;
 }
 
 /**
@@ -88,8 +121,8 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   }
 
   /**
-   * The ship's single equipped `armor` Item, if any - the sole source of Shield and damage
-   * thresholds (#10). Same one-liner as `daggerheart`'s own character `get armor()`
+   * The ship's single equipped `armor` Item, if any - the base source of Shield and the only
+   * source of damage thresholds (#10). Same one-liner as `daggerheart`'s own character `get armor()`
    * (`items.find(x => x.type === 'armor' && x.system.equipped)`): the sheet enforces that at most
    * one armor item is equipped at a time, so `find` is the whole rule, not a first-match heuristic.
    */
@@ -128,7 +161,9 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
     // and on the very first preparation of a freshly-constructed Actor there may be none yet.
     const effects = (this.parent.appliedEffects ?? []) as unknown as Iterable<EffectLike>;
     const hasThresholdEffect = Array.from(effects).some((effect) =>
-      effect.system?.changes?.some((change) => change.type === "armor" && change.value?.damageThresholds),
+      effect.system?.changes?.some(
+        (change) => change.type === ARMOR_EFFECT_CHANGE_TYPE && change.value?.damageThresholds,
+      ),
     );
     this.damageThresholds = {
       major: (armor?.system.baseThresholds?.major ?? 0) + this.level,
@@ -143,25 +178,108 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   /**
    * Mark Shield slots up to `value` (#10) - the write half of the sheet's Shield pip bar.
    *
-   * Lives on the model, not the sheet, because everything it touches is this model's: the equipped
-   * armor Item is `this.armor`, and `armorScore` is derived from that Item's `system.armor.current`
-   * every `prepareBaseData`, so the click has to land on the Item rather than on the derived field.
-   * Daggerheart's character does the same thing through its multi-source `updateArmorValue`, which
-   * distributes the change across the armor item *and* any `armor`-typed ActiveEffect carrying its
-   * own `armorData`; a ship has the one armor item, so the single update is that logic here.
+   * Lives on the model, not the sheet, because `armorScore` is *derived*: there is nothing on the
+   * actor to write to, only the sources it was summed from, and the model is what knows them. Same
+   * split daggerheart has between its `toggleArmor` action and `updateArmorValue`, and the same
+   * distribution: the target total is turned into a delta and spread across every Shield source in
+   * `#shieldSources` order until it is used up, since one pip in the row can belong to the armor
+   * Item or to an effect and the row itself doesn't say which.
    *
-   * Known gap, deliberate: an effect that raises `system.armorScore.max` grows the pip row, but the
-   * extra slots can't be marked - the clamp is the *Item's* own `system.armor.max`, since there is
-   * nowhere else to store them without upstream's per-source distribution. Clamping to the derived
-   * `armorScore.max` instead would write `current > max` onto the Item and silently lose those
-   * marks when the effect ends.
+   * Clamped against the *derived* `armorScore.max` (the sum), not any single source's max - the
+   * per-source caps are enforced by `room` below as the delta is spread.
    */
   async markShield(value: number): Promise<void> {
-    const armor = this.armor;
-    if (!armor) return;
+    let remaining = Math.clamp(value, 0, this.armorScore.max) - this.armorScore.value;
+    if (remaining === 0) return;
 
-    const max = armor.system.armor?.max ?? 0;
-    await armor.update({ "system.armor.current": Math.clamp(value, 0, max) });
+    const increasing = remaining > 0;
+    for (const source of this.#shieldSources()) {
+      // How much this source can absorb, signed the same way as `remaining`: unmarked slots when
+      // marking, already-marked ones when unmarking.
+      const room = increasing ? source.max - source.current : -source.current;
+      const used = increasing ? Math.min(remaining, Math.max(0, room)) : Math.max(remaining, Math.min(0, room));
+      if (used === 0) continue;
+
+      await source.write(source.current + used);
+      remaining -= used;
+      if (remaining === 0) break;
+    }
+  }
+
+  /**
+   * Every place a Shield slot can actually be stored, in the order marks fill them.
+   *
+   * Effects first, the equipped armor Item last - the order daggerheart's own `getArmorSources`
+   * sorts into (it ranks an `armor` origin last of all), and the one that behaves best: marks land
+   * on the temporary source first, so an expiring effect takes its own spent slots with it instead
+   * of leaving the ship's real armor marked off.
+   *
+   * A disabled or suppressed effect is skipped, same as upstream's `filter(s => !s.disabled)` -
+   * its slots aren't in `armorScore` either, since core never applied its change.
+   */
+  #shieldSources(): ShieldSource[] {
+    const sources: ShieldSource[] = [];
+
+    const effects = (this.parent.appliedEffects ?? []) as unknown as Iterable<EffectLike>;
+    for (const effect of effects) {
+      if (effect.disabled || effect.isSuppressed) continue;
+
+      const changes = effect.system?.changes;
+      const index = changes?.findIndex((change) => change.type === ARMOR_EFFECT_CHANGE_TYPE) ?? -1;
+      if (!changes || index < 0) continue;
+
+      const change = changes[index];
+      sources.push({
+        current: change.value?.current ?? 0,
+        max: this.#parseGrantedSlots(change.value?.max),
+        // An effect stores its marked slots inside the change itself, so the whole `changes` array
+        // has to be written back with that one entry replaced - as upstream's `updateArmorValue`
+        // does. `effect.update` covers both an effect owned by the actor and one transferred from
+        // an item, where upstream reaches for the parent's `updateEmbeddedDocuments` instead.
+        write: (current) =>
+          effect.update({
+            "system.changes": changes.map((entry, i) =>
+              i === index ? { ...entry, value: { ...entry.value, current } } : entry,
+            ),
+          }),
+      });
+    }
+
+    const armor = this.armor;
+    if (armor) {
+      sources.push({
+        current: armor.system.armor?.current ?? 0,
+        max: armor.system.armor?.max ?? 0,
+        write: (current) => armor.update({ "system.armor.current": current }),
+      });
+    }
+
+    return sources;
+  }
+
+  /**
+   * How many slots an `armor`-typed effect change grants. Its `value.max` is a *formula string*
+   * upstream (`'1'`, `'@level'`, ...), evaluated against the actor when the change is applied - so
+   * this evaluates it the same way rather than trusting `DhActiveEffect#armorData`, whose own
+   * parse is gated on `actor.type === 'character'` and hands a ship back the raw string.
+   *
+   * Anything that won't resolve to a deterministic number (a dice formula, an unknown reference)
+   * counts as zero: the slot total on the row comes from core applying the change, and a source
+   * this can't size is one marks must not be routed to.
+   */
+  #parseGrantedSlots(max: string | number | undefined): number {
+    if (typeof max === "number") return Math.max(0, max);
+    if (!max) return 0;
+
+    const literal = Number(max);
+    if (Number.isFinite(literal)) return Math.max(0, literal);
+
+    try {
+      const roll = new Roll(max, this.parent.getRollData()).evaluateSync();
+      return roll.isDeterministic ? Math.max(0, roll.total ?? 0) : 0;
+    } catch {
+      return 0;
+    }
   }
 
   /**
