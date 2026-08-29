@@ -12,6 +12,7 @@ import {
   shipTierForLevel,
   type ShipLevelOptionType,
 } from "../../config/spaceship-level-tiers";
+import { resolveUuidSync } from "../../utils/resolve-uuid";
 
 /**
  * The `daggerheart` `armor` Item fields this model reads to derive Shield/thresholds (#10).
@@ -65,6 +66,16 @@ interface ShieldSource {
   current: number;
   max: number;
   write(current: number): Promise<unknown>;
+}
+
+/**
+ * The one field `#pilotBaseEvasion` reads off a Pilot station's crew Actor - loose for the same
+ * reason `ArmorItemLike`/`EffectLike` above are: fvtt-types knows nothing of daggerheart's
+ * `character` schema (docs/adr/0002). Optional throughout since a crewed Actor without an Evasion
+ * stat (an NPC/adversary) is a valid, expected shape here, not an error case.
+ */
+interface CrewMemberLike {
+  system?: { evasion?: number };
 }
 
 /**
@@ -212,6 +223,16 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
    */
   static override migrateData(source: Record<string, unknown>): Record<string, unknown> {
     delete source.systemPointsSpent;
+
+    // #18: `evasion` used to be the GM-entered total; it's now fully derived (pilot base + item/
+    // effect/manual bonuses) and `evasionBonus` is the new manual-adjustment field. A ship stored
+    // before this change has a number sitting in `evasion` and nothing in `evasionBonus` - carried
+    // across so its old manually-set total keeps acting as a bonus until the GM revisits it,
+    // rather than silently resetting to 0.
+    if (source.evasionBonus === undefined && typeof source.evasion === "number") {
+      source.evasionBonus = source.evasion;
+    }
+
     return super.migrateData(source);
   }
 
@@ -265,6 +286,30 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   }
 
   /**
+   * The base half of ship Evasion (#18): the highest Evasion stat among the Pilot station's crew,
+   * or `0` if the station is disabled or has no crew. A crewed actor with no Evasion stat of its
+   * own (an NPC/adversary, which daggerheart doesn't give one) contributes `0` to the comparison
+   * rather than being skipped - the ship's Evasion is never *raised* by such a crewmate, but an
+   * all-adversary Pilot station isn't the same as an empty one either.
+   *
+   * `stations.pilot.crew` is a plain array of Actor UUID *strings* (see `stationField` in
+   * `defineSchema`), so each entry is resolved with `resolveUuidSync` - the shared guard
+   * `SpaceshipActorSheet#resolveCrewEntry`/`#getRowDocument` also use, since a stale reference to a
+   * deleted Actor (or an unindexed compendium one) throws rather than returning `null`.
+   */
+  #pilotBaseEvasion(): number {
+    const pilot = this.stations.pilot;
+    if (!pilot.enabled || pilot.crew.length === 0) return 0;
+
+    let best = 0;
+    for (const uuid of pilot.crew) {
+      const evasion = resolveUuidSync<CrewMemberLike>(uuid)?.system?.evasion ?? 0;
+      if (evasion > best) best = evasion;
+    }
+    return best;
+  }
+
+  /**
    * Derive Shield (`armorScore`) and damage thresholds from the equipped armor plus `level` (#10),
    * mirroring `daggerheart`'s character `prepareBaseData` derivation exactly - the ship reuses the
    * system's armor-item mechanic rather than owning a parallel one (CONTEXT.md's "Shield" entry).
@@ -280,6 +325,15 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   override prepareBaseData(): void {
     super.prepareBaseData();
 
+    // Evasion (#18): base is the best Evasion stat among the enabled Pilot station's crew (`0`
+    // with the station disabled/empty, or for a crewed actor with no Evasion stat of its own -
+    // e.g. an NPC/adversary - contributing to the comparison rather than being excluded from it).
+    // Set *before* `#applyLevelupAdvancements` so a `evasion`-type level-up selection's `+=` stacks
+    // on top of the pilot base, and before core applies ActiveEffects so an item/effect granting
+    // `system.evasion` stacks on top of both - the same "derive base first, let core layer
+    // ActiveEffects on top" arrangement `armorScore` below uses.
+    this.evasion = this.#pilotBaseEvasion();
+
     // Level-up gains (#12) are *derived*, not written into the stats: the stored trait/resource/
     // evasion/proficiency/System Point numbers stay the ship's Frame statline, and every level
     // taken since is layered on top from `levelData.levelups` on each data preparation. Same
@@ -287,6 +341,11 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
     // reversible - dropping a level's record is all de-levelling has to do. Runs first so the
     // threshold derivation below still sees a settled `level`.
     this.#applyLevelupAdvancements();
+
+    // The manual bonus (#18): the wrench Settings dialog's GM-entered escape hatch, same role as
+    // every other derived stat's manual-adjustment field. Added last, after the pilot base and
+    // level-up gains, so it reads as a flat adjustment on top of both.
+    this.evasion += this.evasionBonus;
 
     // A target level below the level already taken is meaningless, and is what a ship stored
     // before #12 looks like (`changed` defaulting to 1 under an already-levelled `level`). Clamped
@@ -664,7 +723,16 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
         hitPoints: resourceField(),
         stress: resourceField(),
       }),
+      // Evasion (#18): fully derived in `prepareBaseData` from the Pilot station's best crew
+      // Evasion plus `evasionBonus`, then further stacked on by core-applied ActiveEffects
+      // targeting `system.evasion` (an item's transferred effect included) - same persisted-but-
+      // overwritten-every-preparation arrangement `armorScore` below uses, and for the same
+      // reason: ActiveEffects need a schema-declared `system.evasion` path to add onto.
       evasion: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
+      // The manual-adjustment escape hatch (#18) behind the wrench Settings dialog's Evasion
+      // input - GM-entered, and the only half of `evasion` actually persisted with meaning (see
+      // `migrateData`, which carries a pre-#18 ship's old `evasion` total over into this field).
+      evasionBonus: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
       proficiency: new fields.NumberField({ required: true, nullable: false, integer: true, min: 1, initial: 1 }),
       // Shield (#10): `max` is the equipped armor's score, `value` the slots marked off it. Both
       // are recomputed from the armor Item every `prepareBaseData`, so the field exists only to
@@ -824,7 +892,10 @@ namespace SpaceshipData {
       hitPoints: ResourceField;
       stress: ResourceField;
     }>;
+    /** Fully derived (#18): Pilot-crew base + `evasionBonus`, plus core-applied ActiveEffects. */
     evasion: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
+    /** The manual-adjustment bonus (#18) behind the wrench Settings dialog's Evasion input. */
+    evasionBonus: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true; initial: 0 }>;
     proficiency: foundry.data.fields.NumberField<{
       required: true;
       nullable: false;

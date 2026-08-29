@@ -147,7 +147,8 @@
         "maxWeaponMounts": "Weapon Mounts",
         "maxCrew": "Crew Capacity",
         "maxPassengers": "Passenger Capacity",
-        "systemPoints": "System Points"
+        "systemPoints": "System Points",
+        "evasionBonus": "Evasion Bonus"
       }
     },
     "Rows": {

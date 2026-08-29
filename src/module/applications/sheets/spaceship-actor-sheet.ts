@@ -9,6 +9,7 @@ import {
   SYSTEM_ITEM_TYPE,
 } from "../../constants";
 import { deleteRowDocument, pickDocumentImage, toRowEntry, type ItemRowEntry } from "./document-rows";
+import { resolveUuidSync } from "../../utils/resolve-uuid";
 import SpaceshipSettings from "../settings/spaceship-settings";
 import SpaceshipLevelup from "../levelup/spaceship-levelup";
 import SpaceshipLevelupView from "../levelup/spaceship-levelup-view";
@@ -439,19 +440,14 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * Resolve one stored crew UUID to a name/portrait, or to the `missing` placeholder the ticket
    * requires when the referenced Actor is gone.
    *
-   * `fromUuidSync` (not the async `fromUuid`) because Handlebars can't await and the Stations tab
-   * has no post-render fill-in step; it returns the live Actor for a world document and a plain
-   * index record (`{name, img, ...}`, enough for both fields here) for a compendium one. It
-   * *throws* rather than returning null for a compendium UUID whose pack index isn't loaded, so
-   * the call is guarded - an unresolvable reference of any kind is the same "Unknown" outcome.
+   * `resolveUuidSync` (not the async `fromUuid`) because Handlebars can't await and the Stations
+   * tab has no post-render fill-in step; it returns the live Actor for a world document and a
+   * plain index record (`{name, img, ...}`, enough for both fields here) for a compendium one -
+   * an unresolvable reference of any kind (including the throw `fromUuidSync` raises for a
+   * compendium UUID whose pack index isn't loaded) collapses to the same "Unknown" outcome.
    */
   static #resolveCrewEntry(uuid: string): CrewEntry {
-    let doc: { name?: string | null; img?: string | null } | null = null;
-    try {
-      doc = fromUuidSync(uuid) as { name?: string | null; img?: string | null } | null;
-    } catch {
-      doc = null;
-    }
+    const doc = resolveUuidSync<{ name?: string | null; img?: string | null }>(uuid);
 
     if (!doc?.name) {
       return {
@@ -685,18 +681,13 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * reason: a row can hold an Item *or* an ActiveEffect (#9), and a UUID resolves either, where
    * `actor.items.get(id)` (what this was before #9) only ever finds an Item.
    *
-   * `fromUuidSync` throws rather than returning null for a compendium UUID whose pack index isn't
-   * loaded, so the call is guarded, same as `#resolveCrewEntry`'s.
+   * Resolved through the shared `resolveUuidSync` guard, same as `#resolveCrewEntry`'s.
    */
   static #getRowDocument(target: HTMLElement): LooseDoc | undefined {
     const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
     if (!uuid) return undefined;
 
-    try {
-      return (fromUuidSync(uuid) as unknown as LooseDoc | null) ?? undefined;
-    } catch {
-      return undefined;
-    }
+    return resolveUuidSync<LooseDoc>(uuid) ?? undefined;
   }
 
   /**
