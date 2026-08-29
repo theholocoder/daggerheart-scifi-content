@@ -17,12 +17,13 @@
     Parameters:
     - title {string} : localization key for the legend.
     - createType {string} : Item type the legend's "+" creates (`data-item-type` on the
-      `createItem` action). Omitted = no create button. On an effects list it only has to be
-      truthy - the `createEffect` action always creates a `base` ActiveEffect - same as
-      daggerheart's own legend, whose `data-type` collapses to `'base'` for `type='effect'`.
-    - isEffect {boolean} : this list holds ActiveEffects, not Items (#9) - switches the legend's
-      create action to `createEffect` and is passed through to `dhscifi.inventory-item`, which
-      mirrors the `type='effect'` branches of daggerheart's own row partial.
+      `createItem` action). Omitted = no create button. Item lists only - an effects list has no
+      type to choose (`createEffect` always creates a `base` ActiveEffect, exactly as
+      daggerheart's own legend collapses `data-type` to `'base'` for `type='effect'`), so its "+"
+      is driven by `isEffect` instead.
+    - isEffect {boolean} : this list holds ActiveEffects, not Items (#9) - gives the legend a
+      `createEffect` "+" and is passed through to `dhscifi.inventory-item`, which mirrors the
+      `type='effect'` branches of daggerheart's own row partial.
     - createDisabled {boolean} : effects lists only - the legend's "+" creates the new effect
       already disabled, so creating from the *inactive* section lands it in that section. Same
       `disabled` parameter, same purpose, as daggerheart's own fieldset partial.
@@ -41,12 +42,12 @@
               registers only its own Handlebars helpers (ADR 0002) and doesn't depend on
               daggerheart's `and`/`or`/`eq` set being present. --}}
         {{#if @root.editable}}
-            {{#if createType}}
-                {{#if isEffect}}
-                    <a data-action="createEffect" data-disabled="{{#if createDisabled}}true{{else}}false{{/if}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Effects.CreateEffect'}}">
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
-                {{else}}
+            {{#if isEffect}}
+                <a data-action="createEffect" data-disabled="{{#if createDisabled}}true{{else}}false{{/if}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Effects.CreateEffect'}}">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            {{else}}
+                {{#if createType}}
                     <a data-action="createItem" data-item-type="{{createType}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.CreateItem'}}">
                         <i class="fa-solid fa-plus"></i>
                     </a>

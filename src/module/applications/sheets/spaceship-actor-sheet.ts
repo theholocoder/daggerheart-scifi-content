@@ -720,8 +720,10 @@ export default class SpaceshipActorSheet extends BaseSheet {
       {
         name: cls.defaultName({ type: "base", parent }),
         type: "base",
-        // `img`, not `icon`: core renamed the field in v12 and the row partial reads `item.img`.
-        img: "icons/svg/aura.svg",
+        // No `img`: daggerheart's own `DhActiveEffect#_preCreate` fills in
+        // `icons/magic/life/heart-cross-blue.webp` for any effect created without one, so passing
+        // one here would give ship effects a different default portrait than character ones.
+        // Its `#onCreateDoc` passes none for the same reason.
         disabled: target.dataset.disabled === "true",
       },
       { parent, renderSheet: !event.shiftKey },
@@ -736,7 +738,12 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const effect = SpaceshipActorSheet.#getRowDocument(target);
     if (!effect) return;
 
-    await effect.update({ disabled: !effect.disabled });
+    await SpaceshipActorSheet.#setEffectDisabled(effect, !effect.disabled);
+  }
+
+  /** The one write behind the row's toggle and the context menu's Enable/Disable pair alike. */
+  static async #setEffectDisabled(effect: LooseDoc, disabled: boolean): Promise<void> {
+    await effect.update({ disabled });
   }
 
   /**
@@ -874,6 +881,19 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
+   * `true`/`false` for an effect row's current `disabled` state, `undefined` for a row that isn't
+   * an effect at all - so the Enable/Disable menu entries can each test one value and both stay
+   * hidden on an item row. Read off the live document rather than the row's `data-disabled`
+   * attribute: the attribute is what the *template* rendered, and a context menu opened against a
+   * row whose effect was toggled elsewhere (another sheet, a macro) would otherwise offer the
+   * entry that no longer applies.
+   */
+  static #isDisabledEffectRow(target: HTMLElement): boolean | undefined {
+    if (!SpaceshipActorSheet.#isEffectRow(target)) return undefined;
+    return SpaceshipActorSheet.#getRowDocument(target)?.disabled ?? undefined;
+  }
+
+  /**
    * The per-row context menu (the kebab/"..." button), matching the character sheet's own default
    * controls exactly (equip toggle, "Send to Chat", kebab menu - not standalone edit/delete icons,
    * see `inventory.hbs`'s comment). Built with core's own `ContextMenu` class, not daggerheart's
@@ -904,21 +924,19 @@ export default class SpaceshipActorSheet extends BaseSheet {
         {
           name: "DHSCIFI.Spaceship.Effects.Enable",
           icon: '<i class="fa-regular fa-lightbulb"></i>',
-          condition: (target: HTMLElement) =>
-            SpaceshipActorSheet.#isEffectRow(target) &&
-            target.closest<HTMLElement>("[data-item-uuid]")?.dataset.disabled === "true",
+          condition: (target: HTMLElement) => SpaceshipActorSheet.#isDisabledEffectRow(target) === true,
           callback: (target: HTMLElement) => {
-            void SpaceshipActorSheet.#getRowDocument(target)?.update({ disabled: false });
+            const effect = SpaceshipActorSheet.#getRowDocument(target);
+            if (effect) void SpaceshipActorSheet.#setEffectDisabled(effect, false);
           },
         },
         {
           name: "DHSCIFI.Spaceship.Effects.Disable",
           icon: '<i class="fa-solid fa-lightbulb"></i>',
-          condition: (target: HTMLElement) =>
-            SpaceshipActorSheet.#isEffectRow(target) &&
-            target.closest<HTMLElement>("[data-item-uuid]")?.dataset.disabled !== "true",
+          condition: (target: HTMLElement) => SpaceshipActorSheet.#isDisabledEffectRow(target) === false,
           callback: (target: HTMLElement) => {
-            void SpaceshipActorSheet.#getRowDocument(target)?.update({ disabled: true });
+            const effect = SpaceshipActorSheet.#getRowDocument(target);
+            if (effect) void SpaceshipActorSheet.#setEffectDisabled(effect, true);
           },
         },
         {
