@@ -10,18 +10,42 @@
             autocomplete="off"
             {{#unless editable}}disabled{{/unless}}
         >
+        {{! Level + level-up controls (#12), same markup and same `.level-div`/`.level-button glow`
+            classes as the official character header. The input carries no `name`: it is bound to
+            `SpaceshipData#updateLevel` in `#bindLevelInput`, so raising it arms the level-up
+            wizard (rather than moving the level with no record) and lowering it de-levels. }}
         <div class="level-div">
             <h3 class="label">
+                {{#if editable}}
+                    {{#if document.system.canLevelUp}}
+                        <button
+                            type="button"
+                            class="level-button glow"
+                            data-action="levelUp"
+                            data-tooltip="{{localize 'DHSCIFI.Spaceship.Levelup.levelUp'}}"
+                        >
+                            <i class="fa-solid fa-angles-up"></i>
+                        </button>
+                    {{/if}}
+                {{/if}}
                 {{localize "DHSCIFI.Spaceship.Level"}}
                 <input
-                    type="number"
-                    name="system.level"
+                    type="text"
+                    data-dtype="Number"
                     class="level-value"
-                    value="{{document.system.level}}"
-                    min="1"
-                    step="1"
+                    value="{{document.system.levelData.changed}}"
                     {{#unless editable}}disabled{{/unless}}
                 >
+                {{#if hasLevelups}}
+                    <button
+                        type="button"
+                        class="level-button"
+                        data-action="viewLevelups"
+                        data-tooltip="{{localize 'DHSCIFI.Spaceship.Levelup.viewLevelups'}}"
+                    >
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </button>
+                {{/if}}
             </h3>
         </div>
     </div>

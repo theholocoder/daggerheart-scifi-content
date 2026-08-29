@@ -1,0 +1,28 @@
+{{!--
+    Read-only review of a ship's level-up history (#12) - module-owned copy of daggerheart's
+    templates/levelup/tabs/viewMode.hbs, same grid, every checkbox disabled.
+--}}
+<div class="section-container">
+    <div class="tiers-container">
+        {{#each tiers as |tier|}}
+            <fieldset class="tier-container">
+                <legend>{{tier.name}}</legend>
+
+                {{#each tier.groups}}
+                    <div class="checkbox-group-container">
+                        <div class="checkboxes-container">
+                            {{#each this.checkboxGroups}}
+                                <div class="checkbox-grouping-coontainer {{#if this.multi}}multi{{/if}}">
+                                    {{#each this.checkboxes}}
+                                        <input type="checkbox" class="selection-checkbox{{#if ../multi}} multi{{/if}}" {{checked this.selected}} disabled />
+                                    {{/each}}
+                                </div>
+                            {{/each}}
+                        </div>
+                        <span class="checkbox-group-label">{{localize this.label}}</span>
+                    </div>
+                {{/each}}
+            </fieldset>
+        {{/each}}
+    </div>
+</div>

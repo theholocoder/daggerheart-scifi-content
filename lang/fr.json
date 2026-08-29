@@ -10,6 +10,61 @@
     "Spaceship": {
       "NamePlaceholder": "Nom du vaisseau",
       "Level": "Niveau",
+      "Levelup": {
+        "title": "Montée de niveau : {actor}",
+        "viewModeTitle": "Montées de niveau : {actor} (historique)",
+        "levelUp": "Monter de niveau",
+        "viewLevelups": "Consulter les montées de niveau",
+        "navigateLevel": "Vers le niveau {level}",
+        "navigateToLevelup": "Retour à la montée de niveau",
+        "navigateToSummary": "Vers le résumé",
+        "finishLevelup": "Terminer la montée de niveau",
+        "noSelections": "Les choix de ce niveau ne demandent aucune sélection supplémentaire.",
+        "noSelectionsLeft": "Plus aucune sélection disponible pour ce niveau.",
+        "insufficientAdvancements": "Il ne reste plus assez de choix à ce niveau.",
+        "tooHighLevel": "Un vaisseau ne peut pas dépasser le niveau 10.",
+        "tooLowLevel": "Un vaisseau ne peut pas descendre sous le niveau 1.",
+        "Tabs": {
+          "advancements": "Progression",
+          "selections": "Sélections",
+          "summary": "Résumé"
+        },
+        "delevel": {
+          "title": "Revenir au niveau précédent",
+          "content": "Revenir au niveau précédent supprimera toutes les sélections faites pour ce niveau. Voulez-vous continuer ?"
+        },
+        "tier2": {
+          "name": "Palier 2"
+        },
+        "tier3": {
+          "name": "Palier 3"
+        },
+        "tier4": {
+          "name": "Palier 4"
+        },
+        "options": {
+          "trait": "Gagnez un bonus de +1 à deux traits non marqués et marquez-les.",
+          "hitPoint": "Gagnez définitivement une case de PV.",
+          "stress": "Gagnez définitivement une case de Stress.",
+          "evasion": "Gagnez définitivement un bonus de +1 en Évasion.",
+          "proficiency": "Augmentez la Maîtrise de +1.",
+          "systemPoints": "Gagnez définitivement un point de système."
+        },
+        "summary": {
+          "levelAchievements": "Acquis du niveau",
+          "levelAdvancements": "Progressions du niveau",
+          "traits": "Traits augmentés",
+          "damageThresholds": "Seuils de dégâts",
+          "unshielded": "sans bouclier",
+          "proficiencyIncrease": "Maîtrise augmentée : {value}",
+          "hpIncrease": "PV augmentés : {value}",
+          "stressIncrease": "Stress augmenté : {value}",
+          "evasionIncrease": "Évasion augmentée : {value}",
+          "systemPointsIncrease": "Points de système augmentés : {value}",
+          "damageThresholdMajorIncrease": "Majeur : {value}",
+          "damageThresholdSevereIncrease": "Grave : {value}"
+        }
+      },
       "TierMarked": "Palier marqué",
       "Hope": "Espoir",
       "HitPoints": "PV",

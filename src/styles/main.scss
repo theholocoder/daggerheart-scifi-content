@@ -312,6 +312,29 @@ body {
         text-align: center;
         font-weight: 600;
       }
+
+      // Level-up / history buttons (#12). Copy by value of the official character header's
+      // `.level-button` rule, which `daggerheart.css` scopes to `.character` and so does not
+      // reach us; the `.glow` pulse on the level-up button is unscoped there and comes for free.
+      .level-button {
+        color: light-dark(var(--dark, #222222), var(--beige, #efe6d8));
+        font-size: var(--font-size-18, 1.125rem);
+        line-height: 1;
+        min-height: unset;
+        height: min-content;
+        padding: 4px;
+        font-family: var(--dh-font-subtitle, "Cinzel"), serif;
+        margin: 0;
+        font-weight: normal;
+        border-color: light-dark(var(--dark-blue, #18162e), var(--golden, #f3c267));
+        background-color: light-dark(transparent, var(--deep-black, #0e0d15));
+
+        &:hover {
+          background-image: none;
+          background-color: var(--color-warm-2);
+          filter: drop-shadow(0 0 3px lightgray);
+        }
+      }
     }
   }
 
@@ -614,5 +637,54 @@ body {
 .daggerheart-scifi-content.spaceship-settings {
   .tab.details .traits-inner-container .trait-container input {
     text-align: center;
+  }
+}
+
+/*
+ * Level-up wizard (#12). Almost everything it needs - the tier grid, the summary "old -> new"
+ * rows, the footer buttons - comes from the system's own unscoped `.daggerheart.levelup` rules,
+ * which the window opts into through its marker classes (see `SpaceshipLevelup`). Only the trait
+ * picker is ours: daggerheart picks traits through a tagify input whose helper is internal to its
+ * bundle (docs/adr/0002-spaceship-sheet-independent-application.md), so this module uses a chip
+ * row instead and has to style it.
+ */
+.daggerheart-scifi-content.spaceship-levelup {
+  .levelup-trait-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .levelup-trait-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    min-height: unset;
+    padding: 2px 10px;
+    margin: 0;
+    line-height: 1.6;
+    font-size: var(--font-size-14, 0.875rem);
+    font-family: var(--dh-font-body, "Montserrat"), sans-serif;
+    border: 2px solid light-dark(var(--dark-blue-40, #18162e40), var(--golden-40, #f3c26740));
+    border-radius: 3px;
+    background: transparent;
+    color: var(--color-text-emphatic);
+
+    &.selected {
+      border-color: var(--golden, #f3c267);
+      color: var(--golden, #f3c267);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  .levelup-no-selections {
+    font-style: italic;
+    opacity: 0.7;
   }
 }

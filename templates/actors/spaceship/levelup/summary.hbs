@@ -1,0 +1,84 @@
+{{!--
+    What the run adds up to (#12). Module-owned copy of daggerheart's
+    templates/levelup/tabs/summary.hbs, keeping its `summary-header`/`levelup-summary-container`/
+    `level-achievements-container`/`increase-container` classes, and split the same way: "Level
+    Achievements" is what crossing the levels grants on its own (the tier-entry Proficiency bump,
+    and the damage thresholds that follow from level), "Level Advancements" is what was chosen.
+    The character sheet's domain-card and Experience sections have no ship equivalent and are gone;
+    System Points is the one row upstream has no counterpart for.
+
+    Every "old" label is formatted in the application rather than here: upstream needs one
+    `{{localize}}` call per stat because each of its keys names its own placeholder, and one
+    precomputed `text` per row says the same thing over a list.
+--}}
+<section
+    class="tab {{tabs.summary.cssClass}} {{tabs.summary.id}}"
+    data-tab="{{tabs.summary.id}}"
+    data-group="{{tabs.summary.group}}"
+>
+    <div class="summary-header">
+        <side-line-div class="invert"></side-line-div>
+        <h3>{{localize tabs.summary.label}}</h3>
+        <side-line-div></side-line-div>
+    </div>
+
+    <div class="section-container levelup-summary-container">
+        <fieldset>
+            <legend>{{localize "DHSCIFI.Spaceship.Levelup.summary.levelAchievements"}}</legend>
+
+            <div class="level-achievements-container">
+                {{#if achievements.proficiency}}
+                    <div class="increase-container">
+                        <span>{{achievements.proficiency.text}}</span>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                        <span>{{achievements.proficiency.new}}</span>
+                    </div>
+                {{/if}}
+                <div>
+                    <h5 class="summary-section">
+                        {{~localize "DHSCIFI.Spaceship.Levelup.summary.damageThresholds"}}
+                        {{~#if achievements.unshielded}} ({{localize "DHSCIFI.Spaceship.Levelup.summary.unshielded"}}){{/if~}}
+                    </h5>
+                    {{#each achievements.damageThresholds as |threshold|}}
+                        <div class="increase-container">
+                            <span>{{threshold.text}}</span>
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                            <span>{{threshold.new}}</span>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>{{localize "DHSCIFI.Spaceship.Levelup.summary.levelAdvancements"}}</legend>
+
+            <div class="level-advancements-container">
+                {{#if statistics}}
+                    <div>
+                        {{#each statistics as |row|}}
+                            <div class="increase-container">
+                                <span>{{row.text}}</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <span>{{row.new}}</span>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/if}}
+
+                {{#if traitRows}}
+                    <div>
+                        <h5 class="summary-section">{{localize "DHSCIFI.Spaceship.Levelup.summary.traits"}}</h5>
+                        {{#each traitRows as |trait|}}
+                            <div class="increase-container">
+                                <span>{{trait.text}}</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <span>{{trait.new}}</span>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        </fieldset>
+    </div>
+</section>

@@ -4,6 +4,16 @@ export const MODULE_ID = "daggerheart-scifi-content";
 export const SPACESHIP_ACTOR_TYPE = `${MODULE_ID}.spaceship`;
 
 /**
+ * The six traits a Spaceship has, in sheet order - the same six a `daggerheart` character has
+ * (CONTEXT.md's "Spaceship" entry: same core stat shape as a character).
+ *
+ * Named here because three places need the set and its order: `SpaceshipData`'s schema, the level-up
+ * wizard's trait picker (#12), and the `DHSCIFI.Spaceship.Traits.<key>` localization keys both
+ * render through.
+ */
+export const TRAIT_KEYS = ["agility", "strength", "finesse", "instinct", "presence", "knowledge"] as const;
+
+/**
  * The five fixed crew Stations a Spaceship has (#8, CONTEXT.md's "Station" entry). Fixed, not
  * user-extensible: a ship enables/disables individual stations rather than adding its own.
  *

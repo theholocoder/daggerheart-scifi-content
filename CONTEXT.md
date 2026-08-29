@@ -29,7 +29,7 @@ One unit of a Spaceship's `maxWeaponMounts` capacity. One mount holds exactly on
 _Avoid_: Core/Support/Heavy weapon (older terminology, superseded by the one-handed/two-handed system)
 
 **System Points**:
-A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus level-up gains. Available is computed, never stored (`systemPoints` − `systemPointsSpent`), and deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend. Only available is shown on the sheet - it is the balance a player spends against; the base total and the spent count are GM bookkeeping and stay on the wrench dialog.
+A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus the gains derived from its level-up records. Available is computed, never stored (`systemPoints` − `systemPointsSpent`), and deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend. Only available is shown on the sheet - it is the balance a player spends against; the base total and the spent count are GM bookkeeping and stay on the wrench dialog.
 _Avoid_: Currency, gold, credits (not tracked for ships)
 
 **System** (Item):
@@ -37,5 +37,13 @@ A piece of installed ship equipment bought with System Points — Standard ones 
 _Avoid_: Module, upgrade, component
 
 **Ship level-up**:
-A level-up wizard for Spaceships mirroring the character level-up wizard's mechanics directly: same tier bands (1 / 2-4 / 5-7 / 8-10), same point-buy pattern of picking a fixed number of options per level. The option pool is a subset of the character's: trait, hitPoint, stress, evasion, proficiency — domainCard, subclass, experience, and companion-only options are excluded (no domains/subclass/experiences on ships). Supersedes the older party-level-linked milestone table (Tier Feature @2/5/8/10 etc.) from the rules journal, which is now obsolete. Feasibility of reusing/extending the character wizard's underlying application classes vs. building a parallel one against the same option-pool pattern is an open implementation question (daggerheart's level-up classes are tightly coupled to `DhLevelData`/character-specific option types).
+A level-up wizard for Spaceships mirroring the character level-up wizard's mechanics directly: same tier bands (1 / 2-4 / 5-7 / 8-10), same point-buy pattern of picking a fixed number of options per level. The option pool is a subset of the character's plus one ship-only entry: trait, hitPoint, stress, evasion, proficiency, and System Points — domainCard, subclass, experience, and companion-only options are excluded (no domains/subclass/experiences on ships). Entering a tier (levels 2, 5, 8) grants +1 Proficiency on its own, the ships-adapted remnant of the character's tier-entry achievements (whose other half is a new Experience). Supersedes the older party-level-linked milestone table (Tier Feature @2/5/8/10 etc.) from the rules journal, which is now obsolete.
 _Avoid_: Tier progression (used loosely in the rules journal; "ship level-up" is the sheet-facing term)
+
+**Level-up record**:
+One entry of a ship's `system.levelData.levelups`, keyed by the level it belongs to: what that level granted on its own (`achievements`) and every checkbox ticked for it (`selections`, each carrying `tier`/`level`/`optionKey`/`checkboxNr`/`type`/`value`/`data`). Records are the *only* place level-up gains are stored — the ship's trait, HP, Stress, Evasion, Proficiency and System Point numbers stay the Frame's printed statline, and every level taken is layered on top of them in `prepareBaseData`. That is what makes the history auditable and de-levelling a matter of dropping records, and it is daggerheart's own arrangement for characters.
+_Avoid_: Level-up log, advancement history (the sheet says "level-up"; a record is one level, not the whole history)
+
+**Target level**:
+`system.levelData.changed` — the level the GM has said a ship should reach, as opposed to `system.level`, the level it has actually taken. A gap between them is what arms the level-up wizard (`canLevelUp`); closing it is what the wizard's "Finish Level Up" does. Ships keep the taken level in the pre-existing `level` field rather than in a `levelData.level.current` beside `changed`, which is where daggerheart's characters keep theirs.
+_Avoid_: Changed level (`changed` is the field name, not the term)

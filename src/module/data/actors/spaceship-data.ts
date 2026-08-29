@@ -5,6 +5,12 @@ import {
   INVENTORY_ITEM_TYPES,
   STATION_IDS,
 } from "../../constants";
+import {
+  SHIP_LEVEL_OPTION_TYPES,
+  SPACESHIP_MAX_LEVEL,
+  shipTierForLevel,
+  type ShipLevelOptionType,
+} from "../../config/spaceship-level-tiers";
 
 /**
  * The `daggerheart` `armor` Item fields this model reads to derive Shield/thresholds (#10).
@@ -58,6 +64,39 @@ interface ShieldSource {
   current: number;
   max: number;
   write(current: number): Promise<unknown>;
+}
+
+/**
+ * One point-buy tick a player committed at a given level (#12), as stored under
+ * `system.levelData.levelups.<level>.selections`. Same fields as one entry of daggerheart's own
+ * `DhLevelData` `selections` array, minus the ones only its character-only options need
+ * (`subType`, `secondaryData`, `itemUuid`, `features`): a ship never picks a domain card, a
+ * subclass, a multiclass, or anything that creates an Item.
+ *
+ * `tier`/`level`/`optionKey`/`checkboxNr` are what make a selection reversible and auditable - they
+ * identify the exact checkbox it came from, so re-opening the wizard (or the read-only view) can
+ * re-tick it and de-levelling can drop it.
+ */
+export interface ShipLevelSelection {
+  tier: number;
+  level: number;
+  /** Key of the option row in the tier's `options` table (`trait`, `hitPoint`, ...). */
+  optionKey: string;
+  type: ShipLevelOptionType;
+  checkboxNr: number;
+  /** How much the stat moves. Null for `trait`, whose movement is always +1 per picked trait. */
+  value: number | null;
+  minCost: number | null;
+  amount: number | null;
+  /** The sub-choices the tick asked for - trait keys, for a `trait` selection. Empty otherwise. */
+  data: string[];
+}
+
+/** Everything one level of a ship's history records: what it granted, and what was chosen. */
+export interface ShipLevelup {
+  /** Granted by entering the level, not chosen: +1 Proficiency on a tier's first level. */
+  achievements: { proficiency: number };
+  selections: ShipLevelSelection[];
 }
 
 /**
@@ -124,7 +163,8 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
    * entirely (CONTEXT.md's "System Points" entry).
    *
    * Computed, never stored: `systemPoints` is the base total the GM enters from the ship's Frame
-   * (level-up gains fold into it in #12) and `systemPointsSpent` is what is committed to installed
+   * (level-up gains are layered onto it by `#applyLevelupAdvancements`, #12) and
+   * `systemPointsSpent` is what is committed to installed
    * systems, so the available count is never a third number that can disagree with them.
    *
    * A plain getter rather than a schema field written in `prepareBaseData` (the route `armorScore`
@@ -138,6 +178,31 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
    */
   get systemPointsAvailable(): number {
     return this.systemPoints - this.systemPointsSpent;
+  }
+
+  /**
+   * The ship's stored level-up history, in the shape the wizard and `prepareBaseData` read it.
+   *
+   * A cast, not a re-derivation: fvtt-types resolves the `TypedObjectField`/`ArrayField` nest in
+   * `levelData.levelups` to a structurally-identical but anonymous type, and every consumer wants
+   * the two named interfaces above instead.
+   */
+  get levelups(): Record<string, ShipLevelup> {
+    return this.levelData.levelups as unknown as Record<string, ShipLevelup>;
+  }
+
+  /**
+   * Is there a pending level-up to walk? True once the GM has raised the ship's target level above
+   * the level it has actually taken - the same `current < changed` split daggerheart's own
+   * `DhLevelData#canLevelUp` uses, and what the sheet header's glow button keys off.
+   *
+   * Ships keep the "current" half in the pre-existing `system.level` field rather than adding a
+   * `levelData.level.current` beside `changed`: `level` was already the ship's level everywhere
+   * (#5's header, #10's damage thresholds, `getRollData`), and a second copy of it would be a
+   * second thing to keep in sync for no gain.
+   */
+  get canLevelUp(): boolean {
+    return this.level < this.levelData.changed;
   }
 
   /**
@@ -160,14 +225,26 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
    * `system.armorScore.max` or `system.damageThresholds.*` adds on top of the armor-derived value
    * instead of being overwritten by it - the "and eventual effects" half of the ticket. With no
    * armor equipped this lands back on the unarmored baseline (`0` Shield, `level`/`level * 2`
-   * thresholds), which is what makes unequipping drop the numbers with no extra bookkeeping.
-   *
-   * The `severeThresholdMultiplier` is daggerheart's own rule, copied by value: an unarmored actor
-   * gets double level on severe, *unless* something else already sets a base threshold - either
-   * armor or an `armor`-typed ActiveEffect change carrying `damageThresholds`.
+   * thresholds), which is what makes unequipping drop the numbers with no extra bookkeeping. The
+   * threshold half of that derivation lives in `damageThresholdsAtLevel`, which the level-up
+   * summary also projects forward through.
    */
   override prepareBaseData(): void {
     super.prepareBaseData();
+
+    // Level-up gains (#12) are *derived*, not written into the stats: the stored trait/resource/
+    // evasion/proficiency/System Point numbers stay the ship's Frame statline, and every level
+    // taken since is layered on top from `levelData.levelups` on each data preparation. Same
+    // arrangement as daggerheart's own character `prepareBaseData`, and what makes the history
+    // reversible - dropping a level's record is all de-levelling has to do. Runs first so the
+    // threshold derivation below still sees a settled `level`.
+    this.#applyLevelupAdvancements();
+
+    // A target level below the level already taken is meaningless, and is what a ship stored
+    // before #12 looks like (`changed` defaulting to 1 under an already-levelled `level`). Clamped
+    // here rather than migrated so the header's level input - which reads `changed`, as the
+    // character sheet's does - shows the real level on such a ship instead of 1.
+    if (this.levelData.changed < this.level) this.levelData.changed = this.level;
 
     const armor = this.armor;
 
@@ -176,23 +253,160 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       value: armor?.system.armor?.current ?? 0,
     };
 
-    // `?? []`: core fills `appliedEffects` during `applyActiveEffects`, which runs *after* this -
-    // so this reads the previous preparation's array (exactly as daggerheart's character does),
-    // and on the very first preparation of a freshly-constructed Actor there may be none yet.
+    this.damageThresholds = this.damageThresholdsAtLevel(this.level);
+  }
+
+  /**
+   * The ship's damage thresholds *if* it were the given level (#10), with its current armour and
+   * effects - the derivation `prepareBaseData` runs on `this.level`, exposed as a projection so
+   * the level-up summary (#12) can show what the levels being taken will move them to without
+   * restating the rule. An earlier version of that summary restated it and got the unarmoured
+   * case wrong for a ship carrying a threshold effect.
+   *
+   * The `severeThresholdMultiplier` is daggerheart's own rule, copied by value: an unarmoured
+   * actor gets double level on severe, *unless* something else already sets a base threshold -
+   * either armor or an `armor`-typed ActiveEffect change carrying `damageThresholds`.
+   */
+  damageThresholdsAtLevel(level: number): { major: number; severe: number } {
+    const armor = this.armor;
+
+    // `?? []`: core fills `appliedEffects` during `applyActiveEffects`, which runs *after*
+    // `prepareBaseData` - so this reads the previous preparation's array (exactly as daggerheart's
+    // character does), and on the very first preparation of a fresh Actor there may be none yet.
     const effects = (this.parent.appliedEffects ?? []) as unknown as Iterable<EffectLike>;
     const hasThresholdEffect = Array.from(effects).some((effect) =>
       effect.system?.changes?.some(
         (change) => change.type === ARMOR_EFFECT_CHANGE_TYPE && change.value?.damageThresholds,
       ),
     );
-    this.damageThresholds = {
-      major: (armor?.system.baseThresholds?.major ?? 0) + this.level,
+
+    return {
+      major: (armor?.system.baseThresholds?.major ?? 0) + level,
       severe: armor
-        ? (armor.system.baseThresholds?.severe ?? 0) + this.level
-        // Upstream writes this multiplier as `armor || hasThresholdEffect ? 1 : 2`; the `armor`
-        // disjunct is unreachable here, since it is only ever read on this armor-less branch.
-        : this.level * (hasThresholdEffect ? 1 : 2),
+        ? (armor.system.baseThresholds?.severe ?? 0) + level
+        : // Upstream writes this multiplier as `armor || hasThresholdEffect ? 1 : 2`; the `armor`
+          // disjunct is unreachable here, since it is only ever read on this armor-less branch.
+          level * (hasThresholdEffect ? 1 : 2),
     };
+  }
+
+  /**
+   * Layer every level-up the ship has actually taken onto the stored base stats (#12).
+   *
+   * A copy by value of the equivalent block in daggerheart's character `prepareBaseData`, switched
+   * over the same option `type` ids and narrowed to the six ship options - including its handling
+   * of `tierMarked`, where a trait picked in the *current* tier reads as marked and one picked in
+   * an earlier tier does not. That single line is what implements "entering a new tier clears all
+   * marks on traits" without anything having to write to the actor at the tier boundary. Traits
+   * never picked through a level-up keep whatever the sheet's own tier-mark toggle stored.
+   *
+   * Levels above `this.level` are skipped: `applyLevelUp` writes the level and its records
+   * together, so there normally are none, but a record that outlived its level (a failed write, a
+   * hand-edited actor) must not silently inflate the ship's stats.
+   */
+  #applyLevelupAdvancements(): void {
+    const currentTier = shipTierForLevel(this.level)?.tier ?? null;
+    // Indexed by trait key from stored selection data, which the schema types as a plain string.
+    const traits = this.traits as Record<string, { value: number; tierMarked: boolean }>;
+
+    for (const [levelKey, levelup] of Object.entries(this.levelups)) {
+      if (Number(levelKey) > this.level) continue;
+
+      this.proficiency += levelup.achievements.proficiency;
+
+      for (const selection of levelup.selections) {
+        switch (selection.type) {
+          case SHIP_LEVEL_OPTION_TYPES.trait:
+            for (const traitKey of selection.data) {
+              const trait = traits[traitKey];
+              if (!trait) continue;
+              trait.value += 1;
+              trait.tierMarked = selection.tier === currentTier;
+            }
+            break;
+          case SHIP_LEVEL_OPTION_TYPES.hitPoint:
+            this.resources.hitPoints.max += selection.value ?? 0;
+            break;
+          case SHIP_LEVEL_OPTION_TYPES.stress:
+            this.resources.stress.max += selection.value ?? 0;
+            break;
+          case SHIP_LEVEL_OPTION_TYPES.evasion:
+            this.evasion += selection.value ?? 0;
+            break;
+          case SHIP_LEVEL_OPTION_TYPES.proficiency:
+            this.proficiency += selection.value ?? 0;
+            break;
+          case SHIP_LEVEL_OPTION_TYPES.systemPoints:
+            this.systemPoints += selection.value ?? 0;
+            break;
+        }
+      }
+    }
+  }
+
+  /**
+   * Retarget the ship's level (#12) - the write behind the sheet header's level input, mirroring
+   * daggerheart's own `DhpActor#updateLevel` split.
+   *
+   * Raising it only records the *target* (`levelData.changed`), which is what turns the level-up
+   * button on; the level itself moves when the wizard finishes (`applyLevelUp`). Lowering it is
+   * the de-level path and takes effect immediately, dropping the records of every level above the
+   * new one - since the advancements those levels granted are derived from exactly those records,
+   * that is the whole rollback.
+   *
+   * Lives on the DataModel rather than the Actor document (where daggerheart puts it) because a
+   * module-registered sub-type shares the world's single `CONFIG.Actor.documentClass` with every
+   * other actor and cannot subclass it - the same reason `markShield` (#10) lives here.
+   */
+  async updateLevel(newLevel: number): Promise<void> {
+    if (newLevel > SPACESHIP_MAX_LEVEL) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Levelup.tooHighLevel"));
+    } else if (newLevel < 1) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.Levelup.tooLowLevel"));
+    }
+    const usedLevel = Math.clamp(newLevel, 1, SPACESHIP_MAX_LEVEL);
+    if (usedLevel === this.levelData.changed && usedLevel >= this.level) return;
+
+    if (usedLevel > this.level) {
+      await this.parent.update({ system: { levelData: { changed: usedLevel } } });
+      return;
+    }
+
+    // `-=` is core Foundry's delete-this-key update syntax; the records above `usedLevel` go away
+    // in the same write that lowers the level, so the derivation never sees the two disagree.
+    const droppedLevelups = Object.keys(this.levelups).reduce<Record<string, null>>((acc, levelKey) => {
+      if (Number(levelKey) > usedLevel) acc[`-=${levelKey}`] = null;
+      return acc;
+    }, {});
+
+    await this.parent.update({
+      system: {
+        level: usedLevel,
+        levelData: { changed: usedLevel, levelups: droppedLevelups },
+      },
+    });
+  }
+
+  /**
+   * Commit a finished level-up (#12): take the ship to `level` and record what each of the levels
+   * crossed granted and chose.
+   *
+   * `level` is the level the wizard actually walked, not `levelData.changed` read back here: the
+   * target can move while the wizard is open (another client, a second sheet), and reading it at
+   * save time would take the ship to a level it has no records for - which
+   * `#applyLevelupAdvancements` would then silently under-apply. A target raised mid-run simply
+   * leaves the ship able to level up again, which is what `canLevelUp` is for.
+   *
+   * One update, so a ship is never briefly at its new level with no record of how it got there -
+   * the derivation reads both halves and would otherwise show the ship's old stats at its new level.
+   */
+  async applyLevelUp(level: number, levelups: Record<number, ShipLevelup>): Promise<void> {
+    await this.parent.update({
+      system: {
+        level,
+        levelData: { levelups },
+      },
+    });
   }
 
   /**
@@ -323,6 +537,9 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   static override defineSchema(): SpaceshipData.Schema {
     const fields = foundry.data.fields;
 
+    /** The six ship option ids, as the plain `string[]` `StringField`'s `choices` option takes. */
+    const shipLevelOptionTypeChoices: string[] = Object.values(SHIP_LEVEL_OPTION_TYPES);
+
     /** One of the six traits: same `{value, tierMarked}` shape as a `daggerheart` character. */
     const traitField = () =>
       new fields.SchemaField({
@@ -430,6 +647,44 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       // `systemPoints`, so an over-committed ship reads as a negative `systemPointsAvailable`
       // instead of silently swallowing the excess.
       systemPointsSpent: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+      // Level-up history (#12). `changed` is the *target* level the GM typed in the header; the
+      // level actually taken stays in `level` above (see `canLevelUp`). `levelups` is keyed by
+      // level number, exactly as daggerheart's `DhLevelData.levelups` is - one entry per level
+      // taken, holding what that level granted and what was chosen for it.
+      levelData: new fields.SchemaField({
+        changed: new fields.NumberField({
+          required: true,
+          nullable: false,
+          integer: true,
+          min: 1,
+          initial: 1,
+        }),
+        levelups: new fields.TypedObjectField(
+          new fields.SchemaField({
+            achievements: new fields.SchemaField({
+              proficiency: new fields.NumberField({
+                required: true,
+                nullable: false,
+                integer: true,
+                initial: 0,
+              }),
+            }),
+            selections: new fields.ArrayField(
+              new fields.SchemaField({
+                tier: new fields.NumberField({ required: true, nullable: false, integer: true }),
+                level: new fields.NumberField({ required: true, nullable: false, integer: true }),
+                optionKey: new fields.StringField({ required: true }),
+                type: new fields.StringField({ required: true, choices: shipLevelOptionTypeChoices }),
+                checkboxNr: new fields.NumberField({ required: true, nullable: false, integer: true }),
+                value: new fields.NumberField({ integer: true }),
+                minCost: new fields.NumberField({ integer: true }),
+                amount: new fields.NumberField({ integer: true }),
+                data: new fields.ArrayField(new fields.StringField({ required: true })),
+              }),
+            ),
+          }),
+        ),
+      }),
       stations: new fields.SchemaField(stations),
       // `rules` (#6): NOT read through `getRollData()` - `DhpActor#getRollData` (document-level,
       // not sheet code) builds the actor's final roll-data object as
@@ -487,6 +742,19 @@ namespace SpaceshipData {
 
   /** The `stations` sub-schema: exactly one `StationField` per `STATION_IDS` entry. */
   export type StationsSchema = Record<(typeof STATION_IDS)[number], StationField>;
+
+  /** One stored point-buy tick (#12) - the schema counterpart of `ShipLevelSelection`. */
+  type SelectionSchema = {
+    tier: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true }>;
+    level: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true }>;
+    optionKey: foundry.data.fields.StringField<{ required: true }>;
+    type: foundry.data.fields.StringField<{ required: true }>;
+    checkboxNr: foundry.data.fields.NumberField<{ required: true; nullable: false; integer: true }>;
+    value: foundry.data.fields.NumberField<{ integer: true }>;
+    minCost: foundry.data.fields.NumberField<{ integer: true }>;
+    amount: foundry.data.fields.NumberField<{ integer: true }>;
+    data: foundry.data.fields.ArrayField<foundry.data.fields.StringField<{ required: true }>>;
+  };
 
   export interface Schema extends foundry.data.fields.DataSchema {
     level: foundry.data.fields.NumberField<{
@@ -555,6 +823,29 @@ namespace SpaceshipData {
       integer: true;
       min: 0;
       initial: 0;
+    }>;
+    /** Level-up history (#12): the target level plus one record per level taken. */
+    levelData: foundry.data.fields.SchemaField<{
+      changed: foundry.data.fields.NumberField<{
+        required: true;
+        nullable: false;
+        integer: true;
+        min: 1;
+        initial: 1;
+      }>;
+      levelups: foundry.data.fields.TypedObjectField<
+        foundry.data.fields.SchemaField<{
+          achievements: foundry.data.fields.SchemaField<{
+            proficiency: foundry.data.fields.NumberField<{
+              required: true;
+              nullable: false;
+              integer: true;
+              initial: 0;
+            }>;
+          }>;
+          selections: foundry.data.fields.ArrayField<foundry.data.fields.SchemaField<SelectionSchema>>;
+        }>
+      >;
     }>;
     stations: foundry.data.fields.SchemaField<StationsSchema>;
     rules: foundry.data.fields.ObjectField<{ required: false; nullable: false; initial: Record<string, never> }>;

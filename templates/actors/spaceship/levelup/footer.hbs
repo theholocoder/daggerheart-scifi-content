@@ -1,0 +1,33 @@
+{{!--
+    Wizard navigation (#12). Module-owned copy of daggerheart's templates/levelup/tabs/footer.hbs,
+    minus its `levelupAuto` branch: that switch exists so a table running level-ups on paper can
+    record selections without the system touching the actor, and ships have no such mode - the
+    wizard is the only way a ship's level moves.
+--}}
+<section class="tab-footer">
+    <div class="levelup-navigation-actions">
+        {{#if navigate.previous.fromSummary}}
+            <button type="button" data-action="activatePart" data-part="advancements">
+                {{localize "DHSCIFI.Spaceship.Levelup.navigateToLevelup"}}
+            </button>
+            <button type="button" data-action="save" {{#unless allLevelsFinished}}disabled{{/unless}}>
+                {{localize "DHSCIFI.Spaceship.Levelup.finishLevelup"}}
+            </button>
+        {{else}}
+            {{#unless navigate.previous.disabled}}
+                <button type="button" data-action="updateCurrentLevel">{{navigate.previous.label}}</button>
+            {{/unless}}
+        {{/if}}
+        {{#if navigate.next.show}}
+            {{#if navigate.next.toSummary}}
+                <button type="button" data-action="activatePart" data-part="summary" {{#if navigate.next.disabled}}disabled{{/if}}>
+                    {{localize "DHSCIFI.Spaceship.Levelup.navigateToSummary"}}
+                </button>
+            {{else}}
+                <button type="button" data-action="updateCurrentLevel" data-forward="true" {{#if navigate.next.disabled}}disabled{{/if}}>
+                    {{navigate.next.label}}
+                </button>
+            {{/if}}
+        {{/if}}
+    </div>
+</section>

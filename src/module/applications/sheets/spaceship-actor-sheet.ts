@@ -8,6 +8,8 @@ import {
   STATION_IDS,
 } from "../../constants";
 import SpaceshipSettings from "../settings/spaceship-settings";
+import SpaceshipLevelup from "../levelup/spaceship-levelup";
+import SpaceshipLevelupView from "../levelup/spaceship-levelup-view";
 
 const BaseSheet = foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2);
 
@@ -107,6 +109,11 @@ interface LooseActor {
     // Writes a Shield-slot click through to the equipped armor Item (`SpaceshipData#markShield`) -
     // `armorScore` above is derived, so there is nothing on the actor to update directly.
     markShield(value: number): Promise<void>;
+    /** Level-up history (#12) - see `SpaceshipData`. `updateLevel` is the level input's write. */
+    canLevelUp: boolean;
+    levelData: { changed: number };
+    levelups: Record<string, unknown>;
+    updateLevel(newLevel: number): Promise<void>;
   };
   items: Iterable<LooseDoc> & { get(id: string): LooseDoc | undefined };
   /**
@@ -194,6 +201,8 @@ export default class SpaceshipActorSheet extends BaseSheet {
       toggleStress: SpaceshipActorSheet.#onToggleResourceBox,
       toggleShield: SpaceshipActorSheet.#onToggleShield,
       openSettings: SpaceshipActorSheet.#onOpenSettings,
+      levelUp: SpaceshipActorSheet.#onLevelUp,
+      viewLevelups: SpaceshipActorSheet.#onViewLevelups,
       createItem: SpaceshipActorSheet.#onCreateItem,
       editItem: SpaceshipActorSheet.#onEditItem,
       toggleEquipItem: SpaceshipActorSheet.#onToggleEquipItem,
@@ -276,6 +285,10 @@ export default class SpaceshipActorSheet extends BaseSheet {
     if (withTabs.tabs && partId in withTabs.tabs) withTabs.tab = withTabs.tabs[partId];
     const actor = this.document as unknown as LooseActor;
     const editable = this.isEditable;
+    if (partId === "header") {
+      // Only offer the level-up history control once there is a history to review (#12).
+      Object.assign(context, { hasLevelups: Object.keys(actor.system.levelups).length > 0 });
+    }
     if (partId === "inventory") {
       Object.assign(context, { inventory: SpaceshipActorSheet.#buildInventoryContext(actor, editable) });
     }
@@ -905,9 +918,49 @@ export default class SpaceshipActorSheet extends BaseSheet {
     options: any,
   ): Promise<void> {
     await super._onRender(context, options);
+    this.#bindLevelInput();
     this.#bindQuantityInputs();
     this.#bindItemContextMenu();
     void this.#enrichRowDescriptions();
+  }
+
+  /**
+   * The header's level field writes through `SpaceshipData#updateLevel` rather than through the
+   * form (#12), which is why it carries no `name`: typing a higher level records a *target* and
+   * lights up the level-up button, typing a lower one de-levels the ship. A plain
+   * `name="system.level"` input would move the level with no record of how, which is exactly what
+   * the level-up history exists to prevent. Same arrangement, same `.level-value` hook, as
+   * daggerheart's own character sheet.
+   */
+  #bindLevelInput(): void {
+    const input = this.element.querySelector<HTMLInputElement>(".level-value");
+    if (!input || !this.isEditable) return;
+
+    input.addEventListener("change", (event) => {
+      const field = event.currentTarget as HTMLInputElement;
+      const system = (this.document as unknown as LooseActor).system;
+      const raw = field.value.trim();
+      const value = Number(raw);
+
+      // An emptied or non-numeric field must not read as level 0: `updateLevel` would clamp it to
+      // 1 and take the de-level path, dropping every level-up record the ship has. Put the real
+      // level back in the box instead - the same thing a rejected edit does anywhere else.
+      if (raw === "" || !Number.isInteger(value)) {
+        field.value = String(system.levelData.changed);
+        return;
+      }
+      void system.updateLevel(value);
+    });
+  }
+
+  /** Open the level-up wizard for the ship's pending level(s). */
+  static #onLevelUp(this: SpaceshipActorSheet): void {
+    new SpaceshipLevelup(this.document as unknown as Actor.Implementation).render({ force: true });
+  }
+
+  /** Open the read-only review of the ship's past level-ups. */
+  static #onViewLevelups(this: SpaceshipActorSheet): void {
+    new SpaceshipLevelupView(this.document as unknown as Actor.Implementation).render({ force: true });
   }
 
   /** Whether the row `target` sits in holds an ActiveEffect rather than an Item (`data-type`). */
