@@ -339,20 +339,28 @@ body {
     justify-content: space-between;
     margin-bottom: 12px;
 
-    // `border: 1px solid transparent` is this stylesheet's own general `input` rule (see its
-    // comment above) - fine for inputs that sit inside their own visibly-bordered box (the level
-    // field's neighbors, the Inventory tab's quantity field), but the name/level fields have no
-    // other box around them, so a permanently-transparent border left them with no visible
-    // affordance at all that they're editable - unlike the official character header, where
-    // they're at least faintly outlined. A subtle always-on bottom border fixes that without
-    // fighting the shared rule's hover/focus behavior.
+    // `border: 1px solid transparent`/`background: transparent` are this stylesheet's own
+    // general `input` rule (see its comment above) - fine for inputs that sit inside another
+    // element's own visibly-bordered box (the Inventory tab's quantity field, inside its row),
+    // but the name/level fields have no other box around them, so that left them with no visible
+    // affordance at all that they're editable. Rather than a bare border-bottom (tried once,
+    // read as a stray yellow underline - `--color-border` is a golden tone in this theme, fine as
+    // a thin accent on a boxed element like `.hope-section` but wrong worn as a lone line), these
+    // get the sheet's own "boxed field" treatment instead: the same
+    // `border: 1px solid var(--color-border)` + `border-radius` + dark-blue/transparent
+    // `background` combination `.hope-section`/`.threshold-section`/`.status-value` already use
+    // elsewhere on this sheet, so the field reads as a field the same way the rest of the header
+    // does, not as an isolated color decision.
     .actor-name {
       flex: 1;
       min-width: 0;
       font-family: var(--dh-font-title, "Cinzel Decorative"), serif;
       font-size: var(--font-size-32, 2rem);
       text-align: start;
-      border-bottom: 1px solid var(--color-border);
+      padding: 2px 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: light-dark(transparent, var(--dark-blue, #18162e));
     }
 
     .level-div {
@@ -367,13 +375,15 @@ body {
         font-family: var(--dh-font-subtitle, "Cinzel"), serif;
       }
 
-      // Same visibility fix as `.actor-name` above, same reasoning.
+      // Same boxed-field treatment as `.actor-name` above, same reasoning.
       input {
         width: 40px;
-        padding: 0;
+        padding: 2px 4px;
         text-align: center;
         font-weight: 600;
-        border-bottom: 1px solid var(--color-border);
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        background: light-dark(transparent, var(--dark-blue, #18162e));
       }
 
       // Level-up / history buttons (#12). Copy by value of the official character header's
@@ -456,6 +466,9 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.5rem;
+    // Breathing room before `.tab-navigation` (Features/Inventory/...) below - the traits row
+    // otherwise sat flush against the tab bar.
+    margin-bottom: 14px;
 
     .trait {
       cursor: pointer;
