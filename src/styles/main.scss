@@ -358,6 +358,14 @@ body {
         font-weight: 600;
         white-space: nowrap;
       }
+
+      // The System Points chip (#11) carries a second value - what is already spent - beside the
+      // available/total one. Dimmed so the available count stays the number the eye lands on.
+      // Our own rule, not copied from daggerheart: the system has no equivalent two-value chip.
+      .chip-value-muted {
+        opacity: 0.7;
+        font-weight: normal;
+      }
     }
   }
 
@@ -447,8 +455,8 @@ body {
     width: auto;
   }
 
-  // Not-yet-implemented stat displays (Shield, thresholds, System Points, weapon mounts):
-  // dimmed + "coming soon" tooltip until their tickets (#6-#12) land.
+  // Not-yet-implemented stat displays (weapon mounts): dimmed + "coming soon" tooltip until
+  // their tickets land. Shield/thresholds went live with #10, System Points with #11.
   .dhscifi-placeholder {
     opacity: 0.45;
   }

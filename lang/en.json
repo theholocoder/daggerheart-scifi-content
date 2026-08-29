@@ -18,6 +18,8 @@
       "Proficiency": "Proficiency",
       "Shield": "Shield",
       "SystemPoints": "System Points",
+      "SystemPointsAvailable": "System Points available / total",
+      "SystemPointsSpent": "System Points spent on installed systems",
       "WeaponMounts": "Mounts",
       "ComingSoon": "Coming soon",
       "Features": {
@@ -103,7 +105,9 @@
         "hopeMax": "Max Hope",
         "hitPointsMax": "Max HP",
         "stressMax": "Max Stress",
-        "maxWeaponMounts": "Weapon Mounts"
+        "maxWeaponMounts": "Weapon Mounts",
+        "systemPoints": "System Points",
+        "systemPointsSpent": "System Points Spent"
       }
     }
   }

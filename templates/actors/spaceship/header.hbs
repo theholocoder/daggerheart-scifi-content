@@ -46,13 +46,27 @@
                 {{/each}}
             </div>
 
-            {{! Placeholder: System Points readout (ticket #9 replaces with the real resource) }}
-            <div class="hope-section dhscifi-placeholder" data-tooltip="{{localize 'DHSCIFI.Spaceship.ComingSoon'}}">
+            {{! System Points (#11): available (base - spent) over the base total, plus the spent
+                count itself. Both numbers are GM-set on the wrench dialog for now - #15's `system`
+                Item sub-type turns the spent half into a sum over installed systems. Read straight
+                off the model (`systemPointsAvailable` is a getter on `SpaceshipData`), so this part
+                needs no sheet context of its own. }}
+            <div class="hope-section">
                 <h4>{{localize "DHSCIFI.Spaceship.SystemPoints"}}</h4>
-                <span class="chip-value"><i class="fa-solid fa-bolt"></i> 4 / 6</span>
+                <span class="chip-value" data-tooltip="{{localize 'DHSCIFI.Spaceship.SystemPointsAvailable'}}">
+                    <i class="fa-solid fa-bolt"></i>
+                    {{document.system.systemPointsAvailable}} / {{document.system.systemPoints}}
+                </span>
+                <span class="chip-value chip-value-muted" data-tooltip="{{localize 'DHSCIFI.Spaceship.SystemPointsSpent'}}">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    {{document.system.systemPointsSpent}}
+                </span>
             </div>
 
-            {{! Placeholder: weapon-mount capacity (ticket #8 replaces with the real mounts) }}
+            {{! Placeholder: weapon-mount capacity. The real `equipped / maxWeaponMounts` count
+                landed with #6, but only in the Inventory tab's own part context - surfacing it
+                here needs header-part context this sheet doesn't build yet, so the chip is still
+                hardcoded. Tracked by #14 (polish backlog). }}
             <div class="hope-section dhscifi-placeholder" data-tooltip="{{localize 'DHSCIFI.Spaceship.ComingSoon'}}">
                 <h4>{{localize "DHSCIFI.Spaceship.WeaponMounts"}}</h4>
                 <span class="chip-value"><i class="fa-solid fa-crosshairs"></i> 2 / 3</span>

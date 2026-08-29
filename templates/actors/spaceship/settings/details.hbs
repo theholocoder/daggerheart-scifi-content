@@ -60,6 +60,20 @@
                     <input type="number" name="system.maxWeaponMounts" value="{{source.system.maxWeaponMounts}}" min="0" step="1" />
                 </div>
             </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.systemPoints"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.systemPoints" value="{{source.system.systemPoints}}" min="0" step="1" />
+                </div>
+            </div>
+            {{! Spent System Points (#11) are GM-entered only until #15's `system` Item sub-type
+                lands and the sheet can sum `systemPointsCost` over the ship's installed systems. }}
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.systemPointsSpent"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.systemPointsSpent" value="{{source.system.systemPointsSpent}}" min="0" step="1" />
+                </div>
+            </div>
         </div>
     </fieldset>
 </section>

@@ -29,8 +29,12 @@ One unit of a Spaceship's `maxWeaponMounts` capacity. One mount holds exactly on
 _Avoid_: Core/Support/Heavy weapon (older terminology, superseded by the one-handed/two-handed system)
 
 **System Points**:
-A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus level-up gains.
+A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus level-up gains. Available is computed, never stored (`systemPoints` − `systemPointsSpent`), and deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend.
 _Avoid_: Currency, gold, credits (not tracked for ships)
+
+**System** (Item):
+A piece of installed ship equipment bought with System Points — Standard ones fitted when the ship is built, Advanced ones gained during play. Intended as a module-registered `system` Item sub-type modeled on `daggerheart`'s `loot` plus a `systemPointsCost` field (#15); until that lands, no such Item type exists and the spent half of System Points is a plain GM-entered `systemPointsSpent` number on the wrench dialog (#11), to be replaced by the sum of `systemPointsCost` over the ship's installed Systems.
+_Avoid_: Module, upgrade, component
 
 **Ship level-up**:
 A level-up wizard for Spaceships mirroring the character level-up wizard's mechanics directly: same tier bands (1 / 2-4 / 5-7 / 8-10), same point-buy pattern of picking a fixed number of options per level. The option pool is a subset of the character's: trait, hitPoint, stress, evasion, proficiency — domainCard, subclass, experience, and companion-only options are excluded (no domains/subclass/experiences on ships). Supersedes the older party-level-linked milestone table (Tier Feature @2/5/8/10 etc.) from the rules journal, which is now obsolete. Feasibility of reusing/extending the character wizard's underlying application classes vs. building a parallel one against the same option-pool pattern is an open implementation question (daggerheart's level-up classes are tightly coupled to `DhLevelData`/character-specific option types).

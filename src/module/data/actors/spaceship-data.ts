@@ -67,8 +67,7 @@ interface ShieldSource {
  * docs/adr/0001-spaceship-actor-subtype.md) and from its sheet base classes (see
  * docs/adr/0002-spaceship-sheet-independent-application.md). `level`, the six traits, and the
  * core resources (Hope, HP, Stress, Evasion, Proficiency) are modeled here (#5), plus weapon
- * mounts (#6), stations (#8), and Shield/damage thresholds (#10); system points are added by a
- * later ticket.
+ * mounts (#6), stations (#8), Shield/damage thresholds (#10), and System Points (#11).
  *
  * The traits and resources mirror `daggerheart`'s own `character` schema shape (`attributeField`/
  * `ResourcesField` in the system bundle) - same `{value, tierMarked}` for traits and `{value, max}`
@@ -118,6 +117,27 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   /** Data made available to roll formulas referencing this actor. Extended as ship stats are added. */
   getRollData(): Record<string, unknown> {
     return { level: this.level };
+  }
+
+  /**
+   * System Points still unspent (#11) - the ship's only currency-like resource, replacing gold
+   * entirely (CONTEXT.md's "System Points" entry).
+   *
+   * Computed, never stored: `systemPoints` is the base total the GM enters from the ship's Frame
+   * (level-up gains fold into it in #12) and `systemPointsSpent` is what is committed to installed
+   * systems, so the available count is never a third number that can disagree with them.
+   *
+   * A plain getter rather than a schema field written in `prepareBaseData` (the route `armorScore`
+   * takes): that field only exists because ActiveEffects and daggerheart's own damage code need a
+   * schema-declared `system.armorScore` path to find. Nothing outside this module reads System
+   * Points, so this one has no such obligation and can stay off the schema entirely.
+   *
+   * Deliberately *not* clamped at zero: a GM who lowers the base below what is already committed
+   * should see the ship over-committed (a negative number) rather than have the overspend silently
+   * hidden.
+   */
+  get systemPointsAvailable(): number {
+    return this.systemPoints - this.systemPointsSpent;
   }
 
   /**
@@ -401,6 +421,15 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
         severe: new fields.NumberField({ required: true, nullable: false, integer: true, initial: 0 }),
       }),
       maxWeaponMounts: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 1 }),
+      // System Points (#11). `systemPoints` is the base total from the ship's Frame, entered by the
+      // GM on the wrench dialog; #12's level-up wizard adds its gains into this same field.
+      systemPoints: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
+      // What is currently committed to installed systems. A GM-entered number *for now*: the
+      // `system` Item sub-type this is meant to be summed from doesn't exist yet (#15), which
+      // replaces this field with that derivation. `min: 0` only - it is not capped at
+      // `systemPoints`, so an over-committed ship reads as a negative `systemPointsAvailable`
+      // instead of silently swallowing the excess.
+      systemPointsSpent: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
       stations: new fields.SchemaField(stations),
       // `rules` (#6): NOT read through `getRollData()` - `DhpActor#getRollData` (document-level,
       // not sheet code) builds the actor's final roll-data object as
@@ -510,6 +539,22 @@ namespace SpaceshipData {
       integer: true;
       min: 0;
       initial: 1;
+    }>;
+    /** System Points (#11): the base total from the ship's Frame, GM-entered. */
+    systemPoints: foundry.data.fields.NumberField<{
+      required: true;
+      nullable: false;
+      integer: true;
+      min: 0;
+      initial: 0;
+    }>;
+    /** System Points committed to installed systems (#11); derived from `system` items in #15. */
+    systemPointsSpent: foundry.data.fields.NumberField<{
+      required: true;
+      nullable: false;
+      integer: true;
+      min: 0;
+      initial: 0;
     }>;
     stations: foundry.data.fields.SchemaField<StationsSchema>;
     rules: foundry.data.fields.ObjectField<{ required: false; nullable: false; initial: Record<string, never> }>;

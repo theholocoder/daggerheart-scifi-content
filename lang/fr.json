@@ -18,6 +18,8 @@
       "Proficiency": "Maîtrise",
       "Shield": "Bouclier",
       "SystemPoints": "Points de système",
+      "SystemPointsAvailable": "Points de système disponibles / total",
+      "SystemPointsSpent": "Points de système dépensés en systèmes installés",
       "WeaponMounts": "Affûts",
       "ComingSoon": "Bientôt disponible",
       "Features": {
@@ -103,7 +105,9 @@
         "hopeMax": "Espoir max",
         "hitPointsMax": "PV max",
         "stressMax": "Stress max",
-        "maxWeaponMounts": "Affûts d'armes"
+        "maxWeaponMounts": "Affûts d'armes",
+        "systemPoints": "Points de système",
+        "systemPointsSpent": "Points de système dépensés"
       }
     }
   }
