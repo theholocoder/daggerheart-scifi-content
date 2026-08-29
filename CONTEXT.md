@@ -29,11 +29,11 @@ One unit of a Spaceship's `maxWeaponMounts` capacity. One mount holds exactly on
 _Avoid_: Core/Support/Heavy weapon (older terminology, superseded by the one-handed/two-handed system)
 
 **System Points**:
-A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus the gains derived from its level-up records. Available is computed, never stored (`systemPoints` − `systemPointsSpent`), and deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend. Only available is shown on the sheet - it is the balance a player spends against; the base total and the spent count are GM bookkeeping and stay on the wrench dialog.
+A Spaceship's only currency-like resource, replacing gold/credits entirely on the ship sheet. Tracks points available vs. spent on System items (Standard/Advanced), driven by the ship's base `systemPoints` stat plus the gains derived from its level-up records. Both halves of the balance are computed, never stored: spent is the sum of `systemPointsCost` over the ship's installed System items (#15), and available is `systemPoints` − spent, deliberately uncapped below zero so an over-committed ship reads negative rather than silently swallowing the overspend. Only available is shown on the sheet - it is the balance a player spends against; the base total is GM bookkeeping and stays on the wrench dialog.
 _Avoid_: Currency, gold, credits (not tracked for ships)
 
 **System** (Item):
-A piece of installed ship equipment bought with System Points — Standard ones fitted when the ship is built, Advanced ones gained during play. Intended as a module-registered `system` Item sub-type modeled on `daggerheart`'s `loot` plus a `systemPointsCost` field (#15); until that lands, no such Item type exists and the spent half of System Points is a plain GM-entered `systemPointsSpent` number on the wrench dialog (#11), to be replaced by the sum of `systemPointsCost` over the ship's installed Systems.
+A piece of installed ship equipment bought with System Points — Standard ones fitted when the ship is built, Advanced ones gained during play. A module-registered `daggerheart-scifi-content.system` Item sub-type (#15) modeled on `daggerheart`'s `loot` — description, GM notes, quantity, actions and effects — plus one added field, `systemPointsCost`. Standard vs. Advanced is compendium folder organisation (`packs-src/character-options/Spaceships/Systems/{Standard,Advanced}`), deliberately not a schema field: nothing mechanical keys off it.
 _Avoid_: Module, upgrade, component
 
 **Ship level-up**:

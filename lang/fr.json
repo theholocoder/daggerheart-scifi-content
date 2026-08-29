@@ -4,6 +4,11 @@
       "daggerheart-scifi-content": {
         "spaceship": "Vaisseau spatial"
       }
+    },
+    "Item": {
+      "daggerheart-scifi-content": {
+        "system": "Système"
+      }
     }
   },
   "DHSCIFI": {
@@ -79,36 +84,13 @@
       "Features": {
         "title": "Aptitudes"
       },
-      "Effects": {
-        "Active": "Effets actifs",
-        "Inactive": "Effets inactifs",
-        "CreateEffect": "Créer un effet",
-        "EditEffect": "Modifier l'effet",
-        "Enable": "Activer l'effet",
-        "Disable": "Désactiver l'effet",
-        "DeleteEffect": {
-          "title": "Supprimer l'effet",
-          "body": "Supprimer {name} ?"
-        }
-      },
       "Inventory": {
         "Weapons": "Armes",
         "Armor": "Armure",
         "Consumables": "Consommables",
         "Loot": "Butin",
-        "CreateItem": "Créer un objet",
-        "EditItem": "Modifier l'objet",
-        "UseItem": "Utiliser/Lancer",
-        "SendToChat": "Envoyer au chat",
-        "MoreOptions": "Plus d'options",
-        "Equip": "Équiper",
-        "Unequip": "Déséquiper",
         "MountsFull": "Aucun affût disponible.",
-        "InvalidItemType": "Seuls les armes, armures, consommables, butins et aptitudes peuvent être ajoutés à un vaisseau.",
-        "DeleteItem": {
-          "title": "Supprimer l'objet",
-          "body": "Supprimer {name} ?"
-        }
+        "InvalidItemType": "Seuls les armes, armures, consommables, butins, systèmes et aptitudes peuvent être ajoutés à un vaisseau."
       },
       "Stations": {
         "Roles": {
@@ -160,8 +142,59 @@
         "hitPointsMax": "PV max",
         "stressMax": "Stress max",
         "maxWeaponMounts": "Affûts d'armes",
-        "systemPoints": "Points de système",
-        "systemPointsSpent": "Points de système dépensés"
+        "systemPoints": "Points de système"
+      }
+    },
+    "Rows": {
+      "CreateItem": "Créer un objet",
+      "CreateAction": "Créer une action",
+      "CreateEffect": "Créer un effet",
+      "EditItem": "Modifier l'objet",
+      "EditAction": "Modifier l'action",
+      "EditEffect": "Modifier l'effet",
+      "DeleteItem": {
+        "title": "Supprimer l'objet",
+        "body": "Supprimer {name} ?"
+      },
+      "DeleteAction": {
+        "title": "Supprimer l'action",
+        "body": "Supprimer {name} ?"
+      },
+      "DeleteEffect": {
+        "title": "Supprimer l'effet",
+        "body": "Supprimer {name} ?"
+      },
+      "UseItem": "Utiliser/Lancer",
+      "SendToChat": "Envoyer au chat",
+      "MoreOptions": "Plus d'options",
+      "Equip": "Équiper",
+      "Unequip": "Déséquiper",
+      "EnableEffect": "Activer l'effet",
+      "DisableEffect": "Désactiver l'effet",
+      "ActiveEffects": "Effets actifs",
+      "InactiveEffects": "Effets inactifs"
+    },
+    "SystemItem": {
+      "Tabs": {
+        "description": "Description",
+        "settings": "Réglages",
+        "actions": "Actions",
+        "effects": "Effets"
+      },
+      "FIELDS": {
+        "quantity": {
+          "label": "Quantité"
+        },
+        "systemPointsCost": {
+          "label": "Coût en points de système"
+        },
+        "gmNotes": {
+          "label": "Notes du MJ"
+        }
+      },
+      "CostTag": "{cost} PS",
+      "Actions": {
+        "Unavailable": "Actions indisponibles : le registre d'actions du système Daggerheart est introuvable."
       }
     }
   }

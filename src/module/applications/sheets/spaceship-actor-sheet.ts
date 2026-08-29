@@ -6,7 +6,9 @@ import {
   MODULE_ID,
   SPACESHIP_ITEM_TYPES,
   STATION_IDS,
+  SYSTEM_ITEM_TYPE,
 } from "../../constants";
+import { deleteRowDocument, pickDocumentImage, toRowEntry, type ItemRowEntry } from "./document-rows";
 import SpaceshipSettings from "../settings/spaceship-settings";
 import SpaceshipLevelup from "../levelup/spaceship-levelup";
 import SpaceshipLevelupView from "../levelup/spaceship-levelup-view";
@@ -154,20 +156,6 @@ interface StationRow {
 }
 
 /**
- * One row of a document list (Inventory, Features, or Effects): the document plus its precomputed
- * display bits. Kept under the key `item` because the row partial is daggerheart's own
- * `inventory-item` markup copied by value, where that's what the document is called.
- */
-interface ItemRowEntry {
-  item: LooseDoc;
-  tags: string[];
-  hasDescription: boolean;
-  usable: boolean;
-  canChat: boolean;
-  disabled: boolean;
-}
-
-/**
  * Minimal sheet for the `daggerheart-scifi-content.spaceship` Actor sub-type.
  *
  * Independent ApplicationV2 class - does not extend the `daggerheart` system's own sheet base
@@ -305,50 +293,12 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * One row of a shared item list: the live `LooseDoc` plus the display bits the template can't
-   * compute itself.
-   *
-   * `tags` is resolved here, not read as `item._getTags` from the template: Handlebars only binds
-   * a resolved function's `this` correctly to the object it's a *direct* property of (daggerheart's
-   * own item-tags.hbs partial relies on exactly that, invoking `_getTags` as a bare path with
-   * `item` as the partial's context) - a nested path like `item._getTags` would call it with the
-   * wrong `this` and break every tag that reads `this.attack`/etc.
-   *
-   * `usable` (does the portrait roll the item, or just open its sheet?) is ANDed with `editable`
-   * here rather than gated in the template, because the character sheet's equivalent is one
-   * uniform flag: *both* its tabs pass `showActions=@root.editable` into `inventory-item-V2.hbs`,
-   * whose portrait falls back to "open the sheet" whenever that's false. Nothing on this sheet
-   * wants the two to differ, so it collapses to one precomputed boolean.
-   *
-   * `canChat` mirrors daggerheart's own `{{#if (hasProperty item "toChat")}}` guard around the same
-   * control - every document these lists render (Item and ActiveEffect alike) does define `toChat`
-   * today, so it is true throughout; the guard exists so a row type that doesn't gets no button
-   * rather than one that hands `#onToChat` nothing to call. Resolved here rather than in the
-   * template for the same reason `tags` is - this module registers only its own Handlebars helpers
-   * (ADR 0002) and has no `hasProperty`.
-   *
-   * `disabled` is ActiveEffect-only and drives the row's `data-disabled` marker, which is what the
-   * context menu's Enable/Disable entries key off - same attribute, same purpose, as daggerheart's
-   * own `#getEffectContextOptions`.
-   */
-  static #toEntry(item: LooseDoc, editable: boolean): ItemRowEntry {
-    return {
-      item,
-      tags: item._getTags?.() ?? [],
-      hasDescription: item.hasDescription ?? false,
-      usable: editable && (item.usable ?? false),
-      canChat: typeof item.toChat === "function",
-      disabled: item.disabled ?? false,
-    };
-  }
-
-  /**
    * The ActiveEffects applying to the ship, split into active/inactive lists for the Effects tab
    * (#9) - the same two-list split, off the same `effect.active` flag and the same
    * `allApplicableEffects({ noTransferArmor: true })` source, as daggerheart's own
    * `DHBaseActorSheet#_prepareEffectsContext`.
    *
-   * Rows go through the same `#toEntry` as items, and mostly light up the same way:
+   * Rows go through the same shared `toRowEntry` as items, and mostly light up the same way:
    * `DhActiveEffect` has its own `_getTags` (an origin chip plus one per applied status condition),
    * `hasDescription`, and `toChat`. Only `usable` is absent, so an effect's portrait opens its
    * config sheet rather than rolling anything - which is what daggerheart's own row does too.
@@ -358,7 +308,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const inactives: ItemRowEntry[] = [];
 
     for (const effect of actor.allApplicableEffects({ noTransferArmor: true })) {
-      (effect.active ? actives : inactives).push(SpaceshipActorSheet.#toEntry(effect, editable));
+      (effect.active ? actives : inactives).push(toRowEntry(effect, editable));
     }
 
     return { actives, inactives };
@@ -373,12 +323,13 @@ export default class SpaceshipActorSheet extends BaseSheet {
   static #buildFeaturesContext(actor: LooseActor, editable: boolean): ItemRowEntry[] {
     return Array.from(actor.items)
       .filter((item) => item.type === FEATURE_ITEM_TYPE)
-      .map((item) => SpaceshipActorSheet.#toEntry(item, editable));
+      .map((item) => toRowEntry(item, editable));
   }
 
   /**
-   * Group the ship's `weapon`/`armor`/`consumable`/`loot` items for the Inventory tab (#6), plus
-   * the weapon-mount usage (`equipped` count vs `maxWeaponMounts`) shown next to the weapons list.
+   * Group the ship's inventory items for the Inventory tab - daggerheart's `weapon`/`armor`/
+   * `consumable`/`loot` (#6) plus this module's own `system` sub-type (#15) - along with the
+   * weapon-mount usage (`equipped` count vs `maxWeaponMounts`) shown next to the weapons list.
    * Passes the live `LooseDoc`s through as-is (not a flattened row shape) so `inventory.hbs` can
    * call `item._getTags`/`item.system.*` directly, same as daggerheart's own inventory template.
    */
@@ -390,13 +341,20 @@ export default class SpaceshipActorSheet extends BaseSheet {
     armor: ItemRowEntry[];
     consumables: ItemRowEntry[];
     loot: ItemRowEntry[];
+    systems: ItemRowEntry[];
     mounts: { value: number; max: number };
   } {
-    const rows: Record<InventoryItemType, ItemRowEntry[]> = { weapon: [], armor: [], consumable: [], loot: [] };
+    const rows: Record<InventoryItemType, ItemRowEntry[]> = {
+      weapon: [],
+      armor: [],
+      consumable: [],
+      loot: [],
+      [SYSTEM_ITEM_TYPE]: [],
+    };
 
     for (const item of actor.items) {
       if (SpaceshipActorSheet.#isInventoryItemType(item.type)) {
-        rows[item.type].push(SpaceshipActorSheet.#toEntry(item, editable));
+        rows[item.type].push(toRowEntry(item, editable));
       }
     }
 
@@ -405,6 +363,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       armor: rows.armor,
       consumables: rows.consumable,
       loot: rows.loot,
+      systems: rows[SYSTEM_ITEM_TYPE],
       mounts: {
         value: SpaceshipActorSheet.#countEquippedWeapons(actor),
         max: actor.system.maxWeaponMounts,
@@ -490,10 +449,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     return Array.from(actor.items).filter((item) => item.type === "weapon" && item.system.equipped === true).length;
   }
 
-  /**
-   * Open a FilePicker to change the actor's portrait, mirroring core Foundry's own
-   * `editImage` action convention.
-   */
+  /** The actor's portrait. Same `FilePicker` flow as the System item sheet's, shared with it. */
   static async #onEditImage(
     this: foundry.applications.sheets.ActorSheetV2.Any,
     _event: PointerEvent,
@@ -502,17 +458,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     if (!(target instanceof HTMLImageElement)) return;
 
     const attribute = target.dataset.edit;
-    if (!attribute) return;
-
-    const current = foundry.utils.getProperty(this.document, attribute) as string;
-    const fp = new foundry.applications.apps.FilePicker.implementation({
-      current,
-      type: "image",
-      callback: (path: string) => {
-        void this.document.update({ [attribute]: path });
-      },
-    });
-    await fp.browse();
+    if (attribute) await pickDocumentImage(this.document, attribute);
   }
 
   /**
@@ -601,26 +547,6 @@ export default class SpaceshipActorSheet extends BaseSheet {
   ): Promise<void> {
     const doc = SpaceshipActorSheet.#getRowDocument(target);
     doc?.sheet?.render(true);
-  }
-
-  /**
-   * Delete an embedded document after a confirm dialog - called from the row's context menu
-   * (`#bindItemContextMenu`), the only way to delete an item or effect now that the controls match
-   * the character sheet's own default set (equip/Send to Chat/kebab, not standalone edit/delete
-   * icons - see `inventory.hbs`'s comment).
-   *
-   * `titleKey`/`bodyKey`: the Effects tab's rows are ActiveEffects, so the menu entry and this
-   * dialog have to say "effect", not "item" - the wording is the only thing that differs, so the
-   * two callers pass their own keys rather than each getting a near-identical method.
-   */
-  static async #deleteDocWithConfirm(doc: LooseDoc, titleKey: string, bodyKey: string): Promise<void> {
-    const confirmed = await foundry.applications.api.DialogV2.confirm({
-      window: { title: game.i18n!.localize(titleKey) },
-      content: `<p>${game.i18n!.format(bodyKey, { name: doc.name })}</p>`,
-    });
-    if (!confirmed) return;
-
-    await doc.delete();
   }
 
   /**
@@ -1010,7 +936,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       ".inventory-item [data-action='triggerContextMenu']",
       [
         {
-          name: "DHSCIFI.Spaceship.Effects.Enable",
+          name: "DHSCIFI.Rows.EnableEffect",
           icon: '<i class="fa-regular fa-lightbulb"></i>',
           condition: (target: HTMLElement) => SpaceshipActorSheet.#isDisabledEffectRow(target) === true,
           callback: (target: HTMLElement) => {
@@ -1019,7 +945,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
           },
         },
         {
-          name: "DHSCIFI.Spaceship.Effects.Disable",
+          name: "DHSCIFI.Rows.DisableEffect",
           icon: '<i class="fa-solid fa-lightbulb"></i>',
           condition: (target: HTMLElement) => SpaceshipActorSheet.#isDisabledEffectRow(target) === false,
           callback: (target: HTMLElement) => {
@@ -1028,7 +954,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
           },
         },
         {
-          name: "DHSCIFI.Spaceship.Effects.EditEffect",
+          name: "DHSCIFI.Rows.EditEffect",
           icon: '<i class="fa-solid fa-edit"></i>',
           condition: SpaceshipActorSheet.#isEffectRow,
           callback: (target: HTMLElement) => {
@@ -1036,22 +962,22 @@ export default class SpaceshipActorSheet extends BaseSheet {
           },
         },
         {
-          name: "DHSCIFI.Spaceship.Effects.DeleteEffect.title",
+          name: "DHSCIFI.Rows.DeleteEffect.title",
           icon: '<i class="fa-solid fa-trash"></i>',
           condition: SpaceshipActorSheet.#isEffectRow,
           callback: (target: HTMLElement) => {
             const effect = SpaceshipActorSheet.#getRowDocument(target);
             if (effect) {
-              void SpaceshipActorSheet.#deleteDocWithConfirm(
+              void deleteRowDocument(
                 effect,
-                "DHSCIFI.Spaceship.Effects.DeleteEffect.title",
-                "DHSCIFI.Spaceship.Effects.DeleteEffect.body",
+                "DHSCIFI.Rows.DeleteEffect.title",
+                "DHSCIFI.Rows.DeleteEffect.body",
               );
             }
           },
         },
         {
-          name: "DHSCIFI.Spaceship.Inventory.EditItem",
+          name: "DHSCIFI.Rows.EditItem",
           icon: '<i class="fa-solid fa-edit"></i>',
           condition: (target: HTMLElement) => !SpaceshipActorSheet.#isEffectRow(target),
           callback: (target: HTMLElement) => {
@@ -1059,16 +985,16 @@ export default class SpaceshipActorSheet extends BaseSheet {
           },
         },
         {
-          name: "DHSCIFI.Spaceship.Inventory.DeleteItem.title",
+          name: "DHSCIFI.Rows.DeleteItem.title",
           icon: '<i class="fa-solid fa-trash"></i>',
           condition: (target: HTMLElement) => !SpaceshipActorSheet.#isEffectRow(target),
           callback: (target: HTMLElement) => {
             const item = SpaceshipActorSheet.#getRowDocument(target);
             if (item) {
-              void SpaceshipActorSheet.#deleteDocWithConfirm(
+              void deleteRowDocument(
                 item,
-                "DHSCIFI.Spaceship.Inventory.DeleteItem.title",
-                "DHSCIFI.Spaceship.Inventory.DeleteItem.body",
+                "DHSCIFI.Rows.DeleteItem.title",
+                "DHSCIFI.Rows.DeleteItem.body",
               );
             }
           },

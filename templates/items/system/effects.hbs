@@ -1,0 +1,29 @@
+{{!--
+    Effects tab: the ActiveEffects this System applies to the ship carrying it. Same active/inactive
+    split, off the same `effect.active` source, as daggerheart's own
+    templates/sheets/global/tabs/tab-effects.hbs and as the Spaceship sheet's own Effects tab (#9),
+    and rendered through the same shared row pair both of those use.
+
+    `createDisabled` on the second list is what makes its "+" create an already-disabled effect, so
+    creating from the inactive section lands it there. `hideContextMenu` - see `actions.hbs`.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}} system-item-effects" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="effects-sections">
+        {{> "dhscifi.inventory-items"
+            title="DHSCIFI.Rows.ActiveEffects"
+            isGlassy=true
+            isEffect=true
+            hideContextMenu=true
+            collection=effects.actives
+        }}
+
+        {{> "dhscifi.inventory-items"
+            title="DHSCIFI.Rows.InactiveEffects"
+            isGlassy=true
+            isEffect=true
+            createDisabled=true
+            hideContextMenu=true
+            collection=effects.inactives
+        }}
+    </div>
+</section>

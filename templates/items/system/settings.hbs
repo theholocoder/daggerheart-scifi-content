@@ -1,0 +1,29 @@
+{{!--
+    Settings tab. Same `fieldset.two-columns` + `legend` shape as daggerheart's own
+    templates/sheets/items/loot/settings.hbs, which is where `quantity` lives on the item this
+    sub-type is modeled on; `systemPointsCost` (#15's one added field) sits beside it.
+
+    Plain `<input>`s rather than `{{formField systemFields.* ...}}`: `systemFields` is filled in by
+    daggerheart's sheet base class, which this module doesn't extend (docs/adr/0002). The `.form-
+    group`/`.form-fields` wrapper is core Foundry's own, and is what the Configure Spaceship dialog
+    uses for the same reason.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <fieldset class="two-columns">
+        <legend>{{localize tab.label}}</legend>
+
+        <div class="form-group">
+            <label>{{localize "DHSCIFI.SystemItem.FIELDS.quantity.label"}}</label>
+            <div class="form-fields">
+                <input type="number" name="system.quantity" value="{{source.system.quantity}}" min="0" step="1" {{#unless editable}}disabled{{/unless}} />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "DHSCIFI.SystemItem.FIELDS.systemPointsCost.label"}}</label>
+            <div class="form-fields">
+                <input type="number" name="system.systemPointsCost" value="{{source.system.systemPointsCost}}" min="0" step="1" {{#unless editable}}disabled{{/unless}} />
+            </div>
+        </div>
+    </fieldset>
+</section>

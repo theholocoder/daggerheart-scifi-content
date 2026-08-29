@@ -4,6 +4,11 @@
       "daggerheart-scifi-content": {
         "spaceship": "Spaceship"
       }
+    },
+    "Item": {
+      "daggerheart-scifi-content": {
+        "system": "System"
+      }
     }
   },
   "DHSCIFI": {
@@ -79,36 +84,13 @@
       "Features": {
         "title": "Features"
       },
-      "Effects": {
-        "Active": "Active Effects",
-        "Inactive": "Inactive Effects",
-        "CreateEffect": "Create Effect",
-        "EditEffect": "Edit Effect",
-        "Enable": "Enable Effect",
-        "Disable": "Disable Effect",
-        "DeleteEffect": {
-          "title": "Delete Effect",
-          "body": "Delete {name}?"
-        }
-      },
       "Inventory": {
         "Weapons": "Weapons",
         "Armor": "Armor",
         "Consumables": "Consumables",
         "Loot": "Loot",
-        "CreateItem": "Create Item",
-        "EditItem": "Edit Item",
-        "UseItem": "Use/Roll",
-        "SendToChat": "Send to Chat",
-        "MoreOptions": "More Options",
-        "Equip": "Equip",
-        "Unequip": "Unequip",
         "MountsFull": "No weapon mounts available.",
-        "InvalidItemType": "Only weapons, armor, consumables, loot, and features can be added to a ship.",
-        "DeleteItem": {
-          "title": "Delete Item",
-          "body": "Delete {name}?"
-        }
+        "InvalidItemType": "Only weapons, armor, consumables, loot, systems, and features can be added to a ship."
       },
       "Stations": {
         "Roles": {
@@ -160,8 +142,59 @@
         "hitPointsMax": "Max HP",
         "stressMax": "Max Stress",
         "maxWeaponMounts": "Weapon Mounts",
-        "systemPoints": "System Points",
-        "systemPointsSpent": "System Points Spent"
+        "systemPoints": "System Points"
+      }
+    },
+    "Rows": {
+      "CreateItem": "Create Item",
+      "CreateAction": "Create Action",
+      "CreateEffect": "Create Effect",
+      "EditItem": "Edit Item",
+      "EditAction": "Edit Action",
+      "EditEffect": "Edit Effect",
+      "DeleteItem": {
+        "title": "Delete Item",
+        "body": "Delete {name}?"
+      },
+      "DeleteAction": {
+        "title": "Delete Action",
+        "body": "Delete {name}?"
+      },
+      "DeleteEffect": {
+        "title": "Delete Effect",
+        "body": "Delete {name}?"
+      },
+      "UseItem": "Use/Roll",
+      "SendToChat": "Send to Chat",
+      "MoreOptions": "More Options",
+      "Equip": "Equip",
+      "Unequip": "Unequip",
+      "EnableEffect": "Enable Effect",
+      "DisableEffect": "Disable Effect",
+      "ActiveEffects": "Active Effects",
+      "InactiveEffects": "Inactive Effects"
+    },
+    "SystemItem": {
+      "Tabs": {
+        "description": "Description",
+        "settings": "Settings",
+        "actions": "Actions",
+        "effects": "Effects"
+      },
+      "FIELDS": {
+        "quantity": {
+          "label": "Quantity"
+        },
+        "systemPointsCost": {
+          "label": "System Points Cost"
+        },
+        "gmNotes": {
+          "label": "GM Notes"
+        }
+      },
+      "CostTag": "{cost} SP",
+      "Actions": {
+        "Unavailable": "Actions are unavailable: the Daggerheart system's action registry could not be reached."
       }
     }
   }

@@ -4,6 +4,7 @@ import {
   FEATURE_ITEM_TYPE,
   INVENTORY_ITEM_TYPES,
   STATION_IDS,
+  SYSTEM_ITEM_TYPE,
 } from "../../constants";
 import {
   SHIP_LEVEL_OPTION_TYPES,
@@ -164,8 +165,8 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
    *
    * Computed, never stored: `systemPoints` is the base total the GM enters from the ship's Frame
    * (level-up gains are layered onto it by `#applyLevelupAdvancements`, #12) and
-   * `systemPointsSpent` is what is committed to installed
-   * systems, so the available count is never a third number that can disagree with them.
+   * `systemPointsSpent` is summed off the ship's installed `system` items (#15), so the available
+   * count is never a third number that can disagree with them.
    *
    * A plain getter rather than a schema field written in `prepareBaseData` (the route `armorScore`
    * takes): that field only exists because ActiveEffects and daggerheart's own damage code need a
@@ -178,6 +179,53 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
    */
   get systemPointsAvailable(): number {
     return this.systemPoints - this.systemPointsSpent;
+  }
+
+  /**
+   * System Points committed to the ship's installed Systems (#15): the sum of `systemPointsCost`
+   * over its `daggerheart-scifi-content.system` items.
+   *
+   * Was a GM-entered schema field in #11, replaced here by this derivation - which is why nothing
+   * needs to keep the two in step any more, and why the wrench dialog no longer offers a "Spent"
+   * input. `migrateData` below drops the stored number off any ship saved before this change.
+   *
+   * Quantity is deliberately not a multiplier: a System's cost is what installing it costs, and a
+   * `quantity` of 2 on one item is inventory bookkeeping (it comes with the `loot`-equivalent shape
+   * the sub-type is modeled on), not a second installation.
+   *
+   * A getter rather than a `prepareBaseData` write, same reasoning as `systemPointsAvailable`
+   * above: nothing outside this module needs a schema-declared path to find it, and reading the
+   * items live means installing or removing a System is reflected without a preparation pass.
+   */
+  /**
+   * Drop `systemPointsSpent` from the source data of any ship stored before #15, when it was still
+   * a GM-entered schema field.
+   *
+   * Foundry calls this on every source object before validation, so the stale key never reaches
+   * the model - without it, the number would sit in `_source` indefinitely, shadowed by the getter
+   * above but reappearing in `toObject()`, in exports, and in the compendium. Foundry tolerates
+   * unrecognised source keys rather than erroring on them, so this is about the data being
+   * genuinely gone rather than about avoiding a crash.
+   *
+   * A `migrateData` cleanup rather than a world migration script: the field is inert either way,
+   * and the value is rewritten out the next time the actor is updated.
+   */
+  static override migrateData(source: Record<string, unknown>): Record<string, unknown> {
+    delete source.systemPointsSpent;
+    return super.migrateData(source);
+  }
+
+  get systemPointsSpent(): number {
+    const items = (this.parent?.items ?? []) as unknown as Iterable<{
+      type: string;
+      system: { systemPointsCost?: number };
+    }>;
+
+    let spent = 0;
+    for (const item of items) {
+      if (item.type === SYSTEM_ITEM_TYPE) spent += item.system.systemPointsCost ?? 0;
+    }
+    return spent;
   }
 
   /**
@@ -517,9 +565,10 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
   }
 
   /**
-   * Gate for `Item.createDocuments` (see class doc comment): only the Inventory tab's four types
-   * (`weapon`/`armor`/`consumable`/`loot`, #6) plus `feature` (the Features tab, #7) can be
-   * created/dropped on a ship. The inventory half mirrors `daggerheart`'s own
+   * Gate for `Item.createDocuments` (see class doc comment): only the Inventory tab's types
+   * (daggerheart's `weapon`/`armor`/`consumable`/`loot`, #6, plus this module's own `system`
+   * sub-type, #15) and `feature` (the Features tab, #7) can be created/dropped on a ship. The
+   * inventory half mirrors `daggerheart`'s own
    * `BaseDataActor#isItemValid` default exactly, `hasInventory` gate included; the `feature`
    * branch bypasses that gate the same way daggerheart's own feature-bearing DataModels widen
    * the default (`super.isItemValid(source) || source.type === 'feature'`, e.g. `DHAncestry`/
@@ -641,12 +690,6 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
       // System Points (#11). `systemPoints` is the base total from the ship's Frame, entered by the
       // GM on the wrench dialog; #12's level-up wizard adds its gains into this same field.
       systemPoints: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
-      // What is currently committed to installed systems. A GM-entered number *for now*: the
-      // `system` Item sub-type this is meant to be summed from doesn't exist yet (#15), which
-      // replaces this field with that derivation. `min: 0` only - it is not capped at
-      // `systemPoints`, so an over-committed ship reads as a negative `systemPointsAvailable`
-      // instead of silently swallowing the excess.
-      systemPointsSpent: new fields.NumberField({ required: true, nullable: false, integer: true, min: 0, initial: 0 }),
       // Level-up history (#12). `changed` is the *target* level the GM typed in the header; the
       // level actually taken stays in `level` above (see `canLevelUp`). `levelups` is keyed by
       // level number, exactly as daggerheart's `DhLevelData.levelups` is - one entry per level
@@ -810,14 +853,6 @@ namespace SpaceshipData {
     }>;
     /** System Points (#11): the base total from the ship's Frame, GM-entered. */
     systemPoints: foundry.data.fields.NumberField<{
-      required: true;
-      nullable: false;
-      integer: true;
-      min: 0;
-      initial: 0;
-    }>;
-    /** System Points committed to installed systems (#11); derived from `system` items in #15. */
-    systemPointsSpent: foundry.data.fields.NumberField<{
       required: true;
       nullable: false;
       integer: true;

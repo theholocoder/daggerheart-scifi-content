@@ -23,6 +23,9 @@
   "documentTypes": {
     "Actor": {
       "spaceship": {}
+    },
+    "Item": {
+      "system": {}
     }
   },
   "flags": {

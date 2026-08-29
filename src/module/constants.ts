@@ -4,6 +4,15 @@ export const MODULE_ID = "daggerheart-scifi-content";
 export const SPACESHIP_ACTOR_TYPE = `${MODULE_ID}.spaceship`;
 
 /**
+ * Namespaced Item sub-type for a vehicle System (#15) - the pieces of ship equipment bought with
+ * System Points (CONTEXT.md's "System (Item)" entry). Same module `documentTypes` mechanism, and
+ * therefore the same `<module-id>.<subtype>` namespacing, as `SPACESHIP_ACTOR_TYPE` above; the
+ * `daggerheart` system's own six built-in Item types are *not* namespaced, which is why every list
+ * below mixes bare ids with this one.
+ */
+export const SYSTEM_ITEM_TYPE = `${MODULE_ID}.system`;
+
+/**
  * The six traits a Spaceship has, in sheet order - the same six a `daggerheart` character has
  * (CONTEXT.md's "Spaceship" entry: same core stat shape as a character).
  *
@@ -34,8 +43,13 @@ export const STATION_IDS = ["pilot", "mechanic", "commander", "systemsOperator",
  */
 export const CREW_ACTOR_TYPES = ["character"] as const;
 
-/** The `daggerheart` Item types the Spaceship sheet's Inventory tab lists (#6). */
-export const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot"] as const;
+/**
+ * The Item types the Spaceship sheet's Inventory tab lists: `daggerheart`'s own four (#6) plus
+ * this module's `system` sub-type (#15), which is an inventory item in exactly the same sense -
+ * it is modeled on `loot`, carries `isInventoryItem: true`, and hangs off the same
+ * `metadata.hasInventory` gate in `SpaceshipData#isItemValid`.
+ */
+export const INVENTORY_ITEM_TYPES = ["weapon", "armor", "consumable", "loot", SYSTEM_ITEM_TYPE] as const;
 
 /**
  * The `daggerheart` Item type a Spaceship's Shield and damage thresholds derive from (#10) - the
@@ -57,8 +71,9 @@ export const ARMOR_EFFECT_CHANGE_TYPE = "armor";
 export const FEATURE_ITEM_TYPE = "feature";
 
 /**
- * Every Item type a Spaceship accepts: the Inventory tab's four plus `feature`, the Features
- * tab's own type (#7).
+ * Every Item type a Spaceship accepts: the Inventory tab's five (daggerheart's `weapon`/`armor`/
+ * `consumable`/`loot` plus this module's `system`, #15) and `feature`, the Features tab's own
+ * type (#7).
  *
  * Lives here rather than in either consumer because the rule is enforced in *two* places that
  * must agree - `SpaceshipActorSheet` (rejects a bad drop/create with our own message) and

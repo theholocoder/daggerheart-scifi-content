@@ -6,7 +6,9 @@
     Features tab (#7) exactly as the character sheet shares its own between the two.
 
     No currency/gold section: a ship's only currency-like resource is System Points (#11), which
-    live on the header rather than here (CONTEXT.md's "System Points" entry).
+    live on the header rather than here (CONTEXT.md's "System Points" entry). What the ship *spends*
+    them on is the Systems list below - `daggerheart-scifi-content.system` items (#15), this
+    module's own Item sub-type rather than one of daggerheart's.
 --}}
 <section class="tab {{tab.id}} {{tab.cssClass}} spaceship-inventory" data-tab="{{tab.id}}" data-group="{{tab.group}}">
     <div class="items-section">
@@ -40,6 +42,16 @@
             createType="loot"
             isGlassy=true
             collection=inventory.loot
+            quantifiable=true
+        }}
+
+        {{! Appended after daggerheart's own four rather than slotted among them: #6 fixed that
+            order to match the character sheet's, and #15 only adds a list. }}
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.daggerheart-scifi-content.system"
+            createType="daggerheart-scifi-content.system"
+            isGlassy=true
+            collection=inventory.systems
             quantifiable=true
         }}
     </div>

@@ -1,6 +1,8 @@
 {{!--
-    One item row, shared by every list on this sheet (Inventory's weapons/armor/consumables/loot,
-    Features' features). Extracted from what #6 had written inline in `inventory.hbs`, into the
+    One document row, shared by every list in this module: the Spaceship sheet's Inventory
+    (weapons/armor/consumables/loot/systems), Features and Effects tabs, and the System item
+    sheet's Actions and Effects tabs (#15). Extracted from what #6 had written inline in
+    `inventory.hbs`, into the
     same partial split `daggerheart` itself uses - its own character sheet renders its Features
     tab through the *exact same* `daggerheart.inventory-item` partial as its Inventory tab
     (`templates/sheets/actors/character/features.hbs` -> `daggerheart.inventory-items` ->
@@ -42,6 +44,15 @@
       own `{{#if (hasProperty item "toChat")}}`, resolved in TS because this module registers no
       `hasProperty` helper (ADR 0002). True for every row type today (`DhActiveEffect` defines
       `toChat` just as `DHItem` does).
+    - isAction {boolean} : this row holds a daggerheart Action document (#15), not an Item. Actions
+      carry no `system` of their own, so the quantity/description/action-button branches below are
+      all inert for one; what it changes is the portrait's fallback (an Action's `img` is optional,
+      and its own `typeIcon` stands in when absent).
+    - hideContextMenu {boolean} : render standalone edit/delete anchors instead of the kebab menu.
+      daggerheart's own parameter and its own fallback branch - its npc/adversary/environment/party
+      sheets pass it wherever no `ContextMenu` is bound. The System item sheet passes it for the
+      same reason: `ContextMenu` has to bind to a container that survives re-renders, which buys
+      nothing for two entries on a sheet that size.
     - isEffect {boolean} : this row holds an ActiveEffect (#9), not an Item. Mirrors the
       `type='effect'` branches of daggerheart's own `inventory-item-V2.hbs`: an enable/disable
       toggle in place of the equip toggle, and `data-type="effect"` so the sheet's one context menu
@@ -64,13 +75,20 @@
                   portrait behavior exactly), otherwise open its sheet. The hover-reveal dice icon
                   (`.roll-img`) is daggerheart's own unscoped CSS. --}}
             {{#if usable}}
-                <div class="img-portait" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.UseItem'}}">
+                <div class="img-portait" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Rows.UseItem'}}">
                     <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
                     <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
                 </div>
             {{else}}
-                <div class="img-portait" data-action="editItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Spaceship.Effects.EditEffect'}}{{else}}{{localize 'DHSCIFI.Spaceship.Inventory.EditItem'}}{{/if}}">
-                    <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
+                <div class="img-portait" data-action="editItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Rows.EditEffect'}}{{else}}{{#if isAction}}{{localize 'DHSCIFI.Rows.EditAction'}}{{else}}{{localize 'DHSCIFI.Rows.EditItem'}}{{/if}}{{/if}}">
+                    {{#if item.img}}
+                        <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
+                    {{else}}
+                        {{! An Action's `img` is optional in daggerheart's own schema (`initial:
+                            undefined`); its `typeIcon` is what that system's own action buttons
+                            render, so it stands in rather than a broken <img>. }}
+                        <i class="fa-solid {{item.typeIcon}} item-img" inert></i>
+                    {{/if}}
                 </div>
             {{/if}}
 
@@ -100,11 +118,11 @@
                 {{#if @root.editable}}
                     {{#if equipIcon}}
                         {{#if item.system.equipped}}
-                            <a data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.Unequip'}}">
+                            <a data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Rows.Unequip'}}">
                                 <i class="fa-solid {{equipIcon}}" inert></i>
                             </a>
                         {{else}}
-                            <a class="unequipped" data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.Equip'}}">
+                            <a class="unequipped" data-action="toggleEquipItem" data-tooltip="{{localize 'DHSCIFI.Rows.Equip'}}">
                                 <i class="fa-solid {{equipIcon}}" inert></i>
                             </a>
                         {{/if}}
@@ -114,25 +132,37 @@
                           daggerheart's own `type='effect'` branch. --}}
                     {{#if isEffect}}
                         {{#if disabled}}
-                            <a data-action="toggleEffect" data-tooltip="{{localize 'DHSCIFI.Spaceship.Effects.Enable'}}">
+                            <a data-action="toggleEffect" data-tooltip="{{localize 'DHSCIFI.Rows.EnableEffect'}}">
                                 <i class="fa-solid fa-toggle-off" inert></i>
                             </a>
                         {{else}}
-                            <a data-action="toggleEffect" data-tooltip="{{localize 'DHSCIFI.Spaceship.Effects.Disable'}}">
+                            <a data-action="toggleEffect" data-tooltip="{{localize 'DHSCIFI.Rows.DisableEffect'}}">
                                 <i class="fa-solid fa-toggle-on" inert></i>
                             </a>
                         {{/if}}
                     {{/if}}
                 {{/if}}
                 {{#if canChat}}
-                    <a data-action="toChat" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.SendToChat'}}">
+                    <a data-action="toChat" data-tooltip="{{localize 'DHSCIFI.Rows.SendToChat'}}">
                         <i class="fa-regular fa-fw fa-message" inert></i>
                     </a>
                 {{/if}}
+                {{!-- Kebab menu, or - where the sheet binds no `ContextMenu` - daggerheart's own
+                      standalone edit/delete fallback. Same either/or, same parameter name, as its
+                      `inventory-item-V2.hbs`. --}}
                 {{#if @root.editable}}
-                    <a data-action="triggerContextMenu" data-tooltip="{{localize 'DHSCIFI.Spaceship.Inventory.MoreOptions'}}">
-                        <i class="fa-solid fa-fw fa-ellipsis-vertical" inert></i>
-                    </a>
+                    {{#if hideContextMenu}}
+                        <a data-action="editItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Rows.EditEffect'}}{{else}}{{#if isAction}}{{localize 'DHSCIFI.Rows.EditAction'}}{{else}}{{localize 'DHSCIFI.Rows.EditItem'}}{{/if}}{{/if}}">
+                            <i class="fa-solid fa-edit" inert></i>
+                        </a>
+                        <a data-action="deleteItem" data-tooltip="{{#if isEffect}}{{localize 'DHSCIFI.Rows.DeleteEffect.title'}}{{else}}{{#if isAction}}{{localize 'DHSCIFI.Rows.DeleteAction.title'}}{{else}}{{localize 'DHSCIFI.Rows.DeleteItem.title'}}{{/if}}{{/if}}">
+                            <i class="fa-solid fa-trash" inert></i>
+                        </a>
+                    {{else}}
+                        <a data-action="triggerContextMenu" data-tooltip="{{localize 'DHSCIFI.Rows.MoreOptions'}}">
+                            <i class="fa-solid fa-fw fa-ellipsis-vertical" inert></i>
+                        </a>
+                    {{/if}}
                 {{/if}}
             </div>
         </div>

@@ -66,14 +66,8 @@
                     <input type="number" name="system.systemPoints" value="{{source.system.systemPoints}}" min="0" step="1" />
                 </div>
             </div>
-            {{! Spent System Points (#11) are GM-entered only until #15's `system` Item sub-type
-                lands and the sheet can sum `systemPointsCost` over the ship's installed systems. }}
-            <div class="form-group">
-                <label>{{localize "DHSCIFI.Spaceship.Settings.systemPointsSpent"}}</label>
-                <div class="form-fields">
-                    <input type="number" name="system.systemPointsSpent" value="{{source.system.systemPointsSpent}}" min="0" step="1" />
-                </div>
-            </div>
+            {{! No "Spent" input: since #15 the spent half is derived from the ship's installed
+                `system` items (`SpaceshipData#systemPointsSpent`), so there is nothing to type. }}
         </div>
     </fieldset>
 </section>
