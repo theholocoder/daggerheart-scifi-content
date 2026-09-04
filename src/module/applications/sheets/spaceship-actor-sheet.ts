@@ -131,6 +131,13 @@ interface LooseActor {
   };
   items: Iterable<LooseDoc> & { get(id: string): LooseDoc | undefined };
   /**
+   * Core Foundry's own embedded ActiveEffect collection (as opposed to `allApplicableEffects()`
+   * below, which also folds in items' `transfer` effects) - `#getRowDocument` looks a row's
+   * `data-item-id` up here when it isn't an Item, the same two-collection dataset lookup core's
+   * own default `_onDragStart` uses (see that override's comment).
+   */
+  effects: { get(id: string): LooseDoc | undefined };
+  /**
    * Core Foundry's own generator over every ActiveEffect that applies to this Actor - its own
    * effects plus the `transfer` effects of its items. Daggerheart *overrides* it (on
    * `CONFIG.Actor.documentClass`, so our ship gets the override too) purely to add the
@@ -693,7 +700,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     _event: PointerEvent,
     target: HTMLElement,
   ): Promise<void> {
-    const doc = SpaceshipActorSheet.#getRowDocument(target);
+    const doc = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
     doc?.sheet?.render(true);
   }
 
@@ -713,7 +720,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     target: HTMLElement,
   ): Promise<void> {
     const actor = this.document as unknown as LooseActor;
-    const item = SpaceshipActorSheet.#getRowDocument(target);
+    const item = SpaceshipActorSheet.#getRowDocument(target, actor);
     if (!item || (item.type !== "weapon" && item.type !== ARMOR_ITEM_TYPE)) return;
 
     const equipping = !item.system.equipped;
@@ -756,16 +763,36 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * Resolve the embedded document referenced by the closest `[data-item-uuid]` ancestor of
    * `target` - mirrors daggerheart's own `getDocFromElementSync` helper, which every one of its
    * row actions (`editDoc`/`deleteDoc`/`toChat`/`toggleEffect`/...) goes through for exactly this
-   * reason: a row can hold an Item *or* an ActiveEffect (#9), and a UUID resolves either, where
-   * `actor.items.get(id)` (what this was before #9) only ever finds an Item.
+   * reason: a row can hold an Item *or* an ActiveEffect (#9), and a plain id resolves either
+   * against the right collection, where `actor.items.get(id)` alone (what this was before #9)
+   * only ever finds an Item.
    *
-   * Resolved through the shared `resolveUuidSync` guard, same as `#resolveCrewEntry`'s.
+   * Looks `data-item-id` up directly in `actor.items`/`actor.effects` - the same dataset-based
+   * lookup core's own default `_onDragStart` uses (`actor.items.get(target.dataset.itemId)`, then
+   * `.effects.get(...)`) - rather than resolving `data-item-uuid` through `resolveUuidSync`
+   * (`fromUuidSync`) as this used to. That distinction matters for a Compendium-sourced actor:
+   * `fromUuidSync` refuses to resolve an *embedded* document under a `Compendium.*` UUID
+   * synchronously at all ("references an Embedded Document and cannot be retrieved
+   * synchronously"), even once the parent Actor is already fully loaded in memory - a stricter
+   * failure than the "pack index not loaded" case `resolveUuidSync`'s own doc comment and
+   * `#resolveCrewEntry`'s were written for. `resolveUuidSync` swallows that throw into `null`, so
+   * every row on a ship's sheet opened from a compendium (or from an Actor sourced from one)
+   * silently failed to resolve here: Edit/Delete and the context menu's Enable/Disable became
+   * no-ops, while the row itself still rendered fine and "+" (which never goes through this path)
+   * kept working - the "can add but not edit/remove existing features" bug this fixes.
+   *
+   * Still falls back to `resolveUuidSync` on the row's `data-item-uuid` when the id lookup comes
+   * up empty, so a row this actor's own collections don't cover (none exist today, but nothing
+   * guarantees that forever) keeps resolving exactly as before.
    */
-  static #getRowDocument(target: HTMLElement): LooseDoc | undefined {
-    const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
-    if (!uuid) return undefined;
+  static #getRowDocument(target: HTMLElement, actor: LooseActor): LooseDoc | undefined {
+    const row = target.closest<HTMLElement>("[data-item-uuid]");
+    if (!row) return undefined;
 
-    return resolveUuidSync<LooseDoc>(uuid) ?? undefined;
+    const id = row.dataset.itemId;
+    const byId = id ? (actor.items.get(id) ?? actor.effects.get(id)) : undefined;
+
+    return byId ?? resolveUuidSync<LooseDoc>(row.dataset.itemUuid) ?? undefined;
   }
 
   /**
@@ -805,7 +832,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     _event: PointerEvent,
     target: HTMLElement,
   ): Promise<void> {
-    const item = SpaceshipActorSheet.#getRowDocument(target);
+    const item = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
     await item?.toChat?.(item.uuid);
   }
 
@@ -851,8 +878,12 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * Enable/disable an ActiveEffect (#9), from `data-action="toggleEffect"` on the row's toggle -
    * the same one-line `update({ disabled: !disabled })` as daggerheart's own `toggleEffect` action.
    */
-  static async #onToggleEffect(_event: PointerEvent, target: HTMLElement): Promise<void> {
-    const effect = SpaceshipActorSheet.#getRowDocument(target);
+  static async #onToggleEffect(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    _event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const effect = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
     if (!effect) return;
 
     await SpaceshipActorSheet.#setEffectDisabled(effect, !effect.disabled);
@@ -1001,7 +1032,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _onDragStart(event: any): void {
     const target = event.currentTarget as HTMLElement;
-    const dragData = SpaceshipActorSheet.#getRowDocument(target)?.toDragData?.();
+    const dragData = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor)?.toDragData?.();
     if (dragData) event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
 
@@ -1096,9 +1127,9 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * row whose effect was toggled elsewhere (another sheet, a macro) would otherwise offer the
    * entry that no longer applies.
    */
-  static #isDisabledEffectRow(target: HTMLElement): boolean | undefined {
+  static #isDisabledEffectRow(target: HTMLElement, actor: LooseActor): boolean | undefined {
     if (!SpaceshipActorSheet.#isEffectRow(target)) return undefined;
-    return SpaceshipActorSheet.#getRowDocument(target)?.disabled ?? undefined;
+    return SpaceshipActorSheet.#getRowDocument(target, actor)?.disabled ?? undefined;
   }
 
   /**
@@ -1134,6 +1165,11 @@ export default class SpaceshipActorSheet extends BaseSheet {
   #bindItemContextMenu(): void {
     if (this.#itemContextMenu) return;
 
+    // Read fresh off `this.document` inside each callback/condition below (not captured once
+    // here) - the menu itself is only built once (see this method's own doc comment), but a
+    // stale `actor` reference captured at bind time would still resolve rows correctly (the same
+    // Actor instance persists across renders), so either works; reading it live just keeps this
+    // consistent with every other action handler's `this.document as unknown as LooseActor`.
     this.#itemContextMenu = new foundry.applications.ux.ContextMenu.implementation(
       this.element,
       // Every `.inventory-item` on the sheet, not just the Inventory tab's - Features (#7) and
@@ -1143,18 +1179,20 @@ export default class SpaceshipActorSheet extends BaseSheet {
         {
           name: "DHSCIFI.Rows.EnableEffect",
           icon: '<i class="fa-regular fa-lightbulb"></i>',
-          condition: (target: HTMLElement) => SpaceshipActorSheet.#isDisabledEffectRow(target) === true,
+          condition: (target: HTMLElement) =>
+            SpaceshipActorSheet.#isDisabledEffectRow(target, this.document as unknown as LooseActor) === true,
           callback: (target: HTMLElement) => {
-            const effect = SpaceshipActorSheet.#getRowDocument(target);
+            const effect = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
             if (effect) void SpaceshipActorSheet.#setEffectDisabled(effect, false);
           },
         },
         {
           name: "DHSCIFI.Rows.DisableEffect",
           icon: '<i class="fa-solid fa-lightbulb"></i>',
-          condition: (target: HTMLElement) => SpaceshipActorSheet.#isDisabledEffectRow(target) === false,
+          condition: (target: HTMLElement) =>
+            SpaceshipActorSheet.#isDisabledEffectRow(target, this.document as unknown as LooseActor) === false,
           callback: (target: HTMLElement) => {
-            const effect = SpaceshipActorSheet.#getRowDocument(target);
+            const effect = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
             if (effect) void SpaceshipActorSheet.#setEffectDisabled(effect, true);
           },
         },
@@ -1163,7 +1201,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
           icon: '<i class="fa-solid fa-edit"></i>',
           condition: SpaceshipActorSheet.#isEffectRow,
           callback: (target: HTMLElement) => {
-            SpaceshipActorSheet.#getRowDocument(target)?.sheet?.render(true);
+            SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor)?.sheet?.render(true);
           },
         },
         {
@@ -1171,7 +1209,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
           icon: '<i class="fa-solid fa-trash"></i>',
           condition: SpaceshipActorSheet.#isEffectRow,
           callback: (target: HTMLElement) => {
-            const effect = SpaceshipActorSheet.#getRowDocument(target);
+            const effect = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
             if (effect) {
               void deleteRowDocument(
                 effect,
@@ -1186,7 +1224,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
           icon: '<i class="fa-solid fa-edit"></i>',
           condition: (target: HTMLElement) => !SpaceshipActorSheet.#isEffectRow(target),
           callback: (target: HTMLElement) => {
-            SpaceshipActorSheet.#getRowDocument(target)?.sheet?.render(true);
+            SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor)?.sheet?.render(true);
           },
         },
         {
@@ -1194,7 +1232,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
           icon: '<i class="fa-solid fa-trash"></i>',
           condition: (target: HTMLElement) => !SpaceshipActorSheet.#isEffectRow(target),
           callback: (target: HTMLElement) => {
-            const item = SpaceshipActorSheet.#getRowDocument(target);
+            const item = SpaceshipActorSheet.#getRowDocument(target, this.document as unknown as LooseActor);
             if (item) {
               void deleteRowDocument(
                 item,
@@ -1312,7 +1350,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const inputs = this.element.querySelectorAll<HTMLInputElement>(".inventory-item-quantity");
     inputs.forEach((input) => {
       input.addEventListener("change", () => {
-        const item = SpaceshipActorSheet.#getRowDocument(input);
+        const item = SpaceshipActorSheet.#getRowDocument(input, this.document as unknown as LooseActor);
         const quantity = Number.parseInt(input.value, 10);
         if (item && !Number.isNaN(quantity)) void item.update({ "system.quantity": Math.max(0, quantity) });
       });
