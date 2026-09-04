@@ -10,75 +10,6 @@
     "resource": null,
     "quantity": 1,
     "actions": {
-      "8mH7dr85d7jK0tk9": {
-        "damage": {
-          "resources": {
-            "hitPoints": {
-              "applyTo": "hitPoints",
-              "value": {
-                "multiplier": "flat",
-                "flatMultiplier": 0,
-                "dice": "d6",
-                "bonus": 2,
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                }
-              },
-              "base": false,
-              "itemId": null,
-              "resultBased": false,
-              "fullRestore": false,
-              "valueAlt": {
-                "multiplier": "flat",
-                "flatMultiplier": 1,
-                "dice": "d6",
-                "bonus": null,
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                }
-              }
-            }
-          },
-          "main": null
-        },
-        "type": "damage",
-        "chatDisplay": true,
-        "name": "Braced",
-        "description": "When an adversary within this weapon's range deals damage to you, you can mark 2 Stress to force them to mark a Hit Point.",
-        "img": "icons/skills/melee/hand-grip-sword-red.webp",
-        "cost": [
-          {
-            "key": "stress",
-            "value": 2,
-            "itemId": null,
-            "scalable": false,
-            "step": null,
-            "consumeOnSuccess": false
-          }
-        ],
-        "_id": "8mH7dr85d7jK0tk9",
-        "effects": [],
-        "systemPath": "actions",
-        "baseAction": false,
-        "originItem": {
-          "type": "itemCollection"
-        },
-        "actionType": "action",
-        "triggers": [],
-        "areas": [],
-        "uses": {
-          "value": null,
-          "max": null,
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "target": {
-          "type": "any",
-          "amount": null
-        }
-      },
       "YHY8N5irXqWmt6w1": {
         "damage": {
           "resources": {
@@ -250,7 +181,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.9.2",
     "createdTime": 1788540903242,
-    "modifiedTime": 1788540903242,
+    "modifiedTime": 1788563974080,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

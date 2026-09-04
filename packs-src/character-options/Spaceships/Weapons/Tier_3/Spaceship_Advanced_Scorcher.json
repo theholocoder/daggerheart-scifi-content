@@ -98,34 +98,6 @@
           "recovery": null,
           "consumeOnSuccess": false
         }
-      },
-      "LrJdEOLCiXba5YC1": {
-        "type": "effect",
-        "chatDisplay": true,
-        "name": "Burn",
-        "description": "When you roll a 6 on a damage die, the target must mark a Stress.",
-        "img": "icons/magic/fire/blast-jet-stream-embers-orange.webp",
-        "_id": "LrJdEOLCiXba5YC1",
-        "effects": [],
-        "systemPath": "actions",
-        "baseAction": false,
-        "originItem": {
-          "type": "itemCollection"
-        },
-        "actionType": "action",
-        "triggers": [],
-        "areas": [],
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": null,
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "target": {
-          "type": "any",
-          "amount": null
-        }
       }
     },
     "tier": 3,
@@ -297,7 +269,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.9.2",
     "createdTime": 1788540667011,
-    "modifiedTime": 1788540667011,
+    "modifiedTime": 1788564021336,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,
