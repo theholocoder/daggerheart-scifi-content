@@ -1,0 +1,859 @@
+{
+  "folder": "5CcJfbNXn4j7AMQF",
+  "name": "Patrol",
+  "type": "daggerheart-scifi-content.spaceship",
+  "_id": "ilTQepbuIVlXFvh8",
+  "img": "modules/daggerheart-scifi-content/artwork/starships/patrol.webp",
+  "system": {
+    "level": 1,
+    "traits": {
+      "agility": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "strength": {
+        "value": -1,
+        "tierMarked": false
+      },
+      "finesse": {
+        "value": 2,
+        "tierMarked": false
+      },
+      "instinct": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "presence": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "knowledge": {
+        "value": 0,
+        "tierMarked": false
+      }
+    },
+    "resources": {
+      "hope": {
+        "value": 0,
+        "max": 6
+      },
+      "hitPoints": {
+        "value": 0,
+        "max": 7
+      },
+      "stress": {
+        "value": 0,
+        "max": 6
+      }
+    },
+    "evasion": 0,
+    "evasionBonus": 0,
+    "proficiency": 1,
+    "armorScore": {
+      "value": 0,
+      "max": 0
+    },
+    "damageThresholds": {
+      "major": 0,
+      "severe": 0
+    },
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "maxWeaponMounts": 3,
+    "maxCrew": 7,
+    "maxPassengers": 4,
+    "systemPoints": 4,
+    "levelData": {
+      "changed": 1,
+      "levelups": {}
+    },
+    "stations": {
+      "pilot": {
+        "enabled": true,
+        "crew": []
+      },
+      "mechanic": {
+        "enabled": true,
+        "crew": []
+      },
+      "commander": {
+        "enabled": true,
+        "crew": []
+      },
+      "systemsOperator": {
+        "enabled": true,
+        "crew": []
+      },
+      "gunner": {
+        "enabled": true,
+        "crew": []
+      }
+    },
+    "rules": {
+      "attack": {
+        "damage": {
+          "hpDamageMultiplier": 1,
+          "hpDamageTakenMultiplier": 1
+        }
+      },
+      "damageReduction": {
+        "magical": false,
+        "physical": false,
+        "disabledArmor": false,
+        "maxArmorMarked": {
+          "value": 1
+        },
+        "increasePerArmorMark": 1,
+        "thresholdImmunities": {
+          "minor": false
+        }
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Patrol",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "depth": 1,
+    "texture": {
+      "src": "modules/daggerheart-scifi-content/artwork/starships/patrol.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "wall-height": {
+        "tokenHeight": 0
+      },
+      "token-hud-wildcard": {
+        "default": ""
+      }
+    },
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Lock On",
+      "type": "feature",
+      "_id": "UXuee21aR3ZC59Wi",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Requires Systems Operator position.</p><p>Make a <strong>Finesse Action Roll</strong> against a target’s difficulty to use the vehicle’s systems to apply the <em>Lock On</em> condition.</p><p>Whenever a character makes an <strong>Action Roll</strong> against a target that has <em>Lock On</em>, they may burn the Lock On to gain a <strong>d6</strong> to their attack <strong>and</strong> damage roll. This removes the <em>Lock On</em> from the target.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {
+          "SYGW8ehEuAQRIIEX": {
+            "type": "attack",
+            "damage": {
+              "main": null,
+              "resources": {}
+            },
+            "_id": "SYGW8ehEuAQRIIEX",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [
+              {
+                "_id": "gr3ZTmU1e0hTL3mb",
+                "onSave": false
+              }
+            ],
+            "roll": {
+              "type": "attack",
+              "trait": "finesse",
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            },
+            "name": "Lock On!",
+            "range": ""
+          }
+        },
+        "featureForm": "action",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [
+        {
+          "name": "Lock On",
+          "disabled": false,
+          "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
+          "description": "",
+          "transfer": false,
+          "statuses": [],
+          "system": {
+            "changes": [],
+            "duration": {
+              "description": "",
+              "type": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "gr3ZTmU1e0hTL3mb",
+          "type": "base",
+          "start": {
+            "time": 0,
+            "combat": null,
+            "combatant": null,
+            "initiative": null,
+            "round": null,
+            "turn": null
+          },
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.9.2",
+            "createdTime": 1788525320228,
+            "modifiedTime": 1788525320228,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!ilTQepbuIVlXFvh8.UXuee21aR3ZC59Wi.gr3ZTmU1e0hTL3mb"
+        }
+      ],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788525320228,
+        "modifiedTime": 1788525320228,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.UXuee21aR3ZC59Wi",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!ilTQepbuIVlXFvh8.UXuee21aR3ZC59Wi"
+    },
+    {
+      "name": "Repair",
+      "type": "feature",
+      "_id": "w6vE4LM9dae0Q5rg",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-crossed-wrenches.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Requires Mechanic position.</p><p>While under pressure or danger, make a <strong>Knowledge</strong> or <strong>Finesse Action Roll (14)</strong>. On a success, <strong>spend 2 Vehicule Hope</strong> to clear <strong>1 HP</strong> , <strong>1 Stress</strong> or restore <strong>1 Shield</strong> to the vehicule.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {
+          "S00a1lvwzzKHYoJl": {
+            "type": "healing",
+            "_id": "S00a1lvwzzKHYoJl",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "consumeOnSuccess": true,
+                "scalable": false,
+                "key": "hope",
+                "value": 2,
+                "itemId": null,
+                "step": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "hitPoints": {
+                  "base": false,
+                  "itemId": null,
+                  "applyTo": "hitPoints",
+                  "resultBased": false,
+                  "fullRestore": false,
+                  "value": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    }
+                  },
+                  "valueAlt": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "trait",
+              "trait": "knowledge",
+              "difficulty": 14,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Repair (HP)",
+            "range": ""
+          },
+          "fqMTzP2JXbdIbQ6r": {
+            "type": "healing",
+            "_id": "fqMTzP2JXbdIbQ6r",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "consumeOnSuccess": true,
+                "scalable": false,
+                "key": "hope",
+                "value": 2,
+                "itemId": null,
+                "step": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "stress": {
+                  "base": false,
+                  "itemId": null,
+                  "applyTo": "stress",
+                  "resultBased": false,
+                  "fullRestore": false,
+                  "value": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    }
+                  },
+                  "valueAlt": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "trait",
+              "trait": "knowledge",
+              "difficulty": 14,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Repair (Stress)",
+            "range": ""
+          },
+          "Gg8LHVNoWPW6IawP": {
+            "type": "healing",
+            "_id": "Gg8LHVNoWPW6IawP",
+            "systemPath": "actions",
+            "baseAction": false,
+            "description": "",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "action",
+            "triggers": [],
+            "areas": [],
+            "cost": [
+              {
+                "consumeOnSuccess": true,
+                "scalable": false,
+                "key": "hope",
+                "value": 2,
+                "itemId": null,
+                "step": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "main": null,
+              "resources": {
+                "armor": {
+                  "base": false,
+                  "itemId": null,
+                  "applyTo": "armor",
+                  "resultBased": false,
+                  "fullRestore": false,
+                  "value": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    }
+                  },
+                  "valueAlt": {
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "trait",
+              "trait": "knowledge",
+              "difficulty": 14,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Repair (Shields)",
+            "range": ""
+          }
+        },
+        "featureForm": "action",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788525323256,
+        "modifiedTime": 1788525323256,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.w6vE4LM9dae0Q5rg",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!ilTQepbuIVlXFvh8.w6vE4LM9dae0Q5rg"
+    },
+    {
+      "name": "Massive",
+      "type": "feature",
+      "_id": "EFSqCFPCcW4bIcdI",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-ancient-armor.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Unless <em>Vulnerable</em>, this vehicle is immune to damage from attacks by creatures or vehicles without the <strong>Massive</strong> feature.</p><ul><li><p>If attacked by another <strong>Massive</strong> vehicle or creature, it suffers damage normally.</p></li><li><p>When this vehicle makes an attack against a target without this feature, that target must <strong>mark an Armor Slot</strong> without receiving its benefits (though they may still use armor to reduce damage).</p></li><li><p>If they cannot mark an Armor Slot, they must instead <strong>mark an additional HP</strong>.</p></li></ul>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "featureForm": "passive",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788525329204,
+        "modifiedTime": 1788525329204,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.EFSqCFPCcW4bIcdI",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!ilTQepbuIVlXFvh8.EFSqCFPCcW4bIcdI"
+    },
+    {
+      "name": "Cargo Hold",
+      "type": "feature",
+      "img": "icons/containers/boxes/crate-tech-silver.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>A spacious bay for hauling large cargo. Can fit a few small vehicles and several cargo crates and/or pallets. A cargo hold full of standard-quality goods is usually worth about 1 stack of Denarii. A hold full of higher-quality goods would be worth 1 case of Denarii or more.</p>",
+        "gmNotes": "",
+        "resource": null,
+        "actions": {},
+        "featureForm": "passive",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788525342961,
+        "modifiedTime": 1788525342961,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "exportSource": null,
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.79Jlwa5EHxKrnWBt",
+        "duplicateSource": null
+      },
+      "_id": "79Jlwa5EHxKrnWBt",
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!ilTQepbuIVlXFvh8.79Jlwa5EHxKrnWBt"
+    },
+    {
+      "name": "Patrol Hull (T1)",
+      "type": "armor",
+      "_id": "CHGTTDfkDOnn947D",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hex-field-dispersed.webp",
+      "system": {
+        "attribution": {},
+        "description": "",
+        "gmNotes": "",
+        "resource": null,
+        "quantity": 1,
+        "actions": {},
+        "tier": 1,
+        "equipped": true,
+        "armor": {
+          "current": 0,
+          "max": 4
+        },
+        "baseThresholds": {
+          "major": 7,
+          "severe": 15
+        },
+        "armorFeatures": [
+          {
+            "value": "heavy",
+            "effectIds": [
+              "Ic30REKNU2ZyWAd7"
+            ],
+            "actionIds": []
+          }
+        ]
+      },
+      "effects": [
+        {
+          "name": "Heavy",
+          "description": "-1 to Evasion",
+          "img": "icons/commodities/metal/ingot-worn-iron.webp",
+          "system": {
+            "changes": [
+              {
+                "key": "system.evasion",
+                "type": "add",
+                "value": -1,
+                "phase": "initial"
+              }
+            ],
+            "duration": {
+              "description": ""
+            },
+            "rangeDependence": null,
+            "stacking": null,
+            "targetDispositions": []
+          },
+          "_id": "Ic30REKNU2ZyWAd7",
+          "type": "base",
+          "disabled": false,
+          "start": null,
+          "duration": {
+            "value": null,
+            "units": "seconds",
+            "expiry": null,
+            "expired": false
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "showIcon": 1,
+          "folder": null,
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "coreVersion": "14.364",
+            "systemId": "daggerheart",
+            "systemVersion": "2.9.2",
+            "createdTime": 1788525480945,
+            "modifiedTime": 1788525480945,
+            "lastModifiedBy": "0qb2POwXFxKbaibe",
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null
+          },
+          "_key": "!actors.items.effects!ilTQepbuIVlXFvh8.CHGTTDfkDOnn947D.Ic30REKNU2ZyWAd7"
+        }
+      ],
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788525480945,
+        "modifiedTime": 1788525482761,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": "Compendium.daggerheart-scifi-content.character-options.Item.CHGTTDfkDOnn947D",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "0qb2POwXFxKbaibe": 3
+      },
+      "folder": null,
+      "sort": 0,
+      "_key": "!actors.items!ilTQepbuIVlXFvh8.CHGTTDfkDOnn947D"
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788525217222,
+    "modifiedTime": 1788531580451,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!ilTQepbuIVlXFvh8"
+}

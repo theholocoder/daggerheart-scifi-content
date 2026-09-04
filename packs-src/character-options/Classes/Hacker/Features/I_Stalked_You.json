@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>On a successful weapon attack on a <em>Breached</em> target, you can <strong>mark a Stress</strong>. to double the amount of Intrusion dice you roll.</p>",
+    "description": "<p>On a successful weapon attack on a <em>Breached</em> target, you can <strong>mark a Stress</strong> to double the amount of Intrusion dice you roll.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1783674780003,
-    "modifiedTime": 1787060829646,
+    "modifiedTime": 1788185127805,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

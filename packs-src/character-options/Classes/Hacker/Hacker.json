@@ -57,14 +57,14 @@
       "suggestedArmor": "Compendium.daggerheart.armors.Item.nibfdNtp2PtxvbVz"
     },
     "backgroundQuestions": [
-      "",
-      "",
-      ""
+      "Who taught you how to break into systems, and what did they teach you that you still carry with you?",
+      "What is the most dangerous thing you’ve ever discovered while inside a system, and why did you keep it secret?",
+      "What piece of information would you kill to keep out of the wrong hands?"
     ],
     "connections": [
-      "",
-      "",
-      ""
+      "What secret have we promised to take to the grave together?",
+      "Why do you trust me with your back when you know I could get into anything?",
+      "What have you asked me never to hack, and why?"
     ],
     "isMulticlass": false
   },
@@ -78,9 +78,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1783381408568,
-    "modifiedTime": 1786834654993,
+    "modifiedTime": 1788185914393,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

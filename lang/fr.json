@@ -79,7 +79,7 @@
       "Shield": "Bouclier",
       "SystemPoints": "Points de système",
       "SystemPointsAvailable": "Points de système disponibles",
-      "WeaponMounts": "Affûts",
+      "WeaponMounts": "Armes",
       "EquippedWeapons": "Armes",
       "NoEquippedWeapons": "Aucune arme équipée.",
       "Features": {
@@ -142,7 +142,7 @@
         "hopeMax": "Espoir max",
         "hitPointsMax": "PV max",
         "stressMax": "Stress max",
-        "maxWeaponMounts": "Affûts d'armes",
+        "maxWeaponMounts": "Emplacements d'armes",
         "systemPoints": "Points de système",
         "evasionBonus": "Bonus d'esquive"
       }

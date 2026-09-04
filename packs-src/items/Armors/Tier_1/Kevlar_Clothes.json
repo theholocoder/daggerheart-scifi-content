@@ -1,0 +1,103 @@
+{
+  "folder": "udlo7UPNT6LDQ4G5",
+  "name": "Kevlar Clothes",
+  "type": "armor",
+  "_id": "iLIfVZJGKzMUVZpq",
+  "img": "icons/equipment/chest/breastplate-layered-grey.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {},
+    "tier": 1,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 3
+    },
+    "baseThresholds": {
+      "major": 5,
+      "severe": 11
+    },
+    "armorFeatures": [
+      {
+        "value": "flexible",
+        "effectIds": [],
+        "actionIds": []
+      }
+    ]
+  },
+  "effects": [
+    {
+      "name": "Flexible",
+      "description": "+1 to Evasion",
+      "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+      "system": {
+        "changes": [
+          {
+            "key": "system.evasion",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "88xzzHtNaB7gYIFQ",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788537367640,
+        "modifiedTime": 1788537367640,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!iLIfVZJGKzMUVZpq.88xzzHtNaB7gYIFQ"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788537252823,
+    "modifiedTime": 1788537451227,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!iLIfVZJGKzMUVZpq"
+}

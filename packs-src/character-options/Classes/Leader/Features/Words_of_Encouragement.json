@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You now have the Words of Encouragement downtime activity. </p><p>During a short rest, describe how you encourage an aaly to keep going, then they can clear a number of Stress equal to 1d4 + your tier.</p>",
+    "description": "<p>You now have the Words of Encouragement downtime activity.</p><p>During a short rest, describe how you encourage an ally to keep going, then they can clear a number of Stress equal to 1d4 + your tier.</p>",
     "gmNotes": "",
     "resource": null,
     "actions": {
@@ -66,9 +66,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1787056794428,
-    "modifiedTime": 1787072089845,
+    "modifiedTime": 1788186345614,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

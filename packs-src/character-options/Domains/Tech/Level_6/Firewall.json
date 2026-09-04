@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Once per rest</strong>, choose an ally within Far range and enhanced their defenses. When you do, place a <strong>d8</strong> on this card with the value 8 facing up. When your ally takes damage, they reduce the damage by the die's value. You then decrease the die's value by one. When the value reaches zero, this effect ends.</p><p>While this is active and when your ally spends an <strong>Armor Slot</strong>, you can <strong>Spend a Stress</strong> to reduce it one step further.</p><p>This effect can be applied to one creature at a time.</p>",
+    "description": "<p><strong>Once per rest</strong>, choose an ally within Far range and enhanced their defenses. When you do, place a <strong>d8</strong> on this card with the value 8 facing up. When your ally takes damage, they reduce the damage by the die's value. You then decrease the die's value by one. When the value reaches zero, this effect ends.</p><p>While this is active and when your ally spends an <strong>Armor Slot</strong>, you can <strong>mark a Stress</strong> to reduce it one step further.</p><p>This effect can be applied to one creature at a time.</p>",
     "resource": {
       "type": "die",
       "value": 0,
@@ -63,9 +63,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1783374619667,
-    "modifiedTime": 1786832407999,
+    "modifiedTime": 1788192553108,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

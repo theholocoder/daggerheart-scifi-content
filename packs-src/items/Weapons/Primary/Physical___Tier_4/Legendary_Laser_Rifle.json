@@ -258,7 +258,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783261445719,
-    "modifiedTime": 1783327606730,
+    "modifiedTime": 1788534832001,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,
@@ -269,6 +269,6 @@
     "0qb2POwXFxKbaibe": 3
   },
   "_id": "bSk3NdRyNARTqdUc",
-  "sort": 0,
+  "sort": 300000,
   "_key": "!items!bSk3NdRyNARTqdUc"
 }

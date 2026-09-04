@@ -1,0 +1,39 @@
+{
+  "folder": "qldZSEXSq5l7lKUo",
+  "name": "Symbiotic Abilities",
+  "type": "feature",
+  "_id": "DOgXNNw03jWIenKz",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/spells/blessing-of-defiance.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Replace this feature with the bottom (second) feature of your host ancestry.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false,
+    "featureForm": "passive"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.8.2",
+    "createdTime": 1783687560751,
+    "modifiedTime": 1788180789757,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!DOgXNNw03jWIenKz"
+}

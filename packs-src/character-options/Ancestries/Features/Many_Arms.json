@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You can comfortably carry and manipulate several objects simultaneously.</p>",
+    "description": "<p>You can comfortably carry and manipulate several objects simultaneously. You can only have one Primary and one Secondary weapon activated at a time, but if you carry more weapons you may switch weapons without marking a Stress.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.8.2",
     "createdTime": 1783688799050,
-    "modifiedTime": 1786883181640,
+    "modifiedTime": 1788181045933,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

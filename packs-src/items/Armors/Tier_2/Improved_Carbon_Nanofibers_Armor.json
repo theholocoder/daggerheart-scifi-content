@@ -1,0 +1,45 @@
+{
+  "folder": "a4nV5RTf7Zi4ctUs",
+  "name": "Improved Carbon Nanofibers Armor",
+  "type": "armor",
+  "img": "icons/equipment/chest/tech-green.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {},
+    "tier": 2,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 4
+    },
+    "baseThresholds": {
+      "major": 9,
+      "severe": 20
+    },
+    "armorFeatures": []
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788537776072,
+    "modifiedTime": 1788537776072,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "BiVGNCsWxyIbQHO1",
+  "sort": 0,
+  "_key": "!items!BiVGNCsWxyIbQHO1"
+}

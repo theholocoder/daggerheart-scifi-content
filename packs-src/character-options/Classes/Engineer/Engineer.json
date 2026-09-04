@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p>Engineers are the masters of technology, ingenuity, and improvisation. Whether maintaining a starship, building advanced machinery, modifying weapons, or jury-rigging a solution with whatever is at hand, they turn problems into possibilities.</p>",
     "gmNotes": "",
     "domains": [
       "bone",
@@ -79,9 +79,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1787052474482,
-    "modifiedTime": 1787072004916,
+    "modifiedTime": 1788182224793,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

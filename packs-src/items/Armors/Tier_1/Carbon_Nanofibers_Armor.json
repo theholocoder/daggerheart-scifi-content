@@ -1,0 +1,45 @@
+{
+  "folder": "udlo7UPNT6LDQ4G5",
+  "name": "Carbon Nanofibers Armor",
+  "type": "armor",
+  "_id": "10e5OEZJ1ZdUWhu5",
+  "img": "icons/equipment/chest/tech-green.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {},
+    "tier": 1,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 3
+    },
+    "baseThresholds": {
+      "major": 6,
+      "severe": 13
+    },
+    "armorFeatures": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788537630128,
+    "modifiedTime": 1788537658690,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!10e5OEZJ1ZdUWhu5"
+}

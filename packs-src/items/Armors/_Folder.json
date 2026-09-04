@@ -1,0 +1,27 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Armors",
+  "color": "#2e3484",
+  "flags": {
+    "daggerheart": {
+      "defaultEntity": ""
+    }
+  },
+  "sorting": "a",
+  "_id": "VZDbHUdzXeIbTSo8",
+  "description": "",
+  "sort": 0,
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788536011279,
+    "modifiedTime": 1788536019539,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!VZDbHUdzXeIbTSo8"
+}

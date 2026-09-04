@@ -13,11 +13,11 @@
     "description": "<p>Synthetic humanoids built with artificial bodies and genuine personalities. Androids are biomechanical constructs who typically resemble humanoids with glowing circuitry.</p>",
     "features": [
       {
-        "type": "secondary",
+        "type": "primary",
         "item": "Compendium.daggerheart-scifi-content.character-options.Item.JC6tCSU6lAwYfjkS"
       },
       {
-        "type": "primary",
+        "type": "secondary",
         "item": "Compendium.daggerheart-scifi-content.character-options.Item.wFZsvEHe66nCllO4"
       }
     ]
@@ -32,9 +32,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1783686537149,
-    "modifiedTime": 1786969919053,
+    "modifiedTime": 1788509825736,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

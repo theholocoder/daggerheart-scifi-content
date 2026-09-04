@@ -12,7 +12,7 @@
     },
     "description": "<p>Play the Lifebinder if you want to support your allies through your attacks, keep your companions in the fight, and transform the Resonance into hope and resilience.</p>",
     "gmNotes": "",
-    "spellcastingTrait": null,
+    "spellcastingTrait": "instinct",
     "features": [
       {
         "type": "foundation",
@@ -41,9 +41,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1786884490485,
-    "modifiedTime": 1787072278722,
+    "modifiedTime": 1788190762046,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -149,7 +149,7 @@
     "quantity": 1
   },
   "effects": [],
-  "sort": 800000,
+  "sort": 600000,
   "ownership": {
     "default": 0,
     "FecEtPuoQh6MpjQ0": 3,
@@ -161,7 +161,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783240308006,
-    "modifiedTime": 1783263291319,
+    "modifiedTime": 1788535745897,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

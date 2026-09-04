@@ -1,0 +1,45 @@
+{
+  "folder": "R4hyNFPAjLhBThve",
+  "name": "Transport Hull (T1)",
+  "type": "armor",
+  "_id": "cawonO66xwGsgqFq",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-hex-field.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {},
+    "tier": 1,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 3
+    },
+    "baseThresholds": {
+      "major": 6,
+      "severe": 13
+    },
+    "armorFeatures": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788524525520,
+    "modifiedTime": 1788524588708,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!cawonO66xwGsgqFq"
+}

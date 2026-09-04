@@ -6,7 +6,7 @@
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-soldier.webp",
   "system": {
     "attribution": {},
-    "description": "<p>You can now use a Tactical Die to <strong>gain a Hope</strong>.</p><p>During a scene, when you <strong>successfully</strong> attack with a weapon whose range differs from the ranges of three weapons you previously <strong>successfully</strong> attacked with, <strong>gain 4 Tactical Dice</strong>. You can use these dice for this attack or save them for later.</p>",
+    "description": "<p>You can now use a Tactical Die to <strong>gain a Hope</strong>.</p><p>As you make attacks, check the range of the weapon in the list below if it is not already checked. When you have checked 4 different ranges, immediately <strong>gain up to 4 Tactical Dice</strong>. If you can't add anymore Tactical Dice, <strong>gain a Hope</strong>.</p><ul><li><p>Melee</p></li><li><p>Very Close</p></li><li><p>Close</p></li><li><p>Far</p></li><li><p>Very Far</p></li></ul>",
     "gmNotes": "",
     "resource": null,
     "actions": {},
@@ -24,9 +24,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1786888591141,
-    "modifiedTime": 1786960145000,
+    "modifiedTime": 1788188638875,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

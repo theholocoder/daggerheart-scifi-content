@@ -6,15 +6,126 @@
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
   "system": {
     "attribution": {},
-    "description": "<p>A character may make a Finesse Action Roll against a target’s difficulty to use the vehicle’s systems to apply the <em>Lock On</em> condition.</p><p>When a character makes an <strong>Action Roll</strong> against a target that has <em>Lock On</em>, they may burn the Lock On to gain an edge, adding a <strong>d6</strong> to their attack and damage roll. This removes the <em>Lock On</em> from the target.</p>",
+    "description": "<p>Requires Systems Operator position.</p><p>Make a <strong>Finesse Action Roll</strong> against a target’s difficulty to use the vehicle’s systems to apply the <em>Lock On</em> condition.</p><p>Whenever a character makes an <strong>Action Roll</strong> against a target that has <em>Lock On</em>, they may burn the Lock On to gain a <strong>d6</strong> to their attack <strong>and</strong> damage roll. This removes the <em>Lock On</em> from the target.</p>",
     "gmNotes": "",
     "resource": null,
-    "actions": {},
+    "actions": {
+      "SYGW8ehEuAQRIIEX": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "SYGW8ehEuAQRIIEX",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [
+          {
+            "_id": "gr3ZTmU1e0hTL3mb",
+            "onSave": false
+          }
+        ],
+        "roll": {
+          "type": "attack",
+          "trait": "finesse",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Lock On!",
+        "range": ""
+      }
+    },
     "originItemType": null,
     "multiclassOrigin": false,
     "featureForm": "action"
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "Lock On",
+      "disabled": false,
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
+      "description": "",
+      "transfer": false,
+      "statuses": [],
+      "system": {
+        "changes": [],
+        "duration": {
+          "description": "",
+          "type": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "gr3ZTmU1e0hTL3mb",
+      "type": "base",
+      "start": {
+        "time": 0,
+        "combat": null,
+        "combatant": null,
+        "initiative": null,
+        "round": null,
+        "turn": null
+      },
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788517520676,
+        "modifiedTime": 1788517582499,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!UXuee21aR3ZC59Wi.gr3ZTmU1e0hTL3mb"
+    }
+  ],
   "sort": 0,
   "ownership": {
     "default": 0,
@@ -24,9 +135,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.9.2",
     "createdTime": 1787773598042,
-    "modifiedTime": 1787777964025,
+    "modifiedTime": 1788517520726,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

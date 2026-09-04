@@ -57,14 +57,14 @@
       "suggestedArmor": "Compendium.daggerheart.armors.Item.yJFp1bfpecDcStVK"
     },
     "backgroundQuestions": [
-      "",
-      "",
-      ""
+      "When did you first feel the Resonance, and what did it show you?",
+      "Who taught you to control the Resonance, and what did they warn you never to do with it?",
+      "What is the strangest thing the Resonance has ever done through you?"
     ],
     "connections": [
-      "",
-      "",
-      ""
+      "What did you first think when you saw me use the Resonance?",
+      "What do you believe my connection to the Resonance says about who I am?",
+      "When have you relied on my powers, and what happened?"
     ],
     "isMulticlass": false
   },
@@ -78,9 +78,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1783678480665,
-    "modifiedTime": 1786883490676,
+    "modifiedTime": 1788191227686,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

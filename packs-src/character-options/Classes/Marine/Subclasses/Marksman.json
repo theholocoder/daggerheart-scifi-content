@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p>Play the Marksman if you want to pin down your ennemies at a distance, forcing them to move or have disadvantages.</p>",
     "gmNotes": "",
     "spellcastingTrait": null,
     "features": [
@@ -41,9 +41,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1786888783525,
-    "modifiedTime": 1787072242789,
+    "modifiedTime": 1788189287393,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -62,14 +62,14 @@
       "suggestedArmor": "Compendium.daggerheart.armors.Item.haULhuEg37zUUvhb"
     },
     "backgroundQuestions": [
-      "",
-      "",
-      ""
+      "Who taught you how to fight, and what did they teach you that no weapon could replace?",
+      "What weapon do you have the strongest connection to, and how did it come into your possession?",
+      "What was the fight that earned you your reputation, and what really happened?"
     ],
     "connections": [
-      "",
-      "",
-      ""
+      "What have you seen me do in a fight that made you want me at your side?",
+      "What weapon would you trust me to use when everything else has failed?",
+      "What fight did we survive together that you still brag about?"
     ],
     "isMulticlass": false
   },
@@ -83,9 +83,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1786887902530,
-    "modifiedTime": 1787072250359,
+    "modifiedTime": 1788189414428,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

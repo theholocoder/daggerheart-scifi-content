@@ -126,7 +126,12 @@
           }
         },
         "includeBase": false,
-        "direct": false
+        "direct": false,
+        "main": {
+          "value": {
+            "bonus": null
+          }
+        }
       },
       "description": "",
       "originItem": {
@@ -224,9 +229,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.9.2",
     "createdTime": 1783334930575,
-    "modifiedTime": 1783670444333,
+    "modifiedTime": 1788533942315,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -177,7 +177,7 @@
       "_key": "!items.effects!p3nz5CaGUoyuGVg0.zQMaG3JcUWJR9k2L"
     }
   ],
-  "sort": 0,
+  "sort": 400000,
   "ownership": {
     "default": 0,
     "FecEtPuoQh6MpjQ0": 3,
@@ -189,7 +189,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.5.0",
     "createdTime": 1783241449653,
-    "modifiedTime": 1783263323451,
+    "modifiedTime": 1788535743528,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

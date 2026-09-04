@@ -1,0 +1,45 @@
+{
+  "folder": "DdR2d2KW0ylZJbeF",
+  "name": "Legendary Carbon Nanofibers Armor",
+  "type": "armor",
+  "img": "icons/equipment/chest/tech-green.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {},
+    "tier": 4,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 6
+    },
+    "baseThresholds": {
+      "major": 13,
+      "severe": 36
+    },
+    "armorFeatures": []
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788537780857,
+    "modifiedTime": 1788537780875,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "EITbJ2eU0r6nel0l",
+  "sort": 200000,
+  "_key": "!items!EITbJ2eU0r6nel0l"
+}

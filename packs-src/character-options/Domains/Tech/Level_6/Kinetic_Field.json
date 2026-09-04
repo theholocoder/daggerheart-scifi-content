@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>When you mark 1 or more Hit Points from a physical attack, you can <strong>mark a Stress</strong> to place on this card a number of d8 equal to the number of Hit Points you marked.</p><p>On your next successful attack, unleash the kinetic energy by rolling each dice on this card and adding them to your damage roll, then clear all dice.</p>",
+    "description": "<p>When you mark 1 or more Hit Points from a physical attack, you can <strong>mark a Stress</strong> to place a d8 on this card.</p><p>On your next successful attack, unleash the kinetic energy by rolling each dice on this card and adding them to your damage roll, then clear all dice.</p>",
     "resource": {
       "type": "simple",
       "value": null,
@@ -34,9 +34,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.8.2",
     "createdTime": 1783375655300,
-    "modifiedTime": 1783377457501,
+    "modifiedTime": 1788015922023,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

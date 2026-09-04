@@ -1,0 +1,105 @@
+{
+  "folder": "R4hyNFPAjLhBThve",
+  "name": "Patrol Hull (T1)",
+  "type": "armor",
+  "_id": "CHGTTDfkDOnn947D",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-hex-field-dispersed.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {},
+    "tier": 1,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 4
+    },
+    "baseThresholds": {
+      "major": 7,
+      "severe": 15
+    },
+    "armorFeatures": [
+      {
+        "value": "heavy",
+        "effectIds": [
+          "Ic30REKNU2ZyWAd7"
+        ],
+        "actionIds": []
+      }
+    ]
+  },
+  "effects": [
+    {
+      "name": "Heavy",
+      "description": "-1 to Evasion",
+      "img": "icons/commodities/metal/ingot-worn-iron.webp",
+      "system": {
+        "changes": [
+          {
+            "key": "system.evasion",
+            "type": "add",
+            "value": -1,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "Ic30REKNU2ZyWAd7",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788525389987,
+        "modifiedTime": 1788525389987,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!CHGTTDfkDOnn947D.Ic30REKNU2ZyWAd7"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788525362842,
+    "modifiedTime": 1788525424299,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!CHGTTDfkDOnn947D"
+}

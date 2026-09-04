@@ -6,7 +6,7 @@
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-criss.webp",
   "system": {
     "attribution": {},
-    "description": "<p><strong data-start=\"891\" data-end=\"959\">Spend 3 Hope</strong> after you succeed on a weapon attack to choose one<strong data-start=\"891\" data-end=\"959\">:</strong></p><ul data-start=\"961\" data-end=\"1205\"><li data-section-id=\"1homcsr\" data-start=\"961\" data-end=\"1058\"><p><strong data-start=\"963\" data-end=\"984\">Press the Attack:</strong> Add a number of damage dice equal to your Proficiency to the damage roll.</p></li><li data-section-id=\"4sb5n1\" data-start=\"1059\" data-end=\"1105\"><p><strong data-start=\"1061\" data-end=\"1074\">Suppress:</strong> The target must mark 2 Stress.</p></li><li data-section-id=\"1le50dy\" data-start=\"1106\" data-end=\"1205\"><p><strong data-start=\"1108\" data-end=\"1128\">Break Formation:</strong> Move the target to another point within Close range of its current position.</p></li></ul>",
+    "description": "<p><strong data-start=\"891\" data-end=\"959\">Spend 3 Hope</strong> after you succeed on a weapon attack to choose one<strong data-start=\"891\" data-end=\"959\">:</strong></p><ul data-start=\"961\" data-end=\"1205\"><li data-section-id=\"1homcsr\" data-start=\"961\" data-end=\"1058\"><p><strong data-start=\"963\" data-end=\"984\">Press the Attack:</strong> Add a number of damage dice equal to your Proficiency to the damage roll.</p></li><li data-section-id=\"4sb5n1\" data-start=\"1059\" data-end=\"1105\"><p><strong data-start=\"1061\" data-end=\"1074\">Suppress:</strong> The target must mark 2 Stress.</p></li><li data-section-id=\"1le50dy\" data-start=\"1106\" data-end=\"1205\"><p><strong data-start=\"1108\" data-end=\"1128\">Break Formation:</strong> The target must move to another point within Close range of its current position.</p></li></ul>",
     "gmNotes": "",
     "resource": null,
     "actions": {},
@@ -24,9 +24,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1786888106371,
-    "modifiedTime": 1786888167821,
+    "modifiedTime": 1788187451751,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

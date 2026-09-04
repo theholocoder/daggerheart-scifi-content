@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p>Play the modder if you want to invent and build devices on the fly or access skills and domain cards you shouldn't have access to.</p>",
     "gmNotes": "",
     "spellcastingTrait": "knowledge",
     "features": [
@@ -45,9 +45,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.8.2",
     "createdTime": 1787054482133,
-    "modifiedTime": 1787065696960,
+    "modifiedTime": 1788182933657,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

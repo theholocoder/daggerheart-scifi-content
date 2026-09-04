@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Upon the Host death or after a day long ritual, you may permanently change your Host ancestry by attempting an Instinct or Finesse <strong>Reaction Roll (15)</strong>. This can be considered a Death Move if the circomstances allow it (check with your GM). Replace this feature with the second inherited ancestry feature of your new host.</p>",
+    "description": "<p>When you have to make a Death Move or after a day long ritual, you may leave your current host and enter a new one with a <strong>Fate Roll (5)</strong>, if the circomstances allow it (check with your GM). Take the bottom (second) feature of your new host ancestry.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.8.2",
     "createdTime": 1783687638581,
-    "modifiedTime": 1783692222716,
+    "modifiedTime": 1788180762678,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,

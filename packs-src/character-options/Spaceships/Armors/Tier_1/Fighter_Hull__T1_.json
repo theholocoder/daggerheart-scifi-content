@@ -1,0 +1,156 @@
+{
+  "folder": "R4hyNFPAjLhBThve",
+  "name": "Fighter Hull (T1)",
+  "type": "armor",
+  "_id": "ew1ZB7pBOeqCtWlh",
+  "img": "icons/magic/defensive/shield-hex-blue.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "gmNotes": "",
+    "resource": null,
+    "quantity": 1,
+    "actions": {
+      "8jT3eFOb9XijE6jY": {
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "type": "attack",
+        "chatDisplay": true,
+        "name": "Resilient",
+        "description": "Before you mark your last Armor Slot, roll a d6. On a result of 6, reduce the severity by one threshold without marking an Armor Slot.",
+        "img": "icons/magic/life/heart-cross-purple-orange.webp",
+        "roll": {
+          "type": "diceSet",
+          "diceRolling": {
+            "compare": "equal",
+            "dice": "d6",
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "treshold": 6
+          },
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "useDefault": false
+        },
+        "_id": "8jT3eFOb9XijE6jY",
+        "effects": [],
+        "systemPath": "actions",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "tier": 1,
+    "equipped": false,
+    "armor": {
+      "current": 0,
+      "max": 3
+    },
+    "baseThresholds": {
+      "major": 5,
+      "severe": 11
+    },
+    "armorFeatures": [
+      {
+        "value": "flexible",
+        "effectIds": [],
+        "actionIds": []
+      }
+    ]
+  },
+  "effects": [
+    {
+      "name": "Flexible",
+      "description": "+1 to Evasion",
+      "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+      "system": {
+        "changes": [
+          {
+            "key": "system.evasion",
+            "type": "add",
+            "value": 1,
+            "phase": "initial"
+          }
+        ],
+        "duration": {
+          "description": ""
+        },
+        "rangeDependence": null,
+        "stacking": null,
+        "targetDispositions": []
+      },
+      "_id": "mNSKoag07eMKrYon",
+      "type": "base",
+      "disabled": false,
+      "start": null,
+      "duration": {
+        "value": null,
+        "units": "seconds",
+        "expiry": null,
+        "expired": false
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "showIcon": 1,
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.364",
+        "systemId": "daggerheart",
+        "systemVersion": "2.9.2",
+        "createdTime": 1788518086352,
+        "modifiedTime": 1788518086352,
+        "lastModifiedBy": "0qb2POwXFxKbaibe",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!items.effects!ew1ZB7pBOeqCtWlh.mNSKoag07eMKrYon"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1788517976881,
+    "modifiedTime": 1788518089185,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ew1ZB7pBOeqCtWlh"
+}

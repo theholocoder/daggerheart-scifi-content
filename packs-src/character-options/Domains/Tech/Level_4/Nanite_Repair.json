@@ -9,7 +9,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p><strong>Once per long rest</strong>, you can diffuse nanites in the blood system of your allies and you, as well as in the circuits of constructs within Close range, allowing all of the targets to clear a Hit Point.</p>",
+    "description": "<p><strong>Once per long rest</strong>, you can diffuse nanites in the blood system of your allies and you, as well as in the circuits of constructs within Close range. They all may <strong>clear a Hit Point</strong>.</p>",
     "resource": null,
     "actions": {
       "W6dAxRWFZarvspGg": {
@@ -208,9 +208,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1783369749038,
-    "modifiedTime": 1786829296629,
+    "modifiedTime": 1788192268059,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

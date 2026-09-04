@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>Whenever you damage an adversary using a <strong>Resonance Die</strong>, mark a Stress to double the <strong>Resonance Die</strong> damage and make the target temporarily <em>Vulnerable</em>.</p>",
+    "description": "<p>Whenever you damage an adversary using a <strong>Resonance Die</strong>, <strong>mark a Stress</strong> to double the <strong>Resonance Die</strong> damage and make the target temporarily <em>Vulnerable</em>.</p>",
     "resource": null,
     "actions": {},
     "originItemType": null,
@@ -27,9 +27,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.3",
+    "systemVersion": "2.8.2",
     "createdTime": 1783685039447,
-    "modifiedTime": 1786848756333,
+    "modifiedTime": 1788190881034,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
