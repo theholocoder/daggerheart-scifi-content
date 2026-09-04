@@ -2,7 +2,7 @@
   "folder": "iSQtZICf7fVFJ7IS",
   "name": "Improved Projected Shield",
   "type": "weapon",
-  "img": "modules/daggerheart-scifi-content/icons/equipment/shield/projected-shield.webp",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment-projected-shield.webp",
   "system": {
     "attribution": {},
     "description": "",
@@ -179,7 +179,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.9.2",
     "createdTime": 1788535589035,
-    "modifiedTime": 1788535745897,
+    "modifiedTime": 1788559669552,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

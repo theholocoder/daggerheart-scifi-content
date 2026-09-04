@@ -2,7 +2,7 @@
   "folder": "iSQtZICf7fVFJ7IS",
   "name": "Improved Planetary Riot Shield",
   "type": "weapon",
-  "img": "modules/daggerheart-scifi-content/icons/equipment/shield/planetary-riot-shield.webp",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/equipment-planetary-riot-shield.webp",
   "system": {
     "attribution": {},
     "description": "",
@@ -12,7 +12,7 @@
     "actions": {},
     "tier": 2,
     "equipped": false,
-    "secondary": false,
+    "secondary": true,
     "burden": "oneHanded",
     "weaponFeatures": [
       {
@@ -185,7 +185,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.9.2",
     "createdTime": 1788535745874,
-    "modifiedTime": 1788535745897,
+    "modifiedTime": 1788559714637,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,
