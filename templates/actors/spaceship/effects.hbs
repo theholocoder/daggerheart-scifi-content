@@ -1,0 +1,40 @@
+{{!--
+    Effects tab (#9): the ship's ActiveEffects, split into an active and an inactive list.
+
+    Structurally identical to daggerheart's own
+    `templates/sheets/actors/character/effects.hbs` - the same `.effects-sections` wrapper around
+    two `inventory-items` fieldsets, the same "Active Effects"/"Inactive Effects" split, the same
+    `isGlassy`/`canCreate` treatment, and the same `disabled=true` marker on the second one so its
+    "+" creates an already-disabled effect. Only the partial names differ (module-owned copies, per
+    docs/adr/0002-spaceship-sheet-independent-application.md) and `canCreate` is spelled
+    `@root.editable` inside our fieldset partial rather than passed in, since every list on this
+    sheet gates creation on the same flag.
+
+    `isEffect=true` is what tells the shared row partial to render an ActiveEffect row - the
+    enable/disable toggle instead of an equip toggle, and `data-type="effect"` for the context menu -
+    mirroring the `type='effect'` branches in daggerheart's own `inventory-item-V2.hbs`. Everything
+    else on the row is unchanged, because `DhActiveEffect` supplies the same `_getTags`/
+    `hasDescription`/`toChat` an Item does.
+
+    The `effects.actives`/`effects.inactives` context is built in
+    `SpaceshipActorSheet#buildEffectsContext`, off the same `allApplicableEffects` source and the
+    same `effect.active` split as daggerheart's `_prepareEffectsContext`.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}} spaceship-effects" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="effects-sections">
+        {{> "dhscifi.inventory-items"
+            title="DHSCIFI.Rows.ActiveEffects"
+            isGlassy=true
+            isEffect=true
+            collection=effects.actives
+        }}
+
+        {{> "dhscifi.inventory-items"
+            title="DHSCIFI.Rows.InactiveEffects"
+            isGlassy=true
+            isEffect=true
+            createDisabled=true
+            collection=effects.inactives
+        }}
+    </div>
+</section>

@@ -1,0 +1,22 @@
+{{!--
+    System item header. Same markup and the same classes as daggerheart's own
+    templates/sheets/items/loot/header.hbs (`item-sheet-header`/`profile`/`item-info`/`item-name`/
+    `item-description`), which its stylesheet themes unscoped under `.application.daggerheart.
+    dh-style` - so it renders identically here for free, per docs/adr/0002's CSS-by-value addendum.
+
+    The one addition is `data-action="editImage"`'s companion `data-edit="img"`, which daggerheart's
+    own header also carries; the handler behind it is this module's (`SystemItemSheet#onEditImage`),
+    not the system's sheet JS.
+--}}
+<header class="item-sheet-header">
+    <img class="profile" src="{{source.img}}" data-action="editImage" data-edit="img" alt="{{source.name}}" />
+    <div class="item-info">
+        <line-div></line-div>
+        <h1 class="item-name">
+            <input type="text" name="name" value="{{source.name}}" {{#unless editable}}disabled{{/unless}} />
+        </h1>
+        <div class="item-description">
+            <h3>{{localize "TYPES.Item.daggerheart-scifi-content.system"}}</h3>
+        </div>
+    </div>
+</header>

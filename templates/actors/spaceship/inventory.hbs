@@ -1,0 +1,60 @@
+{{!--
+    Inventory tab (#6): weapons/armor/consumables/loot reusing daggerheart's existing item types,
+    plus this module's own `system` sub-type (#15). The row/fieldset markup lives in
+    `templates/partials/inventory-item.hbs` and `inventory-fieldset-items.hbs` (see those files for
+    the copied-by-value class names and behavior notes) - the same partial split daggerheart itself
+    uses, and shared with the Features tab (#7), the Effects tab (#9) and the System item sheet
+    exactly as the character sheet shares its own between its tabs.
+
+    No currency/gold section: a ship's only currency-like resource is System Points (#11), which
+    live on the header rather than here (CONTEXT.md's "System Points" entry). What the ship *spends*
+    them on is the Systems list - `daggerheart-scifi-content.system` items (#15), this module's own
+    Item sub-type rather than one of daggerheart's.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}} spaceship-inventory" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="items-section">
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.weapon"
+            createType="weapon"
+            isGlassy=true
+            collection=inventory.weapons
+            equipIcon="fa-hands"
+            mounts=inventory.mounts
+        }}
+
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.armor"
+            createType="armor"
+            isGlassy=true
+            collection=inventory.armor
+            equipIcon="fa-fw fa-shield"
+        }}
+
+        {{! Systems sit between armor and the two quantity-tracked lists: they are ship *fittings*,
+            closer to armor than to cargo, and a GM reads them alongside the equipped gear rather
+            than at the bottom of the tab. daggerheart's own four keep their relative order. }}
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.daggerheart-scifi-content.system"
+            createType="daggerheart-scifi-content.system"
+            isGlassy=true
+            collection=inventory.systems
+            quantifiable=true
+        }}
+
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.consumable"
+            createType="consumable"
+            isGlassy=true
+            collection=inventory.consumables
+            quantifiable=true
+        }}
+
+        {{> "dhscifi.inventory-items"
+            title="TYPES.Item.loot"
+            createType="loot"
+            isGlassy=true
+            collection=inventory.loot
+            quantifiable=true
+        }}
+    </div>
+</section>

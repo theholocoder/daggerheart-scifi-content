@@ -56,6 +56,7 @@ ensureDir(path.join(root, "dist"));
 ensureRealDir(path.join(root, "dist", "packs"));
 // artwork can be symlinked locally; CI should materialize before zipping.
 ensureSymlink(path.join(root, "dist", "artwork"), path.join(root, "artwork"));
+ensureSymlink(path.join(root, "dist", "templates"), path.join(root, "templates"));
 ensureSymlink(
   path.join(root, "dist", "date-stellaire.json"),
   path.join(root, "date-stellaire.json"),
@@ -78,6 +79,7 @@ const publicModuleDir = path.join(root, "public", "modules", MODULE_ID);
 ensureDir(publicModuleDir);
 ensureSymlink(path.join(publicModuleDir, "packs"), "../../../dist/packs");
 ensureSymlink(path.join(publicModuleDir, "artwork"), "../../../artwork");
+ensureSymlink(path.join(publicModuleDir, "templates"), "../../../templates");
 
 // Copy language files to dist/ so Foundry can find them.
 const srcLangDir = path.join(root, "lang");

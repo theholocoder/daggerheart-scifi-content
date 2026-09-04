@@ -1,0 +1,198 @@
+<aside class="spaceship-sidebar">
+    <div class="portrait">
+        <img src="{{document.img}}" alt="{{document.name}}" data-action="editImage" data-edit="img">
+    </div>
+
+    <div class="info-section {{#if useResourcePips}}pip-display{{/if}}">
+        <div class="resources-section">
+            {{! HP/Stress (#10 addendum): "Pip display for Resources" world setting. Pip branch
+                unchanged from before; the number-bar branch is the official character sheet's
+                `resource-bar.hbs` else-branch by value, minus the `<progress>` bar's own color
+                class (that partial hard-codes none for these two, only Shield's stress-color one
+                below carries one) - `name` binds straight to the persisted resource field, so the
+                sheet's own `submitOnChange` form handles the write with no listener needed. }}
+            {{#if useResourcePips}}
+            <div class="slot-value">
+                <div class="slot-bar">
+                    {{#each (dhscifiResourceBoxes document.system.resources.hitPoints.value document.system.resources.hitPoints.max) as |box|}}
+                        <span
+                            class="slot {{#if box.filled}}filled{{/if}}"
+                            data-action="toggleHitPoints"
+                            data-resource="hitPoints"
+                            data-value="{{box.index}}"
+                        ></span>
+                    {{/each}}
+                </div>
+                <div class="slot-label">
+                    <span class="label">{{localize "DHSCIFI.Spaceship.HitPoints"}}</span>
+                    <span class="value">{{document.system.resources.hitPoints.value}} / {{document.system.resources.hitPoints.max}}</span>
+                </div>
+            </div>
+
+            <div class="slot-value">
+                <div class="slot-bar">
+                    {{#each (dhscifiResourceBoxes document.system.resources.stress.value document.system.resources.stress.max) as |box|}}
+                        <span
+                            class="slot {{#if box.filled}}filled{{/if}}"
+                            data-action="toggleStress"
+                            data-resource="stress"
+                            data-value="{{box.index}}"
+                        ></span>
+                    {{/each}}
+                </div>
+                <div class="slot-label">
+                    <span class="label">{{localize "DHSCIFI.Spaceship.Stress"}}</span>
+                    <span class="value">{{document.system.resources.stress.value}} / {{document.system.resources.stress.max}}</span>
+                </div>
+            </div>
+            {{else}}
+            <div class="status-bar">
+                <div class="status-value">
+                    <progress class="progress-bar" max="{{document.system.resources.hitPoints.max}}" value="{{document.system.resources.hitPoints.value}}"></progress>
+                    <input class="bar-input" name="system.resources.hitPoints.value" min="0" max="{{document.system.resources.hitPoints.max}}" value="{{document.system.resources.hitPoints.value}}" type="number">
+                    <span>/</span>
+                    <span class="bar-label">{{document.system.resources.hitPoints.max}}</span>
+                </div>
+                <div class="status-label pointy">
+                    <h4>{{localize "DHSCIFI.Spaceship.HitPoints"}}</h4>
+                </div>
+            </div>
+
+            <div class="status-bar">
+                <div class="status-value">
+                    <progress class="progress-bar" max="{{document.system.resources.stress.max}}" value="{{document.system.resources.stress.value}}"></progress>
+                    <input class="bar-input" name="system.resources.stress.value" min="0" max="{{document.system.resources.stress.max}}" value="{{document.system.resources.stress.value}}" type="number">
+                    <span>/</span>
+                    <span class="bar-label">{{document.system.resources.stress.max}}</span>
+                </div>
+                <div class="status-label pointy">
+                    <h4>{{localize "DHSCIFI.Spaceship.Stress"}}</h4>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="status-section {{#if useResourcePips}}pip-display{{/if}}">
+            <div class="status-number evasion-stat">
+                <div class="status-value">
+                    <p>{{document.system.evasion}}</p>
+                </div>
+                <div class="status-label">
+                    <h4>{{localize "DHSCIFI.Spaceship.Evasion"}}</h4>
+                </div>
+            </div>
+            {{! Shield (#10): the equipped armor item's score, marked off slot by slot. Same two
+                branches, classes, and icons as the official character sheet's armor slots, now
+                including its `useResourcePips` split - the number-bar branch's input has no
+                `name` (`armorScore` is derived, nothing to bind straight to) and instead goes
+                through `#bindShieldInput`/`markShield`, same as core's `.armor-marks-input`/
+                `updateArmorMarks` pairing. }}
+            {{#if document.system.armorScore.max}}
+                <div class="status-bar armor-slots shield-stat">
+                    {{#if useResourcePips}}
+                    <div class="slot-value">
+                        <div class="slot-bar armor">
+                            {{#each (dhscifiResourceBoxes document.system.armorScore.value document.system.armorScore.max) as |box|}}
+                                <a class="slot" data-action="toggleShield" data-value="{{box.index}}">
+                                    {{#if box.filled}}
+                                        <i class="fa-solid fa-shield"></i>
+                                    {{else}}
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    {{/if}}
+                                </a>
+                            {{/each}}
+                        </div>
+                        <div class="slot-label">
+                            <span class="label">{{localize "DHSCIFI.Spaceship.Shield"}}</span>
+                            <div class="slot-value-container">
+                                <span class="value">{{document.system.armorScore.value}} / {{document.system.armorScore.max}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="status-value">
+                        <progress class="progress-bar stress-color" value="{{document.system.armorScore.value}}" max="{{document.system.armorScore.max}}"></progress>
+                        <input class="bar-input shield-marks-input" value="{{document.system.armorScore.value}}" type="number" id="{{document.uuid}}-shield-slots">
+                        <span>/</span>
+                        <span class="bar-label">{{document.system.armorScore.max}}</span>
+                    </div>
+                    <div class="status-label">
+                        <h4>{{localize "DHSCIFI.Spaceship.Shield"}}</h4>
+                    </div>
+                    {{/if}}
+                </div>
+            {{else}}
+                <div class="status-number armor-slots shield-stat">
+                    <div class="status-value">
+                        <p>-</p>
+                    </div>
+                    <div class="status-label">
+                        <h4>{{localize "DHSCIFI.Spaceship.Shield"}}</h4>
+                    </div>
+                </div>
+            {{/if}}
+            <div class="status-number proficiency-stat">
+                <div class="status-value">
+                    <p>{{document.system.proficiency}}</p>
+                </div>
+                <div class="status-label">
+                    <h4>{{localize "DHSCIFI.Spaceship.Proficiency"}}</h4>
+                </div>
+            </div>
+        </div>
+
+        {{! Damage thresholds (#10). Same label/value interleaving as the official sheet: each
+            value is the *boundary* between the band named to its left and the one to its right. }}
+        <div class="threshold-section">
+            <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.minor"}}</h4>
+            <h4 class="threshold-value">{{document.system.damageThresholds.major}}</h4>
+            <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.major"}}</h4>
+            <h4 class="threshold-value">{{document.system.damageThresholds.severe}}</h4>
+            <h4 class="threshold-label">{{localize "DHSCIFI.Spaceship.Thresholds.severe"}}</h4>
+        </div>
+
+        {{! Crew/passenger capacity (#16): informational only (user story 22, #3) - GM-entered
+            maximums with no live count to compare against, so each is a single-value stat, same
+            `status-number` markup the Evasion/Proficiency stats above use. }}
+        <div class="status-section">
+            <div class="status-number crew-stat">
+                <div class="status-value">
+                    <p>{{document.system.maxCrew}}</p>
+                </div>
+                <div class="status-label">
+                    <h4>{{localize "DHSCIFI.Spaceship.Crew"}}</h4>
+                </div>
+            </div>
+            <div class="status-number passengers-stat">
+                <div class="status-value">
+                    <p>{{document.system.maxPassengers}}</p>
+                </div>
+                <div class="status-label">
+                    <h4>{{localize "DHSCIFI.Spaceship.Passengers"}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{! Equipped-weapons list (#17), below the thresholds section: every currently-equipped
+        `weapon` item, mirroring the fields (name/icon/damage) daggerheart's own character sidebar
+        shows for its equipped items - see `templates/partials/equipped-weapon.hbs`. Same
+        `equippedWeapons` derivation the header's mount chip counts (`#buildEquippedWeapons`),
+        so the two can never disagree about which weapons are equipped. }}
+    <div class="equipped-weapons-section">
+        <div class="title">
+            <side-line-div class="invert"></side-line-div>
+            <h3>{{localize "DHSCIFI.Spaceship.EquippedWeapons"}}</h3>
+            <side-line-div></side-line-div>
+        </div>
+        {{#if equippedWeapons.length}}
+            <ul class="items-sidebar-list">
+                {{#each equippedWeapons as |weapon|}}
+                    {{> "dhscifi.equipped-weapon" weapon=weapon}}
+                {{/each}}
+            </ul>
+        {{else}}
+            <p class="no-equipped-weapons">{{localize "DHSCIFI.Spaceship.NoEquippedWeapons"}}</p>
+        {{/if}}
+    </div>
+</aside>

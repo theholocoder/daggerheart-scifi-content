@@ -1,0 +1,137 @@
+<header class="character-header-sheet spaceship-header-sheet">
+    <line-div></line-div>
+    <div class="name-row">
+        <input
+            type="text"
+            name="name"
+            class="actor-name"
+            value="{{document.name}}"
+            placeholder="{{localize 'DHSCIFI.Spaceship.NamePlaceholder'}}"
+            autocomplete="off"
+            {{#unless editable}}disabled{{/unless}}
+        >
+        {{! Level + level-up controls (#12), same markup and same `.level-div`/`.level-button glow`
+            classes as the official character header. The input carries no `name`: it is bound to
+            `SpaceshipData#updateLevel` in `#bindLevelInput`, so raising it arms the level-up
+            wizard (rather than moving the level with no record) and lowering it de-levels. }}
+        <div class="level-div">
+            <h3 class="label">
+                {{#if editable}}
+                    {{#if document.system.canLevelUp}}
+                        <button
+                            type="button"
+                            class="level-button glow"
+                            data-action="levelUp"
+                            data-tooltip="{{localize 'DHSCIFI.Spaceship.Levelup.levelUp'}}"
+                        >
+                            <i class="fa-solid fa-angles-up"></i>
+                        </button>
+                    {{/if}}
+                {{/if}}
+                {{localize "DHSCIFI.Spaceship.Level"}}
+                <input
+                    type="text"
+                    data-dtype="Number"
+                    class="level-value"
+                    value="{{document.system.levelData.changed}}"
+                    {{#unless editable}}disabled{{/unless}}
+                >
+                {{#if hasLevelups}}
+                    <button
+                        type="button"
+                        class="level-button"
+                        data-action="viewLevelups"
+                        data-tooltip="{{localize 'DHSCIFI.Spaceship.Levelup.viewLevelups'}}"
+                    >
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </button>
+                {{/if}}
+            </h3>
+        </div>
+    </div>
+
+    <div class="character-row">
+        <div class="resource-section">
+            <div class="hope-section">
+                <h4>{{localize "DHSCIFI.Spaceship.Hope"}}</h4>
+                {{#each (dhscifiResourceBoxes document.system.resources.hope.value document.system.resources.hope.max) as |box|}}
+                    <span
+                        class="hope-value"
+                        data-action="toggleHope"
+                        data-resource="hope"
+                        data-value="{{box.index}}"
+                    >
+                        {{#if box.filled}}
+                            <i class="fa-solid fa-diamond"></i>
+                        {{else}}
+                            <i class="fa-regular fa-circle"></i>
+                        {{/if}}
+                    </span>
+                {{/each}}
+            </div>
+
+            {{! System Points (#11): the spendable balance only (base - spent). Points are a
+                currency for buying System items, so the one number worth surfacing is what is
+                left to spend - the base total and the spent count are GM bookkeeping and stay on
+                the wrench dialog. Read straight off the model (`systemPointsAvailable` is a getter
+                on `SpaceshipData`), so this part needs no sheet context of its own. }}
+            <div class="hope-section">
+                <h4>{{localize "DHSCIFI.Spaceship.SystemPoints"}}</h4>
+                <span class="chip-value" data-tooltip="{{localize 'DHSCIFI.Spaceship.SystemPointsAvailable'}}">
+                    <i class="fa-solid fa-bolt"></i>
+                    {{document.system.systemPointsAvailable}}
+                </span>
+            </div>
+
+            {{! Weapon-mount capacity (#17): live `equipped / maxWeaponMounts`, off the same
+                `#countEquippedWeapons` the Inventory tab's own mount display and equip cap use -
+                see `spaceship-actor-sheet.ts`'s `#getEquippedWeapons` doc comment. }}
+            <div class="hope-section">
+                <h4>{{localize "DHSCIFI.Spaceship.WeaponMounts"}}</h4>
+                <span class="chip-value"><i class="fa-solid fa-crosshairs"></i> {{mounts.value}} / {{mounts.max}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="character-traits">
+        {{#each document.system.traits as |trait key|}}
+            <div class="trait" data-action="rollAttribute" data-attribute="{{key}}" data-value="{{trait.value}}">
+                <div class="trait-name">
+                    <div
+                        class="tier-mark {{#if trait.tierMarked}}marked{{/if}}"
+                        data-tooltip="{{localize 'DHSCIFI.Spaceship.TierMarked'}}"
+                    ></div>
+                    <span>{{localize (concat "DHSCIFI.Spaceship.Traits." key)}}</span>
+                </div>
+                <div class="trait-value-area">
+                    <svg width="52" height="46" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0,0 H 52 L 51.0714,18.254 48.781,24.0952 47.5745,39.9596 26,46 4.42553,39.9596 3.219,24.0952 0.928571,18.254 Z" fill="var(--color-border)"/>
+                        <path d="M 3.312,5.357 8.58596,0 H 43.414 l 5.274,5.357 -1.8797,28.846 c -0.2431,2.605 -2.1461,4.7522 -4.7031,5.3064 l -14.8343,3.2151 c -0.8375,0.1816 -1.7043,0.1816 -2.5418,0 L 9.89482,39.5094 C 7.33785,38.9552 5.43478,36.808 5.19169,34.203 Z" fill="var(--background)"/>
+                    </svg>
+                    <div class="trait-value">
+                        <span>{{numberFormat trait.value sign=true}}</span>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <section class="tab-navigation">
+        <div class="navigation-container">
+            <div class="navigation-inner-container">
+                <line-div></line-div>
+                <nav class="feature-tab sheet-tabs tabs" data-group="primary">
+                    {{#each tabs as |tab|}}
+                        <a class="{{tab.id}} {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+                            <span>{{localize tab.label}}</span>
+                        </a>
+                    {{/each}}
+                </nav>
+                <line-div></line-div>
+            </div>
+            {{#if editable}}
+                <button type="button" data-action="openSettings" data-tooltip="{{localize 'DHSCIFI.Spaceship.Settings.open'}}"><i class="fa-solid fa-wrench"></i></button>
+            {{/if}}
+        </div>
+    </section>
+</header>

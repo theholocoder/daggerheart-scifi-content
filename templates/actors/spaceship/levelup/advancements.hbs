@@ -1,0 +1,48 @@
+{{!--
+    The point-buy grid (#12): one fieldset per tier, one row per option, checkboxes grouped by
+    cost. Module-owned copy of daggerheart's templates/levelup/tabs/advancements.hbs, with its
+    `tiers-container`/`tier-container`/`checkbox-group-container`/`selection-checkbox` classes
+    intact so the system's `.daggerheart.levelup` rules style it unchanged.
+
+    The `data-*` attributes are what `#onSelectionChange` reads back; the character wizard also
+    carries `data-cost`/`data-amount`/`data-value`/`data-type` here, which this one looks up from
+    the tier table by `data-option` instead.
+--}}
+<section
+    class="tab {{tabs.advancements.cssClass}} {{tabs.advancements.id}}"
+    data-tab="{{tabs.advancements.id}}"
+    data-group="{{tabs.advancements.group}}"
+>
+    <div class="section-container">
+        <div class="tiers-container">
+            {{#each tiers as |tier|}}
+                <fieldset class="tier-container {{#unless tier.active}}inactive{{/unless}}">
+                    <legend>{{tier.name}}</legend>
+
+                    {{#each tier.groups}}
+                        <div class="checkbox-group-container">
+                            <div class="checkboxes-container">
+                                {{#each this.checkboxGroups}}
+                                    <div class="checkbox-grouping-coontainer {{#if this.multi}}multi{{/if}}">
+                                        {{#each this.checkboxes}}
+                                            <input
+                                                type="checkbox"
+                                                class="selection-checkbox{{#if ../multi}} multi{{/if}}"
+                                                {{checked this.selected}}
+                                                {{#if this.disabled}}disabled{{/if}}
+                                                data-tier="{{this.tier}}"
+                                                data-option="{{this.option}}"
+                                                data-checkbox-nr="{{this.checkboxNr}}"
+                                            />
+                                        {{/each}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                            <span class="checkbox-group-label">{{localize this.label}}</span>
+                        </div>
+                    {{/each}}
+                </fieldset>
+            {{/each}}
+        </div>
+    </div>
+</section>

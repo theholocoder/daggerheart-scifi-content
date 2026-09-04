@@ -2,3 +2,767 @@
 body {
   background-color: black;
 }
+
+/*
+ * Visual parity with `daggerheart`'s own character sheet - see
+ * docs/adr/0002-spaceship-sheet-independent-application.md (addendum). Two things are borrowed:
+ *
+ * 1. The `daggerheart`/`dh-style` classes on this sheet's `DEFAULT_OPTIONS` (spaceship-actor-sheet.ts):
+ *    a public, world-global CSS marker the system's own stylesheet themes (gold window border/
+ *    backdrop, `--color-border`/`--color-text-emphatic` tokens) regardless of actor type. No CSS
+ *    of ours is needed for that part.
+ * 2. `.slot-bar`/`.slot`/`.slot-value`/`.slot-label` (Hope/HP/Stress pip bars): `daggerheart.css`
+ *    defines these fully unscoped (no `.character`/`.dh-style` prefix), so they also apply to our
+ *    markup for free - no CSS of ours below styles them either.
+ *
+ * Everything else here is this module's own copy (by value, not by reference) of the relevant
+ * rules from `daggerheart`'s `character-header-sheet`/`character-sidebar-sheet`/`character-traits`/
+ * `status-number` CSS, scoped under our own root class. Like the official character sheet, the
+ * sidebar / header / tab sections are separate PARTs laid out on a `window-content` grid:
+ * sidebar spans both rows of column 1, header sits in row 1 of column 2, the `.tab` sections in
+ * row 2 of column 2 (same grid the official sheet's `.character .window-content` rules define,
+ * same 275px sidebar as official).
+ */
+.daggerheart-scifi-content.spaceship-sheet {
+  * {
+    box-sizing: border-box;
+  }
+
+  // Ambient text color: `--color-text-primary` (core Foundry's own near-white token, the same
+  // one `.application`'s base styling already sets), not `--color-text-emphatic` (gold) - this
+  // used to be set to the emphatic/gold token here, which is not what the official character
+  // sheet does (confirmed by reading the installed system's actual CSS: it never sets an
+  // emphatic ambient anywhere on `.character-header-sheet`/`.character-sidebar-sheet` - every
+  // gold element on it, `.hope-section`/`.threshold-section`/`.trait-name`/..., opts in with its
+  // own explicit `color: var(--color-text-emphatic)` rule instead). That one wrong ambient
+  // token is what made Evasion/Proficiency, trait modifiers, and item-row text all read gold
+  // instead of near-white - fixed at the source now, rather than patched element by element.
+  color: var(--color-text-primary);
+  font-family: var(--dh-font-body, "Montserrat"), sans-serif;
+
+  .window-content {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 275px 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .character-header-sheet {
+    position: relative;
+    grid-row: 1;
+    grid-column: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // Top padding clears the window controls: the system styles `.sheet.dh-style .window-header`
+    // as a transparent absolute overlay, so the close/context buttons float over our content.
+    padding: calc(var(--header-height, 36px) + 4px) 0.75rem 0;
+
+    > *:not(line-div, .tab-navigation) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .tab {
+    grid-row: 2;
+    grid-column: 2;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 10px 0;
+    }
+  }
+
+  // `:not(.inventory-item-quantity)`: that one input is left to daggerheart's own unscoped
+  // `.dh-style input[type='number']` rule (`color`/`border` from its `--dh-input-color-*` tokens,
+  // themed correctly for dark/light) - this rule's `border: 1px solid transparent`/`color: inherit`
+  // otherwise wins on specificity and blanks that styling out. See the Inventory tab addendum
+  // below for the rest of this "don't fight daggerheart's own free CSS" story.
+  input:not(.inventory-item-quantity) {
+    background: transparent;
+    border: 1px solid transparent;
+    color: inherit;
+    font-family: inherit;
+    text-align: center;
+
+    &:hover:not(:disabled),
+    &:focus {
+      border-color: var(--color-border);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0.75;
+    }
+  }
+
+  .spaceship-sidebar {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--color-border);
+
+    .portrait {
+      position: relative;
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 275px;
+        object-fit: cover;
+      }
+    }
+
+    .info-section {
+      position: relative;
+      top: -16px;
+      margin-bottom: -16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    // Official puts HP and Stress side by side (`.character-sidebar-sheet .resources-section`).
+    .resources-section {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+    .status-section {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      // Official's `.status-section.pip-display`: the Shield pip bar is taller than the flat
+      // Evasion/Proficiency tiles, so the row is bottom-aligned rather than stretched.
+      align-items: end;
+
+      // Shield (#10). `daggerheart.css` defines `.status-bar`/`.slot-bar`/`.slot`/`.slot-value`/
+      // `.slot-label` fully unscoped (shield icons, pip borders, the label's gold plate), so those
+      // apply to our markup for free - as the file header already records for the Hope/HP/Stress
+      // bars. What it then scopes under `.character-sidebar-sheet` is the `armor-slots` variant of
+      // those same classes, which is what this block copies by value: not only widths and radii but
+      // the bar's own `background`/`border-bottom` and the label's colors, since the armor bar
+      // deliberately looks unlike a plain pip row. The pip-display variant only - this sheet has no
+      // progress-bar mode. Upstream's `.status-label` hover rules are deliberately *not* copied:
+      // the character's label opens its armor-management dialog, ours is inert text.
+      .status-bar.armor-slots {
+        display: flex;
+        width: 100px;
+        height: auto;
+        white-space: nowrap;
+
+        .slot-value {
+          position: relative;
+          height: auto;
+          width: 80px;
+          font-size: 1.2rem;
+          flex-direction: column;
+          color: light-dark(var(--dark-blue, #18162e), var(--beige, #efe6d8));
+
+          .slot-bar {
+            background: var(--dark-blue, #18162e);
+            justify-content: center;
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+          }
+
+          .slot-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 120%;
+            padding: 0 5px;
+            font-weight: bold;
+            font-size: var(--font-size-12, 0.75rem);
+            border-radius: 5px;
+            color: light-dark(var(--beige, #efe6d8), var(--dark-blue, #18162e));
+            background: light-dark(var(--dark-blue, #18162e), var(--golden, #f3c267));
+
+            .label {
+              padding-right: 1px;
+              border-bottom: 1px solid var(--dark-golden, #2b1d03);
+            }
+
+            .slot-value-container {
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+            }
+
+            .value {
+              padding-left: 6px;
+              border-left: 0;
+            }
+          }
+        }
+      }
+
+      // Unarmored Shield tile ("-"): upstream's own `.status-number.armor-slots { width: 95px }`,
+      // which keeps the tile the width of the pip bar it stands in for.
+      .status-number.armor-slots {
+        width: 95px;
+      }
+
+      .status-number {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .status-value {
+          position: relative;
+          display: flex;
+          width: 50px;
+          height: 30px;
+          border: 1px solid var(--color-border);
+          border-bottom: none;
+          border-radius: 6px 6px 0 0;
+          padding: 0 6px;
+          align-items: center;
+          justify-content: center;
+          background: light-dark(transparent, var(--dark-blue, #18162e));
+
+          // `p` has no color/weight rule of its own in daggerheart.css - it now inherits the
+          // sheet root's `--color-text-primary` ambient for free (font-weight 600 here was our
+          // own addition, not something copied by value; the official tiles aren't bold).
+          p {
+            font-size: 1.2rem;
+            font-weight: normal;
+            text-align: center;
+          }
+        }
+
+        .status-label {
+          padding: 2px 10px;
+          width: 100%;
+          border-radius: 3px;
+          background: light-dark(var(--dark-blue, #18162e), var(--golden, #f3c267));
+
+          h4 {
+            font-weight: bold;
+            text-align: center;
+            line-height: 18px;
+            font-size: var(--font-size-12, 0.75rem);
+            color: light-dark(var(--beige, #efe6d8), var(--dark-blue, #18162e));
+          }
+        }
+      }
+    }
+
+    // Equipped-weapons list (#17). `.items-sidebar-list`/`.equipment-section .title`/`h3` are
+    // copies by value of the official `.character-sidebar-sheet` rules of the same name, scoped
+    // under our own `.equipped-weapons-section` instead - the row markup itself
+    // (`inventory-item.inventory-item-compact`/`img-portait`/`item-name`/`item-labels`) is styled
+    // unscoped by `daggerheart.css` and needs nothing of ours (see `equipped-weapon.hbs`).
+    .equipped-weapons-section {
+      width: 100%;
+      margin-top: 12px;
+      padding: 0 0.75rem;
+
+      .title {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        h3 {
+          font-size: var(--font-size-20, 1.25rem);
+        }
+      }
+
+      .no-equipped-weapons {
+        font-style: italic;
+        opacity: 0.7;
+        text-align: center;
+      }
+    }
+
+    .items-sidebar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 10px;
+
+      .inventory-item {
+        padding-left: 10px;
+      }
+    }
+
+    // Copy of the official `.character-sidebar-sheet .info-section .threshold-section` rules.
+    .threshold-section {
+      position: relative;
+      display: flex;
+      align-self: center;
+      gap: 6px;
+      background-color: light-dark(transparent, var(--dark-blue, #18162e));
+      color: var(--color-text-emphatic);
+      padding: 5px 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      align-items: center;
+      width: fit-content;
+      height: 30px;
+
+      // MINOR/MAJOR/SEVERE labels: explicit golden/yellow rather than relying on the
+      // `--color-text-emphatic` this section (and the sheet root) already set as ambient
+      // `color` - same "inherited yellow" trap as the item-row/status-number fixes above, just
+      // in reverse here: it happened to read close enough to right, but wasn't guaranteed to
+      // survive an unrelated ambient-color change. Bumped a size step too (labels and value
+      // both read as too small against the rest of the sidebar).
+      h4 {
+        font-size: var(--font-size-13, 0.8125rem);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--golden, #f3c267);
+
+        &.threshold-value {
+          color: light-dark(var(--dark, #222222), var(--beige, #efe6d8));
+          font-size: var(--font-size-16, 1rem);
+        }
+      }
+    }
+  }
+
+  .name-row {
+    display: flex;
+    gap: 6px;
+    align-items: start;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    // Copied by value from the official character header's own `.name-row input` rule
+    // (`daggerheart.css`, `.character-header-sheet .name-row [contenteditable], .name-row
+    // input`), read directly off the installed system rather than guessed at: a near-invisible
+    // border (`--soft-shadow`, ~5% black/white) and a matching faint background tint - not a
+    // solid box, not `--color-border` (that's a golden tone in this theme, wrong worn as a
+    // visible border/underline at rest). This stylesheet's own general `input` rule already
+    // handles the hover/focus state correctly (`border-color: var(--color-border)`, this sheet's
+    // rule above) - the earlier two mistakes were both about the *resting* state, not hover.
+    // Gold, matching the official sheet's name field - reached there via a mechanism our markup
+    // doesn't have (the input sits inside an `<h1>`, and `.dh-style h1` sets
+    // `--dh-input-color-text: var(--color-text-emphatic)`, which the shared `.dh-style
+    // input[type='text'] { color: var(--dh-input-color-text) }` rule then picks up). Same visual
+    // result, set directly instead of restructuring the markup to add an `<h1>` wrapper.
+    .actor-name {
+      flex: 1;
+      min-width: 0;
+      font-family: var(--dh-font-title, "Cinzel Decorative"), serif;
+      font-size: var(--font-size-32, 2rem);
+      text-align: start;
+      border: 1px solid var(--soft-shadow, rgba(0, 0, 0, 0.05));
+      background-color: light-dark(var(--dark-15, #22222215), var(--soft-white-shadow, rgba(255, 255, 255, 0.05)));
+      color: var(--color-text-emphatic);
+    }
+
+    .level-div {
+      white-space: nowrap;
+      display: flex;
+      justify-content: end;
+
+      // Gold, same "Level" label + value as the official header - the label text and the
+      // level-value input (which inherits via this stylesheet's own `input { color: inherit }`
+      // rule) both pick it up from here.
+      .label {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        font-family: var(--dh-font-subtitle, "Cinzel"), serif;
+        color: var(--color-text-emphatic);
+      }
+
+      // Same resting-state fix as `.actor-name` above, same source rule, same reasoning.
+      input {
+        width: 40px;
+        padding: 0;
+        text-align: center;
+        font-weight: 600;
+        border: 1px solid var(--soft-shadow, rgba(0, 0, 0, 0.05));
+        background-color: light-dark(var(--dark-15, #22222215), var(--soft-white-shadow, rgba(255, 255, 255, 0.05)));
+      }
+
+      // Level-up / history buttons (#12). Copy by value of the official character header's
+      // `.level-button` rule, which `daggerheart.css` scopes to `.character` and so does not
+      // reach us; the `.glow` pulse on the level-up button is unscoped there and comes for free.
+      .level-button {
+        color: light-dark(var(--dark, #222222), var(--beige, #efe6d8));
+        font-size: var(--font-size-18, 1.125rem);
+        line-height: 1;
+        min-height: unset;
+        height: min-content;
+        padding: 4px;
+        font-family: var(--dh-font-subtitle, "Cinzel"), serif;
+        margin: 0;
+        font-weight: normal;
+        border-color: light-dark(var(--dark-blue, #18162e), var(--golden, #f3c267));
+        background-color: light-dark(transparent, var(--deep-black, #0e0d15));
+
+        &:hover {
+          background-image: none;
+          background-color: var(--color-warm-2);
+          filter: drop-shadow(0 0 3px lightgray);
+        }
+      }
+    }
+  }
+
+  .character-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .resource-section {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    // Also the box for System Points and Weapon Mounts (#11/#17) - `.hope-section` reused as-is,
+    // same as the official sheet's own class. `color` here is the container-level rule the
+    // official CSS itself sets (not just on the `h4` label) - it's what makes the pip/dice icon
+    // and the `.chip-value` counts (System Points/Mounts' `current / max` text) gold too, not
+    // just the label; missed the first time this was fixed, only the label got its own override.
+    .hope-section {
+      position: relative;
+      display: flex;
+      gap: 4px;
+      background-color: light-dark(transparent, var(--dark-blue, #18162e));
+      color: var(--color-text-emphatic);
+      padding: 5px 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      align-items: center;
+      width: fit-content;
+      height: 30px;
+
+      h4 {
+        font-size: var(--font-size-14, 0.875rem);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--color-text-emphatic);
+      }
+
+      .hope-value {
+        display: flex;
+        cursor: pointer;
+      }
+
+      .chip-value {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: var(--font-size-12, 0.75rem);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .character-traits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    // Breathing room before `.tab-navigation` (Features/Inventory/...) below - the traits row
+    // otherwise sat flush against the tab bar.
+    margin-bottom: 14px;
+
+    .trait {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-width: 4.375rem;
+
+      .trait-name {
+        position: relative;
+        background-color: var(--dh-trait-color-bg, #50433f);
+        border: 1px solid var(--dh-trait-color-border, #927952);
+        border-radius: 3px;
+        color: var(--color-text-emphatic);
+        font-size: var(--font-size-12, 0.75rem);
+        font-weight: 600;
+        height: 1rem;
+        line-height: 1rem;
+        white-space: nowrap;
+        width: 100%;
+        padding: 0 0.375rem;
+        margin-right: 0.125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .tier-mark {
+          position: absolute;
+          background-color: var(--dark-blue, #18162e);
+          border: 1px solid var(--color-border);
+          border-radius: 50%;
+          width: 1rem;
+          height: 1rem;
+          right: calc(100% - 0.4375rem);
+
+          &.marked::before {
+            content: " ";
+            position: absolute;
+            inset: 0.25rem;
+            border-radius: 50%;
+            background-color: var(--golden, #f3c267);
+          }
+        }
+      }
+
+      .trait-value-area {
+        --color-border: var(--dh-trait-color-border, #927952);
+        --background: light-dark(#e8e6e3, var(--dark-blue, #18162e));
+
+        display: flex;
+        position: relative;
+
+        // Matches the official CSS exactly: `.trait-value` has no color rule of its own, so it
+        // inherits the sheet root's `--color-text-primary` ambient. `.trait-name` (the "AGILITY"
+        // label) has its own explicit `color: var(--color-text-emphatic)` and stays gold.
+        .trait-value {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          font-size: var(--font-size-20, 1.25rem);
+          margin-bottom: 0.375rem;
+        }
+      }
+
+      &:hover .trait-name {
+        color: light-dark(var(--dark, #222222), var(--beige, #efe6d8));
+      }
+    }
+  }
+
+  // The tab bar itself (`.tab-navigation`, `line-div`, `.feature-tab a`) is styled for free by
+  // the system's unscoped `.daggerheart.dh-style .tab-navigation` rules; only the wrench button
+  // spacing is our own (copy of the official `.character` wrench rule).
+  .tab-navigation button[data-action="openSettings"] {
+    margin-right: 12px;
+    width: auto;
+  }
+
+  /*
+   * Inventory (#6), Features (#7), and Effects (#9) tabs. Item-row markup (`fieldset.glassy`/`legend`,
+   * `items-list`, `inventory-item`/`item-main`/`inventory-item-header`/`img-portait`/`item-label`/
+   * `item-tags`/`item-resource`/`controls`) reuses `daggerheart`'s own classes verbatim
+   * (templates/sheets/global/partials/inventory-item-V2.hbs) - `daggerheart.css` themes all of
+   * those unscoped under `.application.daggerheart.dh-style` (no `.character`/sheet-type prefix
+   * required), so they're styled for free here, same reasoning as this file's top-of-file
+   * addendum comment. The two scroll containers (`.items-section`, `.features-sections`) *are*
+   * `.character`/`.party`-scoped there, so their layout is copied by value below;
+   * `.mounts-count` is our own.
+   *
+   * IMPORTANT: nothing here may set `display` on the tab element itself (the `<section>` carrying
+   * both `.tab` and `.spaceship-inventory`/`.spaceship-features`). Core Foundry hides an inactive
+   * tab with a `display: none` rule on `.tab`, and this file's own `.tab.active` rule above is
+   * what turns the *active* one back into a flex column. A `display: flex` here lands on that same
+   * element at higher specificity than core's, so it wins in both states and the tab can never be
+   * hidden - which is exactly the bug where every tab's content rendered stacked on top of the
+   * others (shipped in #6, only visible once #7 gave a second tab real content). The system itself
+   * never does this: it puts `display: flex` on the inner container (`.features-sections`,
+   * `.items-section`, `.effects-sections`), never on `.tab`. Same rule for #9-#12's tabs.
+   */
+  .spaceship-inventory,
+  .spaceship-features,
+  .spaceship-stations,
+  .spaceship-effects {
+    // Only the inner section scrolls; the tab wrapper itself never does.
+    overflow-y: hidden;
+
+    .items-section,
+    .features-sections,
+    .stations-sections,
+    .effects-sections {
+      // `flex: 1` works because `.tab.active` (above) supplies the flex column context.
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+
+    .items-section,
+    .stations-sections {
+      padding: 8px 0.75rem 4px 0.75rem;
+    }
+
+    // Same 7px top padding daggerheart's own `.character .tab.effects .effects-sections` uses,
+    // which is also what its features tab uses - copied by value, same as the two above.
+    .features-sections,
+    .effects-sections {
+      padding: 7px 0.75rem 4px 0.75rem;
+    }
+
+    .mounts-count {
+      font-weight: normal;
+      opacity: 0.85;
+      font-size: var(--font-size-12, 0.75rem);
+    }
+  }
+
+  /*
+   * Stations tab (#8). Same shape as the two tabs above - the tab element itself must never get a
+   * `display` (see the IMPORTANT note there); the inner `.stations-sections` is the flex column
+   * that scrolls, copied by value from `.items-section` exactly as that one was.
+   *
+   * The station fieldsets and their crew rows reuse daggerheart's own unscoped classes
+   * (`fieldset.glassy`/`legend`/`items-list`/`inventory-item`/`img-portait`/`item-label`/
+   * `controls`), so only what's genuinely ours or `.party`-scoped upstream needs rules here:
+   * `.actors-dragger` (the dashed drop hint, copied by value from
+   * `.party .tab.partyMembers .actors-dragger`), `.delete-icon`'s size (same), and the
+   * disabled/missing dimming.
+   */
+  .spaceship-stations {
+    /*
+     * A disabled station keeps showing whatever crew it holds (disabling is non-destructive), but
+     * reads as inactive.
+     *
+     * The dimming deliberately does NOT go on the fieldset: `opacity` below 1 creates an opacity
+     * group, and a descendant can never render more opaque than its group - so `opacity: 0.5` on
+     * the fieldset with a `legend a { opacity: 1 }` "exception" does nothing, and the re-enable
+     * toggle (the only way back out of the disabled state) dims along with everything else. Dim
+     * the station's *contents* and re-colour the legend text instead, both of which leave the
+     * toggle at full strength.
+     */
+    .station-disabled {
+      > legend {
+        color: var(--color-text-secondary, inherit);
+      }
+
+      > .items-list {
+        opacity: 0.5;
+      }
+    }
+
+    // A crew reference whose Actor no longer resolves ("Unknown"), same dimming the sheet's other
+    // not-yet-real elements use.
+    .crew-assignment-missing .item-main {
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .actors-dragger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      border: 1px dashed light-dark(var(--dark-blue-50, #18162e50), var(--beige-50, #efe6d850));
+      border-radius: 3px;
+      color: light-dark(var(--dark-blue-50, #18162e50), var(--beige-50, #efe6d850));
+    }
+
+    .delete-icon {
+      font-size: 0.75em;
+    }
+  }
+
+  // Item-row text colors, shared by every list on the sheet (Inventory and Features alike).
+  //
+  // `.item-name`/`.inventory-description`/`.controls a` have no color rule of their own in
+  // daggerheart.css - now that the sheet root's ambient is `--color-text-primary` (fixed at the
+  // source, see that rule's comment), they inherit the right value for free and need no override
+  // here any more.
+  //
+  // `.item-buttons button` genuinely already has its own correct, themed color in
+  // daggerheart.css (`--dh-button-color-text`, dark text against its light button background)
+  // and stays untouched here - overriding it to white was a real mistake (confirmed: made the
+  // button's dark-on-light text unreadable).
+  //
+  // `.item-tags .tag` *does* have its own daggerheart.css rule too (`color: var(--color-light-
+  // 2)`, a light beige, `#efe6d8`), which traced through the stylesheet should already win on
+  // specificity - but removing this override still showed yellow tags live, twice, so something
+  // about how `--color-light-2` resolves in this actual sheet isn't matching that trace.
+  // Reinstated on user-confirmed report rather than theory; worth a proper look with real
+  // devtools access before removing again.
+  .inventory-item {
+    .item-tags .tag {
+      color: #fff;
+    }
+  }
+
+}
+
+/*
+ * "Configure Spaceship" dialog. Most of its look comes for free from the system's
+ * `.application.daggerheart.dh-style.dialog` rules (`.dialog-header`, `.tab.details`,
+ * `.traits-inner-container`, `.dh-style fieldset`); below is only what those rules scope to
+ * `.character-settings` specifically, copied by value under our own class.
+ */
+.daggerheart-scifi-content.spaceship-settings {
+  .tab.details .traits-inner-container .trait-container input {
+    text-align: center;
+  }
+}
+
+/*
+ * Level-up wizard (#12). Almost everything it needs - the tier grid, the summary "old -> new"
+ * rows, the footer buttons - comes from the system's own unscoped `.daggerheart.levelup` rules,
+ * which the window opts into through its marker classes (see `SpaceshipLevelup`). Only the trait
+ * picker is ours: daggerheart picks traits through a tagify input whose helper is internal to its
+ * bundle (docs/adr/0002-spaceship-sheet-independent-application.md), so this module uses a chip
+ * row instead and has to style it.
+ */
+.daggerheart-scifi-content.spaceship-levelup {
+  .levelup-trait-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .levelup-trait-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    min-height: unset;
+    padding: 2px 10px;
+    margin: 0;
+    line-height: 1.6;
+    font-size: var(--font-size-14, 0.875rem);
+    font-family: var(--dh-font-body, "Montserrat"), sans-serif;
+    border: 2px solid light-dark(var(--dark-blue-40, #18162e40), var(--golden-40, #f3c26740));
+    border-radius: 3px;
+    background: transparent;
+    color: var(--color-text-emphatic);
+
+    &.selected {
+      border-color: var(--golden, #f3c267);
+      color: var(--golden, #f3c267);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  .levelup-no-selections {
+    font-style: italic;
+    opacity: 0.7;
+  }
+}

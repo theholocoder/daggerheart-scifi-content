@@ -1,0 +1,26 @@
+{{!--
+    Actions tab: the item's own `system.actions` (daggerheart Action documents, stored in the
+    `ActionsField` `SystemItemData` borrows from `loot`). Same one-fieldset shape as daggerheart's
+    own templates/sheets/global/tabs/tab-actions.hbs, rendered through this module's shared row
+    pair (`templates/partials/`) rather than a copy of it - the same pair the Spaceship sheet's own
+    tabs use, and the same sharing daggerheart does between its character/npc/adversary/party
+    sheets.
+
+    `hideContextMenu` is daggerheart's own parameter for "no `ContextMenu` is bound here, give the
+    row standalone edit/delete anchors instead of the kebab", which is what its npc/adversary/
+    environment/party sheets pass for the same reason.
+
+    An item whose schema ended up without the `actions` field (see `borrowActionsField`) lists
+    nothing here; the "+" then reports that actions are unavailable rather than failing silently.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}} system-item-actions" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="items-section">
+        {{> "dhscifi.inventory-items"
+            title="DHSCIFI.SystemItem.Tabs.actions"
+            isGlassy=true
+            isAction=true
+            hideContextMenu=true
+            collection=actions
+        }}
+    </div>
+</section>

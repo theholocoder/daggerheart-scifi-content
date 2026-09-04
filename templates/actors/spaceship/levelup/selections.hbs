@@ -1,0 +1,40 @@
+{{!--
+    Sub-choices for the current level (#12). The only ship option that asks one is `trait` ("gain
+    a +1 bonus to two unmarked traits"), so this tab is daggerheart's
+    templates/levelup/tabs/selections.hbs reduced to its traits fieldset - same
+    `levelup-selections-container`/`levelup-selections-title` wrapper, but the trait picker itself
+    is a chip row rather than upstream's tagify input (the system's tagify helper is internal to
+    its bundle - docs/adr/0002-spaceship-sheet-independent-application.md).
+--}}
+<section
+    class="tab {{tabs.selections.cssClass}} {{tabs.selections.id}}"
+    data-tab="{{tabs.selections.id}}"
+    data-group="{{tabs.selections.group}}"
+>
+    <div class="section-container levelup-selections-container">
+        {{#if traits.active}}
+            <fieldset>
+                <legend class="levelup-selections-title">
+                    <span>{{localize "DHSCIFI.Spaceship.Levelup.summary.traits"}} {{traits.progress.selected}}/{{traits.progress.max}}</span>
+                </legend>
+
+                <div class="levelup-trait-chips">
+                    {{#each traits.values as |trait|}}
+                        <button
+                            type="button"
+                            class="levelup-trait-chip {{#if trait.selected}}selected{{/if}}"
+                            data-action="toggleTrait"
+                            data-trait="{{trait.key}}"
+                            {{#if trait.disabled}}disabled{{/if}}
+                        >
+                            <span>{{localize trait.label}}</span>
+                            {{#if trait.selected}}<i class="fa-solid fa-check"></i>{{/if}}
+                        </button>
+                    {{/each}}
+                </div>
+            </fieldset>
+        {{else}}
+            <p class="levelup-no-selections">{{localize "DHSCIFI.Spaceship.Levelup.noSelections"}}</p>
+        {{/if}}
+    </div>
+</section>

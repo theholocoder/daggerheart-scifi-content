@@ -1,0 +1,30 @@
+{{!--
+    Level-up wizard tab bar (#12). Module-owned copy of daggerheart's
+    templates/levelup/tabs/tab-navigation.hbs - same `.tab-navigation`/`.levelup-navigation-container`/
+    `.levelup-tab-container` classes, which the system's `.daggerheart.levelup` CSS themes for free.
+
+    `navTabs` is the tab list minus the Summary tab (the wizard reaches Summary through the footer,
+    not the bar) - precomputed in the application rather than filtered here with `eq`/`not`.
+--}}
+{{#unless tabs.summary.active}}
+    <section class="tab-navigation">
+        <line-div></line-div>
+        <div class="levelup-navigation-container">
+            <nav class="feature-tab sheet-tabs tabs" data-group="primary">
+                {{#each navTabs as |tab|}}
+                    <div class="levelup-tab-container">
+                        <a class="{{tab.id}} {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+                            {{localize tab.label}}
+                            {{#if tab.progress}}
+                                <span>{{tab.progress.selected}}/{{tab.progress.max}}</span>
+                            {{/if}}
+                        </a>
+                    </div>
+                {{/each}}
+            </nav>
+        </div>
+        <line-div></line-div>
+    </section>
+{{else}}
+    <section></section>
+{{/unless}}

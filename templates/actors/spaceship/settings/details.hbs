@@ -1,0 +1,85 @@
+{{!--
+    "Configure Spaceship" dialog body, mirroring the official Character Settings details tab
+    (systems/daggerheart/templates/sheets-settings/character-settings/details.hbs). Marked
+    `.tab.details.active` so the system's dialog CSS (scoped `.daggerheart.dh-style.dialog`)
+    styles it; there is no tab navigation - this is the dialog's only section.
+--}}
+<section class="tab details active" data-tab="details" data-group="primary">
+    <fieldset class="one-column">
+        <legend>{{localize "DHSCIFI.Spaceship.Settings.traits"}}</legend>
+
+        <div class="nest-inputs">
+            <div class="traits-inner-container">
+                {{#each source.system.traits as |trait key|}}
+                    <div class="trait-container">
+                        <span>{{localize (concat "DHSCIFI.Spaceship.Traits." key)}}</span>
+                        <input type="number" name="system.traits.{{key}}.value" value="{{trait.value}}" step="1" />
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="one-column">
+        <legend>{{localize "DHSCIFI.Spaceship.Settings.basics"}}</legend>
+
+        <div class="two-columns even">
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.hopeMax"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.resources.hope.max" value="{{source.system.resources.hope.max}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.hitPointsMax"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.resources.hitPoints.max" value="{{source.system.resources.hitPoints.max}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.stressMax"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.resources.stress.max" value="{{source.system.resources.stress.max}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.evasionBonus"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.evasionBonus" value="{{source.system.evasionBonus}}" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Proficiency"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.proficiency" value="{{source.system.proficiency}}" min="1" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.maxWeaponMounts"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.maxWeaponMounts" value="{{source.system.maxWeaponMounts}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.maxCrew"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.maxCrew" value="{{source.system.maxCrew}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.maxPassengers"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.maxPassengers" value="{{source.system.maxPassengers}}" min="0" step="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{localize "DHSCIFI.Spaceship.Settings.systemPoints"}}</label>
+                <div class="form-fields">
+                    <input type="number" name="system.systemPoints" value="{{source.system.systemPoints}}" min="0" step="1" />
+                </div>
+            </div>
+            {{! No "Spent" input: since #15 the spent half is derived from the ship's installed
+                `system` items (`SpaceshipData#systemPointsSpent`), so there is nothing to type. }}
+        </div>
+    </fieldset>
+</section>

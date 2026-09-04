@@ -1,1 +1,207 @@
-{}
+{
+  "TYPES": {
+    "Actor": {
+      "daggerheart-scifi-content": {
+        "spaceship": "Spaceship"
+      }
+    },
+    "Item": {
+      "daggerheart-scifi-content": {
+        "system": "System"
+      }
+    }
+  },
+  "DHSCIFI": {
+    "Spaceship": {
+      "NamePlaceholder": "Spaceship Name",
+      "Level": "Level",
+      "Levelup": {
+        "title": "{actor} Level Up",
+        "viewModeTitle": "{actor} Level Up (History)",
+        "levelUp": "Level Up",
+        "viewLevelups": "Review Level-Ups",
+        "navigateLevel": "To Level {level}",
+        "navigateToLevelup": "Return To Level Up",
+        "navigateToSummary": "To Summary",
+        "finishLevelup": "Finish Level Up",
+        "noSelections": "This level's choices need no further selection.",
+        "noSelectionsLeft": "No selections left for this level.",
+        "insufficientAdvancements": "Not enough choices left at this level.",
+        "tooHighLevel": "A spaceship cannot go above level 10.",
+        "tooLowLevel": "A spaceship cannot go below level 1.",
+        "Tabs": {
+          "advancements": "Advancements",
+          "selections": "Selections",
+          "summary": "Summary"
+        },
+        "delevel": {
+          "title": "Go back to previous level",
+          "content": "Returning to the previous level will remove all selections made for this level. Do you want to proceed?"
+        },
+        "tier2": {
+          "name": "Tier 2"
+        },
+        "tier3": {
+          "name": "Tier 3"
+        },
+        "tier4": {
+          "name": "Tier 4"
+        },
+        "options": {
+          "trait": "Gain a +1 bonus to two unmarked traits and mark them.",
+          "hitPoint": "Permanently gain one HP slot.",
+          "stress": "Permanently gain one Stress slot.",
+          "evasion": "Permanently gain a +1 bonus to Evasion.",
+          "proficiency": "Increase Proficiency by +1.",
+          "systemPoints": "Permanently gain one System Point."
+        },
+        "summary": {
+          "levelAchievements": "Level Achievements",
+          "levelAdvancements": "Level Advancements",
+          "traits": "Increased Traits",
+          "damageThresholds": "Damage Thresholds",
+          "unshielded": "unshielded",
+          "proficiencyIncrease": "Proficiency Increased: {value}",
+          "hpIncrease": "HP Increased: {value}",
+          "stressIncrease": "Stress Increased: {value}",
+          "evasionIncrease": "Evasion Increased: {value}",
+          "systemPointsIncrease": "System Points Increased: {value}",
+          "damageThresholdMajorIncrease": "Major: {value}",
+          "damageThresholdSevereIncrease": "Severe: {value}"
+        }
+      },
+      "TierMarked": "Tier Marked",
+      "Hope": "Hope",
+      "HitPoints": "HP",
+      "Stress": "Stress",
+      "Evasion": "Evasion",
+      "Proficiency": "Proficiency",
+      "Shield": "Shield",
+      "Crew": "Crew",
+      "Passengers": "Passengers",
+      "SystemPoints": "System Points",
+      "SystemPointsAvailable": "System Points left to spend",
+      "WeaponMounts": "Mounts",
+      "EquippedWeapons": "Weapons",
+      "NoEquippedWeapons": "No weapons equipped.",
+      "Features": {
+        "title": "Features"
+      },
+      "Inventory": {
+        "Weapons": "Weapons",
+        "Armor": "Armor",
+        "Consumables": "Consumables",
+        "Loot": "Loot",
+        "MountsFull": "No weapon mounts available.",
+        "InvalidItemType": "Only weapons, armor, consumables, loot, systems, and features can be added to a ship."
+      },
+      "Stations": {
+        "Roles": {
+          "pilot": "Pilot",
+          "mechanic": "Mechanic",
+          "commander": "Commander",
+          "systemsOperator": "Systems Operator",
+          "gunner": "Gunner"
+        },
+        "Enable": "Enable Station",
+        "Disable": "Disable Station",
+        "DropHere": "Drop a character here",
+        "DropOnStation": "Drop the character onto a station.",
+        "StationDisabled": "That station is disabled on this ship.",
+        "InvalidActorType": "Only characters can be assigned to a station.",
+        "AlreadyAssigned": "That character is already assigned to this station.",
+        "OpenActor": "Open Character Sheet",
+        "UnknownCrew": "Unknown",
+        "RemoveCrew": {
+          "title": "Remove Assignment",
+          "body": "Remove {name} from this station?"
+        }
+      },
+      "Thresholds": {
+        "minor": "Minor",
+        "major": "Major",
+        "severe": "Severe"
+      },
+      "Traits": {
+        "agility": "Agility",
+        "strength": "Strength",
+        "finesse": "Finesse",
+        "instinct": "Instinct",
+        "presence": "Presence",
+        "knowledge": "Knowledge"
+      },
+      "Tabs": {
+        "features": "Features",
+        "inventory": "Inventory",
+        "stations": "Stations",
+        "effects": "Effects"
+      },
+      "Settings": {
+        "title": "Configure Spaceship",
+        "open": "Open Spaceship Settings",
+        "traits": "Traits",
+        "basics": "Basics",
+        "hopeMax": "Max Hope",
+        "hitPointsMax": "Max HP",
+        "stressMax": "Max Stress",
+        "maxWeaponMounts": "Weapon Mounts",
+        "maxCrew": "Crew Capacity",
+        "maxPassengers": "Passenger Capacity",
+        "systemPoints": "System Points",
+        "evasionBonus": "Evasion Bonus"
+      }
+    },
+    "Rows": {
+      "CreateItem": "Create Item",
+      "CreateAction": "Create Action",
+      "CreateEffect": "Create Effect",
+      "EditItem": "Edit Item",
+      "EditAction": "Edit Action",
+      "EditEffect": "Edit Effect",
+      "DeleteItem": {
+        "title": "Delete Item",
+        "body": "Delete {name}?"
+      },
+      "DeleteAction": {
+        "title": "Delete Action",
+        "body": "Delete {name}?"
+      },
+      "DeleteEffect": {
+        "title": "Delete Effect",
+        "body": "Delete {name}?"
+      },
+      "UseItem": "Use/Roll",
+      "SendToChat": "Send to Chat",
+      "MoreOptions": "More Options",
+      "Equip": "Equip",
+      "Unequip": "Unequip",
+      "EnableEffect": "Enable Effect",
+      "DisableEffect": "Disable Effect",
+      "ActiveEffects": "Active Effects",
+      "InactiveEffects": "Inactive Effects"
+    },
+    "SystemItem": {
+      "Tabs": {
+        "description": "Description",
+        "settings": "Settings",
+        "actions": "Actions",
+        "effects": "Effects"
+      },
+      "FIELDS": {
+        "quantity": {
+          "label": "Quantity"
+        },
+        "systemPointsCost": {
+          "label": "System Points Cost"
+        },
+        "gmNotes": {
+          "label": "GM Notes"
+        }
+      },
+      "CostTag": "{cost} SP",
+      "Actions": {
+        "Unavailable": "Actions are unavailable: the Daggerheart system's action registry could not be reached."
+      }
+    }
+  }
+}

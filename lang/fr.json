@@ -1,1 +1,203 @@
-{}
+{
+  "TYPES": {
+    "Actor": {
+      "daggerheart-scifi-content": {
+        "spaceship": "Vaisseau spatial"
+      }
+    },
+    "Item": {
+      "daggerheart-scifi-content": {
+        "system": "Système"
+      }
+    }
+  },
+  "DHSCIFI": {
+    "Spaceship": {
+      "NamePlaceholder": "Nom du vaisseau",
+      "Level": "Niveau",
+      "Levelup": {
+        "title": "Montée de niveau : {actor}",
+        "viewModeTitle": "Montées de niveau : {actor} (historique)",
+        "levelUp": "Monter de niveau",
+        "viewLevelups": "Consulter les montées de niveau",
+        "navigateLevel": "Vers le niveau {level}",
+        "navigateToLevelup": "Retour à la montée de niveau",
+        "navigateToSummary": "Vers le résumé",
+        "finishLevelup": "Terminer la montée de niveau",
+        "noSelections": "Les choix de ce niveau ne demandent aucune sélection supplémentaire.",
+        "noSelectionsLeft": "Plus aucune sélection disponible pour ce niveau.",
+        "insufficientAdvancements": "Il ne reste plus assez de choix à ce niveau.",
+        "tooHighLevel": "Un vaisseau ne peut pas dépasser le niveau 10.",
+        "tooLowLevel": "Un vaisseau ne peut pas descendre sous le niveau 1.",
+        "Tabs": {
+          "advancements": "Progression",
+          "selections": "Sélections",
+          "summary": "Résumé"
+        },
+        "delevel": {
+          "title": "Revenir au niveau précédent",
+          "content": "Revenir au niveau précédent supprimera toutes les sélections faites pour ce niveau. Voulez-vous continuer ?"
+        },
+        "tier2": {
+          "name": "Palier 2"
+        },
+        "tier3": {
+          "name": "Palier 3"
+        },
+        "tier4": {
+          "name": "Palier 4"
+        },
+        "options": {
+          "trait": "Gagnez un bonus de +1 à deux traits non marqués et marquez-les.",
+          "hitPoint": "Gagnez définitivement une case de PV.",
+          "stress": "Gagnez définitivement une case de Stress.",
+          "evasion": "Gagnez définitivement un bonus de +1 en Évasion.",
+          "proficiency": "Augmentez la Maîtrise de +1.",
+          "systemPoints": "Gagnez définitivement un point de système."
+        },
+        "summary": {
+          "levelAchievements": "Acquis du niveau",
+          "levelAdvancements": "Progressions du niveau",
+          "traits": "Traits augmentés",
+          "damageThresholds": "Seuils de dégâts",
+          "unshielded": "sans bouclier",
+          "proficiencyIncrease": "Maîtrise augmentée : {value}",
+          "hpIncrease": "PV augmentés : {value}",
+          "stressIncrease": "Stress augmenté : {value}",
+          "evasionIncrease": "Évasion augmentée : {value}",
+          "systemPointsIncrease": "Points de système augmentés : {value}",
+          "damageThresholdMajorIncrease": "Majeur : {value}",
+          "damageThresholdSevereIncrease": "Grave : {value}"
+        }
+      },
+      "TierMarked": "Palier marqué",
+      "Hope": "Espoir",
+      "HitPoints": "PV",
+      "Stress": "Stress",
+      "Evasion": "Esquive",
+      "Proficiency": "Maîtrise",
+      "Shield": "Bouclier",
+      "SystemPoints": "Points de système",
+      "SystemPointsAvailable": "Points de système disponibles",
+      "WeaponMounts": "Affûts",
+      "EquippedWeapons": "Armes",
+      "NoEquippedWeapons": "Aucune arme équipée.",
+      "Features": {
+        "title": "Aptitudes"
+      },
+      "Inventory": {
+        "Weapons": "Armes",
+        "Armor": "Armure",
+        "Consumables": "Consommables",
+        "Loot": "Butin",
+        "MountsFull": "Aucun affût disponible.",
+        "InvalidItemType": "Seuls les armes, armures, consommables, butins, systèmes et aptitudes peuvent être ajoutés à un vaisseau."
+      },
+      "Stations": {
+        "Roles": {
+          "pilot": "Pilote",
+          "mechanic": "Mécanicien",
+          "commander": "Commandant",
+          "systemsOperator": "Opérateur système",
+          "gunner": "Artilleur"
+        },
+        "Enable": "Activer le poste",
+        "Disable": "Désactiver le poste",
+        "DropHere": "Déposez un personnage ici",
+        "DropOnStation": "Déposez le personnage sur un poste.",
+        "StationDisabled": "Ce poste est désactivé sur ce vaisseau.",
+        "InvalidActorType": "Seuls les personnages peuvent être affectés à un poste.",
+        "AlreadyAssigned": "Ce personnage est déjà affecté à ce poste.",
+        "OpenActor": "Ouvrir la fiche du personnage",
+        "UnknownCrew": "Inconnu",
+        "RemoveCrew": {
+          "title": "Retirer l'affectation",
+          "body": "Retirer {name} de ce poste ?"
+        }
+      },
+      "Thresholds": {
+        "minor": "Mineur",
+        "major": "Majeur",
+        "severe": "Sévère"
+      },
+      "Traits": {
+        "agility": "Agilité",
+        "strength": "Force",
+        "finesse": "Finesse",
+        "instinct": "Instinct",
+        "presence": "Présence",
+        "knowledge": "Savoir"
+      },
+      "Tabs": {
+        "features": "Aptitudes",
+        "inventory": "Inventaire",
+        "stations": "Postes",
+        "effects": "Effets"
+      },
+      "Settings": {
+        "title": "Configurer le vaisseau",
+        "open": "Ouvrir la configuration du vaisseau",
+        "traits": "Traits",
+        "basics": "Essentiels",
+        "hopeMax": "Espoir max",
+        "hitPointsMax": "PV max",
+        "stressMax": "Stress max",
+        "maxWeaponMounts": "Affûts d'armes",
+        "systemPoints": "Points de système",
+        "evasionBonus": "Bonus d'esquive"
+      }
+    },
+    "Rows": {
+      "CreateItem": "Créer un objet",
+      "CreateAction": "Créer une action",
+      "CreateEffect": "Créer un effet",
+      "EditItem": "Modifier l'objet",
+      "EditAction": "Modifier l'action",
+      "EditEffect": "Modifier l'effet",
+      "DeleteItem": {
+        "title": "Supprimer l'objet",
+        "body": "Supprimer {name} ?"
+      },
+      "DeleteAction": {
+        "title": "Supprimer l'action",
+        "body": "Supprimer {name} ?"
+      },
+      "DeleteEffect": {
+        "title": "Supprimer l'effet",
+        "body": "Supprimer {name} ?"
+      },
+      "UseItem": "Utiliser/Lancer",
+      "SendToChat": "Envoyer au chat",
+      "MoreOptions": "Plus d'options",
+      "Equip": "Équiper",
+      "Unequip": "Déséquiper",
+      "EnableEffect": "Activer l'effet",
+      "DisableEffect": "Désactiver l'effet",
+      "ActiveEffects": "Effets actifs",
+      "InactiveEffects": "Effets inactifs"
+    },
+    "SystemItem": {
+      "Tabs": {
+        "description": "Description",
+        "settings": "Réglages",
+        "actions": "Actions",
+        "effects": "Effets"
+      },
+      "FIELDS": {
+        "quantity": {
+          "label": "Quantité"
+        },
+        "systemPointsCost": {
+          "label": "Coût en points de système"
+        },
+        "gmNotes": {
+          "label": "Notes du MJ"
+        }
+      },
+      "CostTag": "{cost} PS",
+      "Actions": {
+        "Unavailable": "Actions indisponibles : le registre d'actions du système Daggerheart est introuvable."
+      }
+    }
+  }
+}

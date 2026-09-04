@@ -1,0 +1,42 @@
+{{!--
+    Description tab. Copied by value from daggerheart's own
+    templates/sheets/global/tabs/tab-description.hbs - same `.description-section` wrapper, the same
+    `prose-mirror` element for the GM notes, the same `.gm-notes-section`/`.gm-notes` structure and
+    the same `.artist-attribution` footer.
+
+    Two deliberate departures:
+    - The description itself is a plain `prose-mirror` element rather than `{{formInput
+      systemFields.description ...}}`. `systemFields` is filled in by daggerheart's own sheet base
+      class, which this module doesn't extend (docs/adr/0002); the element is what that helper
+      emits for an `HTMLField` anyway.
+    - `{{#if (and ...)}}` becomes nested plain `{{#if}}`s: this module registers only its own
+      Handlebars helpers (same ADR) and doesn't depend on daggerheart's `and`/`or`/`eq` set.
+--}}
+<section class="tab {{tab.id}} {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+    <div class="description-section">
+        <prose-mirror
+            name="system.description"
+            toggled="true"
+            value="{{document.system.description}}"
+            {{#unless editable}}disabled{{/unless}}
+        >{{{enrichedDescription}}}</prose-mirror>
+
+        {{#if @root.user.isGM}}
+            <section class="gm-notes-section">
+                {{#if enrichedGMNotes}}
+                    <header class="gm-notes">{{localize "DHSCIFI.SystemItem.FIELDS.gmNotes.label"}}</header>
+                {{/if}}
+                <prose-mirror
+                    name="system.gmNotes"
+                    {{#unless enrichedGMNotes}}class="hide-if-inactive"{{/unless}}
+                    toggled="true"
+                    value="{{document.system.gmNotes}}"
+                    {{#unless editable}}disabled{{/unless}}
+                >{{{enrichedGMNotes}}}</prose-mirror>
+            </section>
+        {{/if}}
+    </div>
+    {{#if document.system.attribution.artist}}
+        <label class="artist-attribution">{{localize "DAGGERHEART.GENERAL.artistAttribution" artist=document.system.attribution.artist}}</label>
+    {{/if}}
+</section>

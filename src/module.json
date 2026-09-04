@@ -12,8 +12,21 @@
         "id": "daggerheart",
         "type": "system",
         "manifest": "https://github.com/Foundryborne/daggerheart/releases/latest/download/system.json"
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "manifest": "https://github.com/ruipin/fvtt-lib-wrapper/releases/latest/download/module.json"
       }
     ]
+  },
+  "documentTypes": {
+    "Actor": {
+      "spaceship": {}
+    },
+    "Item": {
+      "system": {}
+    }
   },
   "flags": {
     "canUpload": true,
@@ -29,7 +42,7 @@
         "jpeg",
         "svg"
       ],
-      "paths": ["artwork", "packs"]
+      "paths": ["artwork", "packs", "templates"]
     }
   },
   "authors": [
@@ -42,7 +55,6 @@
   "description": "This module contains Sci-Fi content for Daggerheart",
   "esmodules": ["daggerheart-scifi-content.js"],
   "styles": ["styles/daggerheart-scifi-content.css"],
-  "scripts": ["daggerheart-scifi-content.js"],
   "url": "https://github.com/theholocoder/daggerheart-scifi-content",
   "manifest": "https://raw.githubusercontent.com/theholocoder/daggerheart-scifi-content/main/module.json",
   "download": "https://github.com/theholocoder/daggerheart-scifi-content/releases/latest/download/module.zip",
