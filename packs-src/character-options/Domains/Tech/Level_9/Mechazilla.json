@@ -1,20 +1,20 @@
 {
   "folder": "tPWB2cJH3AT6WZND",
-  "name": "Master of the Craft",
+  "name": "Mechazilla",
   "type": "domainCard",
-  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/green-wrench.webp",
+  "img": "icons/creatures/magical/construct-golem-robot-blue.webp",
   "system": {
     "attribution": {
       "source": "TheHolocoder Homebrew",
       "page": null,
       "artist": ""
     },
-    "description": "<p>Gain a permanent +2 bonus to two of you Experiences or a permanent +3 bonus to one of your Experiences. Then place this card in your vault permanently.</p>",
+    "description": "<p>You deploy and encase yourself in a mechanized armor of you choosing that can be at most twice your size and can fly. While in this form, you cannot use your weapons or any card from your loadout.</p><p>This mechanized form has 3 Stess points and marks 1 stress every time it takes damage. It is destroyed when it marks its thrid Stress or when you decide to get out of it. It has an Evasion of 17 uses you Spellcasting Roll to attack at Melee range and deals d12+9 physic damage using your proficiency.</p>",
     "resource": null,
     "actions": {},
     "domain": "tech",
     "level": 9,
-    "recallCost": 0,
+    "recallCost": 3,
     "type": "ability",
     "inVault": false,
     "vaultActive": false,
@@ -26,9 +26,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.9.2",
     "createdTime": 1783380114018,
-    "modifiedTime": 1787051795817,
+    "modifiedTime": 1788729195225,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

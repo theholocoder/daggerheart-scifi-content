@@ -4,7 +4,7 @@
   "type": "weapon",
   "img": "modules/daggerheart-scifi-content/artwork/icons/equipment/weapons/pistol.webp",
   "system": {
-    "description": "<p>Common compact sidearm firing low-energy laser pulses. Accurate and reliable but weak against armor.</p>",
+    "description": "<p><strong>Quick shot</strong>: Spend 2 Hope to gain a +4 bonus to primary weapon damage.</p>",
     "actions": {
       "ylSaADUa9mcW7AA6": {
         "_id": "ylSaADUa9mcW7AA6",
@@ -239,9 +239,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.9.2",
     "createdTime": 1783325725187,
-    "modifiedTime": 1783344031908,
+    "modifiedTime": 1788713478948,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

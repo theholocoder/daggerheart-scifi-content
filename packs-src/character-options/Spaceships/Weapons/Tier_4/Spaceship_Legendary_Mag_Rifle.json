@@ -5,7 +5,7 @@
   "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-aura-charged-gun.webp",
   "system": {
     "attribution": {},
-    "description": "",
+    "description": "<p><strong>Integrate</strong>: Add damage equal to spaceship Tier to the damage of another weapon on this same mount against targets within range of this weapon.</p>",
     "gmNotes": "",
     "resource": null,
     "quantity": 1,
@@ -120,7 +120,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.9.2",
     "createdTime": 1788539084129,
-    "modifiedTime": 1788540355643,
+    "modifiedTime": 1788713216472,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

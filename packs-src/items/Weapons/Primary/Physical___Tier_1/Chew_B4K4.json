@@ -5,7 +5,7 @@
   "_id": "cw7HG1Z7hp7OOLD0",
   "img": "icons/weapons/crossbows/crossbow-loaded-black.webp",
   "system": {
-    "description": "",
+    "description": "<p><strong>Duality Volley</strong>: Once per session, on a successful attack, you can kep rolling damages for as long as you roll with Hope with a Reaction Duality dice roll.</p>",
     "actions": {
       "kpUAcre9umOJfJ6Y": {
         "_id": "kpUAcre9umOJfJ6Y",
@@ -159,9 +159,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.9.2",
     "createdTime": 1783253877264,
-    "modifiedTime": 1783327470988,
+    "modifiedTime": 1788713407237,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

@@ -1,0 +1,150 @@
+{
+  "folder": "eYJm9byGp0zYAs5w",
+  "name": "Mini Nuke",
+  "type": "domainCard",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-flying-rocket.webp",
+  "system": {
+    "attribution": {
+      "source": "TheHolocoder Homebrew",
+      "page": null,
+      "artist": ""
+    },
+    "description": "<p>Make a <strong>Spellcast Roll</strong> <strong>(20)</strong>. On a success, destroy a spaceship, a station or a land area equivalent to a small town and kill every creature with a Difficulty of 18 or lower within it instantly. Then roll a <strong>d6</strong>. On a result of 5 or lower, place this card in your vault permanently.</p><p>On a failure, you can't use Mini Nule again for a week.</p>",
+    "resource": null,
+    "actions": {
+      "FdTbqZdCXwNDC4WX": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "FdTbqZdCXwNDC4WX",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": 20,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Cast",
+        "range": ""
+      },
+      "poadcLJMtZmtcJQQ": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "poadcLJMtZmtcJQQ",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "diceSet",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": "above",
+            "treshold": 5
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Keep Card",
+        "range": "",
+        "img": "icons/commodities/tech/electronics-button-skull-red.webp"
+      }
+    },
+    "domain": "tech",
+    "level": 10,
+    "recallCost": 2,
+    "type": "spell",
+    "inVault": false,
+    "vaultActive": false,
+    "loadoutIgnore": false,
+    "domainTouched": null
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.2",
+    "createdTime": 1783379617697,
+    "modifiedTime": 1788729903194,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "_id": "hB1OyxDAFD3MZoze",
+  "sort": -100000,
+  "_key": "!items!hB1OyxDAFD3MZoze"
+}

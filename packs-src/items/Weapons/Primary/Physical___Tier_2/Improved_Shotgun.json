@@ -19,7 +19,7 @@
     "burden": "twoHanded",
     "weaponFeatures": [
       {
-        "value": "g7UJDcztkvnxKF0q",
+        "value": "volleyed",
         "effectIds": [],
         "actionIds": []
       }
@@ -59,9 +59,9 @@
           ],
           "value": {
             "multiplier": "prof",
-            "dice": "d6",
+            "dice": "d8",
             "flatMultiplier": 1,
-            "bonus": 4,
+            "bonus": 6,
             "custom": {
               "enabled": false,
               "formula": ""
@@ -124,7 +124,7 @@
     "systemId": "daggerheart",
     "systemVersion": "2.9.2",
     "createdTime": 1788534772482,
-    "modifiedTime": 1788534799168,
+    "modifiedTime": 1788713788284,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "exportSource": null,
     "compendiumSource": null,

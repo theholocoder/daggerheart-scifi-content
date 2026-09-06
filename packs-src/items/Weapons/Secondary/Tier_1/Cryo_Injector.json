@@ -10,7 +10,7 @@
       "page": null,
       "artist": ""
     },
-    "description": "",
+    "description": "<p><strong>Cryo Injector</strong>: Once per scene, on a successful attack, you can mark a stress to make the target Restrained util the end of its next spotlight.</p>",
     "resource": null,
     "quantity": 1,
     "actions": {
@@ -258,9 +258,9 @@
   "_stats": {
     "coreVersion": "14.364",
     "systemId": "daggerheart",
-    "systemVersion": "2.5.0",
+    "systemVersion": "2.9.2",
     "createdTime": 1783244230380,
-    "modifiedTime": 1783344031908,
+    "modifiedTime": 1788713272716,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
