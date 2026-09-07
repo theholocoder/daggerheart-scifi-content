@@ -1416,6 +1416,11 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * anywhere in its `ActorSheetV2` definition, the same gap already worked around for
    * `_prepareContext`/`_preparePartContext` above) - called via the prototype chain rather than
    * `super.` since TS won't resolve a `super` member it has no type for.
+   *
+   * The wrench dialog has a drop handler of its own (#26, `SpaceshipSettings#_onDropItem`), which
+   * does *not* delegate the embed - it has to write a Station pin with the create - and so spells
+   * out core's compendium-copy rules by hand. A change to how core embeds a dropped Item has to be
+   * answered there as well as here.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async _onDropItem(event: any, item: any): Promise<any> {

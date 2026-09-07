@@ -928,7 +928,9 @@ body {
     opacity: 0.6;
   }
 
-  // The "drop a feature here" hint (#26), prototype variant A's dashed zone. Purely an
+  // The "drop a feature here" hint (#26), the dashed zone of #21's "Wrench dialog
+  // presentation" (prototype variant A, the same source `station-actions.hbs` follows for the
+  // rows above). Purely an
   // affordance - the drop target is the whole `[data-station]` fieldset around it, so this is
   // sized and dimmed to read as a hint rather than as a control.
   .station-action-dropzone {

@@ -128,8 +128,8 @@
         "roller": "Roller",
         "noRoller": "No crew at that station to take this action.",
         "unknownRoller": "That crew member no longer exists.",
-        "DropOnStation": "Drop the feature onto a station section.",
-        "InvalidItemType": "Only features can be added to a station.",
+        "dropOnStation": "Drop the feature onto a station section.",
+        "invalidItemType": "Only features can be added to a station.",
         "Rollers": {
           "ship": "Ship",
           "crew": "Crew",

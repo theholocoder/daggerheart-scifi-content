@@ -126,8 +126,8 @@
         "roller": "Lanceur",
         "noRoller": "Aucun membre d'équipage à ce poste pour effectuer cette action.",
         "unknownRoller": "Ce membre d'équipage n'existe plus.",
-        "DropOnStation": "Déposez la fonctionnalité sur la section d'un poste.",
-        "InvalidItemType": "Seules les fonctionnalités peuvent être ajoutées à un poste.",
+        "dropOnStation": "Déposez la fonctionnalité sur la section d'un poste.",
+        "invalidItemType": "Seules les fonctionnalités peuvent être ajoutées à un poste.",
         "Rollers": {
           "ship": "Vaisseau",
           "crew": "Équipage",

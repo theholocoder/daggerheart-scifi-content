@@ -1,9 +1,7 @@
 import {
-  DEFAULT_ROLLER,
   FEATURE_ITEM_TYPE,
   MODULE_ID,
   ROLLERS,
-  STATION_FLAG_KEY,
   STATION_IDS,
   isRoller,
   isStationId,
@@ -13,7 +11,13 @@ import {
   type StationId,
 } from "../../constants";
 import { deleteRowDocument } from "../sheets/document-rows";
-import { splitStationActions, stationRoller, type PinnableItem } from "../../station-actions/membership";
+import {
+  splitStationActions,
+  stationPinFlags,
+  stationPinPath,
+  stationRoller,
+  type PinnableItem,
+} from "../../station-actions/membership";
 
 const BaseSettings = foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2);
 
@@ -203,11 +207,8 @@ export default class SpaceshipSettings extends BaseSettings {
    * one would flash into the ship's Features tab, and a failed follow-up write would strand it
    * there for good.
    *
-   * The pin carries both halves of #21's flag shape as of #25: the Station `id` and the Roller.
-   * `DEFAULT_ROLLER` is written explicitly rather than left off - a pin missing its `roller` reads
-   * as the same value (`station-actions/membership.ts`), but the row's select then shows a state
-   * that isn't stored, and the first change to any *other* action's Roller would be the only write
-   * that ever made it real.
+   * The pin itself is the membership seam's to build (`stationPinFlags`), which is also where the
+   * reasoning for writing a `roller` explicitly on a brand-new action lives.
    */
   static async #onCreateStationAction(
     this: foundry.applications.sheets.ActorSheetV2.Any,
@@ -231,7 +232,7 @@ export default class SpaceshipSettings extends BaseSettings {
         type: FEATURE_ITEM_TYPE,
         name: game.i18n!.localize("DHSCIFI.Spaceship.StationActions.newAction"),
         img,
-        flags: { [MODULE_ID]: { [STATION_FLAG_KEY]: { id: stationId, roller: DEFAULT_ROLLER } } },
+        flags: stationPinFlags(stationId),
       },
     ]);
 
@@ -270,6 +271,33 @@ export default class SpaceshipSettings extends BaseSettings {
   }
 
   /**
+   * Refuse anything that is not an Item outright (#26).
+   *
+   * This dialog authors Station actions and nothing else, but core's `_onDropDocument` routes every
+   * document class it recognises, and one of those routes writes: `_onDropActiveEffect` embeds a
+   * dropped ActiveEffect on the Actor. Dropping an effect onto the wrench dialog would therefore
+   * silently add it to the ship. Answering the question one level above `_onDropItem` covers Actors,
+   * Folders and ActiveEffects in one place, with the same "features only" notice a wrong Item type
+   * gets.
+   *
+   * Called through the prototype chain rather than `super.` for the usual reason (fvtt-types
+   * declares none of the drop hooks), same as the Spaceship sheet's `_onDropItem`.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async _onDropDocument(event: any, document: any): Promise<any> {
+    if ((document as { documentName?: string }).documentName !== "Item") {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.invalidItemType"));
+      return null;
+    }
+
+    const base = Object.getPrototypeOf(SpaceshipSettings.prototype) as {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      _onDropDocument(event: any, document: any): Promise<any>;
+    };
+    return base._onDropDocument.call(this, event, document);
+  }
+
+  /**
    * Accept a `feature` Item dropped onto a Station's section and pin it there (#26).
    *
    * Same wiring story as the Spaceship sheet's own drop handlers: `ActorSheetV2` (this dialog's
@@ -293,34 +321,42 @@ export default class SpaceshipSettings extends BaseSettings {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async _onDropItem(event: any, item: any): Promise<any> {
     const dropped = item as LooseDroppedItem;
-    const target = event.target as HTMLElement | null;
-    const stationId = target ? SpaceshipSettings.#getStationId(target) : undefined;
-    if (!stationId) {
-      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.DropOnStation"));
+    if (dropped.type !== FEATURE_ITEM_TYPE) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.invalidItemType"));
       return null;
     }
 
-    if (dropped.type !== FEATURE_ITEM_TYPE) {
-      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.InvalidItemType"));
+    const target = event.target as HTMLElement | null;
+    const stationId = target ? SpaceshipSettings.#getStationId(target) : undefined;
+    if (!stationId) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.dropOnStation"));
       return null;
     }
 
     const actor = this.document as unknown as LooseSpaceship;
 
-    // A feature the ship already owns - dragged off its own Features tab, or from one Station's
-    // section to another's. Re-pin it instead of embedding a second copy, and write only the
-    // Station half of the pin so an existing Roller survives the move.
+    // A feature the ship already owns. No drag source in this module produces one today - every
+    // row this module renders carries the bare `draggable` attribute rather than core's `.draggable`
+    // class, which is what `ActorSheetV2`'s `_dragDrop` selects on - but this method never
+    // delegates to core's `_onDropItem`, and core's is where the same-actor case is handled. So the
+    // case is answered here rather than left to fall through to the create below, which would
+    // embed a second copy of an item the ship already has. Re-pinning writes only the Station half
+    // of the pin, so an existing Roller survives the move.
     if (dropped.parent?.uuid === this.document.uuid) {
       const owned = actor.items.get(dropped.id);
       if (!owned) return null;
-      await owned.update({ [`flags.${MODULE_ID}.${STATION_FLAG_KEY}.id`]: stationId });
+      await owned.update({ [stationPinPath("id")]: stationId });
       return item;
     }
 
-    // `fromCompendium` strips the world-specific bookkeeping a compendium copy must not keep
-    // (its folder, its ownership) and records the source - core's own `_onDropItem` makes the
-    // same call. Reached through a loosened signature for the usual fvtt-types reason: it is
-    // typed against core's `Item`, which knows nothing of daggerheart's `feature` sub-type.
+    // `fromCompendium` strips the world-specific bookkeeping a compendium copy must not keep (its
+    // folder, its ownership) and records the source, exactly as core's own `_onDropItem` does -
+    // this is the one part of core's embed rules now written out in two places (the Spaceship
+    // sheet's `_onDropItem` delegates to core for it), so a core change to them has to be answered
+    // in both. `keepId` is deliberately not passed: a fresh id costs nothing here and cannot
+    // collide with an item the ship already holds. Reached through a loosened signature for the
+    // usual fvtt-types reason - it is typed against core's `Item`, which knows nothing of
+    // daggerheart's `feature` sub-type.
     const fromCompendium = game.items!.fromCompendium as unknown as (
       document: unknown,
       options?: Record<string, unknown>,
@@ -328,12 +364,8 @@ export default class SpaceshipSettings extends BaseSettings {
     const source = dropped.inCompendium ? fromCompendium(dropped, { clearFolder: true }) : dropped.toObject();
 
     // Merged rather than assigned: a feature can arrive carrying flags of its own (daggerheart's,
-    // another module's), and replacing the whole `flags` object would drop them. The pin carries
-    // both halves of #21's flag shape for the reason `#onCreateStationAction` gives - a stored
-    // `roller` is what the row's select reads back.
-    const data = foundry.utils.mergeObject(source, {
-      flags: { [MODULE_ID]: { [STATION_FLAG_KEY]: { id: stationId, roller: DEFAULT_ROLLER } } },
-    });
+    // another module's), and replacing the whole `flags` object would drop them.
+    const data = foundry.utils.mergeObject(source, { flags: stationPinFlags(stationId) });
 
     const [created] = await actor.createEmbeddedDocuments("Item", [data]);
     // Core's contract for this hook (`client/applications/sheets/actor-sheet.mjs`): the created
@@ -378,7 +410,7 @@ export default class SpaceshipSettings extends BaseSettings {
         const item = SpaceshipSettings.#getRowItem(select, actor);
         // Written as one dotted path into the flag rather than through `setFlag`, so it merges
         // into the existing pin object and leaves the Station `id` beside it untouched.
-        void item?.update({ [`flags.${MODULE_ID}.${STATION_FLAG_KEY}.roller`]: select.value });
+        void item?.update({ [stationPinPath("roller")]: select.value });
       });
     });
   }

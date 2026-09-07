@@ -10,7 +10,7 @@ import {
 /**
  * The **station-actions** seam (#21/#23/#25), membership half - which of a Spaceship's items belong
  * to which Station, who each one is rolled as, and which ones the Features tab must therefore leave
- * out. It is the only place the Station pin flag is read.
+ * out. It is the only place the Station pin flag is read or built.
  *
  * Same rules as its sibling `./ownership.ts`: nothing here touches an `Actor`, an `Item` or `game`,
  * not in a signature and not in a body. Callers hand it plain records and apply what it returns,
@@ -21,6 +21,9 @@ import {
  * The two consumers - the wrench dialog's per-Station lists and the sheet's Features tab - are two
  * halves of one rule, so they go through one function (`splitStationActions`) rather than two
  * filters that could drift: every ship feature lands in exactly one of its outputs.
+ *
+ * It is also the only place the pin is *built* (`stationPinFlags`/`stationPinPath`), so the flag's
+ * shape has exactly one definition, read and written.
  */
 
 /**
@@ -85,6 +88,33 @@ export function stationPin(item: Pick<PinnableItem, "flags">): StationPin | null
   if (typeof id !== "string" || id.length === 0) return null;
 
   return { id, roller: typeof roller === "string" && isRoller(roller) ? roller : DEFAULT_ROLLER };
+}
+
+/**
+ * The `flags` value that pins an item to a Station - what a create writes, whole.
+ *
+ * Here rather than at the call sites because the pin is *written* in as many places as it is read:
+ * the wrench dialog creates a blank action (#23) and copies a dropped one (#26), and both spell the
+ * same nested shape. This module already owns the shape on the way in (`stationPin`); owning it on
+ * the way out too is what keeps a rename of `STATION_FLAG_KEY` a one-file edit.
+ *
+ * `roller` is written explicitly rather than left off even though a missing one reads back as
+ * `DEFAULT_ROLLER`: the wrench dialog's select would otherwise show a state that isn't stored (see
+ * `SpaceshipSettings.#onCreateStationAction`).
+ */
+export function stationPinFlags(id: string, roller: Roller = DEFAULT_ROLLER): Record<string, unknown> {
+  return { [MODULE_ID]: { [STATION_FLAG_KEY]: { id, roller } } };
+}
+
+/**
+ * The dotted update path to one half of an item's pin - `stationPinPath("roller")` for the wrench
+ * dialog's select, `stationPinPath("id")` for a re-pin.
+ *
+ * A dotted path, not a nested object: Foundry merges the former into the stored pin and leaves the
+ * other half alone, where the latter would replace the whole thing.
+ */
+export function stationPinPath(field: keyof StationPin): string {
+  return `flags.${MODULE_ID}.${STATION_FLAG_KEY}.${field}`;
 }
 
 /**
