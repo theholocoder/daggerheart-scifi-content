@@ -3,16 +3,17 @@ import {
   CREW_ACTOR_TYPES,
   INVENTORY_ITEM_TYPES,
   MODULE_ID,
-  SHIP_ROLLER_LABEL_KEY,
   SPACESHIP_ITEM_TYPES,
   STATION_IDS,
   SYSTEM_ITEM_TYPE,
   isStationId,
+  rollerLabelKey,
   stationLabelKey,
   type StationId,
 } from "../../constants";
 import { deleteRowDocument, pickDocumentImage, toRowEntry, type ItemRowEntry } from "./document-rows";
-import { splitStationActions } from "../../station-actions/membership";
+import { splitStationActions, stationRoller } from "../../station-actions/membership";
+import { pressStationAction } from "../../station-actions/press";
 import { resolveUuidSync } from "../../utils/resolve-uuid";
 import SpaceshipSettings from "../settings/spaceship-settings";
 import SpaceshipLevelup from "../levelup/spaceship-levelup";
@@ -121,6 +122,9 @@ interface LooseDoc {
 
 interface LooseActor {
   uuid: string;
+  // The ship's own name, which is what labels its button in the Roller prompt (#25) when a Station
+  // action asks whether the ship or a crew member acts.
+  name: string;
   system: {
     maxWeaponMounts: number;
     // One entry per `STATION_IDS` id (#8) - `crew` is a plain array of Actor UUID strings, see
@@ -205,8 +209,10 @@ interface CrewEntry {
  * `ActionSelectionDialog` (`DHItem#use`), untouched.
  *
  * `rollerLabel` is a localization key, not a resolved string - the template localizes it like
- * every other label on this sheet. Every Station action is `roller: ship` in #24; #25 owns the
- * Roller select and the crew/ask resolution, and therefore also owns what this reads then.
+ * every other label on this sheet. Since #25 it reflects the item's real Roller, which is also
+ * what pressing resolves against: the tile's `data-action` is this sheet's own
+ * `useStationAction`, not the generic `useItem`, because a `crew`/`ask` action has to answer
+ * "who?" before daggerheart's own `use` is reached at all (`station-actions/press.ts`).
  */
 interface StationActionTile {
   uuid: string;
@@ -302,6 +308,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       createEffect: SpaceshipActorSheet.#onCreateEffect,
       toggleEffect: SpaceshipActorSheet.#onToggleEffect,
       toggleStation: SpaceshipActorSheet.#onToggleStation,
+      useStationAction: SpaceshipActorSheet.#onUseStationAction,
       removeCrew: SpaceshipActorSheet.#onRemoveCrew,
       openCrew: SpaceshipActorSheet.#onOpenCrew,
       triggerContextMenu: SpaceshipActorSheet.#onTriggerContextMenu,
@@ -577,7 +584,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       // row shape. A Station action created there is given daggerheart's own default `feature`
       // artwork at creation time, so a real one always has an image.
       img: item.img,
-      rollerLabel: SHIP_ROLLER_LABEL_KEY,
+      rollerLabel: rollerLabelKey(stationRoller(item)),
     };
   }
 
@@ -893,6 +900,34 @@ export default class SpaceshipActorSheet extends BaseSheet {
 
     const action = (await fromUuid(uuid)) as { use?: (event: PointerEvent) => Promise<unknown> } | null;
     await action?.use?.(event);
+  }
+
+  /**
+   * Press a Station action's tile (#25), from `data-item-uuid` on the tile and `data-station` on
+   * its enclosing card.
+   *
+   * Deliberately *not* `#onUseItem` above: a Station action's Roller decides who it is rolled as
+   * before daggerheart's own `use` is entered, and for a `crew`/`ask` action that question comes
+   * first - ahead of the system's action-selection dialog. All of that lives in
+   * `station-actions/press.ts`; this handler only resolves the two documents it needs.
+   *
+   * The Station's crew is read off the actor rather than baked into the tile so the prompt lists
+   * who is sitting there *now*, not who was when the tab last rendered.
+   */
+  static async #onUseStationAction(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
+    const stationId = SpaceshipActorSheet.#getStationId(target);
+    if (!uuid || !stationId) return;
+
+    const actor = this.document as unknown as LooseActor;
+    const item = (await fromUuid(uuid)) as Parameters<typeof pressStationAction>[0] | null;
+    if (!item) return;
+
+    await pressStationAction(item, { name: actor.name }, actor.system.stations[stationId].crew, event);
   }
 
   /**

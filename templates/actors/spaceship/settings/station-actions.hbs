@@ -7,10 +7,11 @@
     ship's Features tab (see `station-actions/membership.ts`), so the GM comes here, not there.
 
     Layout follows prototype variant A (#21's "Wrench dialog presentation"): compact rows of
-    portrait / name / controls rather than the sheet's full `dhscifi.inventory-item` rows. That
-    partial is built around a sheet row - tags, equip/quantity/chat controls, an expandable enriched
-    description, a context menu - none of which belongs in a 455px settings dialog, so this borrows
-    the row *skeleton* and its class names only, the same call `stations.hbs` made for crew rows.
+    portrait / name / Roller select / controls rather than the sheet's full `dhscifi.inventory-item`
+    rows. That partial is built around a sheet row - tags, equip/quantity/chat controls, an
+    expandable enriched description, a context menu - none of which belongs in a 455px settings
+    dialog, so this borrows the row *skeleton* and its class names only, the same call
+    `stations.hbs` made for crew rows.
 
     `fieldset.one-column`/`legend` are the system's own dialog classes, themed unscoped under
     `.application.daggerheart.dh-style.dialog` exactly as `details.hbs`'s fieldsets are (docs/adr/
@@ -21,8 +22,13 @@
     (same trick `stations.hbs` uses), and each row's `data-item-id` identifies the item for both of
     its controls.
 
-    `@root.editable` gates all three controls, same as every other mutating control in this module:
+    `@root.editable` gates all four controls, same as every other mutating control in this module:
     an observer sees the list read-only rather than affordances that would fail server-side.
+
+    The Roller select (#25) carries no `name`: this dialog submits on change, and a named control
+    would post the Roller into the *Actor's* update, where no such field exists. It writes the
+    item's own pin flag instead, from the `change` listener `SpaceshipSettings#bindRollerSelects`
+    binds (core `ApplicationV2` actions only fire on click, so a select can't be a `data-action`).
 
     `stationSections` is built by `SpaceshipSettings.#buildStationSections`. Every Station gets a
     section whether or not it holds any actions - an empty one renders its "no actions" line and its
@@ -52,6 +58,15 @@
 
                         <div class="controls">
                             {{#if @root.editable}}
+                                <select class="station-action-roller"
+                                        data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.roller'}}"
+                                        aria-label="{{localize 'DHSCIFI.Spaceship.StationActions.roller'}}">
+                                    {{#each action.rollerOptions as |option|}}
+                                        <option value="{{option.value}}" {{#if option.selected}}selected{{/if}}>
+                                            {{localize option.label}}
+                                        </option>
+                                    {{/each}}
+                                </select>
                                 <a data-action="editStationAction"
                                    data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.edit'}}">
                                     <i class="fa-solid fa-fw fa-pen-to-square" inert></i>

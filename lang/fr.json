@@ -122,8 +122,17 @@
         "edit": "Modifier l'action de poste",
         "empty": "Aucune action de poste",
         "use": "Utiliser l'action de poste",
+        "roller": "Lanceur",
+        "noRoller": "Aucun membre d'équipage à ce poste pour effectuer cette action.",
+        "unknownRoller": "Ce membre d'équipage n'existe plus.",
         "Rollers": {
-          "ship": "Vaisseau"
+          "ship": "Vaisseau",
+          "crew": "Équipage",
+          "ask": "Demander"
+        },
+        "Prompt": {
+          "title": "Qui lance ?",
+          "body": "Qui effectue <b>{name}</b> ?"
         },
         "Delete": {
           "title": "Supprimer l'action de poste",

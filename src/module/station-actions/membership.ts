@@ -1,8 +1,16 @@
-import { FEATURE_ITEM_TYPE, MODULE_ID, STATION_FLAG_KEY } from "../constants";
+import {
+  DEFAULT_ROLLER,
+  FEATURE_ITEM_TYPE,
+  MODULE_ID,
+  STATION_FLAG_KEY,
+  isRoller,
+  type Roller,
+} from "../constants";
 
 /**
- * The **station-actions** seam (#21/#23), membership half - which of a Spaceship's items belong to
- * which Station, and which ones the Features tab must therefore leave out.
+ * The **station-actions** seam (#21/#23/#25), membership half - which of a Spaceship's items belong
+ * to which Station, who each one is rolled as, and which ones the Features tab must therefore leave
+ * out. It is the only place the Station pin flag is read.
  *
  * Same rules as its sibling `./ownership.ts`: nothing here touches an `Actor`, an `Item` or `game`,
  * not in a signature and not in a body. Callers hand it plain records and apply what it returns,
@@ -43,23 +51,48 @@ export interface StationActionSplit<T> {
 }
 
 /**
- * The Station id written on an item's pin flag, or `null` if it carries none.
+ * A Station action's pin, as this module reads it back: which Station the action hangs off, and
+ * who it is rolled as.
+ *
+ * The two halves are stored together and read together because they are written together - the
+ * wrench dialog creates the pin with an `id` and later writes a `roller` into the same object.
+ */
+export interface StationPin {
+  id: string;
+  roller: Roller;
+}
+
+/**
+ * The Station pin on an item, or `null` if it carries none.
  *
  * Everything below the flag namespace is narrowed rather than trusted, for the reasons
- * `PinnableItem.flags` gives. Whether the item is even *eligible* to be pinned is the caller's
- * check, not this one's - `splitStationActions` gates on `feature` before it asks (that is the
- * only type a Station accepts: #21 - weapons belong to Weapon Mounts and Systems are bought with
- * System Points).
+ * `PinnableItem.flags` gives - which is also why a pin with an `id` but no (or an unrecognised)
+ * `roller` reads as `DEFAULT_ROLLER` rather than as no pin at all: that is exactly the shape #23
+ * wrote, and losing the `id` over a missing `roller` would unpin every action authored before #25.
+ *
+ * Whether the item is even *eligible* to be pinned is the caller's check, not this one's -
+ * `splitStationActions` gates on `feature` before it asks (that is the only type a Station
+ * accepts: #21 - weapons belong to Weapon Mounts and Systems are bought with System Points).
  */
-function stationPin(item: PinnableItem): string | null {
+export function stationPin(item: Pick<PinnableItem, "flags">): StationPin | null {
   const moduleFlags = item.flags?.[MODULE_ID];
   if (typeof moduleFlags !== "object" || moduleFlags === null) return null;
 
   const pin = (moduleFlags as Record<string, unknown>)[STATION_FLAG_KEY];
   if (typeof pin !== "object" || pin === null) return null;
 
-  const id = (pin as Record<string, unknown>).id;
-  return typeof id === "string" && id.length > 0 ? id : null;
+  const { id, roller } = pin as Record<string, unknown>;
+  if (typeof id !== "string" || id.length === 0) return null;
+
+  return { id, roller: typeof roller === "string" && isRoller(roller) ? roller : DEFAULT_ROLLER };
+}
+
+/**
+ * The Roller of a Station action - `DEFAULT_ROLLER` for an item carrying no pin at all, so the
+ * press path and the wrench dialog's select never have to spell that fallback themselves.
+ */
+export function stationRoller(item: Pick<PinnableItem, "flags">): Roller {
+  return stationPin(item)?.roller ?? DEFAULT_ROLLER;
 }
 
 /**
@@ -87,7 +120,7 @@ export function splitStationActions<T extends PinnableItem>(
     if (item.type !== FEATURE_ITEM_TYPE) continue;
 
     const pin = stationPin(item);
-    const station = pin === null ? undefined : byStation[pin];
+    const station = pin === null ? undefined : byStation[pin.id];
     if (station) station.push(item);
     else features.push(item);
   }

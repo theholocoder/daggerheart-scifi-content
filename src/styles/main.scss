@@ -905,6 +905,17 @@ body {
       gap: 6px;
     }
 
+    // The Roller select (#25). Sized down from the system's own dialog `select` theming: three
+    // short words in a 455px row that also holds a portrait, a name and two icon controls.
+    .station-action-roller {
+      flex: 0 0 auto;
+      width: auto;
+      height: 22px;
+      padding: 0 2px;
+      font-size: var(--font-size-11, 0.6875rem);
+      line-height: 20px;
+    }
+
     // Same size treatment the Stations tab's own crew-removal control gets.
     .delete-icon {
       font-size: 0.75em;
@@ -915,6 +926,18 @@ body {
     padding: 3px 2px;
     font-style: italic;
     opacity: 0.6;
+  }
+}
+
+/*
+ * Roller prompt (#25): the "who acts?" question a `crew`/`ask` Station action asks before it runs
+ * (`station-actions/press.ts`). A plain `DialogV2`, themed by the same marker classes every other
+ * dialog in this module borrows - all it needs of its own is a footer that wraps, since a Station
+ * with several crew members puts more buttons in it than the system's own two-button dialogs do.
+ */
+.daggerheart-scifi-content.station-roller-prompt {
+  .form-footer {
+    flex-wrap: wrap;
   }
 }
 

@@ -1,14 +1,19 @@
 import {
+  DEFAULT_ROLLER,
   FEATURE_ITEM_TYPE,
   MODULE_ID,
+  ROLLERS,
   STATION_FLAG_KEY,
   STATION_IDS,
+  isRoller,
   isStationId,
+  rollerLabelKey,
   stationLabelKey,
+  type Roller,
   type StationId,
 } from "../../constants";
 import { deleteRowDocument } from "../sheets/document-rows";
-import { splitStationActions, type PinnableItem } from "../../station-actions/membership";
+import { splitStationActions, stationRoller, type PinnableItem } from "../../station-actions/membership";
 
 const BaseSettings = foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2);
 
@@ -23,6 +28,7 @@ interface LooseFeature extends PinnableItem {
   name: string;
   img: string | null;
   sheet?: { render: (options?: unknown) => unknown } | null;
+  update(data: Record<string, unknown>): Promise<unknown>;
   delete(): Promise<unknown>;
 }
 
@@ -32,11 +38,24 @@ interface LooseSpaceship {
   createEmbeddedDocuments(type: "Item", data: Record<string, unknown>[]): Promise<LooseFeature[]>;
 }
 
+/**
+ * One Station action's Roller select option: the stored value, its localization key, and whether
+ * it is the row's current Roller.
+ *
+ * Built here rather than in the template because this module registers only its own Handlebars
+ * helpers (docs/adr/0002) and has no `selectOptions`/`eq` to compare against a bound value with.
+ */
+interface RollerOptionRow {
+  value: Roller;
+  label: string;
+  selected: boolean;
+}
+
 /** One Station's section of the dialog: its label and the actions pinned to it, in `sort` order. */
 interface StationActionSection {
   id: StationId;
   label: string;
-  actions: { id: string; name: string; img: string | null }[];
+  actions: { id: string; name: string; img: string | null; rollerOptions: RollerOptionRow[] }[];
 }
 
 /**
@@ -53,9 +72,9 @@ interface StationActionSection {
  * (docs/adr/0002-spaceship-sheet-independent-application.md).
  *
  * Since #23 it is also where a GM authors the ship's Station actions - one section per Station,
- * each creating/editing/deleting `feature` Items pinned to that Station. This is the whole
- * authoring surface for them: they are deliberately absent from the ship's Features tab, and the
- * Stations tab (#24) only presses them.
+ * each creating/editing/deleting `feature` Items pinned to that Station, and since #25 setting each
+ * one's Roller. This is the whole authoring surface for them: they are deliberately absent from the
+ * ship's Features tab, and the Stations tab (#24) only presses them.
  */
 // @ts-ignore Same fvtt-types class-comparison overflow, and the same `@ts-ignore`-not-
 // `@ts-expect-error` reasoning, as `SpaceshipActorSheet` - see the comment on that class.
@@ -130,7 +149,21 @@ export default class SpaceshipSettings extends BaseSettings {
     return STATION_IDS.map((id) => ({
       id,
       label: stationLabelKey(id),
-      actions: byStation[id].map((item) => ({ id: item.id, name: item.name, img: item.img })),
+      actions: byStation[id].map((item) => ({
+        id: item.id,
+        name: item.name,
+        img: item.img,
+        rollerOptions: SpaceshipSettings.#buildRollerOptions(stationRoller(item)),
+      })),
+    }));
+  }
+
+  /** The Roller select's three options, with `current` marked - see `RollerOptionRow`. */
+  static #buildRollerOptions(current: Roller): RollerOptionRow[] {
+    return ROLLERS.map((roller) => ({
+      value: roller,
+      label: rollerLabelKey(roller),
+      selected: roller === current,
     }));
   }
 
@@ -154,9 +187,11 @@ export default class SpaceshipSettings extends BaseSettings {
    * one would flash into the ship's Features tab, and a failed follow-up write would strand it
    * there for good.
    *
-   * The pin carries `id` and nothing else. #21's full flag shape also holds a `roller`, but that
-   * is #25's - which owns the Roller select, and therefore also owns what a pin with no `roller`
-   * on it means; writing a default here would be this ticket guessing that answer early.
+   * The pin carries both halves of #21's flag shape as of #25: the Station `id` and the Roller.
+   * `DEFAULT_ROLLER` is written explicitly rather than left off - a pin missing its `roller` reads
+   * as the same value (`station-actions/membership.ts`), but the row's select then shows a state
+   * that isn't stored, and the first change to any *other* action's Roller would be the only write
+   * that ever made it real.
    */
   static async #onCreateStationAction(
     this: foundry.applications.sheets.ActorSheetV2.Any,
@@ -180,7 +215,7 @@ export default class SpaceshipSettings extends BaseSettings {
         type: FEATURE_ITEM_TYPE,
         name: game.i18n!.localize("DHSCIFI.Spaceship.StationActions.newAction"),
         img,
-        flags: { [MODULE_ID]: { [STATION_FLAG_KEY]: { id: stationId } } },
+        flags: { [MODULE_ID]: { [STATION_FLAG_KEY]: { id: stationId, roller: DEFAULT_ROLLER } } },
       },
     ]);
 
@@ -216,5 +251,47 @@ export default class SpaceshipSettings extends BaseSettings {
       "DHSCIFI.Spaceship.StationActions.Delete.title",
       "DHSCIFI.Spaceship.StationActions.Delete.body",
     );
+  }
+
+  /**
+   * `any` in for the same reason `_prepareContext` above takes it - fvtt-types' RenderContext/
+   * RenderOptions shapes add member-level TS2416 mismatches on top of the class-level suppression.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  protected override async _onRender(context: any, options: any): Promise<void> {
+    await super._onRender(context, options);
+    this.#bindRollerSelects();
+  }
+
+  /**
+   * Bind each Station action row's Roller select (#25). A `<select>` is not a `data-action` target
+   * - core `ApplicationV2` actions only fire on click - so its `change` is bound here, exactly as
+   * the Spaceship sheet binds its own quantity and Shield inputs. Re-bound on every render: a
+   * render replaces the part's DOM, so these are always freshly-created elements.
+   *
+   * The select carries no `name`, deliberately: this dialog submits on change (`submitOnChange`),
+   * and a named control inside its form would be posted into the *Actor's* update as a field that
+   * does not exist on `SpaceshipData`. The Roller lives on the item's own flag, so the write is
+   * made here by hand instead of going through the form.
+   */
+  #bindRollerSelects(): void {
+    const selects = this.element.querySelectorAll<HTMLSelectElement>(".station-action-roller");
+    selects.forEach((select) => {
+      select.addEventListener("change", (event) => {
+        // The select sits inside a `submitOnChange` form whose own `change` listener is on the
+        // form element. It carries no `name`, so submitting would write nothing - but it would
+        // still cost a second render, one that rebuilds the options from a flag the write below
+        // has not landed yet and so briefly snaps the select back. Stop the event here instead;
+        // the item update re-renders this dialog on its own.
+        event.stopPropagation();
+        if (!isRoller(select.value)) return;
+
+        const actor = this.document as unknown as LooseSpaceship;
+        const item = SpaceshipSettings.#getRowItem(select, actor);
+        // Written as one dotted path into the flag rather than through `setFlag`, so it merges
+        // into the existing pin object and leaves the Station `id` beside it untouched.
+        void item?.update({ [`flags.${MODULE_ID}.${STATION_FLAG_KEY}.roller`]: select.value });
+      });
+    });
   }
 }

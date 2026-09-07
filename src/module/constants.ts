@@ -122,13 +122,44 @@ export const SPACESHIP_ITEM_TYPES = [...INVENTORY_ITEM_TYPES, FEATURE_ITEM_TYPE]
 export const STATION_FLAG_KEY = "station";
 
 /**
- * The localization key for the Roller label a Station action's tile carries (#24) - the "Ship" line
- * under its name on the Stations tab.
+ * The Rollers a Station action can carry (#25, CONTEXT.md's "Roller" entry) - who the action is
+ * rolled *as*, in the order the wrench dialog's select lists them.
  *
- * Only the `ship` Roller exists as far as the sheet is concerned right now: every Station action
- * behaves as `roller: ship` until #25, which owns the Roller select, the `crew`/`ask` resolution
- * and therefore the rest of the `DHSCIFI.Spaceship.StationActions.Rollers.*` family. Named here
- * rather than spelled at the call site for the same reason `stationLabelKey` above is - the key
- * shape is a promise this file makes, and #25 turns this constant into that function.
+ * The value lives on the item's own Station pin (`flags.<MODULE_ID>.station.roller`), beside the
+ * Station id, and is read only through `station-actions/membership.ts` like the id is.
  */
-export const SHIP_ROLLER_LABEL_KEY = "DHSCIFI.Spaceship.StationActions.Rollers.ship";
+export const ROLLERS = ["ship", "crew", "ask"] as const;
+
+/** One of the three Rollers. */
+export type Roller = (typeof ROLLERS)[number];
+
+/**
+ * The Roller a Station action with no `roller` on its pin behaves as.
+ *
+ * `ship` for two reasons that agree: it is the only Roller that needs no crew to work, and every
+ * Station action authored before #25 (whose pins carry an `id` and nothing else - see #23's
+ * `#onCreateStationAction`) was rolled as the ship. So this is both the safe default and the
+ * migration, which is why #21 could leave the flag's `roller` half unwritten until now.
+ */
+export const DEFAULT_ROLLER: Roller = "ship";
+
+/**
+ * Narrow an arbitrary string - a `<select>` value, a `roller` off an item's flags - to a `Roller`.
+ * Same shape and same reason as `isStationId` above: a stored pin can be hand-edited or left
+ * behind by an older version, so it is narrowed rather than trusted.
+ */
+export function isRoller(value: string): value is Roller {
+  return (ROLLERS as readonly string[]).includes(value);
+}
+
+/**
+ * The localization key for a Roller's label - the line under a Station action's name on its tile
+ * (#24) and the options of the wrench dialog's Roller select (#25).
+ *
+ * Spelled here rather than at the call sites for the same reason `stationLabelKey` above is: the
+ * `DHSCIFI.Spaceship.StationActions.Rollers.<roller>` shape is a promise this file makes, and
+ * three places now render through it.
+ */
+export function rollerLabelKey(roller: Roller): string {
+  return `DHSCIFI.Spaceship.StationActions.Rollers.${roller}`;
+}
