@@ -115,6 +115,16 @@
           "body": "Retirer {name} de ce poste ?"
         }
       },
+      "StationActions": {
+        "newAction": "Nouvelle action de poste",
+        "create": "Créer une action de poste",
+        "edit": "Modifier l'action de poste",
+        "empty": "Aucune action de poste",
+        "Delete": {
+          "title": "Supprimer l'action de poste",
+          "body": "Supprimer {name} ?"
+        }
+      },
       "Thresholds": {
         "minor": "Mineur",
         "major": "Majeur",

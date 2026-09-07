@@ -117,6 +117,16 @@
           "body": "Remove {name} from this station?"
         }
       },
+      "StationActions": {
+        "newAction": "New Station Action",
+        "create": "Create Station Action",
+        "edit": "Edit Station Action",
+        "empty": "No station actions",
+        "Delete": {
+          "title": "Delete Station Action",
+          "body": "Delete {name}?"
+        }
+      },
       "Thresholds": {
         "minor": "Minor",
         "major": "Major",

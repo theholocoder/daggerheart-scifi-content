@@ -1,14 +1,17 @@
 import {
   ARMOR_ITEM_TYPE,
   CREW_ACTOR_TYPES,
-  FEATURE_ITEM_TYPE,
   INVENTORY_ITEM_TYPES,
   MODULE_ID,
   SPACESHIP_ITEM_TYPES,
   STATION_IDS,
   SYSTEM_ITEM_TYPE,
+  isStationId,
+  stationLabelKey,
+  type StationId,
 } from "../../constants";
 import { deleteRowDocument, pickDocumentImage, toRowEntry, type ItemRowEntry } from "./document-rows";
+import { splitStationActions } from "../../station-actions/membership";
 import { resolveUuidSync } from "../../utils/resolve-uuid";
 import SpaceshipSettings from "../settings/spaceship-settings";
 import SpaceshipLevelup from "../levelup/spaceship-levelup";
@@ -64,6 +67,11 @@ interface LooseDoc {
   name: string;
   img: string | null;
   system: InventoryItemSystem;
+  // Both core Foundry document fields, read only through `station-actions/membership.ts`: `flags`
+  // carries a feature's Station pin (#23) and `sort` orders a Station's actions. Optional so the
+  // shape still covers an ActiveEffect row, which has both but never a pin.
+  sort?: number;
+  flags?: Record<string, unknown>;
   parent?: { uuid?: string } | null;
   sheet?: { render: (options?: unknown) => unknown } | null;
   isOwner?: boolean;
@@ -171,8 +179,6 @@ interface LooseActor {
   } | null>;
 }
 
-type StationId = (typeof STATION_IDS)[number];
-
 /**
  * One crew assignment as the Stations tab renders it: the stored UUID plus whatever the referenced
  * Actor still provides. `missing` is the "the Actor was deleted" case the ticket calls for - a
@@ -224,10 +230,16 @@ interface EquippedWeaponRow {
  * Independent ApplicationV2 class - does not extend the `daggerheart` system's own sheet base
  * classes. See docs/adr/0002-spaceship-sheet-independent-application.md for why.
  */
-// @ts-expect-error fvtt-types 13.346-beta cannot relate a subclass that overrides any inherited
-// render method (`_prepareContext`/`_preparePartContext`) to the HandlebarsApplicationMixin
-// base: the class-extends comparison overflows ("excessive stack depth") regardless of how the
-// override is typed, even with `any` signatures. Members are still individually type-checked.
+// @ts-ignore fvtt-types 13.346-beta cannot relate a subclass that overrides any inherited render
+// method (`_prepareContext`/`_preparePartContext`) to the HandlebarsApplicationMixin base: the
+// class-extends comparison overflows ("excessive stack depth") regardless of how the override is
+// typed, even with `any` signatures. Members are still individually type-checked.
+//
+// `@ts-ignore` rather than `@ts-expect-error`: tsc caches the failed relation, so the overflow is
+// only ever *reported* at whichever of this module's two ActorSheetV2 subclasses it checks first
+// (the other one - see `SpaceshipSettings`, which carries the same suppression - then has an
+// "unused directive" error instead). Which that is depends on file order, so neither can assert
+// the error is there.
 export default class SpaceshipActorSheet extends BaseSheet {
   static override DEFAULT_OPTIONS = {
     // `daggerheart`/`dh-style` are the system's own generic, world-global CSS marker classes
@@ -440,11 +452,14 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * rows the Inventory tab uses, since both tabs render through the same partials (see
    * `features.hbs`). A single flat list: unlike a character, a ship has no class/subclass/
    * ancestry/community granters to group features under (CONTEXT.md).
+   *
+   * Station actions (#23) are features too, so this list is what the wrench dialog's per-Station
+   * lists *don't* hold - both come out of the one `splitStationActions` call so the two can never
+   * disagree about which items a Station has claimed.
    */
   static #buildFeaturesContext(actor: LooseActor, editable: boolean): ItemRowEntry[] {
-    return Array.from(actor.items)
-      .filter((item) => item.type === FEATURE_ITEM_TYPE)
-      .map((item) => toRowEntry(item, editable));
+    const { features } = splitStationActions(actor.items, STATION_IDS);
+    return features.map((item) => toRowEntry(item, editable));
   }
 
   /**
@@ -503,7 +518,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       const station = actor.system.stations[id];
       return {
         id,
-        label: `DHSCIFI.Spaceship.Stations.Roles.${id}`,
+        label: stationLabelKey(id),
         enabled: station.enabled,
         crew: station.crew.map((uuid) => SpaceshipActorSheet.#resolveCrewEntry(uuid)),
       };
@@ -535,14 +550,10 @@ export default class SpaceshipActorSheet extends BaseSheet {
     return { uuid, name: doc.name, img: doc.img ?? "icons/svg/mystery-man.svg", missing: false };
   }
 
-  static #isStationId(id: string): id is StationId {
-    return (STATION_IDS as readonly string[]).includes(id);
-  }
-
   /** Resolve the `data-station` of the closest station container (fieldset or crew row) to `el`. */
   static #getStationId(el: HTMLElement): StationId | undefined {
     const id = el.closest<HTMLElement>("[data-station]")?.dataset.station;
-    return id && SpaceshipActorSheet.#isStationId(id) ? id : undefined;
+    return id && isStationId(id) ? id : undefined;
   }
 
   static #isInventoryItemType(type: string): type is InventoryItemType {

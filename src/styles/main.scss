@@ -716,6 +716,71 @@ body {
   .tab.details .traits-inner-container .trait-container input {
     text-align: center;
   }
+
+  /*
+   * Station actions (#23) - one section per Station, each a list of compact rows. The fieldset and
+   * its legend are the system's own dialog treatment (`fieldset.one-column`, shared with the
+   * Traits/Basics sections above); everything below is this list's own, because it borrows only
+   * the row *skeleton* from the sheet's item rows and none of `.inventory-item`'s themed layout
+   * (see `settings/station-actions.hbs` for why).
+   */
+  // Five sections on top of Traits and Basics can outgrow the viewport on a `height: "auto"`,
+  // non-resizable window, so this part scrolls within itself rather than pushing the dialog's
+  // bottom off screen.
+  .station-actions-tab {
+    max-height: 40vh;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+
+  .station-action-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .station-action-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 2px;
+
+    .item-img {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .item-name {
+      flex: 1;
+      // Long feature names truncate rather than wrapping the controls off the row: the dialog is
+      // a fixed 455px wide and never resizes.
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .controls {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 6px;
+    }
+
+    // Same size treatment the Stations tab's own crew-removal control gets.
+    .delete-icon {
+      font-size: 0.75em;
+    }
+  }
+
+  .station-action-empty {
+    padding: 3px 2px;
+    font-style: italic;
+    opacity: 0.6;
+  }
 }
 
 /*
