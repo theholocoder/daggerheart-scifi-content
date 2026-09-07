@@ -623,44 +623,179 @@ body {
   }
 
   /*
-   * Stations tab (#8). Same shape as the two tabs above - the tab element itself must never get a
-   * `display` (see the IMPORTANT note there); the inner `.stations-sections` is the flex column
-   * that scrolls, copied by value from `.items-section` exactly as that one was.
+   * Stations tab (#8, #24). Same shape as the two tabs above - the tab element itself must never
+   * get a `display` (see the IMPORTANT note there); the inner `.stations-sections` is the flex
+   * column that scrolls, copied by value from `.items-section` exactly as that one was.
    *
-   * The station fieldsets and their crew rows reuse daggerheart's own unscoped classes
-   * (`fieldset.glassy`/`legend`/`items-list`/`inventory-item`/`img-portait`/`item-label`/
-   * `controls`), so only what's genuinely ours or `.party`-scoped upstream needs rules here:
-   * `.actors-dragger` (the dashed drop hint, copied by value from
-   * `.party .tab.partyMembers .actors-dragger`), `.delete-icon`'s size (same), and the
-   * disabled/missing dimming.
+   * A station is prototype variant B's card (#21): `fieldset.glassy` supplies the card background
+   * from daggerheart's own unscoped rule, and everything inside it is ours - the header row
+   * (title, overlapping crew avatars, enable toggle) and the Station-action tile grid below it.
+   * The one other borrowed class is `.actors-dragger` (the dashed drop hint), which *is*
+   * `.party`-scoped upstream and so is copied by value here, same as `.delete-icon`'s size.
    */
   .spaceship-stations {
+    .station-card {
+      // No `legend` any more (see `stations.hbs`), so the fieldset supplies its own padding.
+      padding: 8px 10px 10px;
+    }
+
     /*
-     * A disabled station keeps showing whatever crew it holds (disabling is non-destructive), but
-     * reads as inactive.
+     * The card header: title on the left, crew strip taking the slack, toggle on the right.
+     */
+    .station-card-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 30px;
+    }
+
+    .station-title {
+      flex: 0 0 auto;
+      font-weight: bold;
+      color: var(--color-text-emphatic, inherit);
+    }
+
+    /*
+     * Crew collapses to overlapping portraits (#24), in the order the ship stores them. A negative
+     * `margin-left` on every avatar but the first is the whole of the overlap - later siblings
+     * paint above earlier ones on their own, so no `z-index` and no reversed flex direction (which
+     * would also reverse the crew's order on screen) is needed.
+     */
+    .crew-strip {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .crew-avatar {
+      position: relative;
+      flex: 0 0 auto;
+      margin-left: -8px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      img {
+        display: block;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid light-dark(var(--beige, #efe6d8), var(--dark-blue, #18162e));
+        background-color: light-dark(var(--dark-blue-10, #18162e10), var(--golden-10, #f3c26710));
+      }
+
+      /*
+       * The removal control rides the top-right of the portrait. Faded rather than *hidden* until
+       * hover: the strip is a display of who is aboard first and a management surface second, but
+       * a control that only exists on hover is unreachable by touch and invisible to anybody who
+       * doesn't happen to pass over it - and this is the only way to unassign crew.
+       */
+      .delete-icon {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        border-radius: 50%;
+        background-color: light-dark(var(--beige, #efe6d8), var(--dark-blue, #18162e));
+        opacity: 0.45;
+      }
+
+      &:hover .delete-icon,
+      .delete-icon:hover {
+        opacity: 1;
+      }
+    }
+
+    .crew-empty {
+      color: var(--color-text-secondary, inherit);
+      font-size: var(--font-size-12, 0.75rem);
+      font-style: italic;
+    }
+
+    /*
+     * Station actions (#24): a responsive tile grid, each tile a press target for the feature's
+     * action. `button` so it is keyboard-reachable, which means undoing daggerheart's own button
+     * theming (its buttons are light-background pills) down to a plain surface.
+     */
+    .action-tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .action-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 8px 4px;
+      text-align: center;
+      line-height: normal;
+      color: inherit;
+      background: light-dark(var(--dark-blue-10, #18162e10), var(--golden-10, #f3c26710));
+      border: 1px solid light-dark(var(--dark-blue-40, #18162e40), var(--beige-50, #efe6d850));
+      border-radius: 4px;
+      box-shadow: none;
+
+      &:hover {
+        background: light-dark(var(--dark-blue-40, #18162e40), var(--golden-40, #f3c26740));
+        border-color: light-dark(var(--dark-blue-50, #18162e50), var(--beige-50, #efe6d850));
+        box-shadow: none;
+      }
+
+      img {
+        display: block;
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        border: none;
+      }
+
+      .tile-name {
+        font-size: var(--font-size-12, 0.75rem);
+        font-weight: bold;
+        // A long feature name wraps rather than widening the grid track.
+        overflow-wrap: anywhere;
+      }
+
+      .tile-roller {
+        font-size: var(--font-size-10, 0.625rem);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-text-secondary, inherit);
+      }
+    }
+
+    /*
+     * A disabled station keeps showing whatever crew it holds (disabling is non-destructive) but
+     * reads as inactive, and shows no tiles at all - the context builder already gives it none.
      *
      * The dimming deliberately does NOT go on the fieldset: `opacity` below 1 creates an opacity
      * group, and a descendant can never render more opaque than its group - so `opacity: 0.5` on
-     * the fieldset with a `legend a { opacity: 1 }` "exception" does nothing, and the re-enable
-     * toggle (the only way back out of the disabled state) dims along with everything else. Dim
-     * the station's *contents* and re-colour the legend text instead, both of which leave the
-     * toggle at full strength.
+     * the fieldset with a toggle-level "exception" does nothing, and the re-enable toggle (the
+     * only way back out of the disabled state) dims along with everything else. Dim the header's
+     * *other* children instead, which leaves the toggle at full strength.
      */
     .station-disabled {
-      > legend {
+      .station-title {
         color: var(--color-text-secondary, inherit);
       }
 
-      > .items-list {
+      .crew-strip {
         opacity: 0.5;
       }
     }
 
     // A crew reference whose Actor no longer resolves ("Unknown"), same dimming the sheet's other
     // not-yet-real elements use.
-    .crew-assignment-missing .item-main {
+    .crew-avatar-missing img {
       opacity: 0.6;
-      font-style: italic;
     }
 
     .actors-dragger {

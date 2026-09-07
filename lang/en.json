@@ -112,6 +112,7 @@
         "AlreadyAssigned": "That character is already assigned to this station.",
         "OpenActor": "Open Character Sheet",
         "UnknownCrew": "Unknown",
+        "NoCrew": "No crew",
         "RemoveCrew": {
           "title": "Remove Assignment",
           "body": "Remove {name} from this station?"
@@ -122,6 +123,10 @@
         "create": "Create Station Action",
         "edit": "Edit Station Action",
         "empty": "No station actions",
+        "use": "Use Station Action",
+        "Rollers": {
+          "ship": "Ship"
+        },
         "Delete": {
           "title": "Delete Station Action",
           "body": "Delete {name}?"

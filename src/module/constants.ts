@@ -120,3 +120,15 @@ export const SPACESHIP_ITEM_TYPES = [...INVENTORY_ITEM_TYPES, FEATURE_ITEM_TYPE]
  * ts`, which is the only place this key is read.
  */
 export const STATION_FLAG_KEY = "station";
+
+/**
+ * The localization key for the Roller label a Station action's tile carries (#24) - the "Ship" line
+ * under its name on the Stations tab.
+ *
+ * Only the `ship` Roller exists as far as the sheet is concerned right now: every Station action
+ * behaves as `roller: ship` until #25, which owns the Roller select, the `crew`/`ask` resolution
+ * and therefore the rest of the `DHSCIFI.Spaceship.StationActions.Rollers.*` family. Named here
+ * rather than spelled at the call site for the same reason `stationLabelKey` above is - the key
+ * shape is a promise this file makes, and #25 turns this constant into that function.
+ */
+export const SHIP_ROLLER_LABEL_KEY = "DHSCIFI.Spaceship.StationActions.Rollers.ship";

@@ -110,6 +110,7 @@
         "AlreadyAssigned": "Ce personnage est déjà affecté à ce poste.",
         "OpenActor": "Ouvrir la fiche du personnage",
         "UnknownCrew": "Inconnu",
+        "NoCrew": "Aucun équipage",
         "RemoveCrew": {
           "title": "Retirer l'affectation",
           "body": "Retirer {name} de ce poste ?"
@@ -120,6 +121,10 @@
         "create": "Créer une action de poste",
         "edit": "Modifier l'action de poste",
         "empty": "Aucune action de poste",
+        "use": "Utiliser l'action de poste",
+        "Rollers": {
+          "ship": "Vaisseau"
+        },
         "Delete": {
           "title": "Supprimer l'action de poste",
           "body": "Supprimer {name} ?"
