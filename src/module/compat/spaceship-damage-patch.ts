@@ -99,8 +99,15 @@ export default function registerSpaceshipDamagePatch(): void {
         }
       }
 
+      // Upstream's own sign rule, verbatim in effect: flip anything that is not a resource which
+      // counts *up* as it is spent. A ship's resources carry real `isReversed` flags
+      // (`SpaceshipData#prepareResourceDirections`), so this no longer has to work around their
+      // absence - and `takeHealing`, which reads the same flag and is not patched at all, now
+      // gets the sign right for free.
       for (const u of updates) {
-        u.value = u.key === "fear" || this.system?.resources?.[u.key]?.isReversed === false ? u.value * -1 : u.value;
+        const resource = this.system?.resources?.[u.key];
+        const shouldFlip = u.key === "fear" || (!!resource && !resource.isReversed);
+        u.value = shouldFlip ? u.value * -1 : u.value;
       }
 
       await this.modifyResource(updates);

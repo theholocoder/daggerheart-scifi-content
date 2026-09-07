@@ -58,6 +58,27 @@ interface EffectLike {
 }
 
 /**
+ * One prepared resource as the *system* reads it back off `system.resources.<key>` - this module's
+ * `{value, max}` schema plus the display/behaviour metadata daggerheart's own resource preparation
+ * writes onto its actors' resources.
+ *
+ * `isReversed` is the load-bearing one: it is how the system tells "counts up as it is spent"
+ * (Hit Points, Stress, Shield) from "counts down" (Hope), and every resource write of the system's
+ * own - healing, costs, `fullRestore` - branches on it. `label` rides along because upstream's
+ * entries carry one and its chat cards read it.
+ *
+ * A local shape rather than a schema change: these are prepared-data annotations, not stored
+ * fields, so they are written onto the prepared `resources` object each preparation (see
+ * `#prepareResourceDirections`) and never persisted.
+ */
+interface PreparedResource {
+  value: number;
+  max: number;
+  isReversed?: boolean;
+  label?: string;
+}
+
+/**
  * One place Shield slots can be marked off: the equipped armor Item, or an `armor`-typed change on
  * an applied ActiveEffect. The sheet's pip row shows the *sum* of these, so marking a pip has to be
  * spread across them - `write` is how each source stores its own share back.
@@ -361,6 +382,96 @@ export default class SpaceshipData extends foundry.abstract.TypeDataModel<
     };
 
     this.damageThresholds = this.damageThresholdsAtLevel(this.level);
+
+    this.#prepareResourceDirections();
+  }
+
+  /**
+   * Tag each resource with the `isReversed` flag daggerheart's own resource preparation writes
+   * (`DhCreature`, from `CONFIG.DH.RESOURCE.<type>.all`'s `reverse`) - "this resource counts
+   * *up* as it is spent", true of Hit Points and Stress and false of Hope.
+   *
+   * A ship's resources are declared by this module's own schema and never pass through that
+   * preparation, so without this the flag is simply absent - and the system's own
+   * `DhpActor#takeHealing` reads it directly:
+   *
+   * ```js
+   * const shouldFlip = !(u.key === 'fear' || u.key === 'resource' ||
+   *   (this.system?.resources?.[u.key] && !this.system.resources[u.key].isReversed));
+   * ```
+   *
+   * An absent flag reads as "not reversed", so healing a ship *added* to Hit Points and Stress -
+   * a Repair action marked damage instead of clearing it. The flag is the fix rather than a
+   * `takeHealing` patch, because it is what every other consumer of a resource reads too:
+   * `CostField`'s affordability check, `modifyResource`'s `fullRestore`, and the token resource
+   * bars all branch on it (`compat/spaceship-damage-patch.ts` only ever worked around its
+   * absence, and now reads the real thing).
+   *
+   * Written in `prepareBaseData` so it is set before anything - ActiveEffects included - can read
+   * it, and re-set on every preparation, exactly as upstream's own resource preparation is.
+   */
+  #prepareResourceDirections(): void {
+    const resources = this.resources as unknown as Record<string, PreparedResource>;
+
+    resources.hope.isReversed = false;
+    resources.hitPoints.isReversed = true;
+    resources.stress.isReversed = true;
+  }
+
+  /**
+   * Expose Shield as a resource (#10), the way daggerheart's own character does in its
+   * `prepareDerivedData` (`this.resources.armor = {...this.armorScore, label, isReversed: true}`).
+   *
+   * Derived, not base: `armorScore` itself is derived in `prepareBaseData` and then added to by
+   * core-applied ActiveEffects, so this has to be copied after those land or a ship's effect-
+   * granted Shield slots would be missing from the copy.
+   *
+   * It is a *copy*, and nothing writes back through it - `modifyResource` routes the `armor` key
+   * to `updateArmorValue` below instead, because Shield has no single stored home. What the entry
+   * buys is that everything which merely *reads* the resource map finds Shield there: an action
+   * costing Shield, a chat card labelling it, a homebrew resource bar.
+   */
+  override prepareDerivedData(): void {
+    super.prepareDerivedData();
+
+    const resources = this.resources as unknown as Record<string, PreparedResource>;
+
+    resources.armor = {
+      ...this.armorScore,
+      label: "DHSCIFI.Spaceship.Shield",
+      isReversed: true,
+    };
+  }
+
+  /**
+   * Apply a Shield change expressed as a *delta*, which is the shape daggerheart's
+   * `DhpActor#modifyResource` hands the `armor` resource key:
+   *
+   * ```js
+   * case 'armor':
+   *     if (!r.uuid) this.system.updateArmorValue(r);
+   *     else this.system.updateArmorEffectValue(r);
+   * ```
+   *
+   * That method lives on `DhCharacter`, not on the shared actor/creature base, so on a ship the
+   * call hit `undefined` and threw - which is why a healing action targeting Armor did nothing at
+   * all. Defined here with upstream's name and argument shape so the system's own call site works
+   * unpatched, and implemented on top of `markShield` (the absolute-target write the sheet's pip
+   * bar uses) rather than duplicating its source-spreading.
+   *
+   * `clear` is `fullRestore` on the way in: every marked slot comes back, which for a reversed
+   * resource means dropping to zero.
+   *
+   * `updateArmorEffectValue`, upstream's sibling for a change aimed at one named source, is
+   * deliberately *not* defined: nothing produces a `uuid`-carrying `armor` update for a ship. It
+   * is the character damage flow's `armorSlot` dialog that names a source, and a ship never opens
+   * it (`compat/spaceship-damage-patch.ts` replaces that whole branch with `autoSpendShield`).
+   */
+  async updateArmorValue({ value = 0, clear = false }: { value?: number; clear?: boolean } = {}): Promise<void> {
+    if (clear) return this.markShield(0);
+    if (!value) return;
+
+    await this.markShield(this.armorScore.value + value);
   }
 
   /**
