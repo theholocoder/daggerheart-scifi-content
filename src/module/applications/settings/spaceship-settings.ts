@@ -39,6 +39,22 @@ interface LooseSpaceship {
 }
 
 /**
+ * The parts of a dropped Item this dialog needs (#26). Loose for the same reason the two shapes
+ * above are - the dropped document is a daggerheart `feature`, a sub-type fvtt-types has no
+ * knowledge of (docs/adr/0002).
+ *
+ * `parent` is the Actor or Item the drop came off, `null` for a world or compendium item; it is
+ * how a feature already owned by *this* ship is told apart from a foreign copy.
+ */
+interface LooseDroppedItem {
+  id: string;
+  type: string;
+  inCompendium: boolean;
+  parent?: { uuid: string } | null;
+  toObject(): Record<string, unknown>;
+}
+
+/**
  * One Station action's Roller select option: the stored value, its localization key, and whether
  * it is the row's current Roller.
  *
@@ -251,6 +267,78 @@ export default class SpaceshipSettings extends BaseSettings {
       "DHSCIFI.Spaceship.StationActions.Delete.title",
       "DHSCIFI.Spaceship.StationActions.Delete.body",
     );
+  }
+
+  /**
+   * Accept a `feature` Item dropped onto a Station's section and pin it there (#26).
+   *
+   * Same wiring story as the Spaceship sheet's own drop handlers: `ActorSheetV2` (this dialog's
+   * base class) already binds drag-drop in `_onRender` and routes an Item drop through this exact
+   * hook, so this overrides the hook rather than adding a second, competing listener. Not typed as
+   * a real override - fvtt-types declares neither `_onDropItem` nor `_dragDrop` - hence the `any`s
+   * and the loose dropped-item shape.
+   *
+   * Which Station? The drop's own `event.target`, exactly as the Stations tab resolves a dropped
+   * Actor's: the sections are separate drop targets within one dialog, so a drop that landed
+   * outside a `[data-station]` fieldset is refused rather than guessed at.
+   *
+   * `feature` is the only type accepted (#21): weapons belong to Weapon Mounts and Systems are
+   * bought with System Points, so neither gets a second home at a Station.
+   *
+   * The copy is made here rather than delegated to the base implementation so the pin is written
+   * *with* the create, for the reason `#onCreateStationAction` above gives: an item that exists
+   * for a moment without one flashes into the ship's Features tab, and a failed follow-up write
+   * would strand it there for good.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async _onDropItem(event: any, item: any): Promise<any> {
+    const dropped = item as LooseDroppedItem;
+    const target = event.target as HTMLElement | null;
+    const stationId = target ? SpaceshipSettings.#getStationId(target) : undefined;
+    if (!stationId) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.DropOnStation"));
+      return null;
+    }
+
+    if (dropped.type !== FEATURE_ITEM_TYPE) {
+      ui.notifications?.warn(game.i18n!.localize("DHSCIFI.Spaceship.StationActions.InvalidItemType"));
+      return null;
+    }
+
+    const actor = this.document as unknown as LooseSpaceship;
+
+    // A feature the ship already owns - dragged off its own Features tab, or from one Station's
+    // section to another's. Re-pin it instead of embedding a second copy, and write only the
+    // Station half of the pin so an existing Roller survives the move.
+    if (dropped.parent?.uuid === this.document.uuid) {
+      const owned = actor.items.get(dropped.id);
+      if (!owned) return null;
+      await owned.update({ [`flags.${MODULE_ID}.${STATION_FLAG_KEY}.id`]: stationId });
+      return item;
+    }
+
+    // `fromCompendium` strips the world-specific bookkeeping a compendium copy must not keep
+    // (its folder, its ownership) and records the source - core's own `_onDropItem` makes the
+    // same call. Reached through a loosened signature for the usual fvtt-types reason: it is
+    // typed against core's `Item`, which knows nothing of daggerheart's `feature` sub-type.
+    const fromCompendium = game.items!.fromCompendium as unknown as (
+      document: unknown,
+      options?: Record<string, unknown>,
+    ) => Record<string, unknown>;
+    const source = dropped.inCompendium ? fromCompendium(dropped, { clearFolder: true }) : dropped.toObject();
+
+    // Merged rather than assigned: a feature can arrive carrying flags of its own (daggerheart's,
+    // another module's), and replacing the whole `flags` object would drop them. The pin carries
+    // both halves of #21's flag shape for the reason `#onCreateStationAction` gives - a stored
+    // `roller` is what the row's select reads back.
+    const data = foundry.utils.mergeObject(source, {
+      flags: { [MODULE_ID]: { [STATION_FLAG_KEY]: { id: stationId, roller: DEFAULT_ROLLER } } },
+    });
+
+    const [created] = await actor.createEmbeddedDocuments("Item", [data]);
+    // Core's contract for this hook (`client/applications/sheets/actor-sheet.mjs`): the created
+    // Item on success, a nullish value on failure or no action taken.
+    return created ?? null;
   }
 
   /**

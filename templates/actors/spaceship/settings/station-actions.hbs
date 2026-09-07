@@ -17,6 +17,11 @@
     `.application.daggerheart.dh-style.dialog` exactly as `details.hbs`'s fieldsets are (docs/adr/
     0002's "copied by value" addenda); `.station-action-*` are ours and styled in `main.scss`.
 
+    The drop zone (#26) is a hint, not the drop target: the whole fieldset accepts a dropped
+    `feature` (`SpaceshipSettings#_onDropItem` resolves the Station from the `data-station` the
+    drop landed inside), so this only tells the GM the section takes one - same role the Stations
+    tab's "Drop a character here" line plays for crew.
+
     Every control climbs to a `[data-*]` ancestor rather than carrying its own attributes: the
     fieldset's `data-station` identifies the Station for its Create control and its rows alike
     (same trick `stations.hbs` uses), and each row's `data-item-id` identifies the item for both of
@@ -82,6 +87,12 @@
                     <li class="station-action-empty">{{localize "DHSCIFI.Spaceship.StationActions.empty"}}</li>
                 {{/each}}
             </ul>
+
+            {{#if @root.editable}}
+                <div class="station-action-dropzone">
+                    {{localize "DHSCIFI.Spaceship.StationActions.dropHere"}}
+                </div>
+            {{/if}}
         </fieldset>
     {{/each}}
 </section>

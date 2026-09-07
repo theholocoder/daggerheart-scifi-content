@@ -927,6 +927,19 @@ body {
     font-style: italic;
     opacity: 0.6;
   }
+
+  // The "drop a feature here" hint (#26), prototype variant A's dashed zone. Purely an
+  // affordance - the drop target is the whole `[data-station]` fieldset around it, so this is
+  // sized and dimmed to read as a hint rather than as a control.
+  .station-action-dropzone {
+    margin-top: 6px;
+    padding: 6px;
+    border: 1px dashed var(--color-border, #ffffff33);
+    border-radius: 4px;
+    font-size: var(--font-size-11, 0.6875rem);
+    text-align: center;
+    opacity: 0.5;
+  }
 }
 
 /*
