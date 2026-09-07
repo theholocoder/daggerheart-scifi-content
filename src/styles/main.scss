@@ -934,6 +934,13 @@ body {
   // affordance - the drop target is the whole `[data-station]` fieldset around it, so this is
   // sized and dimmed to read as a hint rather than as a control.
   .station-action-dropzone {
+    // The hint has to span whatever layout `fieldset.one-column` (the system's own class, copied
+    // by reference - see the header) turns out to be: without these it sizes to its own text
+    // rather than to the list above it. `grid-column` spans a grid, `align-self` stretches a
+    // flex column's cross axis, `width` covers a plain block.
+    grid-column: 1 / -1;
+    align-self: stretch;
+    width: 100%;
     margin-top: 6px;
     padding: 6px;
     border: 1px dashed var(--color-border, #ffffff33);

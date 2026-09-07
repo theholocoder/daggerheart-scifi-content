@@ -357,11 +357,14 @@ export default class SpaceshipSettings extends BaseSettings {
     // collide with an item the ship already holds. Reached through a loosened signature for the
     // usual fvtt-types reason - it is typed against core's `Item`, which knows nothing of
     // daggerheart's `feature` sub-type.
-    const fromCompendium = game.items!.fromCompendium as unknown as (
-      document: unknown,
-      options?: Record<string, unknown>,
-    ) => Record<string, unknown>;
-    const source = dropped.inCompendium ? fromCompendium(dropped, { clearFolder: true }) : dropped.toObject();
+    const worldItems = game.items! as unknown as {
+      fromCompendium(document: unknown, options?: Record<string, unknown>): Record<string, unknown>;
+    };
+    // Called as a method, not through an extracted reference: `fromCompendium` reads
+    // `this.documentClass`, so an unbound call throws.
+    const source = dropped.inCompendium
+      ? worldItems.fromCompendium(dropped, { clearFolder: true })
+      : dropped.toObject();
 
     // Merged rather than assigned: a feature can arrive carrying flags of its own (daggerheart's,
     // another module's), and replacing the whole `flags` object would drop them.
