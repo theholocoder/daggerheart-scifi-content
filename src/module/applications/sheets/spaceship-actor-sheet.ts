@@ -1,14 +1,19 @@
 import {
   ARMOR_ITEM_TYPE,
   CREW_ACTOR_TYPES,
-  FEATURE_ITEM_TYPE,
   INVENTORY_ITEM_TYPES,
   MODULE_ID,
   SPACESHIP_ITEM_TYPES,
   STATION_IDS,
   SYSTEM_ITEM_TYPE,
+  isStationId,
+  rollerLabelKey,
+  stationLabelKey,
+  type StationId,
 } from "../../constants";
 import { deleteRowDocument, pickDocumentImage, toRowEntry, type ItemRowEntry } from "./document-rows";
+import { splitStationActions, stationRoller } from "../../station-actions/membership";
+import { pressStationAction } from "../../station-actions/press";
 import { resolveUuidSync } from "../../utils/resolve-uuid";
 import SpaceshipSettings from "../settings/spaceship-settings";
 import SpaceshipLevelup from "../levelup/spaceship-levelup";
@@ -64,6 +69,11 @@ interface LooseDoc {
   name: string;
   img: string | null;
   system: InventoryItemSystem;
+  // Both core Foundry document fields, read only through `station-actions/membership.ts`: `flags`
+  // carries a feature's Station pin (#23) and `sort` orders a Station's actions. Optional so the
+  // shape still covers an ActiveEffect row, which has both but never a pin.
+  sort?: number;
+  flags?: Record<string, unknown>;
   parent?: { uuid?: string } | null;
   sheet?: { render: (options?: unknown) => unknown } | null;
   isOwner?: boolean;
@@ -112,6 +122,9 @@ interface LooseDoc {
 
 interface LooseActor {
   uuid: string;
+  // The ship's own name, which is what labels its button in the Roller prompt (#25) when a Station
+  // action asks whether the ship or a crew member acts.
+  name: string;
   system: {
     maxWeaponMounts: number;
     // One entry per `STATION_IDS` id (#8) - `crew` is a plain array of Actor UUID strings, see
@@ -171,8 +184,6 @@ interface LooseActor {
   } | null>;
 }
 
-type StationId = (typeof STATION_IDS)[number];
-
 /**
  * One crew assignment as the Stations tab renders it: the stored UUID plus whatever the referenced
  * Actor still provides. `missing` is the "the Actor was deleted" case the ticket calls for - a
@@ -186,12 +197,40 @@ interface CrewEntry {
   missing: boolean;
 }
 
-/** One station row: its id, its label key, whether it's enabled, and its resolved crew. */
+/**
+ * One Station action as a tile on the Stations tab (#24): what `stations.hbs` needs to draw it and
+ * to press it.
+ *
+ * `uuid`, not `id`: pressing goes through the sheet's existing `useItem` action, which resolves
+ * `data-item-uuid` through `fromUuid` and calls the document's own `use(event)` - the same handler
+ * an Inventory row's portrait uses. That is the whole of "run the feature's action as the
+ * Spaceship" (ADR-0003's `ship` branch): the item's parent chain already ends at the ship, so a
+ * single-action feature rolls straight away and a multi-action one falls into daggerheart's own
+ * `ActionSelectionDialog` (`DHItem#use`), untouched.
+ *
+ * `rollerLabel` is a localization key, not a resolved string - the template localizes it like
+ * every other label on this sheet. Since #25 it reflects the item's real Roller, which is also
+ * what pressing resolves against: the tile's `data-action` is this sheet's own
+ * `useStationAction`, not the generic `useItem`, because a `crew`/`ask` action has to answer
+ * "who?" before daggerheart's own `use` is reached at all (`station-actions/press.ts`).
+ */
+interface StationActionTile {
+  uuid: string;
+  name: string;
+  img: string | null;
+  rollerLabel: string;
+}
+
+/**
+ * One station row: its id, its label key, whether it's enabled, its resolved crew, and the Station
+ * actions pinned to it.
+ */
 interface StationRow {
   id: StationId;
   label: string;
   enabled: boolean;
   crew: CrewEntry[];
+  actions: StationActionTile[];
 }
 
 /**
@@ -224,10 +263,16 @@ interface EquippedWeaponRow {
  * Independent ApplicationV2 class - does not extend the `daggerheart` system's own sheet base
  * classes. See docs/adr/0002-spaceship-sheet-independent-application.md for why.
  */
-// @ts-expect-error fvtt-types 13.346-beta cannot relate a subclass that overrides any inherited
-// render method (`_prepareContext`/`_preparePartContext`) to the HandlebarsApplicationMixin
-// base: the class-extends comparison overflows ("excessive stack depth") regardless of how the
-// override is typed, even with `any` signatures. Members are still individually type-checked.
+// @ts-ignore fvtt-types 13.346-beta cannot relate a subclass that overrides any inherited render
+// method (`_prepareContext`/`_preparePartContext`) to the HandlebarsApplicationMixin base: the
+// class-extends comparison overflows ("excessive stack depth") regardless of how the override is
+// typed, even with `any` signatures. Members are still individually type-checked.
+//
+// `@ts-ignore` rather than `@ts-expect-error`: tsc caches the failed relation, so the overflow is
+// only ever *reported* at whichever of this module's two ActorSheetV2 subclasses it checks first
+// (the other one - see `SpaceshipSettings`, which carries the same suppression - then has an
+// "unused directive" error instead). Which that is depends on file order, so neither can assert
+// the error is there.
 export default class SpaceshipActorSheet extends BaseSheet {
   static override DEFAULT_OPTIONS = {
     // `daggerheart`/`dh-style` are the system's own generic, world-global CSS marker classes
@@ -263,6 +308,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
       createEffect: SpaceshipActorSheet.#onCreateEffect,
       toggleEffect: SpaceshipActorSheet.#onToggleEffect,
       toggleStation: SpaceshipActorSheet.#onToggleStation,
+      useStationAction: SpaceshipActorSheet.#onUseStationAction,
       removeCrew: SpaceshipActorSheet.#onRemoveCrew,
       openCrew: SpaceshipActorSheet.#onOpenCrew,
       triggerContextMenu: SpaceshipActorSheet.#onTriggerContextMenu,
@@ -440,11 +486,14 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * rows the Inventory tab uses, since both tabs render through the same partials (see
    * `features.hbs`). A single flat list: unlike a character, a ship has no class/subclass/
    * ancestry/community granters to group features under (CONTEXT.md).
+   *
+   * Station actions (#23) are features too, so this list is what the wrench dialog's per-Station
+   * lists *don't* hold - both come out of the one `splitStationActions` call so the two can never
+   * disagree about which items a Station has claimed.
    */
   static #buildFeaturesContext(actor: LooseActor, editable: boolean): ItemRowEntry[] {
-    return Array.from(actor.items)
-      .filter((item) => item.type === FEATURE_ITEM_TYPE)
-      .map((item) => toRowEntry(item, editable));
+    const { features } = splitStationActions(actor.items, STATION_IDS);
+    return features.map((item) => toRowEntry(item, editable));
   }
 
   /**
@@ -499,15 +548,44 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * synced - CONTEXT.md's "Crew assignment").
    */
   static #buildStationsContext(actor: LooseActor): StationRow[] {
+    // The same split the Features tab reads the other half of, so a pinned feature can never be
+    // listed in both places (`station-actions/membership.ts`).
+    const { byStation } = splitStationActions(actor.items, STATION_IDS);
+
     return STATION_IDS.map((id) => {
       const station = actor.system.stations[id];
       return {
         id,
-        label: `DHSCIFI.Spaceship.Stations.Roles.${id}`,
+        label: stationLabelKey(id),
         enabled: station.enabled,
         crew: station.crew.map((uuid) => SpaceshipActorSheet.#resolveCrewEntry(uuid)),
+        // A disabled Station renders no tiles (#24) and its items stay on the ship untouched, so
+        // enabling it brings them back - the same non-destructive contract its crew already has.
+        // Built here rather than gated in the template so a disabled Station carries no pressable
+        // uuid into the DOM at all.
+        actions: station.enabled ? byStation[id].map(SpaceshipActorSheet.#toStationActionTile) : [],
       };
     });
+  }
+
+  /**
+   * One pinned feature as a tile.
+   *
+   * Not gated on `editable` or on `item.usable`: every Station's tiles are visible and pressable by
+   * anyone with access to the ship (#24 - seat enforcement is deliberately not implemented, and a
+   * player crewing any Station owns the ship as of #22). A feature whose actions are not yet
+   * authored still gets a tile; pressing it is `DHItem#use`'s own no-op.
+   */
+  static #toStationActionTile(item: LooseDoc): StationActionTile {
+    return {
+      uuid: item.uuid,
+      name: item.name,
+      // Passed through as the document holds it, `null` included - same as the wrench dialog's own
+      // row shape. A Station action created there is given daggerheart's own default `feature`
+      // artwork at creation time, so a real one always has an image.
+      img: item.img,
+      rollerLabel: rollerLabelKey(stationRoller(item)),
+    };
   }
 
   /**
@@ -535,14 +613,10 @@ export default class SpaceshipActorSheet extends BaseSheet {
     return { uuid, name: doc.name, img: doc.img ?? "icons/svg/mystery-man.svg", missing: false };
   }
 
-  static #isStationId(id: string): id is StationId {
-    return (STATION_IDS as readonly string[]).includes(id);
-  }
-
   /** Resolve the `data-station` of the closest station container (fieldset or crew row) to `el`. */
   static #getStationId(el: HTMLElement): StationId | undefined {
     const id = el.closest<HTMLElement>("[data-station]")?.dataset.station;
-    return id && SpaceshipActorSheet.#isStationId(id) ? id : undefined;
+    return id && isStationId(id) ? id : undefined;
   }
 
   static #isInventoryItemType(type: string): type is InventoryItemType {
@@ -810,6 +884,12 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * from `data-item-uuid` on the clicked `.item-buttons` button - resolves the Action document by
    * UUID and calls its own `use(event)`, mirroring daggerheart's own `useItem` action exactly
    * (Action-document-level behavior, not sheet code, same reuse category as `item._getTags`).
+   *
+   * `data-item-uuid` names an *Item* rather than one of its Actions in two places - a row's
+   * portrait (`inventory-item.hbs`) and a Station action's tile (#24) - and that resolves to the
+   * Item's own `use(event)`, which picks its single action or opens daggerheart's
+   * `ActionSelectionDialog` for a feature holding several. One handler covers both because the two
+   * document types answer the same call; nothing here needs to know which one it got.
    * Only reachable at all because of `src/module/compat/actions-list-patch.ts` - without it,
    * `item.system.actions.size` still renders truthfully, but daggerheart's own `actionsList` gate
    * hides the action from its "Use" dialog's cost resolution, and it throws.
@@ -820,6 +900,34 @@ export default class SpaceshipActorSheet extends BaseSheet {
 
     const action = (await fromUuid(uuid)) as { use?: (event: PointerEvent) => Promise<unknown> } | null;
     await action?.use?.(event);
+  }
+
+  /**
+   * Press a Station action's tile (#25), from `data-item-uuid` on the tile and `data-station` on
+   * its enclosing card.
+   *
+   * Deliberately *not* `#onUseItem` above: a Station action's Roller decides who it is rolled as
+   * before daggerheart's own `use` is entered, and for a `crew`/`ask` action that question comes
+   * first - ahead of the system's action-selection dialog. All of that lives in
+   * `station-actions/press.ts`; this handler only resolves the two documents it needs.
+   *
+   * The Station's crew is read off the actor rather than baked into the tile so the prompt lists
+   * who is sitting there *now*, not who was when the tab last rendered.
+   */
+  static async #onUseStationAction(
+    this: foundry.applications.sheets.ActorSheetV2.Any,
+    event: PointerEvent,
+    target: HTMLElement,
+  ): Promise<void> {
+    const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
+    const stationId = SpaceshipActorSheet.#getStationId(target);
+    if (!uuid || !stationId) return;
+
+    const actor = this.document as unknown as LooseActor;
+    const item = (await fromUuid(uuid)) as Parameters<typeof pressStationAction>[0] | null;
+    if (!item) return;
+
+    await pressStationAction(item, { name: actor.name }, actor.system.stations[stationId].crew, event);
   }
 
   /**
@@ -1308,6 +1416,11 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * anywhere in its `ActorSheetV2` definition, the same gap already worked around for
    * `_prepareContext`/`_preparePartContext` above) - called via the prototype chain rather than
    * `super.` since TS won't resolve a `super` member it has no type for.
+   *
+   * The wrench dialog has a drop handler of its own (#26, `SpaceshipSettings#_onDropItem`), which
+   * does *not* delegate the embed - it has to write a Station pin with the create - and so spells
+   * out core's compendium-copy rules by hand. A change to how core embeds a dropped Item has to be
+   * answered there as well as here.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async _onDropItem(event: any, item: any): Promise<any> {

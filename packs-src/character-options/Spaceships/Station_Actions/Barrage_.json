@@ -1,0 +1,98 @@
+{
+  "folder": "48yg7mndWjjOelqY",
+  "name": "Barrage!",
+  "type": "feature",
+  "_id": "jeh6zn6EYmfGGeTA",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-bullets-in-flight.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Requires Commander position.</p><p>You can lead a barrage against a target that has the <em>Lock On</em> condition. <strong>Mark a Stress</strong> and burn the <em>Lock On</em> to make an <strong>Action Roll</strong> against the target without gaining the normal d6 for burning the <em>Lock On</em>. On a success, choose any number of gunners or system operators on your vehicle. All chosen may <strong>mark a Spaceship Stress</strong> to make an attack against the target or use a system against the target. If this requires a roll, it is a <strong>Reaction Roll</strong>. They also gain the <em>Lock On</em> <strong>d6</strong> on both attack and damages. Damage for each weapon that hits is applied separately.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "F67zyGvmRIXly7TS": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "F67zyGvmRIXly7TS",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "attack",
+          "trait": "presence",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Order Barrage",
+        "range": ""
+      }
+    },
+    "granter": null,
+    "featureForm": "action",
+    "actorResources": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789033855005,
+    "modifiedTime": 1789035313561,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!jeh6zn6EYmfGGeTA"
+}

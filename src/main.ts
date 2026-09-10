@@ -7,6 +7,7 @@ import SpaceshipActorSheet from "./module/applications/sheets/spaceship-actor-sh
 import SystemItemSheet from "./module/applications/sheets/system-item-sheet";
 import registerCharacterOnlyPatches from "./module/compat/character-only-patches";
 import registerSpaceshipDamagePatch from "./module/compat/spaceship-damage-patch";
+import registerCrewOwnershipSync from "./module/station-actions/crew-ownership";
 
 Hooks.once("init", async function () {
   console.log("DHSciFi | Initializing...");
@@ -21,6 +22,11 @@ Hooks.once("init", async function () {
 
   registerCharacterOnlyPatches();
   registerSpaceshipDamagePatch();
+
+  // Crew assignments grant ship access (#22): the active GM's client keeps a Spaceship's
+  // `ownership` derived from the union of its Stations' crew, so a player assigned to a Station
+  // can open the ship and press its Station actions. See station-actions/crew-ownership.ts.
+  registerCrewOwnershipSync();
 
   // Shared Handlebars partials for every document list in this module, named after (and split the
   // same way as) daggerheart's own `daggerheart.inventory-items`/`daggerheart.inventory-item`

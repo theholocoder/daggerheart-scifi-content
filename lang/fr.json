@@ -110,9 +110,36 @@
         "AlreadyAssigned": "Ce personnage est déjà affecté à ce poste.",
         "OpenActor": "Ouvrir la fiche du personnage",
         "UnknownCrew": "Inconnu",
+        "NoCrew": "Aucun équipage",
         "RemoveCrew": {
           "title": "Retirer l'affectation",
           "body": "Retirer {name} de ce poste ?"
+        }
+      },
+      "StationActions": {
+        "newAction": "Nouvelle action de poste",
+        "create": "Créer une action de poste",
+        "edit": "Modifier l'action de poste",
+        "empty": "Aucune action de poste",
+        "dropHere": "Déposez une fonctionnalité ici",
+        "use": "Utiliser l'action de poste",
+        "roller": "Lanceur",
+        "noRoller": "Aucun membre d'équipage à ce poste pour effectuer cette action.",
+        "unknownRoller": "Ce membre d'équipage n'existe plus.",
+        "dropOnStation": "Déposez la fonctionnalité sur la section d'un poste.",
+        "invalidItemType": "Seules les fonctionnalités peuvent être ajoutées à un poste.",
+        "Rollers": {
+          "ship": "Vaisseau",
+          "crew": "Équipage",
+          "ask": "Demander"
+        },
+        "Prompt": {
+          "title": "Qui lance ?",
+          "body": "Qui effectue <b>{name}</b> ?"
+        },
+        "Delete": {
+          "title": "Supprimer l'action de poste",
+          "body": "Supprimer {name} ?"
         }
       },
       "Thresholds": {

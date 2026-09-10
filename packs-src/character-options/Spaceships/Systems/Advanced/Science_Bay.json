@@ -1,0 +1,34 @@
+{
+  "folder": "VJQqztu6Ig02uzth",
+  "name": "Science Bay",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "8sIrFdzGp2IZKLOl",
+  "img": "icons/commodities/tech/electronics-tech-interface-crystal-yellow.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 3</p><hr><p>Includes a laboratory, analytical computers and programs, a variety of chemicals and raw materials. <strong>Once per long rest</strong>, the science bay can advance any countdown where its capabilities would help.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 3,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789031617143,
+    "modifiedTime": 1789032763834,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!8sIrFdzGp2IZKLOl"
+}

@@ -1,0 +1,34 @@
+{
+  "folder": "VJQqztu6Ig02uzth",
+  "name": "Military-Grade Encryption",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "dtrYBE2MF43Edi65",
+  "img": "icons/commodities/tech/usb-thumb-drive.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 2</p><hr><p><strong>Sleek.</strong> All communications sent from the ship are protected by high-end encryption algorithms. The data in the ship’s computer systems is also protected. Any data ghosted from the system will be scrambled by high-end encryption that is difficult to decode.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 2,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789031564357,
+    "modifiedTime": 1789032744192,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!dtrYBE2MF43Edi65"
+}

@@ -32,6 +32,30 @@ export const TRAIT_KEYS = ["agility", "strength", "finesse", "instinct", "presen
  */
 export const STATION_IDS = ["pilot", "mechanic", "commander", "systemsOperator", "gunner"] as const;
 
+/** One of the five fixed Station ids. */
+export type StationId = (typeof STATION_IDS)[number];
+
+/**
+ * Narrow an arbitrary string - a `data-station` off the DOM, a Station pin off an item's flags -
+ * to a `StationId`.
+ *
+ * Shared rather than written per call site: both the Spaceship sheet's Stations tab and the wrench
+ * dialog's Station-actions sections resolve a clicked control's Station this way, and two copies
+ * had already started to disagree about what a bad id comes back as.
+ */
+export function isStationId(id: string): id is StationId {
+  return (STATION_IDS as readonly string[]).includes(id);
+}
+
+/**
+ * The localization key for a Station's name. The `DHSCIFI.Spaceship.Stations.Roles.<id>` shape is
+ * the one this file's `STATION_IDS` comment promises; spelling it here keeps the promise in one
+ * place, since both the Stations tab and the wrench dialog label their sections from it.
+ */
+export function stationLabelKey(id: StationId): string {
+  return `DHSCIFI.Spaceship.Stations.Roles.${id}`;
+}
+
 /**
  * Actor types a Station accepts as a crew assignment (#8). Just `character`: CONTEXT.md defines a
  * crew assignment as a reference to a *PC* Actor, and daggerheart's `character` is that type.
@@ -84,3 +108,58 @@ export const FEATURE_ITEM_TYPE = "feature";
  * enumerates the same list in prose and still has to be updated by hand.
  */
 export const SPACESHIP_ITEM_TYPES = [...INVENTORY_ITEM_TYPES, FEATURE_ITEM_TYPE] as const;
+
+/**
+ * The flag key a Station action is pinned with: `flags.<MODULE_ID>.station` on a `feature` Item
+ * owned by a Spaceship (#21/#23, CONTEXT.md's "Station action" entry).
+ *
+ * The flag is the *single source of truth* for station membership - there is no parallel list on
+ * the Station's own schema, which is why a Station can never list an action that no longer exists
+ * (items cascade-delete with their Actor) and why the Features tab has to exclude flagged items
+ * rather than being told about them. Both halves of that rule live in `station-actions/membership.
+ * ts`, which is the only place this key is read.
+ */
+export const STATION_FLAG_KEY = "station";
+
+/**
+ * The Rollers a Station action can carry (#25, CONTEXT.md's "Roller" entry) - who the action is
+ * rolled *as*, in the order the wrench dialog's select lists them.
+ *
+ * The value lives on the item's own Station pin (`flags.<MODULE_ID>.station.roller`), beside the
+ * Station id, and is read only through `station-actions/membership.ts` like the id is.
+ */
+export const ROLLERS = ["ship", "crew", "ask"] as const;
+
+/** One of the three Rollers. */
+export type Roller = (typeof ROLLERS)[number];
+
+/**
+ * The Roller a Station action with no `roller` on its pin behaves as.
+ *
+ * `ship` for two reasons that agree: it is the only Roller that needs no crew to work, and every
+ * Station action authored before #25 (whose pins carry an `id` and nothing else - see #23's
+ * `#onCreateStationAction`) was rolled as the ship. So this is both the safe default and the
+ * migration, which is why #21 could leave the flag's `roller` half unwritten until now.
+ */
+export const DEFAULT_ROLLER: Roller = "ship";
+
+/**
+ * Narrow an arbitrary string - a `<select>` value, a `roller` off an item's flags - to a `Roller`.
+ * Same shape and same reason as `isStationId` above: a stored pin can be hand-edited or left
+ * behind by an older version, so it is narrowed rather than trusted.
+ */
+export function isRoller(value: string): value is Roller {
+  return (ROLLERS as readonly string[]).includes(value);
+}
+
+/**
+ * The localization key for a Roller's label - the line under a Station action's name on its tile
+ * (#24) and the options of the wrench dialog's Roller select (#25).
+ *
+ * Spelled here rather than at the call sites for the same reason `stationLabelKey` above is: the
+ * `DHSCIFI.Spaceship.StationActions.Rollers.<roller>` shape is a promise this file makes, and
+ * three places now render through it.
+ */
+export function rollerLabelKey(roller: Roller): string {
+  return `DHSCIFI.Spaceship.StationActions.Rollers.${roller}`;
+}

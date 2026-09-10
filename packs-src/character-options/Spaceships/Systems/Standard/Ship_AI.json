@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Ship AI",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "a39S7iO8dcfSfPPR",
+  "img": "icons/commodities/tech/electronics-tech-sensor-orange-teal.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 2</p><hr><p><strong>Sleek.</strong> Your ship has a robotic brain that can run the ship and automate most functions in the absence of other characters. When under pressure or in danger, the Bot Brain can assist one character in their role, allowing them to consider the role dedicated even if that character is fulfilling multiple roles.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 2,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789028917975,
+    "modifiedTime": 1789033181297,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!a39S7iO8dcfSfPPR"
+}

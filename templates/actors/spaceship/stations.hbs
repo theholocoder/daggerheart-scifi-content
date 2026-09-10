@@ -1,30 +1,42 @@
 {{!--
-    Stations tab (#8): the five fixed crew roles (CONTEXT.md's "Station" entry), each with an
-    enable/disable toggle and zero or more crew assignments.
+    Stations tab (#8, #24): the five fixed crew roles (CONTEXT.md's "Station" entry), each a card
+    holding its enable/disable toggle, its crew assignments and its Station actions.
 
-    Structure is the character sheet's own item-list shape, reused by value: one
-    `fieldset.glassy.drop-section` + `legend` per station (the same wrapper
-    `partials/inventory-fieldset-items.hbs` builds for an item list), holding a `ul.items-list` of
-    `li.inventory-item` rows with the same `item-main`/`inventory-item-header`/`img-portait`/
-    `item-label`/`item-name`/`controls` skeleton as an item row. `daggerheart.css` themes the ones
-    that carry the look unscoped under `.application.daggerheart.dh-style` (`fieldset.glassy` and
-    its `legend`, `.inventory-item`, `.item-main`, `.img-portait`, `.item-label`), so a crew row is
-    styled for free and matches the Inventory/Features rows next door - see docs/adr/0002's "copied
-    by value" addenda. `.drop-section` and `.items-list` come along for structural parity with the
-    system's own markup but are inert here (`.drop-section` is scoped to `.class .tab.settings`,
-    `.items-list` to the `.limited` sheet containers) - our `partials/inventory-fieldset-items.hbs`
-    already carries both for the same reason. `.actors-dragger` (the dashed "drop actors here"
-    hint) is the party sheet's own class and *is* `.party`-scoped there, so its rule is copied by
-    value into `main.scss`.
+    Layout is #21's prototype variant B: a Station is a card whose header carries the title, the
+    crew collapsed into an overlapping avatar strip and the enable toggle, with the Station's
+    actions below as a tile grid of icon, name and Roller label. The tiles are the tab's primary
+    affordance - the crew list shrank into the header to make room for them.
 
-    A crew row is NOT `dhscifi.inventory-item`: that partial is built around an embedded Item
-    (tags, equip/quantity/chat/context-menu controls, expandable enriched description, `data-item-
-    id`). A crew assignment is a bare Actor UUID string with a name and a portrait, so it shares
-    the markup skeleton and its class names rather than the partial.
+    `fieldset.glassy` is kept as the card, but *without* a `legend`: daggerheart themes a glassy
+    fieldset's legend as a small padded pill sitting on the border line (`.dh-style fieldset.glassy
+    legend`), which is the wrong container for a 28px avatar strip. The card background comes for
+    free from the unscoped `fieldset.glassy` rule (docs/adr/0002's "copied by value" addenda); the
+    header row and the tiles are ours and are styled in `main.scss`. `.drop-section` comes along
+    for structural parity with the system's own markup but is inert here (it is scoped to
+    `.class .tab.settings` upstream), same as it was before this tab became cards. `.actors-dragger`
+    (the dashed "drop actors here" hint) is the party sheet's own class and *is* `.party`-scoped
+    there, so its rule is copied by value into `main.scss`.
+
+    A crew avatar is NOT a `dhscifi.inventory-item` row and not even the row skeleton it used to
+    borrow: collapsed to a portrait, it carries only the two affordances it had - the portrait
+    opens the Actor's sheet, and a hover-revealed "x" removes the assignment (editable only, since
+    it mutates the ship). The name lives in the tooltip.
 
     A disabled station keeps rendering whatever crew it already has (disabling is non-destructive -
-    see `SpaceshipData`'s `stationField`), just dimmed via `.station-disabled` and without the
-    drop hint; the drop handler refuses new assignments to it.
+    see `SpaceshipData`'s `stationField`), just dimmed and without the drop hint; the drop handler
+    refuses new assignments to it. Its Station actions render *no* tiles at all (#24) while their
+    items stay on the ship, so re-enabling restores them - `#buildStationsContext` empties the list
+    rather than the template hiding it, so a disabled Station puts no pressable uuid in the DOM.
+
+    Pressing a tile goes through the sheet's `useStationAction` action (#25), which resolves the
+    item's Roller before anything runs (`station-actions/press.ts`): a `ship` action is handed
+    straight to the item's own `use(event)` - so a single-action feature rolls immediately and a
+    multi-action one opens daggerheart's own `ActionSelectionDialog`, with the ship's traits and
+    the ship's Hope/Stress, docs/adr/0003's `ship` branch - while a `crew`/`ask` one first asks who
+    acts and then runs the chosen action against that character. The station's `data-station` on
+    the fieldset is what tells the handler whose crew to offer.
+    Tiles are deliberately not gated on `@root.editable`: every Station's actions are pressable by
+    anyone with access to the ship (#24), and a crewing player has exactly that as of #22.
 
     `stations` is built by `SpaceshipActorSheet.#buildStationsContext`, which is also where a UUID
     that no longer resolves becomes a `missing` entry rendered as "Unknown" instead of erroring.
@@ -32,58 +44,72 @@
 <section class="tab {{tab.id}} {{tab.cssClass}} spaceship-stations" data-tab="{{tab.id}}" data-group="{{tab.group}}">
     <div class="stations-sections">
         {{#each stations as |station|}}
-            <fieldset class="glassy drop-section station{{#unless station.enabled}} station-disabled{{/unless}}"
+            <fieldset class="glassy drop-section station station-card{{#unless station.enabled}} station-disabled{{/unless}}"
                       data-station="{{station.id}}">
-                {{!-- No `data-station` on the toggle or the crew rows: every station control sits
-                      inside its own fieldset, and the sheet's `#getStationId` climbs to the
-                      nearest `[data-station]`, so the fieldset's own attribute already identifies
-                      the station for clicks and drops alike. --}}
-                <legend>
-                    {{localize station.label}}
+                {{!-- No `data-station` on the toggle, the avatars or the tiles: every station
+                      control sits inside its own fieldset, and the sheet's `#getStationId` climbs
+                      to the nearest `[data-station]`, so the fieldset's own attribute already
+                      identifies the station for clicks and drops alike. --}}
+                <div class="station-card-head">
+                    <span class="station-title">{{localize station.label}}</span>
+
+                    <div class="crew-strip">
+                        {{#each station.crew as |assignment|}}
+                            <div class="crew-avatar{{#if assignment.missing}} crew-avatar-missing{{/if}}"
+                                 data-uuid="{{assignment.uuid}}">
+                                {{!-- A resolved Actor's portrait opens its sheet, mirroring the
+                                      party sheet's own `openDocument` affordance; a missing one
+                                      has nothing to open, so it's inert. The name lives in the
+                                      tooltip now that the strip has no room for a label, so the
+                                      resolved portrait's tooltip carries both it and the
+                                      "opens the sheet" hint the old row put on the portrait. --}}
+                                <img src="{{assignment.img}}" alt="{{assignment.name}}"
+                                     {{#if assignment.missing}}data-tooltip="{{assignment.name}}"
+                                     {{else}}data-action="openCrew"
+                                     data-tooltip="{{assignment.name}} - {{localize 'DHSCIFI.Spaceship.Stations.OpenActor'}}"{{/if}} />
+
+                                {{!-- Removing an assignment mutates the ship, so it follows
+                                      `@root.editable` like every other mutating control on this
+                                      sheet. `.delete-icon` is the party sheet's own class for the
+                                      same affordance. --}}
+                                {{#if @root.editable}}
+                                    <a class="delete-icon" data-action="removeCrew"
+                                       data-tooltip="{{localize 'DHSCIFI.Spaceship.Stations.RemoveCrew.title'}}">
+                                        <i class="fa-regular fa-fw fa-times" inert></i>
+                                    </a>
+                                {{/if}}
+                            </div>
+                        {{else}}
+                            {{!-- An enabled Station with no crew already says so, larger, through
+                                  the `.actors-dragger` hint below; a disabled one renders no hint
+                                  (it refuses drops), so it gets the header line instead. --}}
+                            {{#unless station.enabled}}
+                                <span class="crew-empty">{{localize "DHSCIFI.Spaceship.Stations.NoCrew"}}</span>
+                            {{/unless}}
+                        {{/each}}
+                    </div>
+
                     {{#if @root.editable}}
-                        <a data-action="toggleStation"
+                        <a class="station-toggle" data-action="toggleStation"
                            data-tooltip="{{#if station.enabled}}{{localize 'DHSCIFI.Spaceship.Stations.Disable'}}{{else}}{{localize 'DHSCIFI.Spaceship.Stations.Enable'}}{{/if}}">
                             <i class="fa-solid {{#if station.enabled}}fa-toggle-on{{else}}fa-toggle-off{{/if}}"></i>
                         </a>
                     {{/if}}
-                </legend>
+                </div>
 
-                <ul class="items-list">
-                    {{#each station.crew as |assignment|}}
-                        <li class="inventory-item crew-assignment{{#if assignment.missing}} crew-assignment-missing{{/if}}"
-                            data-uuid="{{assignment.uuid}}">
-                            <div class="item-main">
-                                <div class="inventory-item-header">
-                                    {{!-- A resolved Actor's portrait opens its sheet, mirroring the
-                                          party sheet's own `openDocument` affordance; a missing one
-                                          has nothing to open, so it's inert. --}}
-                                    <div class="img-portait"
-                                         {{#unless assignment.missing}}data-action="openCrew"
-                                         data-tooltip="{{localize 'DHSCIFI.Spaceship.Stations.OpenActor'}}"{{/unless}}>
-                                        <img src="{{assignment.img}}" class="item-img" alt="{{assignment.name}}" />
-                                    </div>
-
-                                    <div class="item-label">
-                                        <span class="item-name">{{assignment.name}}</span>
-                                    </div>
-
-                                    {{!-- Removing an assignment mutates the ship, so it follows
-                                          `@root.editable` like every other mutating control on
-                                          this sheet. `.delete-icon` is the party sheet's own class
-                                          for the same affordance. --}}
-                                    <div class="controls">
-                                        {{#if @root.editable}}
-                                            <a class="delete-icon" data-action="removeCrew"
-                                               data-tooltip="{{localize 'DHSCIFI.Spaceship.Stations.RemoveCrew.title'}}">
-                                                <i class="fa-regular fa-fw fa-times" inert></i>
-                                            </a>
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    {{/each}}
-                </ul>
+                {{#if station.actions.length}}
+                    <div class="action-tiles">
+                        {{#each station.actions as |action|}}
+                            <button type="button" class="action-tile" data-action="useStationAction"
+                                    data-item-uuid="{{action.uuid}}"
+                                    data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.use'}}">
+                                <img src="{{action.img}}" alt="" />
+                                <span class="tile-name">{{action.name}}</span>
+                                <span class="tile-roller">{{localize action.rollerLabel}}</span>
+                            </button>
+                        {{/each}}
+                    </div>
+                {{/if}}
 
                 {{#if station.enabled}}
                     {{#unless station.crew.length}}

@@ -112,9 +112,36 @@
         "AlreadyAssigned": "That character is already assigned to this station.",
         "OpenActor": "Open Character Sheet",
         "UnknownCrew": "Unknown",
+        "NoCrew": "No crew",
         "RemoveCrew": {
           "title": "Remove Assignment",
           "body": "Remove {name} from this station?"
+        }
+      },
+      "StationActions": {
+        "newAction": "New Station Action",
+        "create": "Create Station Action",
+        "edit": "Edit Station Action",
+        "empty": "No station actions",
+        "dropHere": "Drop a feature here",
+        "use": "Use Station Action",
+        "roller": "Roller",
+        "noRoller": "No crew at that station to take this action.",
+        "unknownRoller": "That crew member no longer exists.",
+        "dropOnStation": "Drop the feature onto a station section.",
+        "invalidItemType": "Only features can be added to a station.",
+        "Rollers": {
+          "ship": "Ship",
+          "crew": "Crew",
+          "ask": "Ask"
+        },
+        "Prompt": {
+          "title": "Who Rolls?",
+          "body": "Who is taking <b>{name}</b>?"
+        },
+        "Delete": {
+          "title": "Delete Station Action",
+          "body": "Delete {name}?"
         }
       },
       "Thresholds": {

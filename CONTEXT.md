@@ -21,8 +21,16 @@ One of five fixed, predefined crew roles on a Spaceship: Pilot, Mechanic, Comman
 _Avoid_: Position, role, seat
 
 **Crew assignment**:
-A drag-dropped reference (Actor UUID) linking a PC Actor to a Station on a Spaceship. One-way and non-persistent as a relationship: no back-link on the PC, no sync if the PC Actor is deleted or changes.
+A drag-dropped reference (Actor UUID) linking a PC Actor to a Station on a Spaceship. One-way and non-persistent as a relationship: no back-link on the PC, no sync if the PC Actor is deleted or changes. The one thing an assignment does write outside the ship is permission: assigning grants the PC's owning users OWNER on the Spaceship (and unassigning takes it back, unless they still crew another Station), which is what lets a player press a [[station-action]] at all.
 _Avoid_: Crew member (ambiguous between the PC Actor and the assignment record)
+
+**Station action**:
+A `feature` Item owned by a Spaceship and pinned to one Station, rendered on the Stations tab as a button the crew press. The pin lives on the item (`flags.daggerheart-scifi-content.station`), which is what keeps a station from ever listing something that no longer exists, and what keeps station actions out of the Features tab. What the button *does* is whatever actions the feature carries - daggerheart's own action system, unmodified: attack, healing, effect, macro, summon.
+_Avoid_: Station ability, station power, button (the button is how it renders, not what it is)
+
+**Roller**:
+Who a Station action is rolled *as* - `ship`, `crew`, or `ask` - set per station action by the GM. `ship` rolls the Spaceship's own traits and spends the ship's Hope/Stress; `crew` rolls an assigned PC's traits and spends theirs; `ask` puts the choice to whoever presses the button. Mechanically this is the identity of the action's parent Actor and nothing else (see docs/adr/0003), so the same authored feature works either way without being rewritten.
+_Avoid_: Actor, caster, performer, "who rolls" (the flag is `roller`)
 
 **Weapon Mount**:
 One unit of a Spaceship's `maxWeaponMounts` capacity. One mount holds exactly one weapon Item, regardless of whether that weapon is primary or secondary — mirrors the character sheet's one-handed/two-handed weapon-pairing system (a two-handed/Heavy weapon fills its mount alone; a one-handed weapon can pair with a second one-handed weapon in a separate mount).

@@ -1,0 +1,98 @@
+{{!--
+    "Configure Spaceship" dialog, Station actions section (#23): one fieldset per Station listing
+    the `feature` Items pinned to it, each with an edit and a delete control, plus a Create control
+    that makes a blank one and opens its sheet.
+
+    This is the only place Station actions are authored - they are deliberately absent from the
+    ship's Features tab (see `station-actions/membership.ts`), so the GM comes here, not there.
+
+    Layout follows prototype variant A (#21's "Wrench dialog presentation"): compact rows of
+    portrait / name / Roller select / controls rather than the sheet's full `dhscifi.inventory-item`
+    rows. That partial is built around a sheet row - tags, equip/quantity/chat controls, an
+    expandable enriched description, a context menu - none of which belongs in a 455px settings
+    dialog, so this borrows the row *skeleton* and its class names only, the same call
+    `stations.hbs` made for crew rows.
+
+    `fieldset.one-column`/`legend` are the system's own dialog classes, themed unscoped under
+    `.application.daggerheart.dh-style.dialog` exactly as `details.hbs`'s fieldsets are (docs/adr/
+    0002's "copied by value" addenda); `.station-action-*` are ours and styled in `main.scss`.
+
+    The drop zone (#26) is a hint, not the drop target: the whole fieldset accepts a dropped
+    `feature` (`SpaceshipSettings#_onDropItem` resolves the Station from the `data-station` the
+    drop landed inside), so this only tells the GM the section takes one - same role the Stations
+    tab's "Drop a character here" line plays for crew.
+
+    Every control climbs to a `[data-*]` ancestor rather than carrying its own attributes: the
+    fieldset's `data-station` identifies the Station for its Create control and its rows alike
+    (same trick `stations.hbs` uses), and each row's `data-item-id` identifies the item for both of
+    its controls.
+
+    `@root.editable` gates all four controls, same as every other mutating control in this module:
+    an observer sees the list read-only rather than affordances that would fail server-side.
+
+    The Roller select (#25) carries no `name`: this dialog submits on change, and a named control
+    would post the Roller into the *Actor's* update, where no such field exists. It writes the
+    item's own pin flag instead, from the `change` listener `SpaceshipSettings#bindRollerSelects`
+    binds (core `ApplicationV2` actions only fire on click, so a select can't be a `data-action`).
+
+    `stationSections` is built by `SpaceshipSettings.#buildStationSections`. Every Station gets a
+    section whether or not it holds any actions - an empty one renders its "no actions" line and its
+    Create control, not a broken section.
+--}}
+{{!-- `.tab.details.active` with no `data-tab`/`data-group`: the classes are what the system's
+      dialog CSS keys off (`details.hbs` carries the same three), but this dialog has no tab
+      navigation, so naming a second tab id in a group nothing manages would only invite one. --}}
+<section class="tab details active station-actions-tab">
+    {{#each stationSections as |station|}}
+        <fieldset class="one-column" data-station="{{station.id}}">
+            <legend>
+                {{localize station.label}}
+                {{#if @root.editable}}
+                    <a data-action="createStationAction"
+                       data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.create'}}">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                {{/if}}
+            </legend>
+
+            <ul class="station-action-list">
+                {{#each station.actions as |action|}}
+                    <li class="station-action-row" data-item-id="{{action.id}}">
+                        <img src="{{action.img}}" class="item-img" alt="{{action.name}}" />
+                        <span class="item-name">{{action.name}}</span>
+
+                        <div class="controls">
+                            {{#if @root.editable}}
+                                <select class="station-action-roller"
+                                        data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.roller'}}"
+                                        aria-label="{{localize 'DHSCIFI.Spaceship.StationActions.roller'}}">
+                                    {{#each action.rollerOptions as |option|}}
+                                        <option value="{{option.value}}" {{#if option.selected}}selected{{/if}}>
+                                            {{localize option.label}}
+                                        </option>
+                                    {{/each}}
+                                </select>
+                                <a data-action="editStationAction"
+                                   data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.edit'}}">
+                                    <i class="fa-solid fa-fw fa-pen-to-square" inert></i>
+                                </a>
+                                <a class="delete-icon" data-action="deleteStationAction"
+                                   data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.Delete.title'}}">
+                                    <i class="fa-regular fa-fw fa-times" inert></i>
+                                </a>
+                            {{/if}}
+                        </div>
+                    </li>
+                {{else}}
+                    <li class="station-action-empty">{{localize "DHSCIFI.Spaceship.StationActions.empty"}}</li>
+                {{/each}}
+            </ul>
+
+            {{#if @root.editable}}
+                <div class="station-action-dropzone">
+                    {{localize "DHSCIFI.Spaceship.StationActions.dropHere"}}
+                </div>
+            {{/if}}
+        </fieldset>
+    {{/each}}
+</section>

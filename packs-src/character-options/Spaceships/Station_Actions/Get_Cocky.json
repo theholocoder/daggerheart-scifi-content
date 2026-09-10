@@ -1,0 +1,65 @@
+{
+  "folder": "48yg7mndWjjOelqY",
+  "name": "Get Cocky",
+  "type": "feature",
+  "_id": "u92khP3oIfaj6ksZ",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-incinerated-skeleton.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Requires Gunner position.</p><p>Grant a <strong>Once per scene</strong> (and per spaceship) bonus of <strong>1d20</strong> on an <strong>Attack Roll</strong> made with a spaceship weapon.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "gUvOwsF63xj0nZ5f": {
+        "type": "effect",
+        "_id": "gUvOwsF63xj0nZ5f",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "scene",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Get Cocky!",
+        "range": ""
+      }
+    },
+    "granter": null,
+    "featureForm": "action",
+    "actorResources": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789035285153,
+    "modifiedTime": 1789035550871,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!u92khP3oIfaj6ksZ"
+}

@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Crew Quarters",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "zvZDnYT1SWzSB1ln",
+  "img": "icons/sundries/misc/key-modern.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 1</p><hr><p>Dedicated sleeping and living areas, affording the crew some measure of privacy and luxury among the stars. Without this, your crew sleeps on bunks in bays.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789029303162,
+    "modifiedTime": 1789032987756,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!zvZDnYT1SWzSB1ln"
+}

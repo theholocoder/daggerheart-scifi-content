@@ -1,0 +1,34 @@
+{
+  "folder": "VJQqztu6Ig02uzth",
+  "name": "Boost Jets",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "jUNk4fk5To5EyATW",
+  "img": "icons/commodities/tech/engine-thrust-jet.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 3</p><hr><p><strong>Sleek.</strong> The pilot may <strong>mark a Stress</strong> to boost the engines, granting advantage on an <strong>Action</strong> or <strong>Reaction Roll</strong> where speed or acceleration would help.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 3,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789029920604,
+    "modifiedTime": 1789032706807,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!jUNk4fk5To5EyATW"
+}
