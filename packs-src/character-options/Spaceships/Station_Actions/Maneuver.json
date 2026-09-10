@@ -1,0 +1,89 @@
+{
+  "folder": "48yg7mndWjjOelqY",
+  "name": "Maneuver",
+  "type": "feature",
+  "_id": "B3qnmDHuKUkmhm1A",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/purple-thrusters.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Requires Pilot position.</p><p>Make a <strong>Agility Roll</strong>. The GM sets this Difficulty depending on the situation. On a success, you may move up to Far or Very Far range. On a failure, you might only be able to move some of that distance, the adversaries might act before you can make it, or a hazard might prevent you from moving at all.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "zBGJiKcYpBoJCkhF": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "zBGJiKcYpBoJCkhF",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "trait",
+          "trait": "agility",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Maneuver",
+        "range": ""
+      }
+    },
+    "granter": null,
+    "featureForm": "action",
+    "actorResources": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789034535064,
+    "modifiedTime": 1789035336774,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!B3qnmDHuKUkmhm1A"
+}

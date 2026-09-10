@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Backup Reactor",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "iNFHT2g7ZA1GWWGz",
+  "img": "icons/commodities/tech/plating-metal-armor-piston-tech-red.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 1</p><hr><p><strong>Sleek.</strong> This small reactor can power the ship for up to 24 hours if the main reactor goes out.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789027811982,
+    "modifiedTime": 1789028896940,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!iNFHT2g7ZA1GWWGz"
+}

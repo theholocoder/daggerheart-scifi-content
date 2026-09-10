@@ -1,0 +1,121 @@
+{
+  "folder": "48yg7mndWjjOelqY",
+  "name": "Repair Hull",
+  "type": "feature",
+  "_id": "w8to298KcWT0wZWT",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-crossed-wrenches.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Requires Mechanic position.</p><p>While under pressure or danger, make a <strong>Knowledge</strong> or <strong>Finesse Action Roll (14)</strong>. On a success, <strong>spend 2 Vehicule Hope</strong> to clear <strong>1 HP</strong> of the vehicule.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "whWt24y42dFSgm1D": {
+        "type": "healing",
+        "_id": "whWt24y42dFSgm1D",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "consumeOnSuccess": true,
+            "scalable": false,
+            "key": "hope",
+            "value": 2,
+            "itemId": null,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "main": null,
+          "resources": {
+            "hitPoints": {
+              "base": false,
+              "itemId": null,
+              "applyTo": "hitPoints",
+              "resultBased": false,
+              "fullRestore": false,
+              "value": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                }
+              },
+              "valueAlt": {
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          }
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "trait",
+          "trait": "knowledge",
+          "difficulty": 14,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Repair (HP)",
+        "range": ""
+      }
+    },
+    "granter": null,
+    "featureForm": "action",
+    "actorResources": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789033411532,
+    "modifiedTime": 1789033507450,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!w8to298KcWT0wZWT"
+}

@@ -1,0 +1,98 @@
+{
+  "folder": "48yg7mndWjjOelqY",
+  "name": "Change Station",
+  "type": "feature",
+  "_id": "AGouBp88cEQaETIA",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/yellow-sonic-scream.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Requires Commander position.</p><p><strong>Mark a Stress</strong> and make a <strong>Presence Roll (12)</strong>. On a success, order a crew member change their station without marking a Stress and grant them Advantage on their next action. On a failure they may only change their station without marking a Stress.</p>",
+    "gmNotes": "",
+    "resource": null,
+    "actions": {
+      "K8SZFilUOqGUTv8c": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "K8SZFilUOqGUTv8c",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [
+          {
+            "consumeOnSuccess": false,
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "itemId": null,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "trait",
+          "trait": "presence",
+          "difficulty": 12,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Change Station",
+        "range": ""
+      }
+    },
+    "granter": null,
+    "featureForm": "action",
+    "actorResources": []
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789035662393,
+    "modifiedTime": 1789035994702,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!AGouBp88cEQaETIA"
+}

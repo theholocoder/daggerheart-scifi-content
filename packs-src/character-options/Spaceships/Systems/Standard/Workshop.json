@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Workshop",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "ctTEcJCG7EAAJYzh",
+  "img": "icons/commodities/tech/blueprint.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 2</p><hr><p>Includes plasma torches, 3-D printers, constructors, raw materials, electrical components, and a variety of tools. Allows for building, modifying, and salvaging of all sorts. When the workshop is used to assist a long-term project, advance the countdown by one additional tick.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 2,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789029473529,
+    "modifiedTime": 1789033195505,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!ctTEcJCG7EAAJYzh"
+}

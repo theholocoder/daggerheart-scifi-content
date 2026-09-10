@@ -1,22 +1,22 @@
 {
-  "folder": "6Wt2bSOoGWbEajUF",
-  "name": "Lock On",
+  "folder": "48yg7mndWjjOelqY",
+  "name": "Jam",
   "type": "feature",
-  "_id": "UXuee21aR3ZC59Wi",
-  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
+  "_id": "gh3kRwYTSQI2i3Ds",
+  "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-spires.webp",
   "system": {
     "attribution": {},
-    "description": "<p>Requires Systems Operator position.</p><p>Make a <strong>Finesse Action Roll</strong> against a target’s difficulty to use the vehicle’s systems to apply the <em>Lock On</em> condition.</p><p>Whenever a character makes an <strong>Action Roll</strong> against a target that has <em>Lock On</em>, they may burn the Lock On to gain a <strong>d6</strong> to their attack <strong>and</strong> damage roll. This removes the <em>Lock On</em> from the target.</p>",
+    "description": "<p>Requires Systems Operator position.</p><p>Make a <strong>Finesse or Knowledge Action Roll</strong> against a target’s difficulty to use the vehicle’s systems to temporarily apply the <em>Jammed</em> condition, imposing disadvantage on <strong>Action Rolls</strong> until the next successful attack.</p>",
     "gmNotes": "",
     "resource": null,
     "actions": {
-      "SYGW8ehEuAQRIIEX": {
+      "HKSYvxlHL3CgXgYL": {
         "type": "attack",
         "damage": {
           "main": null,
           "resources": {}
         },
-        "_id": "SYGW8ehEuAQRIIEX",
+        "_id": "HKSYvxlHL3CgXgYL",
         "systemPath": "actions",
         "baseAction": false,
         "description": "",
@@ -40,7 +40,7 @@
         },
         "effects": [
           {
-            "_id": "gr3ZTmU1e0hTL3mb",
+            "_id": "yzoQ8F0LSYa2QEgs",
             "onSave": false
           }
         ],
@@ -64,33 +64,33 @@
           "difficulty": null,
           "damageMod": "none"
         },
-        "name": "Lock On!",
+        "name": "Jam",
         "range": ""
       }
     },
-    "originItemType": null,
-    "multiclassOrigin": false,
-    "featureForm": "action"
+    "granter": null,
+    "featureForm": "action",
+    "actorResources": []
   },
   "effects": [
     {
-      "name": "Lock On",
+      "name": "Jammed",
       "disabled": false,
-      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/red-crosshairs.webp",
-      "description": "",
+      "img": "modules/daggerheart-scifi-content/artwork/icons/abilities/blue-energy-spires.webp",
+      "description": "<p>Disadvantage on Action Rolls until the next successful attack.</p>",
       "transfer": false,
       "statuses": [],
       "system": {
         "changes": [],
         "duration": {
           "description": "",
-          "type": ""
+          "type": "temporary"
         },
         "rangeDependence": null,
         "stacking": null,
         "targetDispositions": []
       },
-      "_id": "gr3ZTmU1e0hTL3mb",
+      "_id": "yzoQ8F0LSYa2QEgs",
       "type": "base",
       "start": {
         "time": 0,
@@ -113,17 +113,17 @@
       "sort": 0,
       "flags": {},
       "_stats": {
-        "coreVersion": "14.364",
+        "coreVersion": "14.367",
         "systemId": "daggerheart",
-        "systemVersion": "2.9.2",
-        "createdTime": 1788517520676,
-        "modifiedTime": 1788517582499,
+        "systemVersion": "2.9.3",
+        "createdTime": 1789036192316,
+        "modifiedTime": 1789036272379,
         "lastModifiedBy": "0qb2POwXFxKbaibe",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!items.effects!UXuee21aR3ZC59Wi.gr3ZTmU1e0hTL3mb"
+      "_key": "!items.effects!gh3kRwYTSQI2i3Ds.yzoQ8F0LSYa2QEgs"
     }
   ],
   "sort": 0,
@@ -133,15 +133,15 @@
   },
   "flags": {},
   "_stats": {
-    "coreVersion": "14.364",
+    "coreVersion": "14.367",
     "systemId": "daggerheart",
-    "systemVersion": "2.9.2",
-    "createdTime": 1787773598042,
-    "modifiedTime": 1788517520726,
+    "systemVersion": "2.9.3",
+    "createdTime": 1789035968923,
+    "modifiedTime": 1789036192352,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!items!UXuee21aR3ZC59Wi"
+  "_key": "!items!gh3kRwYTSQI2i3Ds"
 }

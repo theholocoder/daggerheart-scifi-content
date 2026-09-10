@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Prison",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "XDZykqRO2JRHx4p6",
+  "img": "icons/sundries/survival/cuffs-shackles-steel.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 2</p><hr><p>A secure area to keep prisoners. If the GM makes a move to have someone escape captivity on the ship, it costs an additional Fear.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 2,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789029015980,
+    "modifiedTime": 1789032995159,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!XDZykqRO2JRHx4p6"
+}

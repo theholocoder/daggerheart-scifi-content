@@ -1,0 +1,34 @@
+{
+  "folder": "VJQqztu6Ig02uzth",
+  "name": "Smuggler's Compartment",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "GI3YX2k2HwMZb3bh",
+  "img": "icons/containers/chest/chest-tech-brown.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 3</p><hr><p>Can hold a similar amount as a cargo hold, but is hidden and is not apparent on a cursory evaluation or scan of the ship.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 3,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789032102984,
+    "modifiedTime": 1789032861647,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!GI3YX2k2HwMZb3bh"
+}

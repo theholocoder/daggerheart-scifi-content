@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Fake Transponder",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "38bob5zGjW1KIAe6",
+  "img": "icons/commodities/tech/wire-copper-red-wrapped.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 1</p><hr><p><strong>Sleek.</strong> Able to broadcast a false identification signal. But don't get caught with it.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789030089183,
+    "modifiedTime": 1789033027026,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!38bob5zGjW1KIAe6"
+}

@@ -1,0 +1,34 @@
+{
+  "folder": "VJQqztu6Ig02uzth",
+  "name": "Long-Range Scanner",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "vg0ISpQHzjBRuXJr",
+  "img": "icons/commodities/tech/communications-dish-tan.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 1</p><hr><p><strong>Sleek.</strong> This sensor array is able to reach much farther than normal sensors and can even reach into the Drift, providing up to several minutes of early warning regarding vessels arriving soon.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789031414253,
+    "modifiedTime": 1789032738954,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!vg0ISpQHzjBRuXJr"
+}

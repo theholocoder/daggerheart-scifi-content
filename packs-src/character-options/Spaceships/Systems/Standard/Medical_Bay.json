@@ -1,0 +1,34 @@
+{
+  "folder": "mGWqEZVrU3XolOmB",
+  "name": "Medical Bay",
+  "type": "daggerheart-scifi-content.system",
+  "_id": "NgqvWFpHgefVVbMB",
+  "img": "icons/tools/medical/medkit-pills-blue.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>System Points 4</p><hr><p>Equipped with medicine and equipment for more than basic first aid. Includes a medical bot capable of some surgeries. When characters take a short rest aboard the ship and choose the <strong>Tend to Wounds</strong> downtime move, they <strong>clear one additional Hit Point</strong>. <strong>Once per long rest</strong>, the medical bay may <strong>Help an Ally</strong> for free with an appropriate task.</p>",
+    "gmNotes": "",
+    "quantity": 1,
+    "systemPointsCost": 4,
+    "actions": {}
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "0qb2POwXFxKbaibe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "daggerheart",
+    "systemVersion": "2.9.3",
+    "createdTime": 1789031485240,
+    "modifiedTime": 1789033107361,
+    "lastModifiedBy": "0qb2POwXFxKbaibe",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!NgqvWFpHgefVVbMB"
+}
