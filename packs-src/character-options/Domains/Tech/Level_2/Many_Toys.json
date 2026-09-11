@@ -10,13 +10,25 @@
       "page": null,
       "artist": ""
     },
-    "description": "<p>You have numerous devices stashed in your tech kit or armor. When you complete a rest, place a number of tokens on this card equal to your Tier. You may spend a token to:</p><ul><li><p>Make an adversary temporarily <em>Vulnerable</em>.</p></li><li><p>Make an adversary temporarily <em>Restrained</em>.</p></li><li><p>Move an adversary from Melee to Close range, or Close to Melee range.</p></li></ul><p>Unspent tokens are cleared when you rest.</p>",
+    "description": "<p>You have numerous devices stashed in your tech kit or armor. When you complete a rest, place a number of tokens on this card equal to your Tier. You may spend a token and make a <strong>Spellcast Roll</strong> against an adversary to:</p><ul><li><p>Make the adversary temporarily <em>Vulnerable</em>.</p></li><li><p>Make the adversary temporarily <em>Restrained</em>.</p></li><li><p>Move the adversary from Melee to Close range, or Close to Melee range.</p></li></ul><p>Unspent tokens are cleared when you rest.</p>",
     "gmNotes": "",
-    "resource": null,
+    "resource": {
+      "type": "simple",
+      "value": 2,
+      "max": "2",
+      "recovery": "shortRest",
+      "progression": "decreasing",
+      "dieFaces": "d4",
+      "icon": ""
+    },
     "actions": {
-      "GI6jIGKEXTxw1NkW": {
-        "type": "effect",
-        "_id": "GI6jIGKEXTxw1NkW",
+      "VEIoml0dxn1qAp5P": {
+        "type": "attack",
+        "damage": {
+          "main": null,
+          "resources": {}
+        },
+        "_id": "VEIoml0dxn1qAp5P",
         "systemPath": "actions",
         "baseAction": false,
         "description": "",
@@ -27,17 +39,46 @@
         "actionType": "action",
         "triggers": [],
         "areas": [],
-        "cost": [],
+        "cost": [
+          {
+            "scalable": false,
+            "key": "resource",
+            "value": 1,
+            "itemId": "3qtAJdvjje0seNuv",
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
         "uses": {
           "value": null,
-          "max": "1",
-          "recovery": "shortRest",
+          "max": "",
+          "recovery": null,
           "consumeOnSuccess": false
         },
-        "effects": [],
         "target": {
-          "type": "any",
-          "amount": null
+          "type": "hostile",
+          "amount": 1
+        },
+        "effects": [],
+        "roll": {
+          "type": "spellcast",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
         },
         "name": "Use",
         "range": ""
@@ -60,11 +101,11 @@
   },
   "flags": {},
   "_stats": {
-    "coreVersion": "14.364",
+    "coreVersion": "14.367",
     "systemId": "daggerheart",
-    "systemVersion": "2.7.4",
+    "systemVersion": "2.9.4",
     "createdTime": 1787048667731,
-    "modifiedTime": 1787072343419,
+    "modifiedTime": 1789289141092,
     "lastModifiedBy": "0qb2POwXFxKbaibe",
     "compendiumSource": null,
     "duplicateSource": null,
