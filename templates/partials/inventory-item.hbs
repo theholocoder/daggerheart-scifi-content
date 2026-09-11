@@ -60,6 +60,13 @@
     - disabled {boolean} : effects only - the effect's stored `disabled` flag, rendered as
       `data-disabled` (daggerheart's own attribute and its own name for it) and read back by both
       the toggle's tooltip/icon and the context menu's Enable/Disable condition.
+    - pressAction {string} : the sheet action a usable portrait and the action buttons fire, in place
+      of `useItem`. The Stations tab passes `useStationAction` (#25), which asks who rolls before
+      daggerheart's own `use` is reached. Setting it also shows the action buttons regardless of
+      `@root.editable`: a Station's actions are pressable by anyone with access to the ship (#24),
+      and the caller already resolved `usable` without the `editable` AND for the same reason.
+      Each button carries its action's `data-action-id` so the handler can press that one action
+      against the row's own `data-item-uuid`.
 
     `.item-buttons` (an item's own `system.actions`, e.g. a Medpack's "Clear 1d4 HP" Healing
     action): `useItem` resolves `data-item-uuid` via `fromUuid` and calls the Action's own
@@ -75,7 +82,7 @@
                   portrait behavior exactly), otherwise open its sheet. The hover-reveal dice icon
                   (`.roll-img`) is daggerheart's own unscoped CSS. --}}
             {{#if usable}}
-                <div class="img-portait" draggable="true" data-action="useItem" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Rows.UseItem'}}">
+                <div class="img-portait" draggable="true" data-action="{{#if pressAction}}{{pressAction}}{{else}}useItem{{/if}}" data-item-uuid="{{item.uuid}}" data-tooltip="{{localize 'DHSCIFI.Rows.UseItem'}}">
                     <img src="{{item.img}}" class="item-img" alt="{{item.name}}" />
                     <img class="roll-img duality" src="systems/daggerheart/assets/icons/dice/duality/DualityBW.svg" alt="2d12" />
                 </div>
@@ -178,19 +185,33 @@
     </div>
 
     {{!-- Action buttons roll/spend resources, so they follow `@root.editable` too - the character
-          sheet gets the same effect by passing `showActions=@root.editable` from both its tabs. --}}
-    {{#if @root.editable}}
+          sheet gets the same effect by passing `showActions=@root.editable` from both its tabs.
+          A `pressAction` caller (the Stations tab) shows them to everyone - see the parameter. --}}
     {{#if item.system.actions.size}}
-        <div class="item-buttons">
-            {{#each item.system.actions as |action|}}
-                <div class="item-button">
-                    <button type="button" data-action="useItem" data-item-uuid="{{action.uuid}}">
-                        <i class="fa-solid {{action.typeIcon}} action-icon"></i>
-                        {{action.name}}
-                    </button>
+        {{#if pressAction}}
+            <div class="item-buttons">
+                {{#each item.system.actions as |action|}}
+                    <div class="item-button">
+                        <button type="button" data-action="{{../pressAction}}" data-action-id="{{action.id}}">
+                            <i class="fa-solid {{action.typeIcon}} action-icon"></i>
+                            {{action.name}}
+                        </button>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            {{#if @root.editable}}
+                <div class="item-buttons">
+                    {{#each item.system.actions as |action|}}
+                        <div class="item-button">
+                            <button type="button" data-action="useItem" data-item-uuid="{{action.uuid}}">
+                                <i class="fa-solid {{action.typeIcon}} action-icon"></i>
+                                {{action.name}}
+                            </button>
+                        </div>
+                    {{/each}}
                 </div>
-            {{/each}}
-        </div>
-    {{/if}}
+            {{/if}}
+        {{/if}}
     {{/if}}
 </li>

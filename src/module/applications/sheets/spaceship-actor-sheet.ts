@@ -198,30 +198,6 @@ interface CrewEntry {
 }
 
 /**
- * One Station action as a tile on the Stations tab (#24): what `stations.hbs` needs to draw it and
- * to press it.
- *
- * `uuid`, not `id`: pressing goes through the sheet's existing `useItem` action, which resolves
- * `data-item-uuid` through `fromUuid` and calls the document's own `use(event)` - the same handler
- * an Inventory row's portrait uses. That is the whole of "run the feature's action as the
- * Spaceship" (ADR-0003's `ship` branch): the item's parent chain already ends at the ship, so a
- * single-action feature rolls straight away and a multi-action one falls into daggerheart's own
- * `ActionSelectionDialog` (`DHItem#use`), untouched.
- *
- * `rollerLabel` is a localization key, not a resolved string - the template localizes it like
- * every other label on this sheet. Since #25 it reflects the item's real Roller, which is also
- * what pressing resolves against: the tile's `data-action` is this sheet's own
- * `useStationAction`, not the generic `useItem`, because a `crew`/`ask` action has to answer
- * "who?" before daggerheart's own `use` is reached at all (`station-actions/press.ts`).
- */
-interface StationActionTile {
-  uuid: string;
-  name: string;
-  img: string | null;
-  rollerLabel: string;
-}
-
-/**
  * One station row: its id, its label key, whether it's enabled, its resolved crew, and the Station
  * actions pinned to it.
  */
@@ -230,7 +206,7 @@ interface StationRow {
   label: string;
   enabled: boolean;
   crew: CrewEntry[];
-  actions: StationActionTile[];
+  actions: ItemRowEntry[];
 }
 
 /**
@@ -559,32 +535,32 @@ export default class SpaceshipActorSheet extends BaseSheet {
         label: stationLabelKey(id),
         enabled: station.enabled,
         crew: station.crew.map((uuid) => SpaceshipActorSheet.#resolveCrewEntry(uuid)),
-        // A disabled Station renders no tiles (#24) and its items stay on the ship untouched, so
+        // A disabled Station renders no action rows (#24) and its items stay on the ship untouched, so
         // enabling it brings them back - the same non-destructive contract its crew already has.
         // Built here rather than gated in the template so a disabled Station carries no pressable
         // uuid into the DOM at all.
-        actions: station.enabled ? byStation[id].map(SpaceshipActorSheet.#toStationActionTile) : [],
+        actions: station.enabled ? byStation[id].map(SpaceshipActorSheet.#toStationActionRow) : [],
       };
     });
   }
 
   /**
-   * One pinned feature as a tile.
+   * One pinned feature as a Features-tab-style row (`dhscifi.inventory-item`), the same row context
+   * the Features tab builds, with two Station-specific differences:
    *
-   * Not gated on `editable` or on `item.usable`: every Station's tiles are visible and pressable by
-   * anyone with access to the ship (#24 - seat enforcement is deliberately not implemented, and a
-   * player crewing any Station owns the ship as of #22). A feature whose actions are not yet
-   * authored still gets a tile; pressing it is `DHItem#use`'s own no-op.
+   * - `usable` is the item's own, *not* ANDed with `editable`: every Station's actions are
+   *   pressable by anyone with access to the ship (#24 - seat enforcement is deliberately not
+   *   implemented, and a player crewing any Station owns the ship as of #22). `editable` is the
+   *   only thing `toRowEntry` gates `usable` on, and nothing else it resolves reads it.
+   * - the item's Roller (#25) leads its tags, localized here because tags are plain strings. It is
+   *   also what pressing resolves against (`station-actions/press.ts`).
    */
-  static #toStationActionTile(item: LooseDoc): StationActionTile {
+  static #toStationActionRow(item: LooseDoc): ItemRowEntry {
+    const row = toRowEntry(item, false);
     return {
-      uuid: item.uuid,
-      name: item.name,
-      // Passed through as the document holds it, `null` included - same as the wrench dialog's own
-      // row shape. A Station action created there is given daggerheart's own default `feature`
-      // artwork at creation time, so a real one always has an image.
-      img: item.img,
-      rollerLabel: rollerLabelKey(stationRoller(item)),
+      ...row,
+      usable: item.usable ?? false,
+      tags: [game.i18n!.localize(rollerLabelKey(stationRoller(item))), ...row.tags],
     };
   }
 
@@ -885,11 +861,12 @@ export default class SpaceshipActorSheet extends BaseSheet {
    * UUID and calls its own `use(event)`, mirroring daggerheart's own `useItem` action exactly
    * (Action-document-level behavior, not sheet code, same reuse category as `item._getTags`).
    *
-   * `data-item-uuid` names an *Item* rather than one of its Actions in two places - a row's
-   * portrait (`inventory-item.hbs`) and a Station action's tile (#24) - and that resolves to the
-   * Item's own `use(event)`, which picks its single action or opens daggerheart's
-   * `ActionSelectionDialog` for a feature holding several. One handler covers both because the two
-   * document types answer the same call; nothing here needs to know which one it got.
+   * `data-item-uuid` names an *Item* rather than one of its Actions on a row's portrait
+   * (`inventory-item.hbs`), and that resolves to the Item's own `use(event)`, which picks its
+   * single action or opens daggerheart's `ActionSelectionDialog` for a feature holding several.
+   * One handler covers both because the two document types answer the same call; nothing here
+   * needs to know which one it got. (A Station action row presses through `useStationAction`
+   * instead - see below.)
    * Only reachable at all because of `src/module/compat/actions-list-patch.ts` - without it,
    * `item.system.actions.size` still renders truthfully, but daggerheart's own `actionsList` gate
    * hides the action from its "Use" dialog's cost resolution, and it throws.
@@ -903,15 +880,16 @@ export default class SpaceshipActorSheet extends BaseSheet {
   }
 
   /**
-   * Press a Station action's tile (#25), from `data-item-uuid` on the tile and `data-station` on
-   * its enclosing card.
+   * Press a Station action (#25): its row's portrait or one of its action buttons. The feature is
+   * the row's `data-item-uuid`, the Station is the enclosing card's `data-station`, and an action
+   * button adds its own `data-action-id` to press that one action rather than asking which.
    *
    * Deliberately *not* `#onUseItem` above: a Station action's Roller decides who it is rolled as
    * before daggerheart's own `use` is entered, and for a `crew`/`ask` action that question comes
    * first - ahead of the system's action-selection dialog. All of that lives in
    * `station-actions/press.ts`; this handler only resolves the two documents it needs.
    *
-   * The Station's crew is read off the actor rather than baked into the tile so the prompt lists
+   * The Station's crew is read off the actor rather than baked into the row so the prompt lists
    * who is sitting there *now*, not who was when the tab last rendered.
    */
   static async #onUseStationAction(
@@ -919,7 +897,7 @@ export default class SpaceshipActorSheet extends BaseSheet {
     event: PointerEvent,
     target: HTMLElement,
   ): Promise<void> {
-    const uuid = target.closest<HTMLElement>("[data-item-uuid]")?.dataset.itemUuid;
+    const uuid = target.closest<HTMLElement>(".inventory-item[data-item-uuid]")?.dataset.itemUuid;
     const stationId = SpaceshipActorSheet.#getStationId(target);
     if (!uuid || !stationId) return;
 
@@ -927,7 +905,13 @@ export default class SpaceshipActorSheet extends BaseSheet {
     const item = (await fromUuid(uuid)) as Parameters<typeof pressStationAction>[0] | null;
     if (!item) return;
 
-    await pressStationAction(item, { name: actor.name }, actor.system.stations[stationId].crew, event);
+    await pressStationAction(
+      item,
+      { name: actor.name },
+      actor.system.stations[stationId].crew,
+      event,
+      target.dataset.actionId,
+    );
   }
 
   /**

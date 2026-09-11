@@ -4,14 +4,21 @@
 
     Layout is #21's prototype variant B: a Station is a card whose header carries the title, the
     crew collapsed into an overlapping avatar strip and the enable toggle, with the Station's
-    actions below as a tile grid of icon, name and Roller label. The tiles are the tab's primary
-    affordance - the crew list shrank into the header to make room for them.
+    actions below. The actions are the tab's primary affordance - the crew list shrank into the
+    header to make room for them.
+
+    The actions render as the character sheet's own Features tab renders features: one
+    `dhscifi.inventory-item` row per feature inside an `.items-list` (daggerheart's
+    `character/features.hbs` -> `daggerheart.inventory-item`), so a Station action gets the same
+    portrait / name / tags / click-to-expand description / action buttons below. The Roller label
+    rides along as the row's first tag. `pressAction="useStationAction"` swaps the row's `useItem`
+    for this sheet's own press handler on both the portrait and the action buttons.
 
     `fieldset.glassy` is kept as the card, but *without* a `legend`: daggerheart themes a glassy
     fieldset's legend as a small padded pill sitting on the border line (`.dh-style fieldset.glassy
     legend`), which is the wrong container for a 28px avatar strip. The card background comes for
     free from the unscoped `fieldset.glassy` rule (docs/adr/0002's "copied by value" addenda); the
-    header row and the tiles are ours and are styled in `main.scss`. `.drop-section` comes along
+    header row is ours and is styled in `main.scss`. `.drop-section` comes along
     for structural parity with the system's own markup but is inert here (it is scoped to
     `.class .tab.settings` upstream), same as it was before this tab became cards. `.actors-dragger`
     (the dashed "drop actors here" hint) is the party sheet's own class and *is* `.party`-scoped
@@ -24,19 +31,21 @@
 
     A disabled station keeps rendering whatever crew it already has (disabling is non-destructive -
     see `SpaceshipData`'s `stationField`), just dimmed and without the drop hint; the drop handler
-    refuses new assignments to it. Its Station actions render *no* tiles at all (#24) while their
+    refuses new assignments to it. Its Station actions render *no* rows at all (#24) while their
     items stay on the ship, so re-enabling restores them - `#buildStationsContext` empties the list
     rather than the template hiding it, so a disabled Station puts no pressable uuid in the DOM.
 
-    Pressing a tile goes through the sheet's `useStationAction` action (#25), which resolves the
+    Pressing a row's portrait or one of its action buttons goes through the sheet's `useStationAction` action (#25), which resolves the
     item's Roller before anything runs (`station-actions/press.ts`): a `ship` action is handed
     straight to the item's own `use(event)` - so a single-action feature rolls immediately and a
     multi-action one opens daggerheart's own `ActionSelectionDialog`, with the ship's traits and
-    the ship's Hope/Stress, docs/adr/0003's `ship` branch - while a `crew`/`ask` one first asks who
+    the ship's Hope/Stress, docs/adr/0003's `ship` branch; an action button skips the selection and
+    runs its own action - while a `crew`/`ask` one first asks who
     acts and then runs the chosen action against that character. The station's `data-station` on
     the fieldset is what tells the handler whose crew to offer.
-    Tiles are deliberately not gated on `@root.editable`: every Station's actions are pressable by
-    anyone with access to the ship (#24), and a crewing player has exactly that as of #22.
+    Pressing is deliberately not gated on `@root.editable`: every Station's actions are pressable by
+    anyone with access to the ship (#24), and a crewing player has exactly that as of #22. The
+    row's mutating controls (kebab menu) still are, inside the partial.
 
     `stations` is built by `SpaceshipActorSheet.#buildStationsContext`, which is also where a UUID
     that no longer resolves becomes a `missing` entry rendered as "Unknown" instead of erroring.
@@ -46,7 +55,7 @@
         {{#each stations as |station|}}
             <fieldset class="glassy drop-section station station-card{{#unless station.enabled}} station-disabled{{/unless}}"
                       data-station="{{station.id}}">
-                {{!-- No `data-station` on the toggle, the avatars or the tiles: every station
+                {{!-- No `data-station` on the toggle, the avatars or the action rows: every station
                       control sits inside its own fieldset, and the sheet's `#getStationId` climbs
                       to the nearest `[data-station]`, so the fieldset's own attribute already
                       identifies the station for clicks and drops alike. --}}
@@ -98,17 +107,18 @@
                 </div>
 
                 {{#if station.actions.length}}
-                    <div class="action-tiles">
-                        {{#each station.actions as |action|}}
-                            <button type="button" class="action-tile" data-action="useStationAction"
-                                    data-item-uuid="{{action.uuid}}"
-                                    data-tooltip="{{localize 'DHSCIFI.Spaceship.StationActions.use'}}">
-                                <img src="{{action.img}}" alt="" />
-                                <span class="tile-name">{{action.name}}</span>
-                                <span class="tile-roller">{{localize action.rollerLabel}}</span>
-                            </button>
+                    <ul class="items-list station-actions">
+                        {{#each station.actions as |entry|}}
+                            {{> "dhscifi.inventory-item"
+                                item=entry.item
+                                tags=entry.tags
+                                hasDescription=entry.hasDescription
+                                usable=entry.usable
+                                canChat=entry.canChat
+                                pressAction="useStationAction"
+                            }}
                         {{/each}}
-                    </div>
+                    </ul>
                 {{/if}}
 
                 {{#if station.enabled}}
