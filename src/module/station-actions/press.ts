@@ -39,6 +39,7 @@ interface LooseStationAction {
  * re-instantiate through the system's own action registry.
  */
 interface LooseActionDocument {
+  id: string;
   type: string;
   toObject(): Record<string, unknown>;
   update(updates: Record<string, unknown>, options?: Record<string, unknown>): Promise<unknown>;
@@ -99,12 +100,19 @@ function daggerheartApi(): DaggerheartSystem["api"] {
  * Every way this can decline to run is a notification and a return, never a throw: a Station with
  * no crew behind a `crew` action, a crew UUID that no longer resolves, an unanswered prompt and a
  * feature carrying no actions at all all leave the sheet exactly as it was.
+ *
+ * `actionId` names one of the feature's own actions when the press already said which - one of the
+ * row's action buttons, as opposed to its portrait. The Roller question still comes first; only
+ * daggerheart's "which action?" step is skipped, exactly as the character sheet's own action
+ * buttons skip it. An id that no longer names an action (deleted since the tab rendered) runs
+ * nothing.
  */
 export async function pressStationAction(
   item: LooseStationAction,
   ship: ShipOption,
   crew: readonly string[],
   event: PointerEvent,
+  actionId?: string,
 ): Promise<void> {
   const resolution = resolveRoller(stationRoller(item), crew, game.user?.character?.uuid ?? null);
 
@@ -114,7 +122,13 @@ export async function pressStationAction(
   if (resolved.kind === "ship") {
     // docs/adr/0003's `ship` branch: the item's parent chain already ends at the Spaceship, so
     // this is daggerheart's own `DHItem#use` doing all of it - single action or selection dialog.
-    await item.use(event);
+    // A pressed action button hands its action straight to that action's own `use`, which is
+    // what the character sheet's `useItem` does with the same button.
+    if (actionId === undefined) {
+      await item.use(event);
+      return;
+    }
+    await findAction(item, actionId)?.use(event);
     return;
   }
 
@@ -127,7 +141,7 @@ export async function pressStationAction(
     return;
   }
 
-  await useAsActor(item, actor, event);
+  await useAsActor(item, actor, event, actionId);
 }
 
 /**
@@ -221,8 +235,13 @@ async function promptRoller(item: LooseStationAction, choices: RollerChoice[]): 
  * inherited method is safe because the copy is ours: it exists for this one press and is never
  * embedded anywhere (Foundry seals a DataModel's `_source`, not the instance).
  */
-async function useAsActor(item: LooseStationAction, actor: LooseRollActor, event: PointerEvent): Promise<void> {
-  const action = await selectAction(item, event);
+async function useAsActor(
+  item: LooseStationAction,
+  actor: LooseRollActor,
+  event: PointerEvent,
+  actionId: string | undefined,
+): Promise<void> {
+  const action = actionId === undefined ? await selectAction(item, event) : findAction(item, actionId);
   if (!action) return;
 
   const cls = daggerheartApi()?.models?.actions?.actionsTypes?.[action.type];
@@ -257,4 +276,9 @@ async function selectAction(item: LooseStationAction, event: PointerEvent): Prom
   }
 
   return (await dialog.create(item, event)) ?? undefined;
+}
+
+/** One of the feature's actions by id, or `undefined` when it no longer has one by that id. */
+function findAction(item: LooseStationAction, actionId: string): LooseActionDocument | undefined {
+  return [...(item.system.actionsList ?? [])].find((action) => action.id === actionId);
 }
